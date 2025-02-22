@@ -19,7 +19,6 @@ const LoginModal = () => {
             number: `${country.countryCode}${form.number.trim()}`,
             password: form.password.trim()
         }
-        console.log(data);
         window.$.ajax({
             url: `${baseApiUrl}/login.php`,
             data,
@@ -30,7 +29,7 @@ const LoginModal = () => {
                 setError(null);
             },
             success: res => {
-                console.log(res);
+                // console.log(res);
                 if(res.status == "success"){
                     setUser(res.user);
                     setPopup(null);
@@ -47,8 +46,6 @@ const LoginModal = () => {
             }
         })
     }
-
-    console.log(user);
 
     return(
         <div

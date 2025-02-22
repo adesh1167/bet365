@@ -3,6 +3,7 @@ import './App.css';
 import Head from './components/head';
 import "./components/styles/entry.css";
 import "./components/styles/feeds.css";
+import "./components/styles/feeds2.css";
 import "./components/styles/default.css";
 import "./components/styles/loader.css";
 import Footer from './components/footer';
