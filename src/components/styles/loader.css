@@ -1,0 +1,51 @@
+svg path[data-v-5a5e0e10] {
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: pulse-5a5e0e10
+}
+
+svg path.path-7[data-v-5a5e0e10] {
+    animation-delay: -1s
+}
+
+svg path.path-6[data-v-5a5e0e10] {
+    animation-delay: -.875s
+}
+
+svg path.path-5[data-v-5a5e0e10] {
+    animation-delay: -.75s
+}
+
+svg path.path-4[data-v-5a5e0e10] {
+    animation-delay: -.625s
+}
+
+svg path.path-3[data-v-5a5e0e10] {
+    animation-delay: -.5s
+}
+
+svg path.path-2[data-v-5a5e0e10] {
+    animation-delay: -.375s
+}
+
+svg path.path-1[data-v-5a5e0e10] {
+    animation-delay: -.25s
+}
+
+svg path.path-0[data-v-5a5e0e10] {
+    animation-delay: -.125s
+}
+
+@keyframes pulse-5a5e0e10 {
+    0% {
+        opacity: .1
+    }
+
+    30% {
+        opacity: .8
+    }
+
+    to {
+        opacity: .1
+    }
+}
