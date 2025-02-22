@@ -212,6 +212,7 @@ const AppProvider = ({children}) => {
         const ask = window.confirm("Are you sure you want to Logout?");
         if(ask){
             setUser(null);
+            logoutCleanUp();
         }
     }
 
