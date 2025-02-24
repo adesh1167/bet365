@@ -242,7 +242,7 @@ const ManageBets = () => {
                 </div>
                 <div data-v-c37e6d79 className="relative z-10">
                     <div data-v-c37e6d79 className="relative rounded-b-md">
-                        <div data-v-c37e6d79 className="bg-light-200 dark:bg-dark-800 relative text-dark-800 dark:text-light-50 overflow-hidden h-[calc(80vh-78px);] rounded-bl rounded-br">
+                        <div data-v-c37e6d79 className="bg-light-200 dark:bg-dark-800 relative text-dark-800 dark:text-light-50 overflow-hidden h-[calc(80vh-78px)] rounded-bl rounded-br">
                             <div className="relative flex h-full dark:bg-dark-900">
 
                                 <div className="relative w-full h-full overflow-x-hidden overflow-y-auto scrollbar-hidden">

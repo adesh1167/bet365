@@ -8214,3 +8214,18 @@ label[data-v-48b0c13f]:before {
     background-color: #4ac354;
     background-color: rgb(74 195 84/var(--tw-bg-opacity))
 }
+
+.grid-cols-\[1fr\,70px\,1fr\,1fr\]{grid-template-columns:1fr 70px 1fr 1fr}
+
+.pr-\[3px\] {
+    padding-right: 3px;
+}
+
+.pl-\[3px\] {
+    padding-left: 3px;
+}
+
+.px-\[3px\] {
+    padding-left: 3px;
+    padding-right: 3px;
+}

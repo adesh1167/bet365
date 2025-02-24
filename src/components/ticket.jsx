@@ -601,7 +601,7 @@ const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = fa
                                             <svg className="fill-primary-600 h-[18px] w-[18px]" viewBox="0 0 470.45 469.95" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M272,256.05a53.6,53.6,0,1,0,53.6-53.5A53.52,53.52,0,0,0,272,256.05Zm41.5-207.5c-43.1-36.7-77.2-36.7-120.3,0L53.1,189.65c-43.1,36.7-43.1,96.1,0,132.8l140.2,141c43.1,36.7,77.2,36.7,120.3,0l15.5-13.2-85.4-20.2H432.4l-69.1-13.2,95.6-94.5c43.1-36.7,43.1-96.1,0-132.8L381,112.25,271.2,86.05H442l-110.1-22Zm-89.7,207.5a101.8,101.8,0,1,1,101.8,101.6A101.72,101.72,0,0,1,223.8,256.05Zm-139.4,0a101.88,101.88,0,0,1,154.1-87.2,122.09,122.09,0,0,0-26.9,40,53.5,53.5,0,1,0,0,94.4,121.56,121.56,0,0,0,26.9,40,101.88,101.88,0,0,1-154.1-87.2Z" strokeLinecap="square" />
                                             </svg>
-                                            <div className="w-full">{lang["cash-out-offer"]} <strong>K {formatNumber(data.cashout, country.hasComma, country.lang)}</strong>
+                                            <div className="w-full">{lang["cash-out-offer"]} <strong>{country.currency} {formatNumber(data.cashout, country.hasComma, country.lang)}</strong>
                                                 <div className="w-full h-1 rounded-sm bg-light-200 dark:bg-dark-900">
                                                     <div className="h-full transition-all duration-200 rounded-sm bg-primary-600" style={{ width: `${data.cashoutPercent}%` }} />
                                                 </div>

@@ -169,7 +169,7 @@ const MyBets = () => {
                 </div>
                 <div data-v-c37e6d79 className="relative z-10">
                     <div data-v-c37e6d79 className="relative rounded-b-md">
-                        <div data-v-c37e6d79 className="bg-light-200 dark:bg-dark-800 relative text-dark-800 dark:text-light-50 overflow-hidden h-[calc(80vh-78px);] rounded-bl rounded-br">
+                        <div data-v-c37e6d79 className="bg-light-200 dark:bg-dark-800 relative text-dark-800 dark:text-light-50 overflow-hidden h-[calc(80vh-78px)] rounded-bl rounded-br">
                             <div className="relative flex h-full dark:bg-dark-900">
                                 <div className="w-[220px] relative overflow-y-scroll overflow-x-hidden flex-shrink-0 flex-col scrollbar-hidden p-2 gap-2 bg-light-50 dark:bg-dark-800 hidden lg:flex h-full border-r border-r-light-500 dark:border-r-dark-500">
                                     <div className="flex items-center w-full h-10 p-2 text-sm rounded cursor-pointer transition-all whitespace-nowrap fill-dark-800 dark:fill-light-50">
