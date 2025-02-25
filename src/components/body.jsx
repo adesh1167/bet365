@@ -250,13 +250,13 @@ const Body = ({loadStage}) => {
                         <div data-v-9ed189ba className="flex flex-col gap-1 overflow-hidden sticky left-0 z-10 bg-light-200 dark:bg-dark-900 lg:hidden pb-1 -mb-1 top-[176px] md:top-[220px] lg:top-[264px]">
                             {loadStage > 70 ?
                                 <div data-v-9ed189ba className="flex gap-3 overflow-x-auto overflow-y-hidden scrollbar-hidden" id="sport-market-list-scroller">
-                                    {sportTypes && sportTypes[0].filterMarkets.map(market =>
+                                    {sportTypes && sportTypes[0].filterMarkets.map((market, index) =>
                                         market.filterIndex == 1 ?                                       
-                                        <div data-v-9ed189ba className="text-xs font-semibold text-center transition-all border-b-2 cursor-pointer whitespace-nowrap text-identity  border-b-identity sport-market-list-active">
+                                        <div key={index} data-v-9ed189ba className="text-xs font-semibold text-center transition-all border-b-2 cursor-pointer whitespace-nowrap text-identity  border-b-identity sport-market-list-active">
                                             <span data-v-9ed189ba className="min-w-[60px] block">{market.displayName}</span>
                                         </div>
                                         :
-                                        <div data-v-9ed189ba className="text-xs font-semibold text-center transition-all border-b-2 cursor-pointer whitespace-nowrap border-b-[transparent]">
+                                        <div key={index} data-v-9ed189ba className="text-xs font-semibold text-center transition-all border-b-2 cursor-pointer whitespace-nowrap border-b-[transparent]">
                                             <span data-v-9ed189ba className="min-w-[60px] block">{market.displayName}</span>
                                         </div>
                                     )}

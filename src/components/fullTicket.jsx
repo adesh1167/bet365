@@ -241,7 +241,7 @@ const FullTicket = ({ ticket, percent = 0.9, setExpanded }) => {
                     </div>
                     <div className="sticky top-0 z-10 flex justify-between w-full px-2 py-2 text-xs lg:hidden bg-light-50 dark:bg-dark-800">
                         <div className="flex items-center w-full gap-2">
-                            <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 rounded cursor-pointer bg-light-200 dark:bg-dark-900">
+                            <div onClick={() => setExpanded(null)} className="flex items-center justify-center flex-shrink-0 w-8 h-8 rounded cursor-pointer bg-light-200 dark:bg-dark-900">
                                 <svg className="w-6 h-6 cursor-pointer fill-dark-800 dark:fill-light-50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" strokeLinecap="square" />
                                 </svg>
@@ -335,7 +335,7 @@ const FullTicket = ({ ticket, percent = 0.9, setExpanded }) => {
         <div>
             <div className="sticky top-0 z-10 justify-between hidden w-full px-2 py-1 text-xs lg:flex bg-light-50 dark:bg-dark-800">
                 <div className="flex items-center gap-2">
-                    <div className="flex items-center justify-center w-8 h-8 rounded cursor-pointer bg-light-200 dark:bg-dark-900">
+                    <div  onClick={() => setExpanded(null)} className="flex items-center justify-center w-8 h-8 rounded cursor-pointer bg-light-200 dark:bg-dark-900">
                         <svg className="w-6 h-6 fill-dark-800 dark:fill-light-50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" strokeLinecap="square" />
                         </svg>

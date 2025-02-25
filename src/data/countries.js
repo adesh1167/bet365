@@ -109,6 +109,13 @@ export const countries = [
         betIdDifference: 0,
         bookingCodePrefix: "U",
         flauntText: undefined,
+        transactionKeywords: {
+            "Withdrawal": "EFT Withdrawal",
+            "Payout": "Payout",
+            "Win Boost Cash Bonus": "Win Boost Cash Bonus",
+            "Card Deposit": "Betway Momo Multifund Deposit",
+            depositDigitsLength: 12,
+          },
         highlightsLink: "https://www.betway.com.gh/sportsapi/v1/BetBook/Highlights/?countryCode=GH&sportId=soccer&Skip=0&Take=20&cultureCode=en-US&isEsport=false&boostedOnly=false&marketTypes=%5BWin%2FDraw%2FWin%5D&marketTypes=%5BDouble%20Chance%5D&marketTypes=%5BTotal%20Goals%5D%202.5&marketTypes=%5BBoth%20Teams%20To%20Score%5D&marketTypes=%5B1st%20Goal%5D&marketTypes=%5BDraw%20No%20Bet%5D&marketTypes=%5B1st%20Half%5D%20-%20%5BWin%2FDraw%2FWin%5D&marketTypes=%5BWin%2FDraw%2FWin%5D%20-%20%5B2%20Up%5D&marketTypes=%5BHandicap%5D%20%5B3-Way%5D&marketTypes=%5BTo%20Lift%20The%20Trophy%5D",
         virtualGameTitle: "vertical.casino",
         virtualGameLink: "https://casinoapic.betwayafrica.com/api/v3/Gaming/WebMobile/featured?languageCode=en-US&currency=GHS&limit=10&skip=0&vertical=casino&regionCode=GH",

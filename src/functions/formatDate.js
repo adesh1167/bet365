@@ -70,7 +70,7 @@ export function matchDate(dateString, zone){
   dateString = dateString.trim();
   console.log(dateString, zone);
   const now = DateTime.now({zone: `UTC${zone}`});
-  let date = DateTime.fromFormat(dateString, "dd/MM/yyyy HH:mm", {zone: "UTC+1"});
+  let date = DateTime.fromFormat(dateString, "yyyy-MM-dd HH:mm", {zone: "UTC+1"});
   date = date.setZone(`UTC${zone}`);
 
   if (date.hasSame(now, 'day')) {

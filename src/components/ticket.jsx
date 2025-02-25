@@ -5,9 +5,9 @@ import { bgColorClassPallete, colorClassPallete, colorPallete, statusTextClassPa
 import { baseApiUrl } from "../data/url";
 import { cancelledSvg, lossSvg, winSvg } from "../data/svgs";
 import formatNumber from "../functions/formatNumber";
-import generateBookingCode from "../functions/generateBookingCode";
-import replaceBookingCode from "../functions/replaceBookingCode";
-const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = false, setAccountClick = () => { } }) => {
+
+
+const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = false, setAccountClick = () => { }, setLoading = () => {} }) => {
 
 
     const [ticketExpanded, setTicketExpanded] = useState(false)
@@ -32,6 +32,8 @@ const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = fa
 
         console.log(data);
         // return;
+
+        setLoading(prev => ({...prev, account: true}))
 
         let settlementTime = ticket.matches[ticket.matches.length - 1].matchTime;
         settlementTime = new Date(settlementTime);
@@ -68,6 +70,9 @@ const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = fa
                 alert('Unable to update transaction. Check internet connection and try again')
                 console.log(res)
             },
+            complete: ()=>{
+                setLoading(prev => ({...prev, account: false}))
+            }
         })
     }
 
@@ -97,7 +102,7 @@ const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = fa
         temp.isLost = false;
         temp.isOpen = ticket.status == 'open';
 
-        temp.stakeTime = getDate(ticket.stakeTime, country.timeZone)
+        temp.stakeTime = getDate(ticket.stakeTime, country.timeZone, undefined, undefined, true)
 
         let effectiveBoostMatches = 0;
 
@@ -135,7 +140,7 @@ const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = fa
                     temp.totalEffectiveOdds *= match.odd;
                     temp.effectiveMatchesCount++;
                     if (Number(match.odd) >= 1.2) {
-                        temp.effectiveBoostMatches++;
+                        temp.effectiveBoostMatches++;// console.log("Effective Boost Matches: :", temp.effectiveBoostMatches)
                     }
                 }
 
@@ -148,7 +153,6 @@ const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = fa
 
         temp.boostFactor = temp.boostMatches > 40 ? 7 : country.boostFactors[temp.boostMatches];
         const effectiveBoostFactor = temp.effectiveBoostMatches > 40 ? 7 : country.boostFactors[temp.effectiveBoostMatches];
-
         // if(matchesCount > 2) boostFactor = 3 + ((matchesCount - 2) * 2);
         // else boostFactor = 0;
 
@@ -158,7 +162,7 @@ const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = fa
         temp.potentialReturn = temp.wager * temp.totalOdds;
         temp.effectivePotentialReturn = temp.wager * temp.totalEffectiveOdds;
         temp.winBoost = temp.potentialReturn * temp.boostFactor;
-        let effectiveWinBoost = temp.effectivePotentialReturn * effectiveBoostFactor;
+        temp.effectiveWinBoost = temp.effectivePotentialReturn * effectiveBoostFactor;
 
         temp.tax = 0;
         if (country.tax) temp.tax = temp.potentialReturn * country.tax.factor;
@@ -168,12 +172,8 @@ const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = fa
 
         temp.cashout = percent * temp.wager * temp.totalEffectiveOdds + temp.effectiveWinBoost;
 
-        // console.log(effectiveMatchesCount)
-        // console.log(effectiveBoostFactor)
-        // console.log(effectiveWinBoost)
-
         temp.totalReturn = temp.potentialReturn + temp.winBoost - temp.tax + temp.bonus;
-        temp.totalEffectiveReturn = temp.effectivePotentialReturn + effectiveWinBoost - temp.tax + temp.bonus;
+        temp.totalEffectiveReturn = temp.effectivePotentialReturn + temp.effectiveWinBoost - temp.tax + temp.bonus;
 
         temp.cashoutPercent = temp.cashout / temp.totalReturn * 100;
 
@@ -243,7 +243,7 @@ const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = fa
                             <span> | {data.stakeTime.split(' ')[1]}</span>
                         </span>
                     </span>
-                    <span className="hidden lg:flex">Actual Return: {country.currency} {data.actualReturn}</span>
+                    <span className="hidden lg:flex">Actual Return: {country.currency} {formatNumber(data.actualReturn, country.hasComma, country.lang)}</span>
                     <div className="flex gap-1 hidden lg:flex">
                         <svg className="w-6 h-6 fill-light-500 dark:fill-dark-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11 15H6L13 1V9H18L11 23V15Z" strokeLinecap="square" />

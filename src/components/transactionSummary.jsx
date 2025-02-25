@@ -1,5 +1,7 @@
+import { useCallback, useEffect, useState } from "react";
 import { useApp } from "../contexts/appContext";
 import { ticketDate, transactionDate } from "../functions/formatDate";
+import generateUUID from "../functions/generateId";
 
 const TransactionSummary = () => {
 
@@ -607,6 +609,16 @@ const Transaction = ({transaction, country}) => {
 
     console.log(transaction)
 
+    const [id, setId] = useState("");
+
+    useEffect(()=>{
+        if(transaction.tx_type == "Card Deposit" || transaction.tx_type == "Withdrawal"){
+            generateUUID(transaction.tx_time).then(res=>setId(res));
+        } else{
+            setId(transaction.bet_id);
+        }
+    }, [])
+
     return(
         <div className="w-full px-2 text-[11px] md:text-xs bg-light-50 dark:bg-dark-800">
             <div className="grid grid-cols-[1fr,70px,1fr,1fr] md:grid-cols-12 md:gap-2 w-full border-b border-b-light-500 dark:border-b-dark-500 leading-4 py-2 pr-6 md:pl-2 md:py-3 md:pr-6 relative">
@@ -616,13 +628,13 @@ const Transaction = ({transaction, country}) => {
                 </span>
             </div>
             <div className="md:col-span-3 border-r border-r-light-500 dark:border-r-dark-500 px-[3px]">
-                {transaction.tx_type}
+            {country?.transactionKeywords[transaction.tx_type] || transaction.tx_type}
             </div>
             <div className="md:col-span-2 border-r border-r-light-500 dark:border-r-dark-500 px-[3px]">
-                {country.currency}{transaction.amount}
+                {country.currency}{(transaction.tx_type=='Wager' || transaction.tx_type == 'Withdrawal') && '-'}{(transaction.amount * country.factor).toFixed(2)}
             </div>
             <div className="pl-[3px] overflow-hidden text-ellipsis md:block md:col-span-5">
-                <span>{transaction.bet_id}</span>
+                <span>{id}</span>
             </div>
             <svg
                 className="w-6 h-6 cursor-pointer fill-dark-600 dark:fill-light-50 absolute right-0 top-1/2 -translate-y-1/2"

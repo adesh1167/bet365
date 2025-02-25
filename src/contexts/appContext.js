@@ -50,7 +50,7 @@ const AppProvider = ({children}) => {
           type: 'POST',
           data: {user: user, limit: 20},
           success: (res)=>{
-            // console.log(res)
+            console.log(res)
             if(res.status = 'success') setTransactions(res.data.transactions)
             else setBalance(400)
           },
@@ -189,7 +189,7 @@ const AppProvider = ({children}) => {
             },
             timeout: 10000,
             error: (res)=>{
-                // setHighlights([])
+                setHighlights([])
                 console.log(res)
             },
             complete: (res)=>{

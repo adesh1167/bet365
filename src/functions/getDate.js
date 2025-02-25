@@ -1,4 +1,4 @@
-function getDate(dateString, timeZone, full = false, isString = true){
+function getDate(dateString, timeZone, full = false, isString = true, slashes=false){
     let timeZoneValue = 1 - (new Date().getTimezoneOffset())/60 - timeZone // (1(Nig) - timeZone) + (-timezoneOffset)
     timeZoneValue = (timeZoneValue >= 0 ? `+${timeZoneValue}` : `${timeZoneValue}`)
 
@@ -23,7 +23,7 @@ function getDate(dateString, timeZone, full = false, isString = true){
 
     let time = `${hour}:${minute}${full ? `:${second}` : ''}`;
 
-    return `${day}/${month}/${year} ${time}`
+    return slashes ? `${day}/${month}/${year} ${time}` : `${year}-${month}-${day} ${time}`
 }
 
 export default getDate;

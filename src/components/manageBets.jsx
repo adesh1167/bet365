@@ -3,6 +3,7 @@ import { useApp } from "../contexts/appContext";
 import FullTicket from "./fullTicket";
 import Ticket, { TicketPlaceHolder } from "./ticket";
 import { baseApiUrl } from "../data/url";
+import loadingSvg from '../assets/loading.svg';
 
 const ManageBets = () => {
 
@@ -14,11 +15,17 @@ const ManageBets = () => {
         open: null,
         settled: null,
     })
-    const [withdrawalAmount, setWithdrawalAmount] = useState((balance*country.factor).toFixed(2));
+    const [withdrawalAmount, setWithdrawalAmount] = useState((balance).toFixed(2));
     const [withdrawalTime, setWithdrawalTime] = useState((new Date()).toISOString().slice(0,16));
     const [depositAmount, setDepositAmount] = useState(0);
     const [depositTime, setDepositTime] = useState((new Date()).toISOString().slice(0,16));
     const [localTickets, setLocalTickets] = useState(loadedTickets.tickets);
+
+    const [loading, setLoading] = useState({
+        deposit: false,
+        withdraw: false,
+        update: false
+    });
 
     const filteredTickets = useMemo(()=>{
         return (localTickets.filter((ticket, index) => !deleted.includes(index)))
@@ -30,6 +37,10 @@ const ManageBets = () => {
             settled: loadedTickets.tickets.filter(ticket=> ticket.status == 'settled').length,
         })
     }, [loadedTickets.tickets])
+
+    useEffect(()=>{
+        setWithdrawalAmount(balance.toFixed(2));
+    }, [balance])
 
     function goToCategory(category){
         setIsOpen(category == 'Open' ? true : false)
@@ -66,6 +77,7 @@ const ManageBets = () => {
         const tempTickets = deleteAll ? [] : filteredTickets;
         if(window.confirm('All deleted tickets will be deleted from database. Do you want to continue?')){
             // console.log(selectedTickets);
+            setLoading(prev => ({...prev, update: true}))
             window.$.ajax({
                 url: `${baseApiUrl}/update-tickets.php`,
                 type: 'POST',
@@ -86,6 +98,7 @@ const ManageBets = () => {
                     console.log(res.responseText)
                 },
                 complete: ()=>{
+                    setLoading(prev => ({...prev, update: false}))
                     if(exit) closeMyBets({force: true});
                 }
                 
@@ -101,7 +114,7 @@ const ManageBets = () => {
     }
 
     function withdraw(){
-        if(Number(withdrawalAmount/country.factor) > Number(balance)){
+        if(Number(withdrawalAmount) > Number(balance)){
             console.log(withdrawalAmount)
             console.log(balance)
             alert('Insufficient Funds')
@@ -111,6 +124,7 @@ const ManageBets = () => {
         console.log(withdrawalAmount)
         console.log(balance)
 
+        setLoading(prev => ({...prev, withdraw: true}));
         window.$.ajax({
             url: `${baseApiUrl}/withdraw.php`,
             data: {
@@ -127,11 +141,15 @@ const ManageBets = () => {
             },
             error: (res)=>{
                 alert('Unable to withdraw. Check internet connection and try again')
+            },
+            complete: ()=>{
+                setLoading(prev => ({...prev, withdraw: false}));
             }
         })
     }
 
     function deposit(){
+        setLoading(prev => ({...prev, deposit: true}));
         window.$.ajax({
             url: `${baseApiUrl}/deposit.php`,
             data: {
@@ -147,6 +165,9 @@ const ManageBets = () => {
             },
             error: (res)=>{
                 alert('Unable to withdraw. Check internet connection and try again')
+            },
+            complete: ()=>{
+                setLoading(prev => ({...prev, deposit: false}));
             }
         })
     }
@@ -269,17 +290,31 @@ const ManageBets = () => {
                                                     </div>
                                                 </>
                                             }
-                                            <div className="update-tickets-button" onClick={updateTickets}>Update</div>
-                                            <div className="update-tickets-button bg-error-500 text-light-50" onClick={deleteAll}>Delete All</div>
+                                            {loading.update ? 
+                                                <div className="update-tickets-button"><img src={loadingSvg} width="20px" style={{fill: "red", display: 'inline'}}/></div>
+                                                :
+                                                <div className="update-tickets-button" onClick={updateTickets}>Update</div>
+                                            }
+                                            <div className="update-tickets-button bg-error-500 text-light-50" onClick={loading.update ? ()=>{} : deleteAll}>Delete All</div>
                                             <div className="deposit">
                                                 <input type="number" className="amount" value={depositAmount} onChange={e=>setDepositAmount(e.target.value)}/>
                                                 <input type="datetime-local" className="time" value={depositTime} onChange={e=>setDepositTime(e.target.value)}/>
-                                                <div className="deposit-button" onClick={deposit}>Deposit</div>
+                                                {
+                                                    loading.deposit ?
+                                                    <div className="deposit-button"><img src={loadingSvg} width="20px" style={{fill: "red", display: 'inline'}}/></div>
+                                                    :   
+                                                    <div className="deposit-button" onClick={deposit}>Deposit</div>
+                                                }
                                             </div>
                                             <div className="withdrawal">
                                                 <input type="number" className="amount" value={withdrawalAmount} onChange={e=>setWithdrawalAmount(e.target.value)}/>
                                                 <input type="datetime-local" className="time" value={withdrawalTime} onChange={e=>setWithdrawalTime(e.target.value)}/>
-                                                <div className="withdrawal-button" onClick={withdraw}>Withdraw</div>
+                                                {
+                                                    loading.withdraw ?
+                                                    <div className="withdrawal-button"><img src={loadingSvg} width="20px" style={{fill: "red", display: 'inline'}}/></div>
+                                                    :
+                                                    <div className="withdrawal-button" onClick={withdraw}>Withdraw</div>
+                                                }
                                             </div>
                                         </div>
                                     }
@@ -295,6 +330,10 @@ const ManageBets = () => {
 
 const TicketWrapper = ({setExpanded, ticket, index, isDeleted, toggleDelete}) => {
 
+    const [loading, setLoading] = useState({
+        account: false,
+    })
+
     const doAccount = useRef(null);
 
     function setDoAccount(value){
@@ -304,9 +343,12 @@ const TicketWrapper = ({setExpanded, ticket, index, isDeleted, toggleDelete}) =>
     return (
         <div className="ticket-wrapper">
             <div className="ticket-buttons">
+                {loading.account ?
+                <div className="ticket-button"><img src={loadingSvg} width="20px" style={{fill: "red", display: 'inline'}}/></div>
+                : 
                 <div className="ticket-button" onClick={()=>doAccount.current()}>
                     Account
-                </div>
+                </div>}
                 {isDeleted ? 
                     <div className="ticket-button text-identity-600" onClick={()=>toggleDelete(index)}>
                         Restore
@@ -318,7 +360,15 @@ const TicketWrapper = ({setExpanded, ticket, index, isDeleted, toggleDelete}) =>
                 }
 
             </div>
-            <Ticket key={index+ticket.id} index={index} ticket={ticket} setExpanded={setExpanded} isDeleted={isDeleted} setAccountClick={setDoAccount}/>
+            <Ticket
+                key={index+ticket.id}
+                index={index}
+                ticket={ticket}
+                setExpanded={setExpanded}
+                isDeleted={isDeleted}
+                setAccountClick={setDoAccount}
+                setLoading={setLoading}
+            />
         </div>
     )
 }
