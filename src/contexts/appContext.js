@@ -48,15 +48,15 @@ const AppProvider = ({children}) => {
           url: `${baseApiUrl}/get-transactions.php`,
           dataType: 'JSON',
           type: 'POST',
-          data: {user: user},
+          data: {user: user, limit: 20},
           success: (res)=>{
             // console.log(res)
             if(res.status = 'success') setTransactions(res.data.transactions)
             else setBalance(400)
           },
           error: (res)=>{
-            // console.log(res)
-            setBalance(400)
+            console.log(res)
+            // setBalance(400)
           }
         })
     
