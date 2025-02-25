@@ -48,7 +48,7 @@ const TransactionSummary = () => {
                                 data-v-48b0c13f=""
                                 className="overflow-hidden text-ellipsis whitespace-nowrap"
                             >
-                                Transaction History
+                                {lang['transaction-history']}
                             </span>
                             </div>
                         </span>
@@ -78,7 +78,7 @@ const TransactionSummary = () => {
                     </div>
                     {/**/}
                     </div>
-                    <span className="hidden lg:block">Account Options: 233249648594</span>
+                    <span className="hidden lg:block">{lang['account-options']}: 233249648594</span>
                 </span>
                 <svg
                     onClick={()=>setPopup(null)}
@@ -120,7 +120,7 @@ const TransactionSummary = () => {
                                 strokeLinecap="square"
                             />
                             </svg>{" "}
-                            Deposit funds
+                            {lang['deposit-funds']}
                         </div>
                         <div
                             id="withdraw-account-nav"
@@ -137,7 +137,7 @@ const TransactionSummary = () => {
                                 strokeLinecap="square"
                             />
                             </svg>{" "}
-                            Withdraw funds
+                            {lang['withdraw-funds']}
                         </div>
                         <div
                             id="my-bets-account-nav"
@@ -154,7 +154,7 @@ const TransactionSummary = () => {
                                 strokeLinecap="square"
                             />
                             </svg>{" "}
-                            My Bets
+                            {lang['my-bets']}
                         </div>
                         <div
                             id="bonus-summary-account-nav"
@@ -171,7 +171,7 @@ const TransactionSummary = () => {
                                 strokeLinecap="square"
                             />
                             </svg>{" "}
-                            Bonus Summary
+                            {lang['bonus-summary']}
                         </div>
                         <div
                             id="transaction-history-account-nav"
@@ -188,7 +188,7 @@ const TransactionSummary = () => {
                                 strokeLinecap="square"
                             />
                             </svg>{" "}
-                            Transaction History
+                            {lang['transaction-history']}
                         </div>
                         <div
                             id="booking-codes-account-nav"
@@ -205,7 +205,7 @@ const TransactionSummary = () => {
                                 strokeLinecap="square"
                             />
                             </svg>{" "}
-                            Bet Influencer
+                            {lang['influencer']}
                         </div>
                         <div
                             id="promo-voucher-account-nav"
@@ -222,7 +222,7 @@ const TransactionSummary = () => {
                                 strokeLinecap="square"
                             />
                             </svg>{" "}
-                            Promo Voucher
+                            {lang['promo-voucher']}
                         </div>
                         <div
                             id="update-details-account-nav"
@@ -239,7 +239,7 @@ const TransactionSummary = () => {
                                 strokeLinecap="square"
                             />
                             </svg>{" "}
-                            Update Details
+                            {lang['update-details']}
                         </div>
                         <div
                             id="responsible-gaming-account-nav"
@@ -256,7 +256,7 @@ const TransactionSummary = () => {
                                 strokeLinecap="square"
                             />
                             </svg>{" "}
-                            Responsible Gaming
+                            {lang['responsible-gaming']}
                         </div>
                         <div
                             id="document-verification-account-nav"
@@ -273,7 +273,7 @@ const TransactionSummary = () => {
                                 strokeLinecap="square"
                             />
                             </svg>{" "}
-                            Document Verification
+                            {lang['document-verification']}
                         </div>
                         {/**/}
                         <div
@@ -291,7 +291,7 @@ const TransactionSummary = () => {
                                 strokeLinecap="square"
                             />
                             </svg>{" "}
-                            Change password
+                            {lang['change-password']}
                         </div>
                         <div
                             id="log-out-account-nav"
@@ -308,7 +308,7 @@ const TransactionSummary = () => {
                                 strokeLinecap="square"
                             />
                             </svg>{" "}
-                            Log Out
+                            {lang['log-out']}
                         </div>
                         </div>
                         <div
@@ -326,7 +326,7 @@ const TransactionSummary = () => {
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
-                                        All {/**/}
+                                        {lang['transaction-types.all']}
                                     </span>
                                     </div>
                                     <div
@@ -335,16 +335,15 @@ const TransactionSummary = () => {
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
-                                        Deposits {/**/}
+                                        {lang['transaction-types.deposit']}
                                     </span>
                                     </div>
                                     <div
                                     id="transaction-history-withdrawal-btn"
                                     className="flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none bg-[transparent] hover:bg-light-300 dark:hover:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0"
                                     >
-                                    {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
-                                        Withdrawals {/**/}
+                                         {/**/} {lang['transaction-types.withdrawal']}
                                     </span>
                                     </div>
                                     <div
@@ -353,7 +352,7 @@ const TransactionSummary = () => {
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
-                                        Sports {/**/}
+                                        {/**/} {lang['transaction-types.sports']}
                                     </span>
                                     </div>
                                     <div
@@ -362,7 +361,7 @@ const TransactionSummary = () => {
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
-                                        Casino {/**/}
+                                         {/**/} {lang['transaction-types.casino']}
                                     </span>
                                     </div>
                                     <div
@@ -371,7 +370,7 @@ const TransactionSummary = () => {
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
-                                        Betgames {/**/}
+                                         {/**/} {lang['lobbies.betgames']}
                                     </span>
                                     </div>
                                     <div
@@ -380,7 +379,7 @@ const TransactionSummary = () => {
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
-                                        Virtuals {/**/}
+                                         {/**/} {lang['transaction-types.virtuals']}
                                     </span>
                                     </div>
                                     <div
@@ -389,7 +388,7 @@ const TransactionSummary = () => {
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
-                                        Betway Jackpots {/**/}
+                                         {/**/} {lang['transaction-types.jackpot']}
                                     </span>
                                     </div>
                                 </div>
@@ -515,7 +514,7 @@ const TransactionSummary = () => {
                                 <div className="w-full border-t grid grid-cols-[1fr,70px,1fr,1fr] md:grid-cols-12 md:gap-2 border-t-light-400 dark:border-t-dark-500 text-xs font-bold leading-3 pt-2 pr-6 md:pl-2 md:pr-6 items-center">
                                 <div className="md:col-span-2">
                                     <div className="flex gap-1 items-center">
-                                    Date{" "}
+                                    {" "} {lang['date']}
                                     <svg
                                         className="w-5 h-6 md:w-6 md:h-6 fill-dark-600 dark:fill-light-50 cursor-pointer"
                                         viewBox="0 0 24 24"
@@ -532,7 +531,7 @@ const TransactionSummary = () => {
                                 <div className="md:col-span-3">Type</div>
                                 <div className="md:col-span-2">
                                     <div className="flex gap-1 items-center">
-                                    Amount{" "}
+                                    {" "} {lang['transaction-table-headers.amount']}
                                     <svg
                                         className="w-5 h-6 md:w-6 md:h-6 fill-dark-600 dark:fill-light-50 cursor-pointer"
                                         viewBox="0 0 24 24"
@@ -547,7 +546,7 @@ const TransactionSummary = () => {
                                     </div>
                                 </div>
                                 <div className="md:col-span-5 md:block whitespace-nowrap">
-                                    Transaction ID
+                                    Transaction
                                 </div>
                                 </div>
                             </div>
