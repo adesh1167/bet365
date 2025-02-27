@@ -64,7 +64,7 @@ const Carousel = ({loadStage}) => {
                 loop
                 style={{ marginTop: '120px'}}
             >
-                {loadStage > 100 && country.banners?.map((banner, index) => (
+                {loadStage > 100 && (user ? country.banners : (country.logoutBanners || country.banners))?.map((banner, index) => (
                     <SwiperSlide
                         className="swiper-product-slide"
                         key={index}
@@ -80,9 +80,7 @@ const Carousel = ({loadStage}) => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="swiper-pagination">
-
-            </div>
+            {!user && <div className="swiper-pagination"/>}
         </div>
     )
 }

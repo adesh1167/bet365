@@ -12,7 +12,7 @@ const AppProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [balance, setBalance] = useState(0);
     const [popup, setPopup] = useState(null);
-    const [transactions, setTransactions] = useState([]);
+    const [transactions, setTransactions] = useState(null);
     const [countryCode, setCountryCode] = useState(null);
     const [dropDown, setDropDown] = useState(null);
     const [loadedTickets, setLoadedTickets] = useState({
@@ -43,22 +43,6 @@ const AppProvider = ({children}) => {
             }
           })
         }, 2000)
-    
-        window.$.ajax({
-          url: `${baseApiUrl}/get-transactions.php`,
-          dataType: 'JSON',
-          type: 'POST',
-          data: {user: user, limit: 20},
-          success: (res)=>{
-            console.log(res)
-            if(res.status = 'success') setTransactions(res.data.transactions)
-            else setBalance(400)
-          },
-          error: (res)=>{
-            console.log(res)
-            // setBalance(400)
-          }
-        })
     
         window.$.ajax({
           url: `${baseApiUrl}/get-tickets.php`,
@@ -225,7 +209,7 @@ const AppProvider = ({children}) => {
 
         setBalance(0);
 
-        setTransactions([]);
+        setTransactions(null);
     }
 
     useEffect(()=>{

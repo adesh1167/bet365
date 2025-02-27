@@ -134,6 +134,12 @@ export const countries = [
             '25991_SA_TaxScratch_Limited_Mobile-2.webp',
             'SA_FeaturesLandingPage_Mobile_885x177_SYNAPSE_NEW2.webp'
         ],
+        logoutBanners: [
+            'https://cms1.gmgamingsystems.com/medialibraries/banners.betwayafrica.com/HTML5Banners/Ghana/Mobile/30987_MN_BetInfluencer_CI_Update_850_156_Mobile4.jpg',
+            'https://cms1.gmgamingsystems.com/medialibraries/banners.betwayafrica.com/HTML5Banners/Ghana/Mobile/30475_GH_BetSaver_Redo_850_156_Mobile_1.jpg',
+            'https://cms1.gmgamingsystems.com/medialibraries/banners.betwayafrica.com/HTML5Banners/Ghana/Mobile/240614_GH_WelcomeOffer_850_156_Mobile.jpg',
+            'https://cms1.gmgamingsystems.com/medialibraries/banners.betwayafrica.com/HTML5Banners/Ghana/Mobile/29255_GH_PickYourPromo_850_156_Mobile.jpg'
+        ],
         banners: [
             "https://cms1.gmgamingsystems.com/medialibraries/banners.betwayafrica.com/HTML5Banners/Zambia/Mobile/30092_ZM_ManUtd_vs_Chelsea_CopyChange_850_156_Mobile.jpg",
             "https://cms1.gmgamingsystems.com/medialibraries/banners.betwayafrica.com/HTML5Banners/Zambia/Mobile/29373_Bonus_Yabakali_850x156_Mobile.jpg",

@@ -2,10 +2,53 @@ import { useCallback, useEffect, useState } from "react";
 import { useApp } from "../contexts/appContext";
 import { ticketDate, transactionDate } from "../functions/formatDate";
 import generateUUID from "../functions/generateId";
+import { baseApiUrl } from "../data/url";
+import { memo } from "react";
+import { useMemo } from "react";
 
 const TransactionSummary = () => {
 
-    const {setPopup, lang, transactions, country} = useApp();
+    const {setPopup, lang, transactions, setTransactions, setBalance, country, user} = useApp();
+    const [filter, setFilter] = useState('all');
+    const [visited, setVisited] = useState({
+        all: true
+    });
+
+    const filteredTransactions = useMemo(()=>{
+        if(filter == 'all') return transactions;
+        if(filter == 'Sports') return transactions.filter(transaction => transaction.tx_type == "Wager" || transaction.tx_type == "Payout" || transaction.tx_type == "Win Boost Cash Bonus");
+        else return transactions.filter(transaction => transaction.tx_type == filter)
+    }, [filter, transactions])
+
+    function getTransactions(){
+        window.$.ajax({
+            url: `${baseApiUrl}/get-transactions.php`,
+            dataType: 'JSON',
+            type: 'POST',
+            data: {user: user, limit: 20},
+            success: (res)=>{
+              console.log(res)
+              if(res.status = 'success') setTransactions(res.data.transactions)
+              else setBalance(400)
+            },
+            error: (res)=>{
+              console.log(res)
+            }
+        })
+    }
+
+    function changeFilter(newFilter){
+        setFilter(newFilter);
+        setTimeout(()=>{
+            setVisited(prev=>({...prev, [newFilter]: true}))
+        }, 2000)
+    }
+
+    useEffect(()=>{
+        if(transactions === null) getTransactions();
+    }, [])
+
+    console.log(filter, filteredTransactions)
 
     return (
 
@@ -322,7 +365,8 @@ const TransactionSummary = () => {
                                 <div className="p-[2px] rounded-lg flex bg-light-600 dark:bg-dark-900 max-w-full dark:border-dark-500 dark:border h-10 gap-1 overflow-x-scroll overflow-y-hidden scrollbar-hidden">
                                     <div
                                     id="transaction-history-All-btn"
-                                    className="flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none bg-light-50  dark:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0"
+                                    className={`flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none ${filter == "all" ? "bg-light-50" : ""} dark:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0`}
+                                    onClick={()=>changeFilter("all")}
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
@@ -331,7 +375,8 @@ const TransactionSummary = () => {
                                     </div>
                                     <div
                                     id="transaction-history-deposit-btn"
-                                    className="flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none bg-[transparent] hover:bg-light-300 dark:hover:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0"
+                                    className={`flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none ${filter == "Card Deposit" ? "bg-light-50" : ""} dark:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0`}
+                                    onClick={()=>changeFilter("Card Deposit")}
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
@@ -340,7 +385,8 @@ const TransactionSummary = () => {
                                     </div>
                                     <div
                                     id="transaction-history-withdrawal-btn"
-                                    className="flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none bg-[transparent] hover:bg-light-300 dark:hover:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0"
+                                    className={`flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none ${filter == "Withdrawal" ? "bg-light-50" : ""} dark:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0`}
+                                    onClick={()=>changeFilter("Withdrawal")}
                                     >
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
                                          {/**/} {lang['transaction-types.withdrawal']}
@@ -348,7 +394,8 @@ const TransactionSummary = () => {
                                     </div>
                                     <div
                                     id="transaction-history-sports-btn"
-                                    className="flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none bg-[transparent] hover:bg-light-300 dark:hover:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0"
+                                    className={`flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none ${filter == "Sports" ? "bg-light-50" : ""} dark:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0`}
+                                    onClick={()=>changeFilter("Sports")}
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
@@ -357,7 +404,8 @@ const TransactionSummary = () => {
                                     </div>
                                     <div
                                     id="transaction-history-casino-btn"
-                                    className="flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none bg-[transparent] hover:bg-light-300 dark:hover:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0"
+                                    className={`flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none ${filter == "Casino" ? "bg-light-50" : ""} dark:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0`}
+                                    onClick={()=>changeFilter("Casino")}
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
@@ -366,7 +414,8 @@ const TransactionSummary = () => {
                                     </div>
                                     <div
                                     id="transaction-history-betgames-btn"
-                                    className="flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none bg-[transparent] hover:bg-light-300 dark:hover:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0"
+                                    className={`flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none ${filter == "BetGames" ? "bg-light-50" : ""} dark:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0`}
+                                    onClick={()=>changeFilter("BetGames")}
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
@@ -375,7 +424,8 @@ const TransactionSummary = () => {
                                     </div>
                                     <div
                                     id="transaction-history-virtual-btn"
-                                    className="flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none bg-[transparent] hover:bg-light-300 dark:hover:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0"
+                                    className={`flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none ${filter == "Virtuals" ? "bg-light-50" : ""} dark:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0`}
+                                    onClick={()=>changeFilter("Virtuals")}
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
@@ -384,7 +434,8 @@ const TransactionSummary = () => {
                                     </div>
                                     <div
                                     id="transaction-history-jackpot-btn"
-                                    className="flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none bg-[transparent] hover:bg-light-300 dark:hover:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0"
+                                    className={`flex gap-2 p-2 rounded-md cursor-pointer h-full transition-all font-bold items-center overflow-hidden select-none ${filter == "Jackpots" ? "bg-light-50" : ""} dark:bg-dark-700 text-dark-800 dark:text-light-50 shrink-0`}
+                                    onClick={()=>changeFilter("Jackpots")}
                                     >
                                     {/**/}
                                     <span className="flex items-center gap-1 overflow-hidden capitalize whitespace-nowrap text-ellipsis">
@@ -550,9 +601,57 @@ const TransactionSummary = () => {
                                 </div>
                                 </div>
                             </div>
-                            {transactions.map((transaction, index)=> 
-                                <Transaction transaction={transaction} country={country}/>
-                            )}
+                            <div className="w-full px-2 text-[11px] md:text-xs bg-light-50 dark:bg-dark-800">
+
+                                { transactions && visited[filter] ? 
+                                    (filteredTransactions.length > 0 ?
+                                        filteredTransactions.map((transaction, index)=> 
+                                            <Transaction transaction={transaction} country={country}/>
+                                        )
+                                        :
+                                        <div className="flex p-4">
+                                            <div className="w-full pt-1 pb-1 pl-8 pr-1 text-xs leading-4 rounded text-dark-800 border relative border-warning-200 bg-warning-50">
+                                                <svg
+                                                className="w-5 h-5 fill-[currentColor] absolute top-[2px] left-[5px] fill-warning-500"
+                                                viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                <path
+                                                    className=""
+                                                    d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+                                                    strokeLinecap="square"
+                                                />
+                                                </svg>
+                                                No transactions were found
+                                            </div>
+                                        </div>)
+                                        :
+                                        Array.apply(null, Array(20)).map(item => 
+                                            <div className="grid grid-cols-12 gap-2 w-full border-b border-b-light-500 dark:border-b-dark-500 leading-4 p-2 md:px-2 md:py-3 h-[33px] md:h-[41px] items-center">
+                                                <div className="col-span-4 md:col-span-2">
+                                                    <div className="rounded animate-pulse bg-dark-300 w-[100px] h-[12px] bg-light-500 dark:bg-dark-500">
+                                                        <span className="opacity-0" />
+                                                    </div>
+                                                </div>
+                                                    <div className="col-span-4 md:col-span-3">
+                                                    <div className="rounded animate-pulse bg-dark-300 w-[90px] h-[12px] bg-light-500 dark:bg-dark-500">
+                                                        <span className="opacity-0" />
+                                                    </div>
+                                                </div>
+                                                <div className="col-span-4 md:col-span-2">
+                                                    <div className="rounded animate-pulse bg-dark-300 w-[70px] h-[12px] bg-light-500 dark:bg-dark-500">
+                                                        <span className="opacity-0" />
+                                                    </div>
+                                                </div>
+                                                <div className="hidden md:block md:col-span-5">
+                                                    <div className="rounded animate-pulse bg-dark-300 w-[150px] h-[12px] bg-light-500 dark:bg-dark-500">
+                                                        <span className="opacity-0" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                }
+                            </div>
                             </div>
                             <div className="flex justify-between px-2 py-1 sticky bottom-0 left-0 bg-light-50 dark:bg-dark-800 items-center">
                             <div
@@ -619,8 +718,7 @@ const Transaction = ({transaction, country}) => {
     }, [])
 
     return(
-        <div className="w-full px-2 text-[11px] md:text-xs bg-light-50 dark:bg-dark-800">
-            <div className="grid grid-cols-[1fr,70px,1fr,1fr] md:grid-cols-12 md:gap-2 w-full border-b border-b-light-500 dark:border-b-dark-500 leading-4 py-2 pr-6 md:pl-2 md:py-3 md:pr-6 relative">
+        <div className="grid grid-cols-[1fr,70px,1fr,1fr] md:grid-cols-12 md:gap-2 w-full border-b border-b-light-500 dark:border-b-dark-500 leading-4 py-2 pr-6 md:pl-2 md:py-3 md:pr-6 relative">
             <div className="md:col-span-2 border-r border-r-light-500 dark:border-r-dark-500 pr-[3px]">
                 <span>
                 {transactionDate(transaction.tx_time, country.timeZone)}
@@ -646,7 +744,6 @@ const Transaction = ({transaction, country}) => {
                 strokeLinecap="square"
                 />
             </svg>
-            </div>
         </div>
     )
 } 
