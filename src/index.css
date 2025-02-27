@@ -392,3 +392,15 @@ code {
 .swiper-pagination-bullet-active{
   background-color: #00a826 !important;
 }
+
+.loss-color{
+  color: red;
+}
+
+.win-color{
+  color: rgb(0, 128, 0);
+}
+
+.black-color{
+  color: black;
+}

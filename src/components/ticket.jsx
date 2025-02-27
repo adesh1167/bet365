@@ -659,9 +659,11 @@ const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = fa
 
                     :
                     <div className="flex flex-col items-center w-full gap-1 py-2 border-t md:h-6 md:flex-row lg:py-0 lg:w-auto border-t-light-500 dark:border-t-dark-500 lg:border-none">
-                        <div className={`md:h-6 md:w-auto m-0 w-full flex items-center justify-center p-2 text-xs m-1 font-bold rounded ${color} ${backgroundColor}`}>
-                            {ticket.filter == 'Win' ? winSvg : ticket.filter == 'Loss' ? lossSvg : cancelledSvg} &nbsp; {ticket.filter}
-                        </div>
+                        {ticket.filter !== "Cash Out" && 
+                            <div className={`md:h-6 md:w-auto m-0 w-full flex items-center justify-center p-2 text-xs m-1 font-bold rounded ${color} ${backgroundColor}`}>
+                                {ticket.filter == 'Win' ? winSvg : ticket.filter == 'Loss' ? lossSvg : cancelledSvg} &nbsp; {ticket.filter}
+                            </div>
+                        }
                         {(ticket.filter == 'Win' && country.flauntText) && <div className="flex justify-end px-1 md:px-0 h-11 font-bold bg-cover w-full md:w-[191px] rounded-md md:h-[24px] items-center bg-[url('https://cms1.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/v2/flaunt-bg-banner.svg')]">
                             <button
                                 className="p-button p-component rounded transition-all disabled:bg-light-400 disabled:text-dark-100 dark:disabled:text-dark-100 font-bold text-sm outline-none whitespace-nowrap dark:disabled:bg-dark-700 bg-primary-600 text-light-50 hover:bg-primary-500 focus:bg-primary-400 text-lg md:text-xs h-8 md:h-5 flex text-xs text-light-50 px-2 m-0.5 md:m-1 items-center relative"

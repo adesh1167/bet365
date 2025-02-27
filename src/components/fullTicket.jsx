@@ -454,7 +454,7 @@ const FullTicket = ({ ticket, percent = 0.9, setExpanded }) => {
                             <div>
                                 <div className={`flex items-center w-full h-10 py-1 text-xs leading-5 border-t rounded-b bg-light-50 dark:bg-dark-700 border-t-light-300 dark:border-t-dark-500`}>
                                     <div className={`h-full m-1 w-full flex items-center justify-center p-2 text-xs m-1 font-bold rounded ${color} ${backgroundColor}`}>
-                                        {ticket.filter == 'Win' ? winSvg : ticket.filter == 'Loss' ? lossSvg : cancelledSvg} &nbsp; {ticket.filter}
+                                        {ticket.filter == 'Win' ? winSvg : ticket.filter == 'Loss' ? lossSvg : ""} &nbsp; {lang[ticket.filter?.toLowerCase()] || ticket.filter}
                                     </div>
                                 </div>
                             </div>
@@ -697,7 +697,7 @@ function Match({ odd, winningSelection, userSelection, home, away, gameType, lea
 
     return (
         <div className="relative pl-7 py-1 w-full border-t border-t-light-500 text-xs dark:border-t-dark-500 border-none text-dark-200 dark:text-light-400 leading-4">
-            <div className="absolute left-0 flex items-center justify-center w-6 h-6 rounded top-1 bg-light-200 dark:bg-dark-900">
+            <div className={` ${color} absolute left-0 flex items-center justify-center w-6 h-6 rounded top-1 bg-light-200 dark:bg-dark-900`}>
                 {svg}
             </div>
             <div className="flex justify-between font-bold text-right text-dark-800 dark:text-light-50">

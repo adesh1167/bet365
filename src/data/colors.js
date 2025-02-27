@@ -17,7 +17,8 @@ export const colorClassPallete = {
 export const bgColorClassPallete = {
     'Loss': 'bg-error-50',
     'Win': 'bg-primary-50',
-    'Cash Out': 'bg-dark-50',
+    'Cash Out': '',
+    // 'Cash Out': 'bg-dark-50',
     "Win With Voids": 'bg-dark-50',
     '': 'bg-dark-50',
 }
