@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useApp } from "../contexts/appContext";
-import formatDate from "../functions/formatDate";
+import formatDate, { highlightDate } from "../functions/formatDate";
 
 const Highlights = () => {
 
@@ -66,6 +66,9 @@ const HighlightLeague = ({league}) => {
 }
 
 const HighlightMatch = ({match}) => {
+
+    const {lang, country} = useApp();
+    const date = highlightDate(match.expectedStartEpoch, true, country.timeZone)
     return (
         <div id={match.eventId}>
             <div data-v-642ff186 className="relative grid grid-cols-11 p-1 text-xs leading-4 bg-light-50 dark:bg-dark-800 base-text border border-[transparent] border-t-light-300 dark:border-t-dark-700 px-1">
@@ -138,7 +141,7 @@ const HighlightMatch = ({match}) => {
                                         <path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" strokeLinecap="square" />
                                     </svg>
                                     <span>
-                                        <span>{formatDate(match.expectedStartEpoch, true)}</span>
+                                        <span>{lang[date.text]} {date.rest}</span>
                                     </span>
                                 </div>
                                 <div className="hidden overflow-hidden text-ellipsis md:block">

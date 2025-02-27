@@ -5,34 +5,41 @@ import generateUUID from "../functions/generateId";
 import { baseApiUrl } from "../data/url";
 import { memo } from "react";
 import { useMemo } from "react";
+import LoadingSvg from "./loadingSvg";
 
 const TransactionSummary = () => {
 
-    const {setPopup, lang, transactions, setTransactions, setBalance, country, user} = useApp();
+    const {setPopup, lang, transactions, getTransactions, setTransactions, setBalance, country, user} = useApp();
     const [filter, setFilter] = useState('all');
     const [visited, setVisited] = useState({
         all: true
     });
 
     const filteredTransactions = useMemo(()=>{
-        if(filter == 'all') return transactions;
-        if(filter == 'Sports') return transactions.filter(transaction => transaction.tx_type == "Wager" || transaction.tx_type == "Payout" || transaction.tx_type == "Win Boost Cash Bonus");
-        else return transactions.filter(transaction => transaction.tx_type == filter)
+        if(!transactions) return [];
+        if(filter == 'all') return transactions.slice(0,20);
+        if(filter == 'Sports') return transactions.filter(transaction => transaction.tx_type == "Wager" || transaction.tx_type == "Payout" || transaction.tx_type == "Win Boost Cash Bonus").slice(0,20);
+        else return transactions.filter(transaction => transaction.tx_type == filter).slice(0,20)
     }, [filter, transactions])
 
-    function getTransactions(){
-        window.$.ajax({
-            url: `${baseApiUrl}/get-transactions.php`,
+    async function deleteTransaction(id){
+        return window.$.ajax({
+            url: `${baseApiUrl}/delete-transaction.php`,
             dataType: 'JSON',
             type: 'POST',
-            data: {user: user, limit: 20},
+            data: {user: user, id},
             success: (res)=>{
               console.log(res)
               if(res.status = 'success') setTransactions(res.data.transactions)
-              else setBalance(400)
+              else{
+                alert('Failed to delete transaction: '+res.data.message)
+              }
+              return res;
             },
             error: (res)=>{
               console.log(res)
+              alert('Failed to delete transaction. Check your internet')
+              return new Error(res)
             }
         })
     }
@@ -41,7 +48,7 @@ const TransactionSummary = () => {
         setFilter(newFilter);
         setTimeout(()=>{
             setVisited(prev=>({...prev, [newFilter]: true}))
-        }, 2000)
+        }, 500 + Math.random()*500)
     }
 
     useEffect(()=>{
@@ -606,7 +613,7 @@ const TransactionSummary = () => {
                                 { transactions && visited[filter] ? 
                                     (filteredTransactions.length > 0 ?
                                         filteredTransactions.map((transaction, index)=> 
-                                            <Transaction transaction={transaction} country={country}/>
+                                            <Transaction transaction={transaction} deleteTransaction={deleteTransaction} country={country}/>
                                         )
                                         :
                                         <div className="flex p-4">
@@ -703,11 +710,12 @@ const TransactionSummary = () => {
     );
 }
 
-const Transaction = ({transaction, country}) => {
+const Transaction = ({transaction, country, deleteTransaction}) => {
 
     console.log(transaction)
 
     const [id, setId] = useState("");
+    const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
         if(transaction.tx_type == "Card Deposit" || transaction.tx_type == "Withdrawal"){
@@ -716,6 +724,18 @@ const Transaction = ({transaction, country}) => {
             setId(transaction.bet_id);
         }
     }, [])
+
+    function deleteTx(){
+        if(window.confirm("Are you sure you want to delete this transaction?") == false) return;
+        setLoading(true);
+        deleteTransaction(transaction.id)
+            .then(res=>{
+                setLoading(false);
+            })
+            .catch(res=>{
+                setLoading(false);
+            });
+    }
 
     return(
         <div className="grid grid-cols-[1fr,70px,1fr,1fr] md:grid-cols-12 md:gap-2 w-full border-b border-b-light-500 dark:border-b-dark-500 leading-4 py-2 pr-6 md:pl-2 md:py-3 md:pr-6 relative">
@@ -733,17 +753,21 @@ const Transaction = ({transaction, country}) => {
             <div className="pl-[3px] overflow-hidden text-ellipsis md:block md:col-span-5">
                 <span>{id}</span>
             </div>
+            {loading ? 
+            <LoadingSvg width={24} height={24} className="w-6 h-6 cursor-pointer fill-dark-600 dark:fill-light-50 absolute right-0 top-1/2 -translate-y-1/2"/>
+            :
             <svg
                 className="w-6 h-6 cursor-pointer fill-dark-600 dark:fill-light-50 absolute right-0 top-1/2 -translate-y-1/2"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
+                onClick={deleteTx}
             >
                 <path
                 className=""
                 d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"
                 strokeLinecap="square"
                 />
-            </svg>
+            </svg>}
         </div>
     )
 } 

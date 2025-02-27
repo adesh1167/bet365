@@ -167,7 +167,7 @@ const FullMenu = () => {
                 }
                 <div className="relative w-full">
                     <div >
-                        <div onClick={()=>{toggleExpanded(0)}}>
+                        {user && <div onClick={()=>{toggleExpanded(0)}}>
                             <div>
                                 <div role="button" className="cursor-pointer base-text">
                                     <div className="w-full gap-1 rounded-lg bg-dark-800 dark:bg-dark-700 text-light-50 relative">
@@ -232,7 +232,7 @@ const FullMenu = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>}
                         <div>
                             <div onClick={()=>{toggleExpanded(1)}}>
                                 <div role="button" className="cursor-pointer base-text">

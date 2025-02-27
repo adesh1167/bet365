@@ -72,7 +72,7 @@ const Footer = ({loadStage}) => {
                 {/**/}
                 </div>
                 <span className="w-full overflow-hidden text-center text-ellipsis whitespace-nowrap">
-                More
+                    {lang["more-bets-clean"]}
                 </span>
             </div>
             <div className="flex flex-col items-center justify-center flex-1 leading-3 capitalize cursor-pointer select-none text-light-50 text-[10px] relative overflow-hidden">
@@ -91,7 +91,7 @@ const Footer = ({loadStage}) => {
                 {/**/}
                 </div>
                 <span className="w-full overflow-hidden text-center text-ellipsis whitespace-nowrap">
-                Top Events
+                    {lang["top-events"]}
                 </span>
             </div>
             <div onClick={()=>setPopup('betslip')} className="flex flex-col items-center justify-center flex-1 leading-3 capitalize cursor-pointer select-none text-light-50 text-[10px] relative overflow-hidden bg-identity">
@@ -110,7 +110,7 @@ const Footer = ({loadStage}) => {
                 {/**/}
                 </div>
                 <span className="w-full overflow-hidden text-center text-ellipsis whitespace-nowrap">
-                Betslip
+                    {lang["betslip"]}
                 </span>
             </div>
             <div className="flex flex-col items-center justify-center flex-1 leading-3 capitalize cursor-pointer select-none text-light-50 text-[10px] relative overflow-hidden">
@@ -129,7 +129,7 @@ const Footer = ({loadStage}) => {
                 {/**/}
                 </div>
                 <span className="w-full overflow-hidden text-center text-ellipsis whitespace-nowrap">
-                Promos
+                    {lang["promos"]}
                 </span>
             </div>
             <div className="flex flex-col items-center justify-center flex-1 leading-3 capitalize cursor-pointer select-none text-light-50 text-[10px] relative overflow-hidden">
@@ -148,7 +148,7 @@ const Footer = ({loadStage}) => {
                 {/**/}
                 </div>
                 <span className="w-full overflow-hidden text-center text-ellipsis whitespace-nowrap">
-                Sign Up
+                    {lang["sign-up"]}
                 </span>
             </div>
         </div>

@@ -24,25 +24,7 @@ const AppProvider = ({children}) => {
     const [highlights, setHighlights] = useState(null);
     const [subUrl, setSubUrl] = useState('');
 
-    function init(){
-    
-        setTimeout(()=>{
-          window.$.ajax({
-            url: `${baseApiUrl}/get-balance.php`,
-            dataType: 'JSON',
-            type: 'POST',
-            data: {user: user},
-            success: (res)=>{
-              // console.log(res)
-              if(res.status = 'success') setBalance(res.data.balance)
-              else setBalance(400)
-            },
-            error: (res)=>{
-              // console.log(res)
-              setBalance(400)
-            }
-          })
-        }, 2000)
+    function init({full= true} = {}){
     
         window.$.ajax({
           url: `${baseApiUrl}/get-tickets.php`,
@@ -99,7 +81,44 @@ const AppProvider = ({children}) => {
             console.log(res)
           }
         })
+
+        if(!full) return;
+
+        setTimeout(()=>{
+            window.$.ajax({
+              url: `${baseApiUrl}/get-balance.php`,
+              dataType: 'JSON',
+              type: 'POST',
+              data: {user: user},
+              success: (res)=>{
+                // console.log(res)
+                if(res.status = 'success') setBalance(res.data.balance)
+                else setBalance(400)
+              },
+              error: (res)=>{
+                // console.log(res)
+                setBalance(400)
+              }
+            })
+          }, 2000)
     
+    }
+
+    function getTransactions(){
+        window.$.ajax({
+            url: `${baseApiUrl}/get-transactions.php`,
+            dataType: 'JSON',
+            type: 'POST',
+            data: {user: user, limit: 100},
+            success: (res)=>{
+              console.log(res)
+              if(res.status = 'success') setTransactions(res.data.transactions)
+              else setBalance(400)
+            },
+            error: (res)=>{
+              console.log(res)
+            }
+        })
     }
 
     function getSportTypes(){
@@ -283,6 +302,7 @@ const AppProvider = ({children}) => {
             setLoadedTickets,
             transactions, 
             setTransactions,
+            getTransactions,
             balance: balance * countries[countryCode]?.factor,
             setBalance,
             country: countries[countryCode],

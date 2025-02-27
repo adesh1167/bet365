@@ -15,7 +15,7 @@ const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = fa
     const [data, setData] = useState(null);
     const [firstLoad, setFirstLoad] = useState(false);
 
-    const { setBalance, country, init, user, lang } = useApp();
+    const { setBalance, country, getTransactions, user, lang } = useApp();
     const status = useRef({
         win: 0,
         loss: 0,
@@ -63,7 +63,7 @@ const Ticket = memo(({ ticket, percent = 0.9, setExpanded, index, isDeleted = fa
                 alert(res.message)
                 if (res.status == 'success') {
                     setBalance(res.data.balance)
-                    init()
+                    getTransactions()
                 }
             },
             error: (res) => {

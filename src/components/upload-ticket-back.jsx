@@ -251,7 +251,6 @@ export default function UploadTickets({init}){
 						alert('Uploaded Successfully')
 						setRaw('')
 						setResult('')
-						// init()
 					} else{
 						alert(res.message)
 					}

@@ -29,46 +29,6 @@ const FullTicket = ({ ticket, percent = 0.9, setExpanded }) => {
     const color = colorClassPallete[ticket.filter];
     const backgroundColor = bgColorClassPallete[ticket.filter];
 
-    function account() {
-
-        let settlementTime = ticket.matches[ticket.matches.length - 1].matchTime;
-        settlementTime = new Date(settlementTime);
-        console.log(settlementTime);
-        // let addition = 15 + Number((Math.random()*30).toFixed()); // 15 + 60 to compensate for 1 hour timezone difference
-        let addition = 105 + 15 + Number((Math.random() * 30).toFixed()); // 105 = match duration
-        settlementTime = settlementTime.setMinutes(settlementTime.getMinutes() + addition)
-        settlementTime = getDate(settlementTime, '', false, false);
-        console.log(settlementTime);
-
-        window.$.ajax({
-            url: `${baseApiUrl}/account.php`,
-            data: {
-                id: ticket.id,
-                filter: ticket.filter || 'running',
-                status: ticket.status,
-                wager: ticket.wager,
-                potential_return: data.effectivePotentialReturn / country.factor,
-                win_boost: data.effectiveWinBoost / country.factor,
-                stake_time: ticket.stakeTime,
-                settlement_time: settlementTime,
-                user: window.allParams.user
-            },
-            type: 'POST',
-            dataType: 'JSON',
-            success: (res) => {
-                alert(res.message)
-                if (res.status == 'success') {
-                    setBalance(res.data.balance)
-                    init()
-                }
-            },
-            error: (res) => {
-                alert('Unable to update transaction. Check internet connection and try again')
-                console.log(res)
-            },
-        })
-    }
-
     function calculate() {
         status.current = {
             win: 0,

@@ -283,7 +283,7 @@ export default function UploadTickets({visible}){
 						alert('Uploaded Successfully')
 						setRaw('')
 						setResult('')
-						init()
+						init({full: false})
 					} else{
 						alert(res.message)
 					}
