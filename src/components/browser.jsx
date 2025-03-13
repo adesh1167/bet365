@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useApp } from "../contexts/appContext";
+import './styles/browser.css';
 
 const menu = require('./../assets/menu.png');
 const secured = require('./../assets/secured.png');

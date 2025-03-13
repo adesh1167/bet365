@@ -20,12 +20,13 @@ export default function formatDate(seconds, full=false){
     }
 }
 
-export function highlightDate(seconds, full=false, zone = "+0"){
-  // const now = DateTime.now();
-  // const date = DateTime.fromSeconds(seconds);
+export function highlightDate(dateString, full=false, zone = "+0"){
   
   const now = DateTime.now({zone: `UTC${zone}`});
-  let date = DateTime.fromSeconds(seconds, "yyyy-MM-dd HH:mm:ss", {zone: "UTC+1"});
+  let date = DateTime.fromFormat(dateString, "yyyyMMddHHmmss", {zone: "UTC+0"});
+
+  if (!date.isValid) return("Invalid Date");
+
   date = date.setZone(`UTC${zone}`);
   
   let newDate = {};
@@ -60,6 +61,34 @@ export function highlightDate(seconds, full=false, zone = "+0"){
   }
 
   return newDate
+}
+
+export function featuredDate(dateString, zone = "+0"){
+  
+  let date = DateTime.fromFormat(dateString, "yyyyMMddHHmmss", {zone: "UTC+0"});
+
+  if (!date.isValid) return("Invalid Date");
+
+  date = date.setZone(`UTC${zone}`);
+  
+  let newDate = {};
+
+  return `${date.weekdayShort} ${date.toFormat('dd')} ${date.monthShort}`;
+
+}
+
+export function featuredTime(dateString, zone = "+0"){
+  
+  let date = DateTime.fromFormat(dateString, "yyyyMMddHHmmss", {zone: "UTC+0"});
+
+  if (!date.isValid) return("Invalid Date");
+
+  date = date.setZone(`UTC${zone}`);
+  
+  let newDate = {};
+
+  return `${date.toLocaleString(DateTime.TIME_24_SIMPLE)}`;
+
 }
 
 export function ticketDate(dateString, zone){

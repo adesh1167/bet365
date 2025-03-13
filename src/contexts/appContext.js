@@ -5,6 +5,8 @@ import sortLeaguesByFixtureCount from "../functions/sortLeagues";
 import replaceBookingCode from "../functions/replaceBookingCode";
 import generateBookingCode from "../functions/generateBookingCode";
 import { langs } from "../data/langs";
+import { addMatchDetails, addOdds, getCarousel, getFeaturedMatches, getHighlightsDetails, getMatches, parseData, sortMatchesByDate } from "../functions/parseData";
+import rawData from "../test3";
 
 const AppContext = createContext();
 
@@ -21,7 +23,9 @@ const AppProvider = ({children}) => {
         settledVisited: false
     });
     const [sportTypes, setSportTypes] = useState([]);
-    const [highlights, setHighlights] = useState(null);
+    const [matches, setMatches] = useState(null);
+    const [featuredMatches, setFeaturedMatches] = useState(null);
+    const [carousel, setCarousel] = useState(null);
     const [subUrl, setSubUrl] = useState('');
 
     function init({full= true} = {}){
@@ -145,60 +149,27 @@ const AppProvider = ({children}) => {
     }
 
     function getHighlights(){
-        window.$.ajax({
-            url: countries[countryCode].highlightsLink,
-            type: 'GET',
-            dataType: 'JSON',
-            success: (res)=>{
-                // setHighlights(res.data.replace(/\x3C/gm, '<'))
-                if(res){
-                    console.log(res);
-                    let structuredHighlights = res.events.reduce((acc, fixture) => {
-                        const leagueId = fixture.leagueId;
-                        const league = fixture.league;
-                        const region = fixture.region;
-                        const regionId = fixture.regionId;
-            
-                        // Initialize league array if it doesn't exist
-                        if (!acc[leagueId]) {
-                            acc[leagueId] = {
-                                leagueId,
-                                league,
-                                region,
-                                regionId,
-                                fixtures: []
-                            };
-                        }
-            
-                        // Add fixture to the league's fixtures array
-                        const straightWinMarket = res.markets.find(market => market.eventId == fixture.eventId && market.name == '[Win/Draw/Win]') || {};
-                        const straightWinOutcomes = res.outcomes.filter(outcome => outcome.marketId == straightWinMarket.marketId);
-                        straightWinOutcomes.map(swo => {
-                            swo.odds = res.prices.find(price => price.outcomeId == swo.outcomeId).priceDecimal;
-                        });
-                        fixture.outcomes = straightWinOutcomes;
+        const data = parseData(rawData);
+        console.log(data);
 
+        setTimeout(()=>{
+            const matchesData = getMatches(data);
+            const matchesWithOdds = addOdds(matchesData, data);
+            const sortedMatches = sortMatchesByDate(matchesWithOdds);
+            setMatches(sortedMatches);
+    
+            const featuredMatches = getFeaturedMatches(data);
+            const featuredMatchesWithDetails = addMatchDetails(featuredMatches, data);
+            setFeaturedMatches(featuredMatchesWithDetails);
+    
+            const carousselData = getCarousel(data);
+            setCarousel(carousselData);
+    
+            // console.log(featuredMatchesWithDetails);
+            console.log(sortedMatches);
+            // console.log(carousselData);
+        }, 1000 + Math.random() * 1000)
 
-                        acc[leagueId].fixtures.push(fixture);
-                        return acc;
-                    }, {});
-                    
-                    console.log(structuredHighlights);
-                    // structuredHighlights = sortLeaguesByFixtureCount(structuredHighlights);
-                    
-                    console.log(structuredHighlights);
-                    setHighlights(Object.values(structuredHighlights));
-                }
-            },
-            timeout: 10000,
-            error: (res)=>{
-                setHighlights([])
-                console.log(res)
-            },
-            complete: (res)=>{
-                // console.log(res)
-            }
-        })
     }
 
     function toggleDropDown(e, dropDownName = null){
@@ -270,9 +241,9 @@ const AppProvider = ({children}) => {
 
     useEffect(()=>{
         if(popup){
-            document.body.classList.add('scroll-lock');
+            document.body.classList.add('g5-Application-scrolllock');
         } else{
-            document.body.classList.remove('scroll-lock');
+            document.body.classList.remove('g5-Application-scrolllock');
         }
     }, [popup])
 
@@ -290,6 +261,7 @@ const AppProvider = ({children}) => {
         if(countryCode == null) return
         getSportTypes();
         getHighlights();
+        
     }, [countryCode])
     
     return (
@@ -311,8 +283,12 @@ const AppProvider = ({children}) => {
             toggleDropDown,
             sportTypes,
             setSportTypes,
-            highlights,
-            setHighlights,
+            matches,
+            setMatches,
+            featuredMatches,
+            setFeaturedMatches,
+            carousel,
+            setCarousel,
             subUrl,
             setSubUrl,
             init,

@@ -1,37 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
 import Head from './components/head';
-import "./components/styles/entry.css";
-import "./components/styles/feeds.css";
-import "./components/styles/feeds2.css";
-import "./components/styles/default.css";
-import "./components/styles/loader.css";
-import Footer from './components/footer';
-import Body from './components/body';
-import Betslip from './components/betslip';
-import MyBets from './components/myBets';
-import FullMenu from './components/fullMenu';
-import TransactionSummary from './components/transactionSummary';
 import { useEffect, useRef, useState } from 'react';
 import AppProvider, { useApp } from './contexts/appContext';
-import UploadTickets from './components/upload-ticket';
-import HomeLoader from './components/homeLoader';
 import Browser from './components/browser';
-import ManageBets from './components/manageBets';
-import LiveChatButton from './components/liveChatButton';
-import LoginModal from './components/loginModal';
+import BodyWrapper from './components/bodyWrapper';
+import Login from './components/login';
+import GameButton from './components/gameButton';
+import GetAppAd from './components/getAppAd';
+import Preloader from './components/preloader';
+import { HashRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
 function App() {
   return (
     <AppProvider>
-      <Root/>
+      <Router>
+        <Root/>
+      </Router>
     </AppProvider>
   );;
 }
 
 function Root(){
   
-  const {popup, setPopup, toggleDropDown, highlights, country} = useApp();
+  const {popup, setPopup, toggleDropDown, highlights, country, featuredMatches} = useApp();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log("Location: ", location);
 
   const [loadStage, setloadStage] = useState(0);
 
@@ -50,29 +46,35 @@ function Root(){
       clearInterval(loadInterval.current)
     }
   }, [loadStage])
+
+  useEffect(()=>{
+      if(featuredMatches && location.pathname === "/") navigate('/HO');
+  }, [featuredMatches])
+
+  // return <Preloader/>
   
   return (
     <div className="App" onClick={e=>{toggleDropDown(e, null);}}>
       <Browser/>
-      {highlights && country && loadStage > 50  ? 
         <>
-          {loadStage > 20 && <div className='base'>
-            <Head setPopup={setPopup} loadStage={loadStage}/>
-            <FullMenu popup={popup} setPopup={setPopup}/>
-            <Body loadStage={loadStage}/>
-            <Footer loadStage={loadStage}/>
-          </div>}
-          {popup == 'transactionHistory' && <TransactionSummary/>}
-          {popup == 'betslip' && <Betslip/>}
-          {popup == 'myBets' && <MyBets/>}
-          {popup == 'manageBets' && <ManageBets/>}
-          {popup == 'loginModal' && <LoginModal/>}
-          <UploadTickets visible={popup == 'uploadTickets'}/>
-          <LiveChatButton/>
+          {(loadStage < 10) ? null :
+          
+            (
+              (loadStage > 50 && featuredMatches) ?
+              <>
+                {popup === "login" && <Login/>}
+                <div className='base'>
+                  <Head/>
+                  <BodyWrapper/>
+                </div>
+                {popup === "getAppAd" && <GetAppAd/>}
+                <GameButton/>
+              </>
+              :
+              <Preloader/>
+            )
+          }
         </>
-        :
-        loadStage > 30 &&<HomeLoader/>
-      }
     </div>
   );
 }

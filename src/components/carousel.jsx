@@ -1,102 +1,65 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from 'swiper/modules'
-import "swiper/css";
-import "swiper/css/pagination";
-import { useApp } from "../contexts/appContext";
-import { useEffect, useRef, useState } from "react";
+import { useApp } from "../contexts/appContext"
 
-const Carousel = ({loadStage}) => {
+const Carousel = () => {
 
-    const {country, user} = useApp();
-    const [show, setShow] = useState(false);
+    const {carousel, lang} = useApp();
 
-    useEffect(()=>{
-        setTimeout(()=>{
-            setShow(true);
-        }, 1000)
-    })
-
-    if(!show) return(
-        <div className="aspect-[4.4/1] md:aspect-[4.35/1] relative -mx-2 -mt-2 md:mx-0 md:mt-0">
-            <div
-                className="swiper swiper-product-images swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden"
-                style={{ marginTop: 120 }}
-            >
-                <div
-                className="swiper-wrapper"
-                style={{
-                    transform: "translate3d(-400px, 0px, 0px)",
-                    transitionDuration: "0ms",
-                    transitionDelay: "0ms"
-                }}
-                >
-                    <div
-                        className="swiper-slide swiper-product-slide"
-                        style={{ width: 390, marginRight: 10 }}
-                    >
-                    </div>
-                </div>
-            </div>
-            <div className="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-                
-            </div>
-        </div>
-    )
+    if(!carousel) return null;
 
     return(
-        <div className="aspect-[4.4/1] md:aspect-[4.35/1] relative -mx-2 -mt-2 md:mx-0 md:mt-0">
-            <Swiper
-                modules={[Pagination, Autoplay]}
-                autoplay={{
-                    delay: 5000,
-                    disableOnInteraction: false,
-                }}
-                pagination={{
-                    el: ".swiper-pagination",
-                    type: "bullets",
-                    clickable: true,
-                    
-                }}
-                key={'b'}
-                spaceBetween={10}
-                slidesPerView={1}
-                className="swiper-product-images"
-                loop
-                style={{ marginTop: '120px'}}
-            >
-                {loadStage > 100 && (user ? country.banners : (country.logoutBanners || country.banners))?.map((banner, index) => (
-                    <SwiperSlide
-                        className="swiper-product-slide"
-                        key={index}
-                        // style={{
-                        //     backgroundImage: "url(https://cms1.betwayafrica.com/medialibraries/banners.betwayafrica.com/HTML5Banners/Africa/mobile_placeholder.png)",
-                        //     backgroundSize: "cover",
-                        //     backgroundRepeat: "no-repeat",
-                        //     backgroundPositionY: "-1px"
-                        // }}
-                    >
-                        {/* <img src={banner} className="swiper-product-slide-image" /> */}
-                        <CarouselImage banner={banner}/>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-            {!user && <div className="swiper-pagination"/>}
+        <div className="pl-PodLoaderModule_Pod-49 ">
+            <div className="hpc-HomepageCarouselModule hpc-HomepageCarouselModule-width0 ">
+                <div className="hpc-CarouselScroller ">
+                {/**/}
+                <div className="hpc-CarouselScroller_HScroll ">
+                    <div className="hpc-CarouselScroller_ScrollContent ">
+                        {carousel.map(card =>
+                            <Card data={card}/>    
+                        )}
+
+                    </div>
+                </div>
+                <div className="hpc-CarouselScroller_RightArrow " />
+                </div>
+            </div>
         </div>
     )
 }
 
-const CarouselImage = ({banner}) => {
+const Card = ({data}) => {
 
-    const imageRef = useRef(null);
-    
-    const image = new Image();
-    image.src = banner;
-    
-    image.onload = () => {
-        if(imageRef.current) imageRef.current.src = banner;
-    }
+    const {lang} = useApp();
+
     return(
-        <img ref={imageRef} src="https://cms1.betwayafrica.com/medialibraries/banners.betwayafrica.com/HTML5Banners/Africa/mobile_placeholder.png" className="swiper-product-slide-image" />
+        <div className="hpc-HomepageCarouselModule_Pod">
+            <div>
+                <div className=" oom-OpenOfferModule ">
+                    <div className="oom-OpenOfferBanner ">
+                    <div
+                        className="oom-OpenOfferBanner_BackgroundImage"
+                        style={{
+                            backgroundImage: data.IM ? `url(https://bet365.com/home/images${data.IM})` : `url(https://bet365.com/home/images/Home/Info/${data.IN})`
+                        }}
+                    >
+                        <div className="oom-OpenOfferBanner_HeaderWrapper">
+                        <div className="oom-OpenOfferBanner_MainHeading ">
+                            {data.NA}
+                        </div>
+                        <div className="oom-OpenOfferBanner_WhiteHeading ">
+                            {data.HT}
+                        </div>
+                        {((data.BT && data.LA) || data.LB) && <div className="oom-ActionCTA ">
+                            {data.BT || data.LB}
+                        </div>}
+                        </div>
+                        <div className="oom-Terms ">
+                        {data.ST || data.HU}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 
