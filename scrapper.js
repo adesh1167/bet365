@@ -99,7 +99,7 @@ app.get("/api", async (req, res) => {
 
     try {
         const browser = await puppeteer.launch({
-            headless: "new",
+            headless: false,
             args: ["--no-sandbox", "--disable-setuid-sandbox"]
         });
 
@@ -141,6 +141,90 @@ app.get("/api", async (req, res) => {
         res.status(500).json({ success: false, error: error.message });
     }
 });
+
+app.get("/api2", async (req, res) => {
+    let { url } = req.query;
+
+    url = decodeURIComponent(url);
+
+    if (!url) {
+        return res.status(400).json({ success: false, error: "Missing 'url' parameter" });
+    }
+
+    try {
+        const browser = await puppeteer.launch({
+            headless: false,
+            args: ["--no-sandbox", "--disable-setuid-sandbox"]
+        });
+
+        const page = await browser.newPage();
+        await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+
+        await page.goto(url, { waitUntil: "networkidle2" });
+
+        // Extract entire page content
+        const content = await page.evaluate(() => document.documentElement.outerHTML);
+
+        // await browser.close();
+
+        res.json({ success: true, data: content });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+app.get("/download", async (req, res) => {
+    let { url } = req.query;
+
+    url = decodeURIComponent(url);
+
+    if (!url) {
+        return res.status(400).json({ success: false, error: "Missing 'url' parameter" });
+    }
+
+    try {
+        const browser = await puppeteer.launch({
+            headless: false,
+            args: ["--no-sandbox", "--disable-setuid-sandbox"]
+        });
+
+        const page = await browser.newPage();
+        const downloadPath = path.resolve(__dirname, "downloads");
+
+        // Ensure download directory exists
+        if (!fs.existsSync(downloadPath)) {
+            fs.mkdirSync(downloadPath, { recursive: true });
+        }
+
+        // Set download behavior
+        await page._client().send("Page.setDownloadBehavior", {
+            behavior: "allow",
+            downloadPath: downloadPath,
+        });
+
+        await page.goto(url, { waitUntil: "networkidle2" });
+
+        // Wait for some time to ensure file is downloaded
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+        // Get the downloaded file (assuming there's only one file)
+        const files = fs.readdirSync(downloadPath);
+        if (files.length === 0) {
+            throw new Error("No file was downloaded");
+        }
+
+        const filePath = path.join(downloadPath, files[0]);
+        const fileContent = fs.readFileSync(filePath, "utf8");
+
+        await browser.close();
+
+        // Send the file content as response
+        res.json({ success: true, filename: files[0], data: fileContent });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
 
 // Start server
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
