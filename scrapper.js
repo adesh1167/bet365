@@ -24,7 +24,7 @@ app.get("/scrape", async (req, res) => {
 
     try {
         const browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
             args: ["--no-sandbox", "--disable-setuid-sandbox"]
         });
 
@@ -58,7 +58,7 @@ app.get("/screenshot", async (req, res) => {
 
     try {
         const browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
             args: ["--no-sandbox", "--disable-setuid-sandbox"]
         });
 
@@ -84,7 +84,10 @@ app.get("/screenshot", async (req, res) => {
 
 app.get("/api", async (req, res) => {
 
-    const { url, apiUrl } = req.query;
+    let { url, apiUrl } = req.query;
+
+    url = decodeURIComponent(url);
+    apiUrl = decodeURIComponent(apiUrl);
 
     if (!url) {
         return res.status(400).json({ success: false, error: "Missing 'url' parameter" });
@@ -96,7 +99,7 @@ app.get("/api", async (req, res) => {
 
     try {
         const browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
             args: ["--no-sandbox", "--disable-setuid-sandbox"]
         });
 
