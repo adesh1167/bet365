@@ -27,7 +27,7 @@ function Root(){
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log("Location: ", location);
+  // console.log("Location: ", location);
 
   const [loadStage, setloadStage] = useState(0);
 

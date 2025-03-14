@@ -109,7 +109,8 @@ const Head = () => {
                                 <div className="hm-MainHeaderTabRow_InPlayLabel ">
                                     {lang[button.name]}
                                 </div>
-                            </Link>
+                                {(button.name === "mybets" && true) && <span class="hm-HeaderMenuItemMyBets_MyBetsCount ">2</span>}
+                            </Link  >
                         ))}
                         {/* <div className="hm-MainHeaderTabRow_AllSportsWrapper hm-HeaderMenuItem ">
                             <div className="hm-MainHeaderTabRow_AllSportsLabel ">

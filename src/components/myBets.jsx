@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import LoadingSpinner from "./loadingSpinner";
 import Ticket from "./ticket";
+import { useApp } from "../contexts/appContext";
+import SettledTicket from "./settledTicket";
+import { useLocation } from "react-router-dom";
 
 const buttons = [
     {
@@ -17,13 +20,13 @@ const buttons = [
     },
     {
         name: 'Unsettled',
-        value: 'Open',
+        value: 'open',
         selected: false,
         animate: false,
     },
     {
         name: 'Settled',
-        value: 'Settled',
+        value: 'settled',
         selected: false,
         animate: false,
     },
@@ -38,8 +41,17 @@ const buttons = [
 
 const MyBets = () => {
 
+    const location = useLocation();
+
+    const {loadedTickets, setLoadedTickets} = useApp();
+
     const [selected, setSelected] = useState(0);
     const [loaded, setLoaded] = useState(false);
+
+    const filteredTickets = loadedTickets.tickets.filter(ticket => {
+        if(buttons[selected].value === 'All') return true;
+        return ticket.status === buttons[selected].value || ticket.filter === buttons[selected].value;
+    })
 
     const [highlight, setHighlight] = useState({
         left: 0,
@@ -51,14 +63,30 @@ const MyBets = () => {
 
     useEffect(()=>{
         setTimeout(()=>setLoaded(true), 1000 + Math.random() * 1000);
-        if(!ref.current) return;
+        console.log("Ref: ", ref.current);
+        if(!ref.current) {
+            return;
+        }
         setHighlight({
             left: ref.current.offsetLeft,
             width: ref.current.offsetWidth,
             visible: true
         })
 
-    }, [ref.current])
+
+    }, [ref.current, loaded])
+
+    // window.$.ajax({
+    //     url: "https://www.bet365.com/pullpodapi/gethomepagepods?lid=1&zid=3&pd=%23HO%23COL1%23&cid=141&cstid=2&tcstid=2&crid=54&cgid=1&ctid=141",
+    //     type: "GET",
+    //     // dataType: "json",
+    //     success: function (data) {
+    //         console.log(data);
+    //     },
+    //     error: function (error) {
+    //         console.log(error);
+    //     }
+    // })
 
     function selectTab(e, index){
         setSelected(index)
@@ -67,15 +95,9 @@ const MyBets = () => {
             width: e.target.offsetWidth,
             visible: true
         })
-
-        // setHighlight({
-        //     left: e.clientX,
-        //     width: e.target.offsetWidth,
-        //     visible: true
-        // })
     }
 
-    console.log("Loaded: ", loaded);
+    // console.log("Loaded: ", loaded);
 
     if(!loaded) return <LoadingSpinner/>
     
@@ -109,7 +131,9 @@ const MyBets = () => {
                             >
                                 {true ? 
                                     <div className="myb-BetItemsContainer_Container " >
-                                        <Ticket/>
+                                        {filteredTickets.map((ticket, index) =>
+                                            <SettledTicket key={`${ticket.id}-${index}-${ticket.filter}-${ticket.status}-${ticket.wager}`} ticket={ticket} filter={buttons[selected].value}/>
+                                        )}
                                     </div>
                                     :
                                     <div className="myb-BetItemsContainer_EmptyMessage ">
