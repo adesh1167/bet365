@@ -16,7 +16,7 @@ app.get("/", async (req, res) => {
 
         await page.goto("https://www.bet365.com", { waitUntil: "networkidle2" });
 
-        await page.waitForSelector(".wc-PageView_Main", { timeout: 30000 });
+        await page.waitForSelector("body", { timeout: 30000 });
 
         const content = await page.evaluate(() => {
             const element = document.querySelector("body");
