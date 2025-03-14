@@ -1,7 +1,10 @@
 const puppeteer = require("puppeteer");
 
 (async () => {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({
+        headless: true,  // Run in headless mode for Railway
+        args: ["--no-sandbox", "--disable-setuid-sandbox"]  // Fix permission issues
+    });
     const page = await browser.newPage();
 
     await page.setUserAgent(
