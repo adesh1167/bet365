@@ -2,7 +2,6 @@ const express = require("express");
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const path = require("path");
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -12,8 +11,14 @@ if (!fs.existsSync(screenshotsDir)) {
     fs.mkdirSync(screenshotsDir);
 }
 
-// Scrape Bet365 page content
-app.get("/", async (req, res) => {
+// Scrape page content dynamically
+app.get("/scrape", async (req, res) => {
+    const { url, selector } = req.query;
+
+    if (!url || !selector) {
+        return res.status(400).json({ success: false, error: "Missing 'url' or 'selector' parameter" });
+    }
+
     try {
         const browser = await puppeteer.launch({
             headless: true,
@@ -23,14 +28,14 @@ app.get("/", async (req, res) => {
         const page = await browser.newPage();
         await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
 
-        await page.goto("https://www.bet365.com", { waitUntil: "networkidle2" });
+        await page.goto(url, { waitUntil: "networkidle2" });
 
-        await page.waitForSelector("body", { timeout: 30000 });
+        await page.waitForSelector(selector, { timeout: 30000 });
 
-        const content = await page.evaluate(() => {
-            const element = document.querySelector("body");
+        const content = await page.evaluate((sel) => {
+            const element = document.querySelector(sel);
             return element ? element.innerHTML : "Element not found";
-        });
+        }, selector);
 
         await browser.close();
 
@@ -40,8 +45,14 @@ app.get("/", async (req, res) => {
     }
 });
 
-// Capture a screenshot
+// Capture a screenshot dynamically
 app.get("/screenshot", async (req, res) => {
+    const { url } = req.query;
+
+    if (!url) {
+        return res.status(400).json({ success: false, error: "Missing 'url' parameter" });
+    }
+
     try {
         const browser = await puppeteer.launch({
             headless: true,
@@ -51,9 +62,9 @@ app.get("/screenshot", async (req, res) => {
         const page = await browser.newPage();
         await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
 
-        await page.goto("https://www.bet365.com", { waitUntil: "networkidle2" });
+        await page.goto(url, { waitUntil: "networkidle2" });
 
-        const screenshotPath = path.join(screenshotsDir, "screenshot.png");
+        const screenshotPath = path.join(screenshotsDir, `screenshot-${Date.now()}.png`);
         await page.screenshot({ path: screenshotPath });
 
         await browser.close();
