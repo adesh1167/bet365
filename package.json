@@ -2,6 +2,7 @@
   "name": "puppeteer",
   "version": "1.0.0",
   "main": "index.js",
+  "start": "node scrapper.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
