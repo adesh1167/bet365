@@ -1,29 +1,35 @@
+const express = require("express");
 const puppeteer = require("puppeteer");
 
-(async () => {
-    const browser = await puppeteer.launch({
-        headless: true,  // Run in headless mode for Railway
-        args: ["--no-sandbox", "--disable-setuid-sandbox"]  // Fix permission issues
-    });
-    const page = await browser.newPage();
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-    await page.setUserAgent(
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-    );
+app.get("/", async (req, res) => {
+    try {
+        const browser = await puppeteer.launch({
+            headless: true,
+            args: ["--no-sandbox", "--disable-setuid-sandbox"]
+        });
 
-    // Navigate to Bet365
-    await page.goto("https://www.bet365.com", { waitUntil: "networkidle2" });
+        const page = await browser.newPage();
+        await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
 
-    // Wait for the element to appear in the DOM
-    await page.waitForSelector(".wc-PageView_Main.wc-ResponsiveHomePage_PageViewMain", { timeout: 10000 });
+        await page.goto("https://www.bet365.com", { waitUntil: "networkidle2" });
 
-    // Extract inner HTML of the element
-    const content = await page.evaluate(() => {
-        const element = document.querySelector(".wc-PageView_Main.wc-ResponsiveHomePage_PageViewMain");
-        return element ? element.innerHTML : "Element not found";
-    });
+        await page.waitForSelector(".wc-PageView_Main", { timeout: 30000 });
 
-    console.log("Extracted HTML:", content);
+        const content = await page.evaluate(() => {
+            const element = document.querySelector("body");
+            return element ? element.innerHTML : "Element not found";
+        });
 
-    await browser.close();
-})();
+        await browser.close();
+
+        res.json({ success: true, data: content });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+// Start server
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
