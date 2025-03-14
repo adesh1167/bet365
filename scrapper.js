@@ -82,5 +82,62 @@ app.get("/screenshot", async (req, res) => {
     }
 });
 
+app.get("/api", async (req, res) => {
+
+    const { url, apiUrl } = req.query;
+
+    if (!url) {
+        return res.status(400).json({ success: false, error: "Missing 'url' parameter" });
+    }
+
+    if (!apiUrl) {
+        return res.status(400).json({ success: false, error: "Missing 'apiUrl' parameter" });
+    }
+
+    try {
+        const browser = await puppeteer.launch({
+            headless: true,
+            args: ["--no-sandbox", "--disable-setuid-sandbox"]
+        });
+
+        const page = await browser.newPage();
+        await page.setUserAgent(
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        );
+
+        await page.goto(url, { waitUntil: "networkidle2" });
+
+        // Wait for cookies to be set
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+        // Extract cookies
+        const cookies = await page.cookies();
+        let cookieString = cookies.map(cookie => `${cookie.name}=${cookie.value}`).join("; ");
+
+        console.log("Extracted Cookies:", cookieString);
+
+        // Make API request with extracted cookies
+
+        const response = await page.evaluate(async (apiUrl, cookieString) => {
+            const res = await fetch(apiUrl, {
+                headers: {
+                    "User-Agent": navigator.userAgent,
+                    "Referer": "https://www.bet365.com/",
+                    "Cookie": cookieString,
+                },
+            });
+            return res.text();
+        }, apiUrl, cookieString);
+
+        console.log("API Response:", response);
+
+        await browser.close();
+
+        res.json({ success: true, cookies: cookieString, apiResponse: response });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
 // Start server
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
