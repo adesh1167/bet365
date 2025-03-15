@@ -23,7 +23,7 @@ const buttons = [
 
 const Head = () => {
 
-    const { lang, setPopup, popup, user } = useApp();
+    const { lang, setPopup, popup, user, loadStage } = useApp();
 
     const location = useLocation();
 
@@ -99,19 +99,23 @@ const Head = () => {
                     </div>
 
                     <div className="hm-MainHeaderTabRow ">
-                        {buttons.map((button, index) => (
-                            <Link
-                                to={button.link}
-                                key={index}
-                                className={`hm-MainHeaderTabRow_AllSportsWrapper hm-HeaderMenuItem ${location.pathname === button.link ? "hm-HeaderMenuItem_LinkSelected hm-HeaderMenuItem_LinkSelected-underscore" : ""}`
-                                
-                            }>
-                                <div className="hm-MainHeaderTabRow_InPlayLabel ">
-                                    {lang[button.name]}
-                                </div>
-                                {(button.name === "mybets" && true) && <span class="hm-HeaderMenuItemMyBets_MyBetsCount ">2</span>}
-                            </Link  >
-                        ))}
+                        {buttons.map((button, index) => {
+                            if(!user && button.name === "mybets" || button.name === "mybets" && loadStage < 50) return null
+
+                            return (
+                                <Link
+                                    to={button.link}
+                                    key={index}
+                                    className={`hm-MainHeaderTabRow_AllSportsWrapper hm-HeaderMenuItem ${location.pathname === button.link ? "hm-HeaderMenuItem_LinkSelected hm-HeaderMenuItem_LinkSelected-underscore" : ""}`
+                                    
+                                }>
+                                    <div className="hm-MainHeaderTabRow_InPlayLabel ">
+                                        {lang[button.name]}
+                                    </div>
+                                    {(button.name === "mybets" && true) && <span class="hm-HeaderMenuItemMyBets_MyBetsCount ">2</span>}
+                                </Link  >
+                            )
+                        })}
                         {/* <div className="hm-MainHeaderTabRow_AllSportsWrapper hm-HeaderMenuItem ">
                             <div className="hm-MainHeaderTabRow_AllSportsLabel ">
                                 {lang["allsports"]}
