@@ -11,30 +11,37 @@ const buttons = [
         value: 'Cash Out',
         selected: true,
         animate: true,
+        emptyText: "Bets that can be fully or partially cashed out appear here"
     },
     {
         name: 'Live Now',
         value: 'Running',
         selected: false,
         animate: false,
+        emptyText: "Bets that are In-Play will appear here"
     },
     {
         name: 'Unsettled',
         value: 'open',
         selected: false,
         animate: false,
+        emptyText: "Bets that are unsettled will appear here"
     },
     {
         name: 'Settled',
         value: 'settled',
         selected: false,
         animate: false,
+        emptyText: "Bets that are settled will appear here for 24 hours",
+        emptyTextLink: "View older settled bets in your Account History"
     },
     {
         name: 'All',
         value: 'All',
         selected: false,
         animate: false,
+        emptyText: "Bets appear here for 24 hours",
+        emptyTextLink: "Older bets can be viewed in your Account History"
     }
 ]
 
@@ -129,7 +136,7 @@ const MyBets = () => {
                                 className="myb-BetItemsContainer "
                                 style={{ minHeight: "calc(-135px + 100vh)" }}
                             >
-                                {true ? 
+                                {filteredTickets.length ? 
                                     <div className="myb-BetItemsContainer_Container " >
                                         {filteredTickets.map((ticket, index) =>
                                             <SettledTicket key={`${ticket.id}-${index}-${ticket.filter}-${ticket.status}-${ticket.wager}`} ticket={ticket} filter={buttons[selected].value}/>
@@ -141,8 +148,11 @@ const MyBets = () => {
                                             There are currently no bets to display
                                         </div>
                                         <div className="myb-BetItemsContainer_NoBetsMessageLineTwo ">
-                                            Bets that can be fully or partially cashed out appear here
+                                            {buttons[selected].emptyText}
                                         </div>
+                                        {buttons[selected].emptyTextLink &&<div className="myb-MembersLink">
+                                            {buttons[selected].emptyTextLink}
+                                        </div>}
                                     </div>
                                 }
                             </div>
