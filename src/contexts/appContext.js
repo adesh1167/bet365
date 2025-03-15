@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { baseApiUrl } from "../data/url";
 import { countries } from "../data/countries";
 import sortLeaguesByFixtureCount from "../functions/sortLeagues";
@@ -11,6 +11,7 @@ import rawData from "../test3";
 const AppContext = createContext();
 
 const AppProvider = ({children}) => {
+    const [loadStage, setLoadStage] = useState(0);
     const [user, setUser] = useState(null);
     const [balance, setBalance] = useState(0);
     const [popup, setPopup] = useState(null);
@@ -27,6 +28,9 @@ const AppProvider = ({children}) => {
     const [featuredMatches, setFeaturedMatches] = useState(null);
     const [carousel, setCarousel] = useState(null);
     const [subUrl, setSubUrl] = useState('');
+
+    const loadInterval = useRef(null);
+
 
     function init({full= true} = {}){
     
@@ -235,8 +239,24 @@ const AppProvider = ({children}) => {
             init();
             localStorage.setItem('user', user);
         } else{
+            setPopup(null);
             localStorage.removeItem('user');
         }
+
+        setLoadStage(0);
+
+        loadInterval.current = setInterval(()=>{
+            setLoadStage(prevLoadStage => {
+                if(prevLoadStage >= 125){
+                    clearInterval(loadInterval.current)
+                }
+
+                return prevLoadStage + 2
+            });
+        }, 100)
+    
+        return () => clearInterval(loadInterval.current);
+        
     }, [user])
 
     useEffect(()=>{
@@ -292,6 +312,7 @@ const AppProvider = ({children}) => {
             subUrl,
             setSubUrl,
             init,
+            loadStage,
             lang: langs[countries[countryCode]?.lang || "en-US"],
             logout
         }}>

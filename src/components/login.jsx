@@ -20,7 +20,7 @@ const Login = () => {
     
     function login(){
         const data = {
-            username: `${form.username.trim()}`,
+            number: `${form.username.trim()}`,
             password: form.password.trim()
         }
         window.$.ajax({
@@ -33,7 +33,7 @@ const Login = () => {
                 setError(null);
             },
             success: res => {
-                // console.log(res);
+                console.log(res);
                 if(res.status == "success"){
                     setUser(res.user);
                     setPopup(null);
@@ -57,7 +57,7 @@ const Login = () => {
 
     return(
         <div className="lms-LoginModule ">
-            <div className="lms-StandardLogin lms-StandardLogin_CurrentSize-0 lms-StandardLogin_Show lms-StandardLogin_MaskHeader ">
+            <div className={`lms-StandardLogin lms-StandardLogin_CurrentSize-0 lms-StandardLogin_Show lms-StandardLogin_MaskHeader ${error ? "lms-StandardLogin_LoginFails" : ""}`}>
                 <div className="lms-StandardLogin_Overlay " style={{ top: 146 }} /> 
                 {/* Edited from 90 */}
                 <div className="lms-StandardLogin_Mask " style={{ top: 90 }} onClick={()=>setPopup(null)} />
@@ -124,10 +124,20 @@ const Login = () => {
                         />
                     }
                     </div>
-                    {/**/}
-                    {/**/}
-                    {/**/}
-                    {/**/}
+                    {error &&
+                        <div className="lmd-LoginModuleDefault_FailedLogin ">
+                            <div className="lmd-LoginModuleDefault_FailedLoginHeader ">
+                                Your details weren't recognised
+                            </div>
+                            <div className="lmd-LoginModuleDefault_FailedLoginPasswordCaseSensitive ">
+                                Passwords are case sensitive.
+                            </div>
+                            <div className="lmd-LoginModuleDefault_FailedLoginAccountLock ">
+                                Your account will become locked after three failed login attempts.
+                            </div>
+                        </div>
+
+                    }
                     <div className="ll-Checkbox ">
                     <div className="ll-Checkbox_Container ">
                         <span 
@@ -140,9 +150,20 @@ const Login = () => {
                         <label className="ll-Checkbox_Text ">Keep me Logged in</label>
                     </div>
                     </div>
-                    <div className="lms-LoginButton ">
-                    <div className="lms-LoginButton_Text ">Log In</div>
-                    </div>
+                    {submitting ? 
+                        <div className="lms-LoginButton ">
+                        <div className="lms-LoginButton_Text ">
+                            Logging in
+                            <div className="lms-LoginButton_Spinner " />
+                        </div>
+                        </div>
+                        :
+                        <div className="lms-LoginButton " onClick={login}>
+                            <div className="lms-LoginButton_Text ">
+                                Log In
+                            </div>
+                        </div>
+                    }
                     <div className="lms-StandardLogin_AdditionalContainer ">
                     <div className="lms-StandardLogin_JoinNow ">Join Now</div>
                     <div className="lms-LostLogin ">Having trouble logging in?</div>

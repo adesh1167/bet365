@@ -2,7 +2,7 @@ import { useApp } from "../contexts/appContext";
 
 const Profile = () => {
 
-    const {setPopup} = useApp();
+    const {setPopup, logout} = useApp();
 
     return(
         <>
@@ -391,7 +391,7 @@ const Profile = () => {
                                 <div className="ul-MembersLinkButton_Text ">Help</div>
                             </div>
                             </div>
-                            <div className="um-GeneralTab_LogoutOption ">
+                            <div className="um-GeneralTab_LogoutOption " onClick={logout}>
                             <div className="ul-MembersLinkButton-wide ul-MembersLinkButton ul-MembersLinkButton_LogoutOption ">
                                 <div className="ul-MembersLinkButton_Text ">Log Out</div>
                             </div>

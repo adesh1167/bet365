@@ -23,7 +23,7 @@ const buttons = [
 
 const Head = () => {
 
-    const { lang, setPopup, popup } = useApp();
+    const { lang, setPopup, popup, user } = useApp();
 
     const location = useLocation();
 
@@ -77,7 +77,7 @@ const Head = () => {
                         <div className="hm-MainHeaderLogoNarrow hm-HeaderMenuItem_LinkSelected hm-HeaderMenuItem_LinkSelected-underscore ">
                             <div className="hm-MainHeaderLogoNarrow_Bet365LogoImage hm-MainHeaderLogoNarrow-width-0 " />
                         </div>
-                        {true ? 
+                        {user ? 
                             <div className="hm-MainHeaderRHSLoggedInNarrow ">
                                 <div className="hm-MainHeaderMembersNarrow ">
                                 <div onClick={() => setPopup("profile")} className="hm-MainHeaderMembersNarrow_MembersWrapper ">

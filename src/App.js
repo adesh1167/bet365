@@ -22,30 +22,12 @@ function App() {
 
 function Root(){
   
-  const {popup, setPopup, toggleDropDown, highlights, country, featuredMatches} = useApp();
+  const {popup, setPopup, toggleDropDown, highlights, country, featuredMatches, loadStage, setloadStage} = useApp();
 
   const navigate = useNavigate();
   const location = useLocation();
 
   // console.log("Location: ", location);
-
-  const [loadStage, setloadStage] = useState(0);
-
-  const loadInterval = useRef(null);
-
-  useEffect(()=>{
-    loadInterval.current = setInterval(()=>{
-      setloadStage(prevLoadStage => prevLoadStage + 2);
-    }, 100)
-
-    return () => clearInterval(loadInterval.current);
-  },[])
-
-  useEffect(()=>{
-    if(loadStage >= 125){
-      clearInterval(loadInterval.current)
-    }
-  }, [loadStage])
 
   useEffect(()=>{
       if(featuredMatches && location.pathname === "/") navigate('/HO');
