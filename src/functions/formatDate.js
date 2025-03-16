@@ -135,24 +135,32 @@ export function transactionDate(dateString, zone){
   }
 }
 
-export function matchDate(dateString, zone){
+export function matchDate(dateString, zone = "+1"){
   dateString = dateString.trim();
   const now = DateTime.now({zone: `UTC${zone}`});
   let date = DateTime.fromFormat(dateString, "yyyy-MM-dd HH:mm", {zone: "UTC+1"});
   date = date.setZone(`UTC${zone}`);
 
-  if (date.hasSame(now, 'day')) {
-    return "Today " + date.toLocaleString(DateTime.TIME_24_SIMPLE);
-  } else if (date.plus({ days: 1 }).hasSame(now, 'day')) {
-  //   return `Yesterday ${date.toLocaleString(DateTime.TIME_SIMPLE)}`;
-    return "Yesterday " + date.toLocaleString(DateTime.TIME_24_SIMPLE);
-  } else if (date.minus({ days: 1 }).hasSame(now, 'day')) {
-  //   return `Yesterday ${date.toLocaleString(DateTime.TIME_SIMPLE)}`;
-    return "Tomorrow " + date.toLocaleString(DateTime.TIME_24_SIMPLE);
-  } else if (date.hasSame(now, 'year')) {
-    return date.toFormat("MMM dd - HH:mm");
-  } else {
+  // if (date.hasSame(now, 'day')) {
+  //   return "Today " + date.toLocaleString(DateTime.TIME_24_SIMPLE);
+  // } else if (date.plus({ days: 1 }).hasSame(now, 'day')) {
+  // //   return `Yesterday ${date.toLocaleString(DateTime.TIME_SIMPLE)}`;
+  //   return "Yesterday " + date.toLocaleString(DateTime.TIME_24_SIMPLE);
+  // } else if (date.minus({ days: 1 }).hasSame(now, 'day')) {
+  // //   return `Yesterday ${date.toLocaleString(DateTime.TIME_SIMPLE)}`;
+  //   return "Tomorrow " + date.toLocaleString(DateTime.TIME_24_SIMPLE);
+  // } else if (date.hasSame(now, 'year')) {
+  //   return date.toFormat("MMM dd - HH:mm");
+  // } else {
     // Otherwise, show just the date
-    return date.toLocaleString(DateTime.DATE_MED);
-  }
+    // return date.toLocaleString(DateTime.DATE_MED);
+
+    const newDate = {
+      date: date.weekdayShort + " " + date.toFormat("dd MMM"),
+      time: date.toLocaleString(DateTime.TIME_24_SIMPLE)
+    }
+
+    console.log(date, newDate);
+    return newDate
+  // }
 }

@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { useApp } from "../contexts/appContext";
 
 const Profile = () => {
 
     const {setPopup, logout} = useApp();
+    const navigate = useNavigate();
 
     return(
         <>
@@ -309,7 +311,7 @@ const Profile = () => {
                                 </div>
                                 <div className="ul-MembersLinkButton_Text ">My Activity</div>
                             </div>
-                            <div className="ul-MembersLinkButton ">
+                            <div className="ul-MembersLinkButton " onClick={()=>navigate("/ME")}>
                                 <div className="ul-MembersLinkButton_Icon ">
                                 <svg
                                     className="ul-MembersLinkButton_Svg"

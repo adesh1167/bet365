@@ -1,20 +1,27 @@
 import React from 'react'
 import formatNumber from '../functions/formatNumber';
+import { matchDate } from '../functions/formatDate';
+import { useApp } from '../contexts/appContext';
 
-const Ticket = ({ticket}) => {
+const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 1}) => {
 
-    console.log(ticket);
+    const { country, lang } = useApp();
+    console.log(ticket, data);
     
     return (
-        <div className="myb-OpenBetItem myb-OpenBetItem_DefaultOpen ">
+        <div className={`myb-OpenBetItem ${expanded ? "myb-OpenBetItem_Open" : "myb-OpenBetItem_Collapsed"}`}>
             <div className="myb-OpenBetItem_Header myb-OpenBetItem_HeaderTitle ">
                 <div className="myb-OpenBetItem_HeaderTextContainer ">
-                    <div className="myb-OpenBetItem_StakeDesc ">4 x $0.30 7 Folds</div>
+                    <div className="myb-OpenBetItem_StakeDesc ">
+                        {country.currency}{data.wager} {lang[`${ticket.matches.length}Fold`]}
+                    </div>
                     <div className="myb-OpenBetItem_HeaderText Hidden " />
                     <div className="myb-OpenBetItem_SubHeaderText ">
+                        {ticket.matches.map(match => match.userSelection).join(", ")}
+{/*                        
                         Fenerbahce 3-2, Lazio &amp; No, Man Utd v Real Sociedad, Over 2.5, Roma,
                         Lyon, Draw - Athletic Bilbao, Eintracht Frankfurt, Draw, Roma to win by
-                        1 goal
+                        1 goal */}
                     </div>
                 </div>
                 <div className="myb-OpenBetItem_HeaderControlsWrapper " />
@@ -56,7 +63,7 @@ const Ticket = ({ticket}) => {
                     <div className="myb-OpenBetItemInnerView_BetInformation ">
                         <div className="myb-OpenBetItemInnerView_StakeInformationWrapper myd-StakeDisplay ">
                             <div className="myd-StakeDisplay_Title">Stake</div>
-                            <div className="myd-StakeDisplay_StakeWrapper">$1.20</div>
+                            <div className="myd-StakeDisplay_StakeWrapper">{country.currency}{formatNumber(data.wager, country.hasComma, country.lang)}0</div>
                         </div>
                         <div className="myb-OpenBetItemInnerView_BetInformationWrapper ">
                             <div className="myb-OpenBetItemInnerView_BetInformationLabel ">
@@ -66,7 +73,7 @@ const Ticket = ({ticket}) => {
                                 <div className="myb-OpenBetItemInnerView_BonusAndReturnContainer ">
                                     <div className="myb-OpenBetItemInnerView_ReturnTextWrapper ">
                                         <div className="myb-OpenBetItemInnerView_BetInformationText ">
-                                            $2,312.72
+                                            {country.currency}{formatNumber(data.potentialReturn, country.hasComma, country.lang)}
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +87,7 @@ const Ticket = ({ticket}) => {
                                     <div className="myb-CloseBetButtonBase_Centre ">
                                         <div className="myb-CloseBetButtonBase_TextReturnWrapper">
                                             <div className="myb-CloseBetButtonBase_Text ">Cash Out</div>
-                                            <div className="myb-CloseBetButtonBase_Return ">$1.20</div>
+                                            <div className="myb-CloseBetButtonBase_Return ">{country.currency} {formatNumber(data.cashout, country.hasComma, country.lang)}</div>
                                         </div>
                                     </div>
                                     <div className="myb-CloseBetButtonBase_Spacer Hidden " />
@@ -146,7 +153,7 @@ const Match = ({match}) => {
                             </div>
                             <div className="myb-BetParticipant_FixtureStartTime ">
                                 {" "}
-                                Thu 13 Mar
+                                {matchDate(match.matchTime).date}
                             </div>
                         </div>
                         <div className="myb-BetParticipant_Team2Container ">
@@ -161,7 +168,7 @@ const Match = ({match}) => {
                                 {match.away}
                             </div>
                             <div className="myb-BetParticipant_FixtureStartTime2 ">
-                                21:00
+                                {matchDate(match.matchTime).time}
                             </div>
                         </div>
                     </div>
@@ -171,4 +178,4 @@ const Match = ({match}) => {
     )
 }
 
-export default Ticket
+export default OpenTicket

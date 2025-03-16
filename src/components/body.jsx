@@ -332,7 +332,7 @@ const Body = () => {
                         <div
                         ref={contentRef}
                         className="hsn-HomepageStickyNavModule_ScrollerContainer"
-                        style={{ width: 390, top: 146 }}
+                        style={{ width: "100%", top: 146 }}
                         >
                         <div className="hsn-Scroller ">
                             {/**/}
