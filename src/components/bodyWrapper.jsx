@@ -14,6 +14,7 @@ const BodyWrapper = () => {
                 <Routes>
                     <Route path="/" element={<HomePage/>}/>
                     <Route path="/HO" element={<HomePage/>}/>
+                    <Route path="/AZ" element={<HomePage/>}/>
                     <Route path="/MB" element={user ? <MyBets/> : <Navigate to="/HO"/>}/>
                     <Route path="/ME" element={user ? <HomePage/> : <Navigate to="/HO"/>}/>
                     <Route path="/ME/X8020" element={user ? <History/> : <Navigate to="/HO"/>}>

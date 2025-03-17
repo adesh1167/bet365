@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useApp } from "../contexts/appContext";
 import Profile from "./profile";
+import HeadOverlay from "./headOverlay";
 
 const buttons = [
     {
@@ -116,32 +117,10 @@ const Head = () => {
                                 </Link  >
                             )
                         })}
-                        {/* <div className="hm-MainHeaderTabRow_AllSportsWrapper hm-HeaderMenuItem ">
-                            <div className="hm-MainHeaderTabRow_AllSportsLabel ">
-                                {lang["allsports"]}
-                            </div>
-                        </div>
-                        <div className="hm-MainHeaderTabRow_InPlayWrapper hm-HeaderMenuItem ">
-                            <div className="hm-MainHeaderTabRow_InPlayLabel ">
-                                {lang["inplay"]}
-                            </div>
-                        </div>
-                        {true &&
-                            <div className="hm-MainHeaderTabRow_MyBetsWrapper hm-HeaderMenuItemMyBets hm-HeaderMenuItemMyBets_WidthState-1 hm-HeaderMenuItem_LinkSelected hm-HeaderMenuItem_LinkSelected-underscore">
-                                <div className="hm-MainHeaderTabRow_InPlayLabel ">
-                                    {lang["mybets"]}
-                                </div>
-                            </div>
-                        }
-                        <div className="hm-MainHeaderNarrow_Indicator " style={{width: "59.75px", transform: "translateX(-302.125px)"}}/>
-                        <div className="hm-MainHeaderTabRow_CasinoWrapper hm-HeaderMenuItem hm-HeaderMenuItem-casinoselector ">
-                            <div className="hm-MainHeaderTabRow_CasinoLabel ">
-                                {lang["Casino"]}
-                            </div>
-                        </div> */}
                     </div>
                 </div>
             </div>
+            {popup && <HeadOverlay/>}
         </div>
 
     )

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useApp } from "../contexts/appContext";
 import { baseApiUrl } from "../data/url";
+import HeadOverlay from "./headOverlay";
 
 const Login = () => {
 
@@ -58,7 +59,8 @@ const Login = () => {
     return(
         <div className="lms-LoginModule ">
             <div className={`lms-StandardLogin lms-StandardLogin_CurrentSize-0 lms-StandardLogin_Show lms-StandardLogin_MaskHeader ${error ? "lms-StandardLogin_LoginFails" : ""}`}>
-                <div className="lms-StandardLogin_Overlay " style={{ top: 146 }} /> 
+                <div className="lms-StandardLogin_Overlay " style={{ top: 146 }} />
+                <HeadOverlay/>
                 {/* Edited from 90 */}
                 <div className="lms-StandardLogin_Mask " style={{ top: 90 }} onClick={()=>setPopup(null)} />
                 <div
