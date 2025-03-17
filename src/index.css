@@ -257,7 +257,7 @@ a.hm-HeaderMenuItem{
   text-decoration: none !important;
 }
 
-.myb-SettledBetItemInnerView{
+.myb-SettledBetItemInnerView, .myb-OpenBetItemInnerView{
   overflow: hidden;
   transition: 0.15s all linear;
 }

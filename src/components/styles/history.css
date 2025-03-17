@@ -1,4 +1,4 @@
-`.g5-Application {
+.g5-Application {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -302,6 +302,10 @@ html.wc-WebConsoleModule-loadediniframe::-webkit-scrollbar {
     -webkit-box-flex: 0;
     -webkit-flex: 0 1 530px;
     -ms-flex: 0 1 530px;
+
+    /* Edited */
+    position: absolute;
+
     flex: 0 1 530px;
     width: 100%
 }
@@ -332,6 +336,13 @@ html.wc-WebConsoleModule-loadediniframe::-webkit-scrollbar {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1
+}
+
+.wc-PageView_NavigationMenu{
+    align-items: flex-start;
+    display: flex;
+    width: 100%;
+    /* opacity: 0.3; */
 }
 
 .wc-PageView-menuopentransition .wc-PageView_NavigationMenu {
@@ -5065,7 +5076,7 @@ html.wc-WebConsoleModule-loadediniframe::-webkit-scrollbar {
     font-size: 12px;
     padding-left: 12px;
     position: relative;
-    whitespace: pre-wrap
+    white-space: pre-wrap;
 }
 
 .npl-Popunder_ListItem.npl-Popunder_ListItem-adviceText {
@@ -8409,7 +8420,7 @@ html.wc-WebConsoleModule-loadediniframe::-webkit-scrollbar {
 }
 
 .hsc-HistoryRangeScroller-app .hsc-HistoryRangeButton {
-    font-color: #282828;
+    color: #282828;
     font-size: 14px;
     line-height: 33px
 }
@@ -8831,13 +8842,17 @@ html.wc-WebConsoleModule-loadediniframe::-webkit-scrollbar {
 
 .nm-MenuHeader_Text {
     opacity: 0;
-    padding-right: 19px
+    padding-right: 19px;
+    -webkit-transition: opacity .35s;
+    transition: opacity .35s;
+    /* transition-delay: .2s; */
 }
 
 .nm-NavigationMenuModule-opennarrowview .nm-MenuHeader_Text {
     opacity: 1;
-    -webkit-transition: opacity .35s;
-    transition: opacity .35s
+    -webkit-transition: opacity 0.35s;
+    transition: opacity 0.35s;
+    /* transition-delay: .2s; */
 }
 
 .nm-NavigationMenuModule-static .nm-MenuHeader_Text {
@@ -9019,7 +9034,11 @@ html.wc-WebConsoleModule-loadediniframe::-webkit-scrollbar {
 .nm-MenuItems {
     padding-left: 15px;
     padding-right: 20px;
-    position: relative
+    position: relative;
+    -webkit-transition: -webkit-transform .35s;
+    transition: -webkit-transform .35s;
+    transition: transform .35s;
+    transition: transform .35s, -webkit-transform .35s;
 }
 
 .nm-NavigationMenuModule-opennarrowview .nm-MenuItems {
@@ -9027,8 +9046,8 @@ html.wc-WebConsoleModule-loadediniframe::-webkit-scrollbar {
     transition: -webkit-transform .35s;
     transition: transform .35s;
     transition: transform .35s, -webkit-transform .35s;
-    -webkit-transform: translate(0);
-    transform: translate(0)
+    /* -webkit-transform: translate(0);
+    transform: translate(0) */
 }
 
 .nm-NavigationMenuModule-static .nm-MenuItems {

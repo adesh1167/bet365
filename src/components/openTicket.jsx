@@ -10,7 +10,7 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
     
     return (
         <div className={`myb-OpenBetItem ${expanded ? "myb-OpenBetItem_Open" : "myb-OpenBetItem_Collapsed"}`}>
-            <div className="myb-OpenBetItem_Header myb-OpenBetItem_HeaderTitle ">
+            <div className="myb-OpenBetItem_Header myb-OpenBetItem_HeaderTitle "  onClick={toggleExpand}>
                 <div className="myb-OpenBetItem_HeaderTextContainer ">
                     <div className="myb-OpenBetItem_StakeDesc ">
                         {country.currency}{data.wager} {lang[`${ticket.matches.length}Fold`]}
@@ -44,7 +44,7 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
             <div className="Hidden myb-MessageSubHeader ">
                 Edit Bet is no longer available
             </div>
-            <div className="myb-OpenBetItemInnerView " style={{}}>
+            <div className={`myb-OpenBetItemInnerView ${hidden ? "Hidden" : ""}`} style={{ maxHeight: expanded ? `${height}px` : "0px" }}>
                 <div className="myb-OpenBetItemInnerView_Details ">
                     <div className="myb-OpenBetItemInnerView_ParticipantContainer ">
                         {ticket.matches.map((match, index) =>

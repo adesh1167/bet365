@@ -21,10 +21,10 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                         {ticket.matches.map(match => match.userSelection).join(", ")}
                     </div>
                 </div>
-                {(ticket.filter && !expanded) && <div className="myb-SettledBetItem_BetStateContainer ">
+                {(ticket.filter) && <div className="myb-SettledBetItem_BetStateContainer ">
                     <div className="myb-SettledBetItem_BetStateWrapper">
-                        <div className="myb-SettledBetItem_BetReturnLabel ">{country.currency}{formatNumber(data.potentialReturn, country.hasComma, country.lang)}</div>
-                        <div className="myb-SettledBetItem_BetStateLabel ">{ticket.filter}</div>
+                        {ticket.filter !== "Loss" && <div className="myb-SettledBetItem_BetReturnLabel ">{country.currency}{formatNumber(data.potentialReturn, country.hasComma, country.lang)}</div>}
+                        <div className="myb-SettledBetItem_BetStateLabel ">{ticket.filter === "Loss" ? 'Loss' : "Returned"}</div>
                     </div>
                 </div>}
             </div>
@@ -64,6 +64,57 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                             <div className="myb-SettledBetItemFooter_SettledButtonWrapper ">
                                 <div className="myb-SettledBetItemFooter_SettledButton ">
                                     <div className={`myb-SettledBetItemFooter_SettledButtonTextWrapper myb-SettledBetItemFooter_SettledButtonTextWrapper${ticket.filter === "Loss" ? "-lost" : ""}`}>
+                                        {ticket.filter === "Win" &&
+                                            <div className="myb-SettledBetItemFooter_Tick myb-TickWithBorder ">
+                                            <div className="myb-TickWithBorder_Tick ">
+                                              <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="10.608"
+                                                height={9}
+                                                viewBox="0 0 10.608 9"
+                                              >
+                                                <polygon
+                                                  fill="#222"
+                                                  className="myb-TickWithBorder_TickFill"
+                                                  fillRule="evenodd"
+                                                  points="0 4.5 1.515 3 4.354 6 9.164 0 10.608 1.5 4.354 9"
+                                                />
+                                              </svg>
+                                            </div>
+                                            <div className="myb-TickWithBorder_Border ">
+                                              <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 21 21"
+                                                width={21}
+                                                height={21}
+                                                className="myb-TickWithBorder_BorderSvg"
+                                                transform="translate(-1 0)"
+                                              >
+                                                <circle
+                                                  className="myb-TickWithBorder_BorderSvgPositive"
+                                                  stroke="#58D7AF"
+                                                  strokeWidth={2}
+                                                  fill="none"
+                                                  cx="10.5"
+                                                  cy="10.5"
+                                                  r="9.5"
+                                                />
+                                                <circle
+                                                  className="myb-TickWithBorder_BorderSvgNegative"
+                                                  stroke="#383838"
+                                                  strokeWidth={2}
+                                                  strokeDasharray="10,100"
+                                                  strokeLinecap="round"
+                                                  fill="none"
+                                                  cx="10.5"
+                                                  cy="10.5"
+                                                  r="9.5"
+                                                />
+                                              </svg>
+                                            </div>
+                                          </div>
+                                          
+                                        }
                                         <div className={`myb-SettledBetItemFooter_SettledButtonReturnText myb-SettledBetItemFooter_SettledButtonReturnText${ticket.filter === "Loss" ? "-lost" : ""}`}>
                                             {country.currency}{formatNumber(data.isLost ? 0 : data.effectivePotentialReturn, country.hasComma, country.lang)}
                                         </div>

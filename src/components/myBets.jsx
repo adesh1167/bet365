@@ -143,6 +143,13 @@ const MyBets = () => {
                                         {filteredTickets.map((ticket, index) =>
                                             <TicketWrapper type={ticket.status} key={`${ticket.id}-${index}-${ticket.filter}-${ticket.status}-${ticket.wager}`} ticket={ticket} filter={buttons[selected].value}/>
                                         )}
+                                        {buttons[selected].value === "settled" &&
+                                            <div className="myb-ViewOlderBets ">
+                                                <div className="myb-ViewOlderBets_Label ">
+                                                    View older settled bets in your Account History
+                                                </div>
+                                            </div>
+                                        }
                                     </div>
                                     :
                                     <div className="myb-BetItemsContainer_EmptyMessage ">
