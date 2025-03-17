@@ -3250,7 +3250,8 @@ svg {
 .wc-Spinner_Container {
     width: 45px;
     height: 45px;
-    left: 50%;
+    /* Edited */
+    left: calc(50% - 22.5px);
     z-index: 99;
     border: 2px solid var(--color-white20p);
     border-radius: 50%;
@@ -51285,6 +51286,3527 @@ body {
 }
 
 /* ... */
+
+.h-ConfirmationFreeBetIndicator_TickIcon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23333' d='M7.288 0L8 .543 3.189 6 0 3.699l.564-.676 2.481 1.789z'/%3E%3C/svg%3E")
+}
+
+.h-BetConfirmationEditHistorySection_Chevron {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath fill='%23474747' fill-rule='evenodd' d='M12 .784L11.243 0 6 5.431.757 0 0 .784l5.243 5.432L6 7l.757-.784z'/%3E%3C/svg%3E")
+}
+
+.h-BetSummary_BetDetailsContainer:after,
+.h-BetType_Chevron,
+.h-ShowOdds_Chevron {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12'%3E%3Cpath fill='%23474747' fill-rule='evenodd' d='M.784 12L0 11.242 5.43 6 0 .758.784 0l5.432 5.242L7 6l-.784.758z'/%3E%3C/svg%3E")
+}
+
+.h-HistoryModule_AccManBackLabel:before {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='10' viewBox='0 0 6 10'%3E%3Cpath d='M6.06 8.646l-1.414 1.415L-.06 5.354 4.646.646l1.415 1.415-3.292 3.293z' fill='%23007A56'/%3E%3C/svg%3E")
+}
+
+.h-BetBoostLabel-superboost:after,
+.h-BetOdds_Boost.h-BetOdds_Boost-superboost:after,
+.h-BoostedHandicap-superboost .h-BoostedHandicap_Original:after {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='10' viewBox='0 0 18 10'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h18v10H0z'/%3E%3C/defs%3E%3Cg fill='%23282828' fill-rule='nonzero'%3E%3Cpath d='M6.993-3.577L8.1-4.756l9.118 9.709-9.655 10.281-1.106-1.179 8.548-9.103z'/%3E%3Cpath d='M2.297-3.577l1.107-1.179 9.118 9.709-9.655 10.281-1.106-1.179 8.548-9.103z'/%3E%3Cpath d='M-2.398-3.577l1.107-1.179 9.117 9.709-9.654 10.281-1.107-1.179 8.548-9.103z'/%3E%3C/g%3E%3C/svg%3E")
+}
+
+.h-BetBoostLabel_Container:after,
+.h-BetOdds_Boost:after,
+.h-BoostedHandicap_Original:after {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg height='9' viewBox='0 0 12 9' width='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.043 0l4.46 4.502-4.548 4.501H.85l4.534-4.501L.85 0zm4.5 0l4.46 4.502-4.548 4.501H5.35l4.543-4.501L5.422.001z' fill='%23282828'/%3E%3C/svg%3E")
+}
+
+.h-BetBoostLabel {
+    white-space: pre-wrap
+}
+
+.h-BetBoostLabel,
+.h-BetBoostLabel_Container {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex
+}
+
+.h-BetBoostLabel_Container {
+    line-height: 18px;
+    padding-right: 6px;
+    margin-bottom: 10px;
+    padding-top: 3px
+}
+
+.h-BetBoostLabel_Container.h-BetBoostLabel_ContainerSummary {
+    font-size: 13px;
+    color: #282828
+}
+
+.h-BetBoostLabel_Container.h-BetBoostLabel_ContainerConfirmation {
+    font-size: 12px;
+    color: #666
+}
+
+.h-BetBoostLabel_Container:after {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    content: "";
+    margin-left: 2px;
+    width: 9px;
+    height: 7px;
+    background-size: 9px 7px
+}
+
+.h-BetBoostLabel-superboost:after {
+    width: 12px;
+    height: 7px;
+    background-size: 12px 7px
+}
+
+.h-BetBoostLabel_Bold {
+    font-weight: 700
+}
+
+.h-BetBuilderMultipleSelections {
+    width: 100%;
+    height: 100%
+}
+
+.h-BetBuilderMultipleSelections_HeaderContainer {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    font-size: 15px;
+    color: #282828;
+    font-weight: 700;
+    line-height: 21px
+}
+
+.h-BetBuilderMultipleSelections_OddsLabel {
+    margin-left: auto
+}
+
+.h-BetBuilderMultipleSelections_FixtureLabel {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    padding-bottom: 15px;
+    word-wrap: break-word
+}
+
+.h-BetBuilderMultipleSelections_Container {
+    height: 100%;
+    width: 100%
+}
+
+.h-BetBuilderSelection {
+    width: 100%;
+    font-size: 12px;
+    line-height: 18px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative
+}
+
+.h-BetBuilderSelection:before {
+    content: " ";
+    width: 1px;
+    left: 4px;
+    background: #888;
+    display: block;
+    position: absolute;
+    top: 13px;
+    height: 100%
+}
+
+.h-BetBuilderSelection:last-of-type:before,
+.h-BetBuilderSelection:only-child:before {
+    content: none
+}
+
+.h-BetBuilderSelection_Container {
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    left: 24px;
+    width: 95%
+}
+
+.h-BetBuilderSelection_Container,
+.h-BetBuilderSelection_InfoContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal
+}
+
+.h-BetBuilderSelection_InfoContainer {
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.h-BetBuilderSelection_SubstitutedPlayerContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.h-BetBuilderSelection_SubbedPlayer {
+    color: #444;
+    text-decoration: line-through;
+    font-weight: 700
+}
+
+.h-BetBuilderSelection_PlayOnArrowUpIcon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='9'%3E%3Cpath d='M12.998 9H8.591L6.499 6.103 4.407 9H0l6.493-9 6.505 9z' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 13px;
+    width: 9px;
+    padding-left: 15px
+}
+
+.h-BetBuilderSelection_PlayOnArrowDownIcon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='9'%3E%3Cpath fill='%23A7A7A7' d='M10.999 0H7.27L5.5 2.575 3.73 0H0l5.495 8 5.504-8z' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 11px;
+    width: 8px;
+    padding-left: 15px;
+    margin-top: 2px
+}
+
+.h-BetBuilderSelection_OfferBadgeSubOn {
+    height: 100%;
+    padding-left: 10px
+}
+
+.h-BetBuilderSelection_Dot {
+    margin-right: 15px;
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    border: 1px solid #888;
+    position: absolute;
+    top: 5px;
+    background-color: #fff
+}
+
+.h-BetBuilderSelection_Dot,
+.h-BetBuilderSelection_SelectionLabel {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex
+}
+
+.h-BetBuilderSelection_SelectionLabel {
+    color: #282828;
+    font-weight: 700;
+    padding-bottom: 2px
+}
+
+.h-BetBuilderSelection_Description {
+    color: #666;
+    padding-bottom: 10px
+}
+
+.h-BetBuilderSelection:last-child .h-BetBuilderSelection_Description {
+    padding-bottom: 15px
+}
+
+.h-BetBuilderSelection_OfferBadgesContainer {
+    margin-left: 24px;
+    margin-top: -14px
+}
+
+.h-BetBuilderSelection:last-child .h-BetBuilderSelection_OfferBadgesContainer {
+    margin-top: -19px
+}
+
+.h-BetSummariesRenderer {
+    margin: 0 auto
+}
+
+.h-ForecastTricast {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 5px
+}
+
+.h-ForecastTricast_PrefixHeader {
+    display: block;
+    padding: 0 10px 5px 0
+}
+
+.h-ForecastTricast_ParticipantName,
+.h-ForecastTricast_Place,
+.h-ForecastTricast_PrefixHeader {
+    color: #282828;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21px
+}
+
+.h-ForecastTricast_Place {
+    min-width: 37px;
+    padding-right: 8px
+}
+
+.h-ForecastTricastVirtual {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 5px
+}
+
+.h-ForecastTricastVirtual_ParticipantName,
+.h-ForecastTricastVirtual_Place {
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 21px
+}
+
+.h-ForecastTricastVirtual_Place {
+    min-width: 35px;
+    padding-right: 8px
+}
+
+.h-HistoryModule {
+    position: relative
+}
+
+.h-HistoryModule_AccManBackLabel {
+    color: #007a56;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    padding: 5px 5px 5px 20px;
+    width: auto;
+    position: absolute;
+    right: 20px;
+    top: -37px
+}
+
+.h-HistoryModule_AccManBackLabel:before {
+    background-size: 6px 9px;
+    content: "";
+    display: inline-block;
+    height: 9px;
+    margin-right: 7px;
+    width: 6px
+}
+
+.allow-hover .h-HistoryModule_AccManBackLabel:hover {
+    text-decoration: underline
+}
+
+.h-BetOdds-hasboost {
+    line-height: 18px
+}
+
+.h-BetOdds_BoostLine {
+    color: #a7a7a7;
+    text-decoration: line-through;
+    font-weight: 400
+}
+
+.h-BetOdds_Boost {
+    color: #666;
+    font-size: 13px
+}
+
+.h-BetOdds_Boost:after {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    content: "";
+    margin: 0 5px;
+    width: 13px;
+    height: 10px;
+    background-size: 13px 10px
+}
+
+.h-BetOdds_Boost.h-BetOdds_Boost-superboost:after {
+    width: 18px;
+    height: 10px;
+    background-size: 18px 10px
+}
+
+.h-BetSelection {
+    line-height: 21px;
+    color: #282828;
+    font-size: 15px;
+    position: relative
+}
+
+.h-BetSelection.h-BetSelection-hasofferbadges {
+    margin-bottom: 12px
+}
+
+.h-BetSelection:only-child.h-BetSelection-hasofferbadges {
+    margin-bottom: 10px
+}
+
+.h-BetSelection_Container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    font-weight: 700;
+    margin-bottom: 10px
+}
+
+.h-BetSelection-hasbetboost .h-BetSelection_Container {
+    margin-bottom: 0
+}
+
+.h-BetSelection-hasofferbadges .h-BetSelection_Container {
+    margin-bottom: 4px
+}
+
+.h-BetSelection-hasofferbadges:only-child .h-BetSelection_Container {
+    margin-bottom: 10px
+}
+
+.h-BetSelection_SelectionContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.h-BetSelection_NameContainer,
+.h-BetSelection_SelectionContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.h-BetSelection_NameContainer {
+    padding: 0 10px 0 0
+}
+
+.h-BetSelection_Name {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0 10px 0 0
+}
+
+.h-BetSelection_Odds {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    text-align: right
+}
+
+.h-BetSelection_SubstitutedPlayerContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.h-BetSelection_SubbedPlayer {
+    color: #444;
+    text-decoration: line-through;
+    font-weight: 700
+}
+
+.h-BetSelection_OfferBadgeSubOn {
+    width: -webkit-fit-content;
+    width: fit-content;
+    margin-bottom: 10px
+}
+
+.h-BetSelection_PlayOnArrowUpIcon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='9'%3E%3Cpath d='M12.998 9H8.591L6.499 6.103 4.407 9H0l6.493-9 6.505 9z' fill-rule='evenodd'/%3E%3C/svg%3E");
+    height: 13px;
+    width: 9px
+}
+
+.h-BetSelection_PlayOnArrowDownIcon,
+.h-BetSelection_PlayOnArrowUpIcon {
+    background-repeat: no-repeat;
+    background-position: 50%;
+    padding-left: 15px;
+    margin-top: 5px
+}
+
+.h-BetSelection_PlayOnArrowDownIcon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='9'%3E%3Cpath fill='%23A7A7A7' d='M10.999 0H7.27L5.5 2.575 3.73 0H0l5.495 8 5.504-8z' fill-rule='evenodd'/%3E%3C/svg%3E");
+    height: 11px;
+    width: 8px
+}
+
+.h-BetSelection_OfferBadgesContainer {
+    position: relative;
+    margin-bottom: 0
+}
+
+.h-BetSelectionForecastTricast:last-child {
+    padding-bottom: 10px
+}
+
+.h-BetSelectionItalian {
+    font-weight: 700;
+    line-height: 21px;
+    color: #282828;
+    font-size: 15px;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.h-BetSelectionItalian_Container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.h-BetSelectionItalian_Name {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0 10px 10px 0
+}
+
+.h-BetSelectionItalian_Name,
+.h-BetSelectionItalian_Odds {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex
+}
+
+.h-BetSelectionItalian_Odds {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    text-align: right;
+    padding-bottom: 10px
+}
+
+.h-BetSelectionItalian_MoreInfo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0 10px 10px 45px
+}
+
+.h-BetSelectionRacing {
+    line-height: 21px;
+    color: #282828;
+    font-size: 15px;
+    margin-bottom: 10px
+}
+
+.h-BetSelectionRacing_Container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.h-BetSelectionRacing_Name {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin-right: 10px;
+    color: #282828;
+    line-height: 21px;
+    font-weight: 700
+}
+
+.h-BetSelectionRacing_Odds {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    text-align: right;
+    font-weight: 700;
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start
+}
+
+.h-BetSummary {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    padding-top: 15px;
+    border-radius: 2px;
+    margin-bottom: 15px
+}
+
+.h-BetSummary_DateAndTime {
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    padding-bottom: 10px
+}
+
+.h-BetSummary_BetDetails {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    border-top: 1px solid #e4e4e4;
+    padding: 13px 14px;
+    margin: 0 1px;
+    cursor: pointer
+}
+
+.h-BetSummary_BetDetailsText {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1
+}
+
+.h-BetSummary_Container,
+.h-BetSummary_SelectionContainer {
+    padding: 0 15px
+}
+
+.h-BetSummary_BetDetailsContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 11px;
+    color: #222;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 100%;
+    -ms-flex: 1 100%;
+    flex: 1 100%;
+    line-height: 17px
+}
+
+.h-BetSummary_BetDetailsContainer:after {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    content: "";
+    background-size: 5px;
+    margin-left: 8px;
+    width: 5px;
+    height: 9px;
+    background-repeat: no-repeat;
+    background-position: 50%
+}
+
+.h-BetType {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    border-top: 1px solid #e4e4e4;
+    padding-top: 13px;
+    cursor: default;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.h-BetType.h-BetType-hasbreakdown {
+    cursor: pointer
+}
+
+.h-BetType_Container {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1
+}
+
+.h-BetType_Text {
+    font-size: 15px;
+    color: #282828;
+    font-weight: 700;
+    line-height: 21px;
+    padding-bottom: 13px;
+    padding-right: 10px
+}
+
+.h-BetType-hasdesc .h-BetType_Text {
+    padding-bottom: 7px
+}
+
+.h-BetType_Description {
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    padding-bottom: 14px
+}
+
+.h-BetType_Chevron {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    position: relative;
+    top: -6px;
+    background-size: 5px 9px;
+    width: 5px;
+    height: 9px;
+    background-repeat: no-repeat;
+    background-position: 50%
+}
+
+.h-BetType_Chevron,
+.h-BoostedHandicap {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex
+}
+
+.h-BoostedHandicap {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-left: 7px;
+    font-size: 15px;
+    font-weight: 700
+}
+
+.h-BoostedHandicap_OriginalWrapper {
+    color: #a7a7a7;
+    text-decoration: line-through
+}
+
+.h-BoostedHandicap_Original {
+    color: #666;
+    font-weight: 400;
+    font-size: 13px
+}
+
+.h-BoostedHandicap_Original:after {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    content: "";
+    margin: 0 5px;
+    width: 13px;
+    height: 10px;
+    background-size: 13px 10px
+}
+
+.h-BoostedHandicap-superboost .h-BoostedHandicap_Original:after {
+    width: 18px;
+    height: 10px;
+    background-size: 18px 10px
+}
+
+.h-CashoutPending {
+    font-size: 10px;
+    line-height: 16px;
+    color: #666;
+    padding-left: 15px;
+    padding-bottom: 13px
+}
+
+.h-AutoVoid {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    color: #333;
+    background-color: #e4e4e4;
+    border-radius: 1px;
+    font-size: 11px;
+    line-height: 13px;
+    padding: 3px 5px 4px;
+    margin-bottom: 10px
+}
+
+.h-BetBuilderAutoVoid {
+    margin-bottom: 17px;
+    color: #333
+}
+
+.h-BetBuilderAutoVoid_FirstLine {
+    font-size: 12px;
+    line-height: 14px
+}
+
+.h-BetBuilderAutoVoid_SecondLine {
+    font-size: 11px;
+    line-height: 17px
+}
+
+.h-BetConfirmation {
+    margin: 0 15px 15px
+}
+
+@media print {
+    .h-BetConfirmation {
+        background: #fff;
+        height: 100%;
+        left: 0;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 120
+    }
+}
+
+.h-BetConfirmation_Container {
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    width: 100%
+}
+
+.h-BetConfirmation-confirmation .h-BetConfirmation_Container {
+    padding-top: 15px
+}
+
+.h-BetConfirmation_Title {
+    color: #282828;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21px;
+    margin-bottom: 15px
+}
+
+@media print {
+    .h-BetConfirmation_Title {
+        display: none
+    }
+}
+
+.h-BetConfirmationEditHistory {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 15px;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.h-BetConfirmationEditHistory_LabelsContainer {
+    float: left;
+    max-width: 50%
+}
+
+.h-BetConfirmationEditHistory_Label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 13px;
+    color: #007a56;
+    line-height: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    padding-bottom: 15px
+}
+
+.h-BetConfirmationEditHistory_Label:last-child {
+    padding-bottom: 12px
+}
+
+.allow-hover .h-BetConfirmationEditHistory_Label:hover {
+    text-decoration: underline
+}
+
+.h-BetConfirmationEditHistory_Value {
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+    line-height: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px
+}
+
+.h-BetConfirmationEditHistory_Value:last-child {
+    padding-bottom: 12px
+}
+
+.h-BetConfirmationEditHistorySection {
+    width: 100%;
+    border-top: 1px solid #e4e4e4
+}
+
+.h-BetConfirmationEditHistorySection_Header {
+    width: 100%;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.h-BetConfirmationEditHistorySection_Text {
+    font-size: 11px;
+    color: #222;
+    line-height: 17px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto
+}
+
+.allow-hover .h-BetConfirmationEditHistorySection_Text:hover {
+    text-decoration: underline
+}
+
+.h-BetConfirmationEditHistorySection_ChevronWrapper {
+    height: 47px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.h-BetConfirmationEditHistorySection_Chevron {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    position: relative;
+    background-size: 9px 5px;
+    width: 9px;
+    height: 5px;
+    background-repeat: no-repeat;
+    background-position: 50%
+}
+
+.h-BetConfirmationEditHistorySection_Chevron.h-BetConfirmationEditHistorySection_Chevron-open {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.h-BetConfirmationHeader {
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e4e4e4
+}
+
+.h-BetConfirmationHeader_Container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.h-BetConfirmationHeader_Container:last-child {
+    padding-bottom: 15px
+}
+
+.h-BetConfirmationHeader_Reference {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    padding-right: 10px
+}
+
+.h-BetConfirmationHeader_DateTimeContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: wrap;
+    -ms-flex-flow: wrap;
+    flex-flow: wrap;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end
+}
+
+.h-BetConfirmationHeader_Time {
+    padding-left: 1px
+}
+
+.h-BetConfirmationSelectionForecastTricast {
+    display: block;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e4e4e4
+}
+
+.h-BetConfirmationSelectionForecastTricast:last-child {
+    border-bottom: none;
+    margin-bottom: 0
+}
+
+.h-BetConfirmationSelectionForecastTricast_Container {
+    display: table-row;
+    width: 100%
+}
+
+.h-BetConfirmationSelectionForecastTricast_Container:last-child {
+    padding-bottom: 10px
+}
+
+.h-BetConfirmationSelectionForecastTricast_PrefixHeader {
+    color: #282828;
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21px;
+    padding: 0 10px 5px 0
+}
+
+.h-BetConfirmationSelectionForecastTricast_Favourite {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.h-BetConfirmationSelectionForecastTricast_ParticipantName,
+.h-BetConfirmationSelectionForecastTricast_Place {
+    color: #282828;
+    display: table-cell;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21px;
+    padding-bottom: 5px
+}
+
+.h-BetConfirmationSelectionForecastTricast_Place {
+    min-width: 37px;
+    padding-bottom: 5px;
+    padding-right: 8px
+}
+
+.h-BetConfirmationSelectionForecastTricast_Place:empty {
+    display: none
+}
+
+.h-BetConfirmationSelectionForecastTricast_ParticipantName {
+    padding-right: 10px;
+    width: 100%
+}
+
+.h-BetConfirmationSelectionForecastTricast_Odds {
+    color: #282828;
+    font-weight: 700;
+    font-size: 15px;
+    text-align: right;
+    white-space: nowrap
+}
+
+.h-BetConfirmationSelectionForecastTricast_BetChangeReason {
+    color: #282828;
+    font-size: 13px;
+    line-height: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px
+}
+
+.h-BetConfirmationSelectionForecastTricast_SelectionInfo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 5px;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.h-BetConfirmationSelectionForecastTricast_EventName {
+    color: #666;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    font-size: 12px;
+    line-height: 18px;
+    padding-bottom: 13px
+}
+
+.h-BetConfirmationSelectionForecastTricast-multiple .h-BetConfirmationSelectionForecastTricast_EventName {
+    padding-bottom: 8px
+}
+
+.h-BetConfirmationSelectionForecastTricast_Status {
+    color: #282828;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+    padding-left: 10px;
+    text-align: right
+}
+
+.h-BetConfirmationSelectionForecastTricast_Event {
+    color: #666;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    font-size: 12px;
+    line-height: 18px;
+    padding-bottom: 13px
+}
+
+.h-BetConfirmationSelectionForecastTricast-multiple .h-BetConfirmationSelectionForecastTricast_Event {
+    padding-bottom: 8px
+}
+
+.h-BetConfirmationSelectionForecastTricast_GogwContainer {
+    padding-top: 3px
+}
+
+.h-BetConfirmationSelectionPot {
+    display: block;
+    margin: 0 15px 10px;
+    border-bottom: 1px solid #e4e4e4
+}
+
+.h-BetConfirmationSelectionPot:last-child {
+    border-bottom: none;
+    margin: 0 15px
+}
+
+.h-BetConfirmationSelectionPot_Container {
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 5px;
+    width: 100%
+}
+
+.h-BetConfirmationSelectionPot_Container:last-child {
+    padding-bottom: 10px
+}
+
+.h-BetConfirmationSelectionPot_Favourite {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.h-BetConfirmationSelectionPot_ParticipantName {
+    color: #282828;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21px;
+    padding-right: 10px
+}
+
+.h-BetConfirmationSelectionPot_Status {
+    color: #282828;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+    padding-left: 10px;
+    text-align: right
+}
+
+.h-BetConfirmationSelectionPot_SelectionInfo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.h-BetConfirmationSelectionPot_Event,
+.h-BetConfirmationSelectionPot_PlaceCount {
+    color: #666;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    font-size: 12px;
+    line-height: 18px;
+    padding-bottom: 8px
+}
+
+.h-BetConfirmationSelectionPot_PlaceCount {
+    text-align: right
+}
+
+.h-Breakdown_Footer {
+    padding: 15px
+}
+
+.h-Breakdown_Terms {
+    color: #666;
+    font-size: 10px;
+    line-height: 16px
+}
+
+.h-BreakdownItem {
+    border-bottom: 1px solid #e4e4e4;
+    padding: 15px
+}
+
+.h-BreakdownItem_Title {
+    margin-bottom: 20px
+}
+
+.h-BreakdownItem_Position,
+.h-BreakdownItem_Title {
+    color: #282828;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21px
+}
+
+.h-BreakdownItem_Position {
+    margin-bottom: 10px
+}
+
+.h-BreakdownItem_Table {
+    display: table
+}
+
+.h-BreakdownItem_TableRow,
+.h-BreakdownItem_ValueContainer {
+    display: table-row
+}
+
+.h-BreakdownItem_Label,
+.h-BreakdownItem_Value {
+    display: table-cell;
+    font-size: 12px;
+    line-height: 18px;
+    padding-bottom: 8px
+}
+
+.h-BreakdownItem_TableRow:last-child .h-BreakdownItem_Label,
+.h-BreakdownItem_TableRow:last-child .h-BreakdownItem_Value {
+    padding-bottom: 0
+}
+
+.h-BreakdownItem_Label {
+    color: #666;
+    padding-right: 35px;
+    white-space: nowrap
+}
+
+.h-BreakdownItem_Value {
+    color: #282828;
+    font-weight: 700
+}
+
+.h-BreakdownItem_Info {
+    font-size: 10px;
+    color: #666;
+    vertical-align: middle;
+    padding-left: 5px;
+    display: table-cell
+}
+
+.h-CashoutHistory_HeaderContainer {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    font-size: 15px;
+    color: #282828;
+    font-weight: 700;
+    line-height: 21px;
+    padding: 13px 15px 10px;
+    border-top: 1px solid #e4e4e4
+}
+
+.h-CashoutHistoryDetails {
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    border-bottom: 1px solid #e4e4e4;
+    padding-top: 10px
+}
+
+.h-CashoutHistoryDetails:first-child {
+    padding-top: 0
+}
+
+.h-CashoutHistoryDetails_Container {
+    padding-bottom: 12px
+}
+
+.h-CashoutHistoryDetails_DetailsRow {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.h-CashoutHistoryDetails_DetailsRow:first-child {
+    padding-top: 0
+}
+
+.h-CashoutHistoryDetails_Label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    float: left;
+    padding-right: 10px;
+    width: 50%
+}
+
+.h-CashoutHistoryDetails_Value {
+    float: right;
+    text-align: right;
+    width: 50%
+}
+
+.h-CashoutHistoryDetails_ReturnBetCreditsContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 5px 15px 0
+}
+
+.h-CashoutHistoryTotals {
+    font-size: 12px;
+    color: #282828;
+    line-height: 18px;
+    font-weight: 700
+}
+
+.h-CashoutHistoryTotals_Container {
+    padding-bottom: 8px;
+    padding-top: 9px
+}
+
+.h-CashoutHistoryTotals_TotalsRow {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 4px 15px
+}
+
+.h-CashoutHistoryTotals_Label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    float: left;
+    padding-right: 10px;
+    width: 50%
+}
+
+.h-CashoutHistoryTotals_Value {
+    float: right;
+    text-align: right;
+    width: 50%
+}
+
+.h-CashoutHistoryTotals_FreeBetContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1px 15px
+}
+
+.h-CashoutHistoryTotals_FreeBetContainer:last-child {
+    padding-bottom: 5px
+}
+
+.h-CashoutHistoryTotals_FreeBetLabel {
+    color: #666;
+    font-weight: 400;
+    margin-left: auto
+}
+
+.h-CashoutHistoryTotals_ReturnBetCreditsContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    color: #666;
+    font-weight: 400;
+    padding: 1px 15px 4px
+}
+
+.h-CombinationCastBreakdown {
+    background-color: #fff;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    border-radius: 2px;
+    padding: 15px;
+    margin-bottom: 15px
+}
+
+.h-CombinationCastBreakdown_Header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 21px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 41px;
+    padding-bottom: 20px
+}
+
+.h-CombinationCastBreakdown_InfoContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 15px
+}
+
+.h-CombinationCastBreakdown_Container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50%;
+    line-height: 18px;
+    font-size: 12px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: center
+}
+
+.h-CombinationCastBreakdown_Container:first-child {
+    padding-right: 30px;
+    border-right: 1px solid #e4e4e4
+}
+
+.h-CombinationCastBreakdown_Container:last-child {
+    padding-left: 30px
+}
+
+.h-CombinationCastBreakdown_Subheader {
+    font-weight: 700;
+    color: #282828;
+    margin-bottom: 10px
+}
+
+.h-CombinationCastBreakdown_Info {
+    color: #666;
+    margin-bottom: 15px
+}
+
+.h-CombinationCastBreakdown_Info:last-child {
+    margin-bottom: 0
+}
+
+.h-ConfirmationBetBuilderMultipleSelections {
+    margin: 0 15px 10px;
+    border-bottom: 1px solid #e4e4e4
+}
+
+.h-ConfirmationBetBuilderMultipleSelections:last-child {
+    margin-bottom: 0;
+    border-bottom: none
+}
+
+.h-ConfirmationBetBuilderMultipleSelections_HeaderContainer {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    font-size: 15px;
+    color: #282828;
+    font-weight: 700;
+    line-height: 21px
+}
+
+.h-ConfirmationBetBuilderMultipleSelections_OddsLabel {
+    margin-left: auto
+}
+
+.h-ConfirmationBetBuilderMultipleSelections_FixtureLabel {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    padding-bottom: 15px;
+    word-wrap: break-word
+}
+
+.h-ConfirmationBetBuilderMultipleSelections_NonRunnerRecalcLabel {
+    font-size: 11px;
+    color: #282828;
+    line-height: 13px;
+    word-wrap: break-word;
+    font-style: italic;
+    font-weight: 700;
+    text-align: left;
+    margin: 5px 0
+}
+
+.h-ConfirmationBetBuilderMultipleSelections_NonRunnerLabel {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 15px;
+    margin-right: 5px;
+    font-size: 11px;
+    line-height: 15px;
+    color: #282828
+}
+
+.h-ConfirmationBetBuilderMultipleSelections_Container {
+    height: 100%;
+    width: 100%
+}
+
+.h-ConfirmationBetBuilderMultipleSelections_OfferBadgesContainer {
+    margin-top: -15px;
+    padding-bottom: 5px
+}
+
+.h-ConfirmationBetBuilderMultipleSelections_OfferBadgesContainer:last-child {
+    padding-bottom: 15px
+}
+
+.h-ConfirmationBetBuilderSelection {
+    width: 100%;
+    font-size: 12px;
+    line-height: 18px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative
+}
+
+.h-ConfirmationBetBuilderSelection:before {
+    content: " ";
+    width: 1px;
+    left: 4px;
+    background: #888;
+    display: block;
+    position: absolute;
+    top: 13px;
+    height: 100%
+}
+
+.h-ConfirmationBetBuilderSelection:last-of-type:before,
+.h-ConfirmationBetBuilderSelection:only-child:before {
+    content: none
+}
+
+.h-ConfirmationBetBuilderSelection_Container {
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    left: 24px;
+    width: calc(100% - 24px)
+}
+
+.h-ConfirmationBetBuilderSelection_Container,
+.h-ConfirmationBetBuilderSelection_InfoContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal
+}
+
+.h-ConfirmationBetBuilderSelection_InfoContainer {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.h-ConfirmationBetBuilderSelection_SubstitutedPlayerContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.h-ConfirmationBetBuilderSelection_SubbedPlayer {
+    color: #444;
+    text-decoration: line-through;
+    font-weight: 700
+}
+
+.h-ConfirmationBetBuilderSelection_PlayOnArrowUpIcon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='9'%3E%3Cpath d='M12.998 9H8.591L6.499 6.103 4.407 9H0l6.493-9 6.505 9z' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 13px;
+    width: 9px;
+    padding-left: 15px
+}
+
+.h-ConfirmationBetBuilderSelection_PlayOnArrowDownIcon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='9'%3E%3Cpath fill='%23A7A7A7' d='M10.999 0H7.27L5.5 2.575 3.73 0H0l5.495 8 5.504-8z' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 11px;
+    width: 8px;
+    padding-left: 15px;
+    margin-top: 2px
+}
+
+.h-ConfirmationBetBuilderSelection_OfferBadgeSubOn {
+    height: 100%
+}
+
+.h-ConfirmationBetBuilderSelection_Dot {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-right: 15px;
+    height: 9px;
+    width: 9px;
+    border-radius: 50%;
+    border: 1px solid #888;
+    position: absolute;
+    top: 5px;
+    background-color: #fff
+}
+
+.h-ConfirmationBetBuilderSelection_SelectionLabel {
+    display: inline;
+    color: #282828;
+    font-weight: 700;
+    padding-bottom: 2px
+}
+
+.h-ConfirmationBetBuilderSelection_SelectionLabel-void {
+    margin-right: 4px;
+    text-decoration: line-through
+}
+
+.h-ConfirmationBetBuilderSelection_VoidLabel {
+    background-color: #ebeded;
+    border-radius: 2px;
+    color: #666;
+    display: inline-block;
+    font-size: 14px;
+    padding: 0 4px
+}
+
+.h-ConfirmationBetBuilderSelection_Description {
+    color: #666;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-bottom: 10px
+}
+
+.h-ConfirmationBetBuilderSelection:last-child .h-ConfirmationBetBuilderSelection_Description {
+    padding-bottom: 15px
+}
+
+.h-ConfirmationBetBuilderSelection_DescriptionContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.h-ConfirmationBetBuilderSelection_Status {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    padding-left: 10px;
+    font-size: 15px;
+    color: #282828;
+    font-weight: 700;
+    line-height: 18px;
+    position: relative
+}
+
+.h-ConfirmationBetBuilderSelection_OfferBadgesContainer {
+    margin-left: 24px;
+    margin-top: -14px
+}
+
+.h-ConfirmationBetBuilderSelection:last-child .h-ConfirmationBetBuilderSelection_OfferBadgesContainer {
+    margin-top: -19px
+}
+
+.h-ConfirmationBetInfo_BetInfoContainer {
+    font-size: 13px;
+    color: #282828;
+    padding: 14px 15px 5px;
+    border-top: 1px solid #e4e4e4
+}
+
+.h-ConfirmationBetInfo_Row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 20px;
+    padding-bottom: 8px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.h-ConfirmationBetInfo_Label {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    padding-right: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.h-ConfirmationBetInfo_Value {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    text-align: right
+}
+
+.h-ConfirmationBetInfo_StakeRow {
+    line-height: 20px;
+    padding-top: 15px;
+    padding-bottom: 14px;
+    font-size: 13px;
+    color: #282828
+}
+
+.h-ConfirmationBetInfo_StakeRowValue {
+    font-weight: 700
+}
+
+.h-ConfirmationBetInfo_StakeReturnContainer {
+    border-top: 1px solid #e4e4e4;
+    padding: 0 15px
+}
+
+.h-ConfirmationBetInfo_ReturnContainer {
+    font-weight: 700;
+    color: #282828;
+    font-size: 15px;
+    line-height: 18px;
+    padding-top: 13px;
+    padding-bottom: 8px
+}
+
+.h-ConfirmationBetInfo_ReturnContainer:last-child {
+    padding-bottom: 12px
+}
+
+.h-ConfirmationBetInfo_StakeReturnContainer-hastotalstake .h-ConfirmationBetInfo_ReturnContainer {
+    padding-top: 0;
+    padding-bottom: 5px
+}
+
+.h-ConfirmationBetInfo_StakeReturnContainer-hastotalstake .h-ConfirmationBetInfo_ReturnContainer:last-child {
+    padding-bottom: 15px
+}
+
+.h-ConfirmationBetInfo_AccaMessage {
+    font-size: 10px;
+    line-height: 16px;
+    padding-bottom: 12px;
+    color: #666
+}
+
+.h-ConfirmationBetInfo_StakeReturnContainer-hastotalstake .h-ConfirmationBetInfo_AccaMessage {
+    padding-bottom: 15px
+}
+
+.h-ConfirmationBetInfo_Adjustments {
+    font-size: 10px;
+    color: #666;
+    line-height: 16px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+.h-ConfirmationBetInfo_BetCreditReturnText,
+.h-ConfirmationBetInfo_IncludeBoost {
+    font-size: 10px;
+    color: #666;
+    padding-bottom: 5px
+}
+
+.h-ConfirmationBetInfoGogw_BetInfoContainer {
+    padding: 14px 15px 5px;
+    font-size: 13px;
+    color: #282828;
+    border-top: 1px solid #e4e4e4
+}
+
+.h-ConfirmationBetInfoGogw_Row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 20px;
+    padding-bottom: 8px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.h-ConfirmationBetInfoGogw_ReturnText {
+    color: #282828
+}
+
+.h-ConfirmationBetInfoGogw_Label {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    padding-right: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.h-ConfirmationBetInfoGogw_Value {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    text-align: right
+}
+
+.h-ConfirmationBetInfoGogw_StakeRow {
+    line-height: 20px;
+    padding-top: 15px;
+    font-size: 13px;
+    color: #282828;
+    padding-bottom: 14px
+}
+
+.h-ConfirmationBetInfoGogw_StakeRowValue {
+    font-weight: 700
+}
+
+.h-ConfirmationBetInfoGogw_StakeReturnContainer {
+    border-top: 1px solid #e4e4e4;
+    padding: 0 15px
+}
+
+.h-ConfirmationBetInfoGogw_StakeValue {
+    font-weight: 700;
+    padding-left: 5px
+}
+
+.h-ConfirmationBetInfoGogw_BetCredits {
+    font-size: 12px;
+    font-weight: 400;
+    color: #666;
+    text-align: right;
+    line-height: 18px;
+    margin-top: -3px;
+    padding-bottom: 8px
+}
+
+.h-ConfirmationBetInfoGogw_ReturnContainer {
+    display: block;
+    font-weight: 700;
+    color: #282828;
+    font-size: 15px;
+    line-height: 18px;
+    padding-top: 13px;
+    min-height: 33px
+}
+
+.h-ConfirmationBetInfoGogw_StakeReturnContainer-hastotalstake .h-ConfirmationBetInfoGogw_ReturnContainer {
+    padding-top: 0
+}
+
+.h-ConfirmationBetInfoGogw_ReturnText {
+    padding-bottom: 8px
+}
+
+.h-ConfirmationBetInfoGogw_ReturnText:last-child {
+    padding-bottom: 12px
+}
+
+.h-ConfirmationBetInfoGogw_StakeReturnContainer-hastotalstake .h-ConfirmationBetInfoGogw_ReturnText {
+    padding-bottom: 5px
+}
+
+.h-ConfirmationBetInfoGogw_StakeReturnContainer-hastotalstake .h-ConfirmationBetInfoGogw_ReturnText:last-child {
+    padding-bottom: 15px
+}
+
+.h-ConfirmationBetInfoGogw_IncludeBoost,
+.h-ConfirmationBetInfoGogw_ReturnDetails {
+    font-size: 12px;
+    font-weight: 400;
+    color: #666;
+    line-height: 18px;
+    padding-bottom: 12px
+}
+
+.h-ConfirmationBetInfoGogw_AccaMessage {
+    font-size: 10px;
+    line-height: 16px;
+    padding-bottom: 12px;
+    color: #666
+}
+
+.h-ConfirmationBetInfoGogw_StakeReturnContainer-hastotalstake .h-ConfirmationBetInfoGogw_AccaMessage {
+    padding-bottom: 15px
+}
+
+.h-ConfirmationBetInfoGogw_Adjustments {
+    font-size: 10px;
+    color: #666;
+    line-height: 16px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+.h-ConfirmationBetInfoIPOffer_BetInfoContainer {
+    padding: 14px 15px 5px;
+    font-size: 13px;
+    color: #282828;
+    border-top: 1px solid #e4e4e4
+}
+
+.h-ConfirmationBetInfoIPOffer_Row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 20px;
+    padding-bottom: 8px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.h-ConfirmationBetInfoIPOffer_Label {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    padding-right: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.h-ConfirmationBetInfoIPOffer_Value {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    text-align: right
+}
+
+.h-ConfirmationBetInfoIPOffer_StakeRow {
+    line-height: 20px;
+    padding: 0 0 14px 15px;
+    font-size: 13px;
+    color: #282828
+}
+
+.h-ConfirmationBetInfoIPOffer_StakeRowValue {
+    font-weight: 700
+}
+
+.h-ConfirmationBetInfoIPOffer_StakeReturnContainer {
+    border-top: 1px solid #e4e4e4;
+    padding-top: 15px
+}
+
+.h-ConfirmationBetInfoIPOffer-hasbetinfo .h-ConfirmationBetInfoIPOffer_StakeReturnContainer {
+    padding-top: 15px
+}
+
+.h-ConfirmationBetInfoIPOffer_StakeContainer {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    min-height: 34px;
+    padding-bottom: 14px
+}
+
+.h-ConfirmationBetInfoIPOffer-hasbetinfo .h-ConfirmationBetInfoIPOffer_StakeContainer {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.h-ConfirmationBetInfoIPOffer_StakeValue {
+    font-weight: 700;
+    padding-left: 5px
+}
+
+.h-ConfirmationBetInfoIPOffer_ReturnContainer {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: 33px
+}
+
+.h-ConfirmationBetInfoIPOffer_BetCredits {
+    text-align: right;
+    margin-top: -3px
+}
+
+.h-ConfirmationBetInfoIPOffer_BetCredits,
+.h-ConfirmationBetInfoIPOffer_BetCreditsLeftAligned {
+    font-size: 12px;
+    font-weight: 400;
+    color: #666;
+    line-height: 18px;
+    padding-bottom: 8px
+}
+
+.h-ConfirmationBetInfoIPOffer_ReturnText {
+    padding-bottom: 5px;
+    color: #282828
+}
+
+.h-ConfirmationBetInfoIPOffer_ReturnText:last-child {
+    padding-bottom: 15px
+}
+
+.h-ConfirmationBetInfoIPOffer_IncludeBoost,
+.h-ConfirmationBetInfoIPOffer_ReturnBreakdown {
+    font-size: 12px;
+    font-weight: 400;
+    color: #666;
+    line-height: 18px;
+    padding-bottom: 12px
+}
+
+.h-ConfirmationBetInfoIPOffer_Adjustments,
+.h-ConfirmationBetInfoIPOffer_FreeBetOffer {
+    font-size: 10px;
+    color: #666;
+    line-height: 16px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+.h-ConfirmationBetInfoIPOffer_AccaMessage {
+    font-size: 10px;
+    line-height: 16px;
+    color: #666;
+    padding: 0 15px 12px
+}
+
+.h-ConfirmationBetMultipleSelection {
+    line-height: 21px;
+    color: #282828;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e4e4e4;
+    margin-left: 15px;
+    margin-right: 15px
+}
+
+.h-ConfirmationBetMultipleSelection:last-child {
+    margin-bottom: 0;
+    border-bottom: none
+}
+
+.h-ConfirmationBetMultipleSelection_Row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.h-ConfirmationBetMultipleSelection_Name {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0 10px 10px 0;
+    font-size: 15px;
+    font-weight: 700
+}
+
+.h-ConfirmationBetMultipleSelection_Odds,
+.h-ConfirmationBetMultipleSelection_Status {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    text-align: right;
+    font-weight: 700;
+    padding-bottom: 10px;
+    font-size: 15px
+}
+
+.h-ConfirmationBetMultipleSelection_Status {
+    line-height: 18px
+}
+
+.h-ConfirmationBetMultipleSelection_Fixture,
+.h-ConfirmationBetMultipleSelection_Market {
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    padding-bottom: 8px
+}
+
+.h-ConfirmationBetMultipleSelection_Market {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-right: 10px
+}
+
+.h-ConfirmationBetMultipleSelection_BankerLabel {
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    font-weight: 700;
+    padding-bottom: 8px
+}
+
+.h-ConfirmationBetMultipleSelection_GogwContainer {
+    padding-top: 7px
+}
+
+.h-ConfirmationBetMultipleSelection_GogwContainer.h-ConfirmationBetMultipleSelection-hasofferbadge {
+    padding-top: 0
+}
+
+.h-ConfirmationBetMultipleSelection_BadgeContainer {
+    padding-bottom: 5px
+}
+
+.h-ConfirmationBetMultipleSelection_BadgeContainer:last-child {
+    padding-bottom: 15px
+}
+
+.h-ConfirmationBetSelection {
+    line-height: 21px;
+    color: #282828;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.h-ConfirmationBetSelection_Row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.h-ConfirmationBetSelection_SelectionContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.h-ConfirmationBetSelection_NameContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0 10px 0 0
+}
+
+.h-ConfirmationBetSelection_Name {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    font-size: 15px;
+    font-weight: 700
+}
+
+.h-ConfirmationBetSelection_Odds,
+.h-ConfirmationBetSelection_Status {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    text-align: right;
+    font-weight: 700;
+    font-size: 15px
+}
+
+.h-ConfirmationBetSelection_Status {
+    padding-left: 10px;
+    line-height: 18px
+}
+
+.h-ConfirmationBetSelection_SubstitutedPlayerContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.h-ConfirmationBetSelection_SubbedPlayer {
+    color: #444;
+    text-decoration: line-through;
+    font-weight: 700
+}
+
+.h-ConfirmationBetSelection_OfferBadgeSubOn {
+    width: -webkit-fit-content;
+    width: fit-content;
+    margin-bottom: 10px
+}
+
+.h-ConfirmationBetSelection_PlayOnArrowUpIcon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='9'%3E%3Cpath d='M12.998 9H8.591L6.499 6.103 4.407 9H0l6.493-9 6.505 9z' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 13px;
+    width: 9px;
+    padding-left: 15px;
+    margin-top: 5px
+}
+
+.h-ConfirmationBetSelection_PlayOnArrowDownIcon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='9'%3E%3Cpath fill='%23A7A7A7' d='M10.999 0H7.27L5.5 2.575 3.73 0H0l5.495 8 5.504-8z' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 11px;
+    width: 8px;
+    padding-left: 15px;
+    margin-top: 5px
+}
+
+.h-ConfirmationBetSelection_Container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.h-ConfirmationBetSelection_Fixture {
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    padding-bottom: 8px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 100%;
+    -ms-flex: 1 0 100%;
+    flex: 1 0 100%
+}
+
+.h-ConfirmationBetSelection_Market,
+.h-ConfirmationBetSelection_Places {
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    padding-bottom: 8px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1
+}
+
+.h-ConfirmationBetSelection_Places {
+    padding-bottom: 15px
+}
+
+.h-ConfirmationBetSelection_TextElement {
+    padding-left: 5px
+}
+
+.h-ConfirmationBetSelection_TextElement:first-child {
+    padding-left: 0
+}
+
+.h-ConfirmationBetSelection_GogwContainer {
+    padding-top: 3px
+}
+
+.h-ConfirmationBetSelection_OfferBadgesContainer {
+    padding-bottom: 15px
+}
+
+.h-ConfirmationBetSelection-offerbadgeswithfreebet .h-ConfirmationBetSelection_OfferBadgesContainer {
+    padding-bottom: 5px
+}
+
+.h-ConfirmationBetSelection_WinningsBoost {
+    margin-left: -24px
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple {
+    line-height: 21px;
+    color: #282828;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom: 15px
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple:last-child {
+    border-bottom: none;
+    margin-bottom: 0
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple_SelectionNumber {
+    display: inline-block;
+    padding-right: 5px
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple_Container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 15px;
+    color: #282828;
+    font-weight: 700
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple_ParticipantContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 5px
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple_ParticipantContainer:last-child {
+    padding-bottom: 10px
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple_Favourite {
+    position: relative;
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+    top: -4px
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple_Status {
+    font-size: 15px;
+    color: #282828;
+    text-align: right;
+    font-weight: 700;
+    padding-left: 10px;
+    line-height: 18px
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple_Name,
+.h-ConfirmationBetSelectionAusToteMultiple_Status {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple_Name {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    padding-right: 10px
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple_EventContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 8px
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple_EventName {
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    padding-bottom: 8px;
+    text-align: left;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+}
+
+.h-ConfirmationBetSelectionAusToteMultiple_Odds {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-left: auto;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    text-align: right;
+    font-weight: 700
+}
+
+.h-ConfirmationBetSelectionIf {
+    border-bottom: 1px solid #e4e4e4;
+    color: #282828;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px
+}
+
+.h-ConfirmationBetSelectionIf:last-of-type {
+    margin-bottom: 0
+}
+
+.h-ConfirmationBetSelectionIf:last-child {
+    border-bottom: none
+}
+
+.h-ConfirmationBetSelectionIf_Row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.h-ConfirmationBetSelectionIf_RowSingles {
+    display: block
+}
+
+.h-ConfirmationBetSelectionIf_Favourite {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-bottom: 10px
+}
+
+.h-ConfirmationBetSelectionIf_Name {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0 10px 10px 0
+}
+
+.h-ConfirmationBetSelectionIf_Name,
+.h-ConfirmationBetSelectionIf_Odds,
+.h-ConfirmationBetSelectionIf_Status {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21px
+}
+
+.h-ConfirmationBetSelectionIf_Odds,
+.h-ConfirmationBetSelectionIf_Status {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    padding-bottom: 10px;
+    text-align: right
+}
+
+.h-ConfirmationBetSelectionIf_Odds {
+    line-height: 21px
+}
+
+.h-ConfirmationBetSelectionIf_Status {
+    line-height: 18px;
+    padding-left: 10px
+}
+
+.h-ConfirmationBetSelectionIf_Date,
+.h-ConfirmationBetSelectionIf_IfAction,
+.h-ConfirmationBetSelectionIf_IfType,
+.h-ConfirmationBetSelectionIf_Market,
+.h-ConfirmationBetSelectionIf_Teams {
+    color: #666;
+    font-size: 12px;
+    line-height: 18px;
+    padding-bottom: 8px
+}
+
+.h-ConfirmationBetSelectionIf_Date {
+    padding-left: 5px
+}
+
+.h-ConfirmationBetSelectionIf_IfAction,
+.h-ConfirmationBetSelectionIf_Market {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-right: 10px
+}
+
+.h-ConfirmationBetSelectionIf_GogwContainer {
+    padding-top: 7px
+}
+
+.h-ConfirmationBetSelectionIf_MarketContainer {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex
+}
+
+.h-ConfirmationBetSelectionRacing {
+    line-height: 21px;
+    color: #282828;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom: 15px
+}
+
+.h-ConfirmationBetSelectionRacing:last-child {
+    border-bottom: none;
+    margin-bottom: 0
+}
+
+.h-ConfirmationBetSelectionRacing_BetChangeReason,
+.h-ConfirmationBetSelectionRacing_CoupledWith {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    padding-bottom: 10px
+}
+
+.h-ConfirmationBetSelectionRacing_EventContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 8px
+}
+
+.h-ConfirmationBetSelectionRacing_Event {
+    font-size: 12px;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    color: #666;
+    line-height: 18px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.h-ConfirmationBetSelectionRacing_DescriptionContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.h-ConfirmationBetSelectionRacing_Container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 5px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.h-ConfirmationBetSelectionRacing_Container:last-child {
+    padding-bottom: 10px
+}
+
+.h-ConfirmationBetSelectionRacing_Description,
+.h-ConfirmationBetSelectionRacing_DescriptionEW {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-bottom: 8px
+}
+
+.h-ConfirmationBetSelectionRacing_DescriptionEW {
+    padding-bottom: 15px
+}
+
+.h-ConfirmationBetSelectionRacing_DescriptionNoEW {
+    color: #666;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    font-size: 12px;
+    line-height: 18px;
+    padding-top: 8px;
+    text-align: right
+}
+
+.h-ConfirmationBetSelectionRacing_Status {
+    text-align: right;
+    padding-left: 10px;
+    line-height: 18px
+}
+
+.h-ConfirmationBetSelectionRacing_Place,
+.h-ConfirmationBetSelectionRacing_Status {
+    font-size: 15px;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    font-weight: 700
+}
+
+.h-ConfirmationBetSelectionRacing_Place {
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    color: #282828;
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+    line-height: 16px;
+    min-width: 36px;
+    padding-right: 8px
+}
+
+.h-ConfirmationBetSelectionRacing_Place:empty {
+    display: none
+}
+
+.h-ConfirmationBetSelectionRacing_Name {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    color: #282828;
+    line-height: 16px;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    padding-right: 10px
+}
+
+.h-ConfirmationBetSelectionRacing_Name,
+.h-ConfirmationBetSelectionRacing_Odds {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    font-weight: 700
+}
+
+.h-ConfirmationBetSelectionRacing_Odds {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    text-align: right
+}
+
+.h-ConfirmationBetSelectionRacing_BankerLabel {
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    font-weight: 700;
+    padding-bottom: 8px
+}
+
+.h-ConfirmationBetSelectionRacing_GogwContainer {
+    padding-top: 3px
+}
+
+.h-ConfirmationFreeBetIndicator_Container {
+    background-color: #ffdf1b;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 1px
+}
+
+.h-BetSummary .h-ConfirmationFreeBetIndicator_Container {
+    margin-bottom: 10px
+}
+
+.h-ConfirmationFreeBetIndicator_TickIcon {
+    display: inline-block;
+    width: 23px;
+    background-repeat: no-repeat;
+    background-size: 11px 9px;
+    background-position: 50%
+}
+
+.h-ConfirmationFreeBetIndicator_OfferLabel,
+.h-ConfirmationFreeBetIndicator_QualifiedLabel {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 13px;
+    padding: 1px 5px 2px 0;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.h-ConfirmationFreeBetIndicator-qualified .h-ConfirmationFreeBetIndicator_OfferLabel,
+.h-ConfirmationFreeBetIndicator-qualified .h-ConfirmationFreeBetIndicator_QualifiedLabel {
+    line-height: 11px;
+    padding: 2px 5px 3px
+}
+
+.h-ConfirmationFreeBetIndicator_OfferLabel {
+    color: #333;
+    border-radius: 1px 1px 1px 1px
+}
+
+.h-ConfirmationFreeBetIndicator-qualified .h-ConfirmationFreeBetIndicator_OfferLabel {
+    border-radius: 1px 0 0 1px;
+    border: 1px solid #c3c3c3
+}
+
+.h-ConfirmationFreeBetIndicator_QualifiedLabel {
+    color: #fafafa;
+    background-color: #6e6e6e;
+    border-radius: 0 1px 1px 0;
+    border: 1px solid #6e6e6e
+}
+
+.h-ConfirmationStakeDescriptionSection_Text {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 700;
+    color: #282828;
+    padding-bottom: 12px
+}
+
+.h-BetConfirmationSelectionForecastTricast-multiple .h-ConfirmationStakeDescriptionSection_Text {
+    padding-bottom: 15px
+}
+
+.h-ConfirmationStakeDescriptionSection_FreeBet {
+    font-weight: 400;
+    line-height: 18px;
+    color: #666;
+    padding-top: 2px;
+    padding-bottom: 3px
+}
+
+.h-DeviceInfoToggleField {
+    cursor: pointer
+}
+
+.allow-hover .h-DeviceInfoToggleField:hover {
+    text-decoration: underline #c3c3c3
+}
+
+.h-EarlyPayoutHistory {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    padding: 13px 15px 0;
+    border-top: 1px solid #e4e4e4
+}
+
+.h-EarlyPayoutHistory_Header {
+    font-size: 15px;
+    color: #282828;
+    line-height: 21px;
+    font-weight: 700
+}
+
+.h-EarlyPayoutHistory_Details {
+    padding-top: 10px;
+    padding-bottom: 12px
+}
+
+.h-EarlyPayoutHistory_DetailsRow {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    color: #666;
+    font-size: 12px;
+    line-height: 18px;
+    padding-top: 5px
+}
+
+.h-EarlyPayoutHistory_DetailsRow:first-child {
+    padding-top: 0
+}
+
+.h-EarlyPayoutHistory_Label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-right: 10px;
+    width: 50%
+}
+
+.h-EarlyPayoutHistory_Value {
+    text-align: right;
+    width: 50%
+}
+
+.h-GestureOfGoodwill {
+    font-size: 12px;
+    line-height: 18px
+}
+
+.h-GestureOfGoodwill_SettledAs {
+    color: #282828;
+    font-weight: 700
+}
+
+.h-GestureOfGoodwill_Gogw {
+    color: #666;
+    padding: 2px 0 15px
+}
+
+.h-InfoRenderer {
+    padding: 15px;
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    border-top: 1px solid #e4e4e4
+}
+
+.h-InfoRenderer_Title {
+    font-size: 13px;
+    color: #282828;
+    padding-bottom: 2px
+}
+
+.h-SelectionFooter {
+    color: #666;
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: -10px
+}
+
+.h-BetConfirmationSelectionPot .h-SelectionFooter {
+    margin-top: 0
+}
+
+.h-SelectionFooter_Item:last-child {
+    padding-bottom: 15px
+}
+
+.h-SelectionFooter_Item+.h-SelectionFooter_Item {
+    padding-top: 2px
+}
+
+.h-ShowOdds {
+    width: 100%;
+    border-top: 1px solid #e4e4e4;
+    padding-top: 13px;
+    cursor: pointer;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+.h-ShowOdds,
+.h-ShowOdds_Text {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.h-ShowOdds_Text {
+    font-size: 11px;
+    color: #222;
+    line-height: 17px;
+    padding: 0 10px 13px 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto
+}
+
+.h-ShowOdds_Chevron {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    background-size: 5px 9px;
+    width: 5px;
+    height: 9px;
+    background-repeat: no-repeat;
+    background-position: 50%
+}
+
+.h-TermsAndConditions {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 10px;
+    color: #666;
+    line-height: 16px;
+    border-top: 1px solid #e4e4e4;
+    padding: 10px 15px
+}
+
+.h-FreeBetIndicator_Container {
+    background-color: #ffdf1b;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 1px
+}
+
+.h-BetSummary .h-FreeBetIndicator_Container {
+    margin-bottom: 10px
+}
+
+.h-FreeBetIndicator_OfferLabel,
+.h-FreeBetIndicator_QualifiedLabel,
+.h-FreeBetIndicator_RedeemedLabel {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 11px;
+    padding: 2px 5px 3px
+}
+
+.h-FreeBetIndicator_OfferLabel {
+    color: #333;
+    border-radius: 1px 0 0 1px;
+    border: 1px solid #c3c3c3
+}
+
+.h-FreeBetIndicator_QualifiedLabel {
+    color: #fafafa;
+    background-color: #6e6e6e;
+    border-radius: 0 1px 1px 0;
+    border: 1px solid #6e6e6e
+}
+
+.h-FreeBetIndicator_RedeemedLabel {
+    color: #c3c3c3;
+    background-color: #383838;
+    border-radius: 0 1px 1px 0;
+    border: 1px solid #383838
+}
+
+.h-OfferBadgesSection {
+    padding: 0 15px
+}
+
+.h-BetSummary .h-OfferBadgesSection {
+    padding: 0
+}
+
+.h-SafetyNetBetIndicator_Container {
+    background-color: #ffdf1b;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 1px
+}
+
+.h-BetSummary .h-SafetyNetBetIndicator_Container {
+    margin-bottom: 10px
+}
+
+.h-SafetyNetBetIndicator_OfferLabel {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 11px;
+    padding: 2px 5px 3px;
+    color: #333;
+    border-radius: 1px 0 0 1px;
+    border: 1px solid #c3c3c3
+}
+
+.h-StakeDescription_Text {
+    font-size: 12px;
+    color: #666;
+    line-height: 18px;
+    padding-bottom: 8px
+}
+
+.h-StakeReturnGogw {
+    font-weight: 700;
+    font-size: 12px;
+    color: #282828;
+    line-height: 18px;
+    padding-bottom: 12px
+}
+
+.h-StakeReturnGogw,
+.h-StakeReturnGogw_StakeContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.h-StakeReturnGogw_StakeContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-right: 10px
+}
+
+.h-StakeReturnGogw_BonusText,
+.h-StakeReturnGogw_Description,
+.h-StakeReturnGogw_FreeBetStake,
+.h-StakeReturnGogw_IncludeBoost {
+    color: #666;
+    font-weight: 400;
+    padding-top: 2px
+}
+
+.h-StakeReturnGogw_Return {
+    padding-top: 2px
+}
+
+.h-StakeReturnGogw_Return:first-child {
+    padding-top: 0
+}
+
+.h-StakeReturnGogw_ReturnContainer {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    text-align: right
+}
+
+.h-StakeReturnGogw_ReturnContainer,
+.h-StakeReturnSection {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.h-StakeReturnSection {
+    font-size: 12px;
+    line-height: 18px;
+    padding-bottom: 12px
+}
+
+.h-StakeReturnSection_BonusText {
+    padding-top: 2px;
+    color: #666;
+    margin-left: auto
+}
+
+.h-StakeReturnSection_ReturnText {
+    margin-left: auto;
+    font-weight: 700;
+    color: #282828
+}
+
+.h-StakeReturnSection_StakeContainer {
+    font-weight: 700;
+    color: #282828;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-right: 10px
+}
+
+.h-StakeReturnSection_ReturnContainer,
+.h-StakeReturnSection_StakeContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-box-flex: 1
+}
+
+.h-StakeReturnSection_ReturnContainer {
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    text-align: right
+}
+
+.h-StakeReturnSection_IncludeBoost {
+    font-size: 10px;
+    color: #666
+}
+
+.h-StakeReturnSection_BetCreditReturnText {
+    margin-left: auto;
+    color: #282828
+}
+
+.h-StakeReturnSectionIPOffer {
+    font-size: 12px;
+    color: #282828;
+    line-height: 18px;
+    font-weight: 700
+}
+
+.h-StakeReturnSectionIPOffer,
+.h-StakeReturnSectionIPOffer_StakeContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.h-StakeReturnSectionIPOffer_StakeContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    padding-bottom: 12px;
+    padding-right: 10px
+}
+
+.h-StakeReturnSectionIPOffer_SafetyNetReturnValue,
+.h-StakeReturnSectionIPOffer_StakeDetails {
+    font-weight: 400;
+    color: #666;
+    padding-top: 2px
+}
+
+.h-StakeReturnSectionIPOffer_ReturnContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    text-align: right;
+    padding-bottom: 12px
+}
+
+.h-StakeReturnSectionIPOffer_IncludeBoost,
+.h-StakeReturnSectionIPOffer_ReturnDetails {
+    font-weight: 400;
+    color: #666;
+    padding-top: 2px
+}
+
+.h-StakeReturnSectionIPOffer_IncludeBoost:not(:last-child),
+.h-StakeReturnSectionIPOffer_ReturnDetails:not(:last-child) {
+    padding-bottom: 2px
+}
+
+.h-WinningsBoostBadge_Container {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 0 24px 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: #fff;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.h-BetSummary .h-WinningsBoostBadge_Container,
+.h-ConfirmationBetBuilderMultipleSelections .h-WinningsBoostBadge_Container,
+.h-ConfirmationBetSelection .h-WinningsBoostBadge_Container,
+.h-ConfirmationBetSelectionRacing .h-WinningsBoostBadge_Container {
+    padding: 0 24px 15px 0
+}
+
+.h-WinningsBoostBadge_BoostLabel {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    background-color: #137a5a;
+    height: 18px;
+    border-radius: 1px;
+    font-size: 10px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 18px;
+    word-spacing: 1px;
+    padding: 0 5px
+}
 
 .myd-StakeDisplay_Title {
     font-size: 12px;

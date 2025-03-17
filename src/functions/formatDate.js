@@ -164,3 +164,14 @@ export function matchDate(dateString, zone = "+1"){
     return newDate
   // }
 }
+
+export function isGreaterThan24hours(dateString, zone = "+1"){
+  dateString = dateString.trim();
+  const now = DateTime.now({zone: `UTC${zone}`});
+  let date = DateTime.fromFormat(dateString, "yyyy-MM-dd HH:mm", {zone: "UTC+1"});
+  date = date.setZone(`UTC${zone}`);
+
+  const isGreater = (date.diff(now, "hours").as("hours") * -1) > 120;
+
+  return isGreater;
+}

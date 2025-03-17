@@ -44,7 +44,7 @@ const RangeButtons = [
         text: "Last 24 Hours",
     },
     {
-        text: "Last 24 Hours",
+        text: "Last 48 Hours",
     },
     {
         text: "Date Range",
@@ -62,17 +62,6 @@ const History = () => {
     const [route, setRoute] = useState();
 
     const selectedPositionY = useRef(-58);
-
-    const routes = useRef({
-        settled: <SettledHistory toggleMenu={toggleMenu} goBack={()=>setRoute(null)}/>,
-        unsettled: <div>Unsettled</div>,
-        instantGames: <div>Instant Games</div>,
-        deposits: <div>Deposits</div>,
-        withdrawals: <div>Withdrawals</div>,
-        adjustments: <div>Adjustments</div>,
-        netDeposits: <div>Net Deposits</div>,
-        winLoss: <div>Win/Loss</div>,
-    })
 
     function closeMenu() {
         setTranslateY(selectedPositionY.current)
@@ -109,12 +98,12 @@ const History = () => {
     return (
         <div className="wcl-CommonElementStyle_NavContentContainer">
             <div className="mim-MembersIframeModule ">
-                <div className="g5-Application g5-Application-backgroundlight widthState0 viewState0 " style={{ width: "100%", minHeight: "570px" }}>
+                <div className="g5-Application g5-Application-backgroundlight widthState0 viewState0 " style={{ width: "100%", minHeight: "570px", position: "relative" }}>
                     <div className="wc-WebConsoleModule ">
                         <div className="wc-WebConsoleModule_Content wc-WebConsoleModule_Content-footer-displayed ">
                             <div>{/**/}</div>
                             <div className="wc-PageView g5-Application-lightmode " style={{}}>
-                                <div className="wc-PageView_NavigationMenu ">
+                                <div className="wc-PageView_NavigationMenu " style={{position: "absolute"}}>
                                     <div
                                         className={`nm-NavigationMenuModule-footerdisplayed nm-NavigationMenuModule ${expanded ? "nm-NavigationMenuModule-opennarrowview" : ""}`}
                                         style={{ visibility: hidden ? "hidden" : "visible" }}
@@ -136,8 +125,34 @@ const History = () => {
                                         </div>
                                     </div>
                                 </div>
+                                
+                                {route === "settled" ?
+                                    <SettledHistory toggleMenu={toggleMenu} hidden={hidden} goBack={()=>setRoute(null)}/>
+                                    :
+                                    route === "unsettled" ?
+                                        <div>Unsettled</div>
+                                        :
+                                        route === "instantGames" ?
+                                            <div>Instant Games</div>
+                                            :
+                                            route === "deposits" ?
+                                                <div>Deposits</div>
+                                                :
+                                                route === "withdrawals" ?
+                                                    <div>Withdrawals</div>
+                                                    :
+                                                    route === "adjustments" ?
+                                                        <div>Adjustments</div>
+                                                        :
+                                                        route === "netDeposits" ?
+                                                            <div>Net Deposits</div>
+                                                            :
+                                                            route === "winLoss" ?
+                                                                <div>Win/Loss</div>
+                                                                :
+                                                                <SelectRange title={buttons[selected]} toggleMenu={toggleMenu}  setRoute={setRoute}/>
+                                }
 
-                                {routes.current[route] || <SelectRange title={buttons[selected]} toggleMenu={toggleMenu}  setRoute={setRoute}/>}
                             </div>
                         </div>
                     </div>
@@ -154,7 +169,7 @@ const SelectRange = ({title, toggleMenu, setRoute}) => {
     const [selected, setSelected] = useState(null);
     
     return (
-        <div className="wc-PageView_ContentContainer ">
+        <div className="wc-PageView_ContentContainer " style={{position: "absolute"}}>
             <div>
                 <div className="nh-NavigationHeaderModule ">
                     <div className="nh-NavigationHeaderModule_Title " style={{}}>

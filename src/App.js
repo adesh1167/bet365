@@ -50,7 +50,7 @@ function Root(){
                   <BodyWrapper/>
                 </div>
                 {popup === "getAppAd" && <GetAppAd/>}
-                <GameButton/>
+                {location.pathname.startsWith("/HO") && <GameButton/>}
               </>
               :
               <Preloader/>

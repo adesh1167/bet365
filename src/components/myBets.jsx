@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import LoadingSpinner from "./loadingSpinner";
 // import Ticket from "./ticket";
 import { useApp } from "../contexts/appContext";
@@ -6,6 +6,7 @@ import SettledTicket from "./settledTicket";
 import { useLocation } from "react-router-dom";
 import TicketWrapper from "./ticketWrapper";
 import Footer from "./footer";
+import { isGreaterThan24hours } from "../functions/formatDate";
 
 const buttons = [
     {
@@ -57,10 +58,16 @@ const MyBets = () => {
     const [selected, setSelected] = useState(0);
     const [loaded, setLoaded] = useState(false);
 
-    const filteredTickets = loadedTickets.tickets.filter(ticket => {
+    const filteredTickets = useMemo(()=>loadedTickets.tickets.filter(ticket => {
+        if(ticket.status === 'settled'){
+            const finsishedMatches = ticket.matches.filter(match => match.winningSelection);
+            const lastMatch = finsishedMatches[finsishedMatches.length - 1];
+            console.log("Last Match: ", lastMatch)
+            if(isGreaterThan24hours(lastMatch.matchTime)) return false;
+        }
         if(buttons[selected].value === 'All') return true;
         return ticket.status === buttons[selected].value || ticket.filter === buttons[selected].value;
-    })
+    }), [selected])
 
     const [highlight, setHighlight] = useState({
         left: 0,
@@ -72,7 +79,7 @@ const MyBets = () => {
 
     useEffect(()=>{
         setTimeout(()=>setLoaded(true), 1000 + Math.random() * 1000);
-        console.log("Ref: ", ref.current);
+        // console.log("Ref: ", ref.current);
         if(!ref.current) {
             return;
         }

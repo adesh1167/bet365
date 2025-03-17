@@ -6,7 +6,7 @@ import { useApp } from '../contexts/appContext';
 const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 1}) => {
 
     const { country, lang } = useApp();
-    console.log(ticket, data);
+    // console.log(ticket, data);
     
     return (
         <div className={`myb-OpenBetItem ${expanded ? "myb-OpenBetItem_Open" : "myb-OpenBetItem_Collapsed"}`}>

@@ -304,7 +304,7 @@ html.wc-WebConsoleModule-loadediniframe::-webkit-scrollbar {
     -ms-flex: 0 1 530px;
 
     /* Edited */
-    position: absolute;
+    /* position: absolute; */
 
     flex: 0 1 530px;
     width: 100%
@@ -367,7 +367,7 @@ html.wc-WebConsoleModule-loadediniframe::-webkit-scrollbar {
     position: relative
 }
 
-.wc-Spinner {
+.mim-MembersIframeModule .wc-Spinner {
     background-color: hsla(180, 5%, 93%, .5);
     position: fixed;
     display: -webkit-box;

@@ -1,14 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
-import OpenTicket from './openTicket'
-import SettledTicket from './settledTicket'
-import { useApp } from '../contexts/appContext';
+import { useEffect, useRef, useState } from "react";
+import { useApp } from "../contexts/appContext";
+import formatNumber from "../functions/formatNumber";
 
-const TicketWrapper = ({ type, ticket, filter, percent = 1}) => {
+const BetSummary = ({ ticket, percent = 1,  }) => {
+
+    console.log("Ticket: ", ticket);
 
     const { country, lang } = useApp();
 
-    const [expanded, setExpanded] = useState(false);
-    const [hidden, setHidden] = useState(true);
     const [data, setData] = useState({});
 
     const status = useRef({
@@ -47,7 +46,7 @@ const TicketWrapper = ({ type, ticket, filter, percent = 1}) => {
                     } else {
                         status.current.pending++;
                     }
-    
+
                     if (Number(match.odd) >= 1.2) {
                         temp.boostMatches++;
                     }
@@ -114,54 +113,64 @@ const TicketWrapper = ({ type, ticket, filter, percent = 1}) => {
         calculate();
     }, [])
 
-    function doExpand() {
-        setHidden(false);
-        setTimeout(() => {
-            setExpanded(true);
-        }, 10);
-    }
-
-    function doCollapse() {
-        setExpanded(false);
-        setTimeout(() => {
-            setHidden(true);
-        }, 150);
-    }
-
-    function toggleExpand() {
-        if (expanded) {
-            doCollapse();
-        } else {
-            doExpand();
-        }
-    }
-
-    const height = useRef(100 + 125 * ticket.matches.length);
-
     return (
-        type === "open" ?
-            <OpenTicket
-                data={data}
-                ticket={ticket}
-                filter={filter}
-                percent={percent}
-                height={height.current}
-                hidden={hidden}
-                expanded={expanded}
-                toggleExpand={toggleExpand}
-                />
-                :
-                <SettledTicket
-                data={data}
-                ticket={ticket}
-                filter={filter}
-                percent={percent}
-                height={height.current}
-                hidden={hidden}
-                expanded={expanded}
-                toggleExpand={toggleExpand}
-            />
+        <div className="h-BetSummary ">
+            <div className="h-BetSummary_Container ">
+                <div className="h-BetSummary_DateAndTime ">
+                    16/03/2025 13:56:06
+                </div>
+            </div>
+            <div className="h-BetSummary_SelectionContainer ">
+                <div>
+                    {ticket.matches.map((match, index) => (
+                        <Match key={index} match={match} />
+                    ))}
+                </div>
+                <div className="h-StakeDescription ">
+                    <div className="h-StakeDescription_Text ">
+                        <div>{lang[`${ticket.matches.length}Fold`]}, 1 bet * {country.currency}{formatNumber(data.wager, country.hasComma, country.lang)} </div>
+                    </div>
+                </div>
+                <div className="h-StakeReturnSection ">
+                    <div className="h-StakeReturnSection_StakeContainer ">
+                        <div>Stake {country.currency}{formatNumber(data.wager, country.hasComma, country.lang)} </div>
+                    </div>
+                    <div className="h-StakeReturnSection_ReturnContainer ">
+                        <div className="h-StakeReturnSection_ReturnText ">
+                            Return {country.currency}{formatNumber(data.isLost ? 0 : data.effectivePotentialReturn, country.hasComma, country.lang)}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="h-BetSummary_BetDetails">
+                <div className="h-BetSummary_BetDetailsContainer">
+                    <div className="h-BetSummary_BetDetailsText ">
+                        Bet Details
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 
-export default TicketWrapper
+const Match = ({match}) => {
+
+    return (
+        <div className="h-BetSelection ">
+            <div className="h-BetSelection_Container ">
+                <div className="h-BetSelection_InfoContainer ">
+                    <div className="h-BetSelection_NameContainer ">
+                        <div className="h-BetSelection_Name ">{match.userSelection}</div>
+                    </div>
+                </div>
+                <div className="h-BetSelection_Odds ">
+                    <span>{match.odd}</span>
+                </div>
+            </div>
+            <div className="h-BetSelection_SubOnBadgeContainer " />
+        </div>
+    )
+}
+
+export default BetSummary;

@@ -6,7 +6,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
 
     const { country, lang } = useApp();
 
-    console.log(ticket);
+    // console.log(ticket);
 
     return (
         <div className={`myb-SettledBetItem ${ticket.filter === "Win" ? "myb-SettledBetItem_HasWin" : (ticket.filter === "Loss" ? "myb-SettledBetItem_HasLost" : "")} ${expanded ? "myb-SettledBetItem_Open" : "myb-SettledBetItem_Collapsed"}`}>
@@ -161,10 +161,10 @@ const Match = ({ odd, winningSelection, userSelection, home, away, gameType, lea
         color = status == 'finished' ? 'win-color' : 'black-color';
         filter = status == 'finished' ? "won" : "torun";
 
-        console.log(status);
+        // console.log(status);
     }
 
-    console.log(isOpen, home, status, filter);
+    // console.log(isOpen, home, status, filter);
 
     return (
         <div className="myb-SettledBetParticipant myb-BetParticipant ">

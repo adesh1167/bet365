@@ -1,8 +1,8 @@
 import React from 'react'
 
-const NavigationMenuLoadingSpinner = () => {
+const NavigationMenuLoadingSpinner = ({height = "570px"}) => {
   return (
-        <div className="wc-Spinner " style={{ paddingBottom: "calc(-550px + 100vh)" }}>
+        <div className="wc-Spinner " style={{position: "absolute", height: height }}>
            <div className="wc-Spinner_Icon " />
         </div>
   )
