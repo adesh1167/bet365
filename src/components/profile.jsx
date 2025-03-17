@@ -5,6 +5,11 @@ const Profile = () => {
 
     const {setPopup, logout} = useApp();
     const navigate = useNavigate();
+    
+    function goTo(path){
+        setPopup(null);
+        navigate(path);
+    }
 
     return(
         <>
@@ -311,7 +316,7 @@ const Profile = () => {
                                 </div>
                                 <div className="ul-MembersLinkButton_Text ">My Activity</div>
                             </div>
-                            <div className="ul-MembersLinkButton " onClick={()=>navigate("/ME")}>
+                            <div className="ul-MembersLinkButton " onClick={()=>goTo("/ME/X8020")}>
                                 <div className="ul-MembersLinkButton_Icon ">
                                 <svg
                                     className="ul-MembersLinkButton_Svg"
