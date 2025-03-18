@@ -1,8 +1,8 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Footer from "./footer";
 import "./styles/history.css";
-import { MemoryRouter as Router, Route, Routes, Link } from "react-router-dom";
-import SettledHistory from "./settledHistory";
+import BetHistory from "./betHistory";
+import TransactionHistory from "./transactionHistory";
 
 const buttons = [
     {
@@ -54,10 +54,11 @@ const RangeButtons = [
 
 const History = () => {
 
-    const [selected, setSelected] = useState(0);
-    const [translateY, setTranslateY] = useState(-58);
-    const [expanded, setExpanded] = useState(false);
-    const [hidden, setHidden] = useState(true);
+    const [loaded, setLoaded] = useState(false);
+    const [selected, setSelected] = useState(null);
+    const [translateY, setTranslateY] = useState(0);
+    const [expanded, setExpanded] = useState(true);
+    const [hidden, setHidden] = useState(false);
 
     const [route, setRoute] = useState();
 
@@ -83,6 +84,7 @@ const History = () => {
     function selectMenu(e, index) {
         selectedPositionY.current = -(58 + index * 50);
         setSelected(index);
+        setRoute(null);
         closeMenu();
     }
 
@@ -94,6 +96,14 @@ const History = () => {
         }
 
     }
+
+    useEffect(()=>{
+        setTimeout(() => {
+            setLoaded(true);
+        }, 200 + Math.random() * 200)
+    }, [])
+
+    if(!loaded) return null;
 
     return (
         <div className="wcl-CommonElementStyle_NavContentContainer">
@@ -111,9 +121,9 @@ const History = () => {
 
                                         <div className="nm-MenuHeader ">
                                             <div className="nm-MenuHeader_Text " style={{ opacity: (translateY === 0 && expanded) ? 1 : 0, transitionDelay: translateY === 0 ? "0.1s" : "0s" }}>History</div>
-                                            <div className="nm-BurgerIcon " onClick={toggleMenu}>
+                                            {selected === null || <div className="nm-BurgerIcon " onClick={toggleMenu}>
                                                 <div className="nm-BurgerIcon_Icon " />
-                                            </div>
+                                            </div>}
                                         </div>
 
                                         <div className="nm-MenuItems " style={{ transform: `translateY(${translateY}px` }}>
@@ -127,19 +137,19 @@ const History = () => {
                                 </div>
                                 
                                 {route === "settled" ?
-                                    <SettledHistory toggleMenu={toggleMenu} hidden={hidden} goBack={()=>setRoute(null)}/>
+                                    <BetHistory toggleMenu={toggleMenu} hidden={hidden} goBack={()=>setRoute(null)} status="settled" title="Settled Bets"/>
                                     :
                                     route === "unsettled" ?
-                                        <div>Unsettled</div>
+                                        <BetHistory toggleMenu={toggleMenu} hidden={hidden} goBack={()=>setRoute(null)} status="open" title="Unsettled Bets"/>
                                         :
                                         route === "instantGames" ?
                                             <div>Instant Games</div>
                                             :
                                             route === "deposits" ?
-                                                <div>Deposits</div>
+                                                <TransactionHistory type="Card Deposit" title="Deposits" goBack={()=>setRoute(null)} hidden={hidden} toggleMenu={toggleMenu} label="Deposit"/>
                                                 :
                                                 route === "withdrawals" ?
-                                                    <div>Withdrawals</div>
+                                                    <TransactionHistory type="Withdrawal" title="Withdrawals" goBack={()=>setRoute(null)} hidden={hidden} toggleMenu={toggleMenu} label="Withdrawal"/>
                                                     :
                                                     route === "adjustments" ?
                                                         <div>Adjustments</div>
@@ -167,15 +177,17 @@ const History = () => {
 const SelectRange = ({title, toggleMenu, setRoute}) => {
 
     const [selected, setSelected] = useState(null);
+
+    if(!title) return null;
     
     return (
         <div className="wc-PageView_ContentContainer " style={{position: "absolute"}}>
             <div>
-                <div className="nh-NavigationHeaderModule ">
+                <div className="nh-NavigationHeaderModule " onClick={toggleMenu}>
                     <div className="nh-NavigationHeaderModule_Title " style={{}}>
                         {title.text}
                     </div>
-                    <div className="nh-BurgerIcon " onClick={toggleMenu}>
+                    <div className="nh-BurgerIcon ">
                         <div className="nh-BurgerIcon_Icon " />
                     </div>
                 </div>

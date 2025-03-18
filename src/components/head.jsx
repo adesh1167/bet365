@@ -2,6 +2,9 @@ import { Link, useLocation } from "react-router-dom";
 import { useApp } from "../contexts/appContext";
 import Profile from "./profile";
 import HeadOverlay from "./headOverlay";
+import formatDate from "../functions/formatDate";
+import formatNumber from "../functions/formatNumber";
+import { useEffect, useState } from "react";
 
 const buttons = [
     {
@@ -24,7 +27,13 @@ const buttons = [
 
 const Head = () => {
 
-    const { lang, setPopup, popup, user, loadStage } = useApp();
+    const { lang, setPopup, popup, country, balance, user, loadStage, loadedTickets } = useApp();
+
+    const [openTicketsCount, setOpenTicketsCount] = useState(null);
+
+    useEffect(()=>{
+        setOpenTicketsCount(loadedTickets.tickets.filter((ticket)=>ticket.status == 'open').length);
+    }, [loadedTickets.tickets])
 
     const location = useLocation();
 
@@ -80,10 +89,10 @@ const Head = () => {
                         </div>
                         {user ? 
                             <div className="hm-MainHeaderRHSLoggedInNarrow ">
-                                <div className="hm-MainHeaderMembersNarrow ">
+                                <div className={`hm-MainHeaderMembersNarrow ${location.pathname.startsWith('/ME') ? "hm-HeaderMenuItem_LinkSelected hm-HeaderMenuItem_LinkSelected-underscore" : ""}`}>
                                 <div onClick={() => setPopup("profile")} className="hm-MainHeaderMembersNarrow_MembersWrapper ">
                                     <div className="hm-MainHeaderMembersNarrow_MembersMenuIcon " />
-                                    <div className="hm-MainHeaderMembersNarrow_Balance hm-Balance " />
+                                    <div className="hm-MainHeaderMembersNarrow_Balance hm-Balance ">{country.currency}{formatNumber(balance, country.hasComma, country.lang)}</div>
                                 </div>
                                 </div>
                             </div>
@@ -113,7 +122,7 @@ const Head = () => {
                                     <div className="hm-MainHeaderTabRow_InPlayLabel ">
                                         {lang[button.name]}
                                     </div>
-                                    {(button.name === "mybets" && true) && <span class="hm-HeaderMenuItemMyBets_MyBetsCount ">2</span>}
+                                    {(button.name === "mybets" && openTicketsCount > 0) && <span class="hm-HeaderMenuItemMyBets_MyBetsCount ">{openTicketsCount}</span>}
                                 </Link  >
                             )
                         })}

@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import NavigationMenuLoadingSpinner from './navigationMenuLoadingSpinner';
 import { useApp } from '../contexts/appContext';
 import BetSummary from './betSummary';
 
-const SettledHistory = ({ toggleMenu, goBack, hidden }) => {
+const BetHistory = ({ toggleMenu, goBack, hidden, status, title }) => {
 
     const {loadedTickets} = useApp();
+
+    const filteredTickets = useMemo(() => {
+        return loadedTickets.tickets.filter(ticket => ticket.status === status)
+    }, [loadedTickets])
 
     const [loaded, setLoaded] = useState(false);
 
@@ -21,9 +25,9 @@ const SettledHistory = ({ toggleMenu, goBack, hidden }) => {
         <>
             <div className="wc-PageView_ContentContainer ">
                 <div>
-                    <div className="nh-NavigationHeaderModule ">
-                        <div className="nh-NavigationHeaderModule_Title ">Settled Bets</div>
-                        <div className="nh-BurgerIcon " onClick={toggleMenu}>
+                    <div className="nh-NavigationHeaderModule "  onClick={toggleMenu}>
+                        <div className="nh-NavigationHeaderModule_Title ">{title}</div>
+                        <div className="nh-BurgerIcon ">
                             <div className="nh-BurgerIcon_Icon " />
                         </div>
                     </div>
@@ -37,11 +41,17 @@ const SettledHistory = ({ toggleMenu, goBack, hidden }) => {
                                     <div className="hl-SummaryRenderer_Title " style={{}}>
                                         From 15/03/2025 To 17/03/2025
                                     </div>
-                                    <div className="hl-SummaryRenderer_Container ">
-                                        {loadedTickets.tickets.map((ticket, index) => {
-                                            return <BetSummary key={index} ticket={ticket} />
-                                        })}
-                                    </div>
+                                    {filteredTickets.length === 0 ?
+                                        <div className="hl-SummaryRenderer_Message " style={{}}>
+                                            Sorry, there is no history information available
+                                        </div>
+                                        :
+                                        <div className="hl-SummaryRenderer_Container ">
+                                            {filteredTickets.map((ticket, index) => {
+                                                return <BetSummary key={index} ticket={ticket} />
+                                            })}
+                                        </div>
+                                    }
                                 </div>
                             </div>}
                         </>
@@ -56,4 +66,4 @@ const SettledHistory = ({ toggleMenu, goBack, hidden }) => {
 }
 
 
-export default SettledHistory;
+export default BetHistory;

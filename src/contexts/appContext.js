@@ -92,26 +92,28 @@ const AppProvider = ({children}) => {
 
         if(!full) return;
 
+        getTransactions();
+
         setTimeout(()=>{
-            window.$.ajax({
-              url: `${baseApiUrl}/get-balance.php`,
-              dataType: 'JSON',
-              type: 'POST',
-              data: {user: user},
-              success: (res)=>{
-                // console.log(res)
-                if(res.status = 'success') setBalance(res.data.balance)
-                else setBalance(400)
-              },
-              error: (res)=>{
-                // console.log(res)
-                setBalance(400)
-              }
-            })
+            getBalance()
+                .then(res => {
+                    if(res.status = 'success') setBalance(res.data.balance)
+                    else setBalance(400)
+                })
+                .catch(err=> setBalance(400))
           }, 2000)
     
     }
 
+    function getBalance(){
+        return window.$.ajax({
+            url: `${baseApiUrl}/get-balance.php`,
+            dataType: 'JSON',
+            type: 'POST',
+            data: {user: user},
+        })
+    }
+    
     function getTransactions(){
         window.$.ajax({
             url: `${baseApiUrl}/get-transactions.php`,
@@ -297,6 +299,7 @@ const AppProvider = ({children}) => {
             getTransactions,
             balance: balance * countries[countryCode]?.factor,
             setBalance,
+            getBalance,
             country: countries[countryCode],
             setCountryCode,
             dropDown,

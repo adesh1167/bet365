@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useApp } from "../contexts/appContext";
 import formatNumber from "../functions/formatNumber";
 
-const BetSummary = ({ ticket, percent = 1,  }) => {
+const BetSummary = ({ ticket, percent = 1,}) => {
 
     console.log("Ticket: ", ticket);
 
@@ -136,10 +136,15 @@ const BetSummary = ({ ticket, percent = 1,  }) => {
                         <div>Stake {country.currency}{formatNumber(data.wager, country.hasComma, country.lang)} </div>
                     </div>
                     <div className="h-StakeReturnSection_ReturnContainer ">
-                        <div className="h-StakeReturnSection_ReturnText ">
-                            Return {country.currency}{formatNumber(data.isLost ? 0 : data.effectivePotentialReturn, country.hasComma, country.lang)}
-
-                        </div>
+                        {ticket.status === "open" ?
+                            <div className="h-StakeReturnSection_ReturnText ">
+                                Cash Out {country.currency}{formatNumber(data.isLost ? 0 : data.cashout, country.hasComma, country.lang)}
+                            </div>
+                            :
+                            <div className="h-StakeReturnSection_ReturnText ">
+                                Return {country.currency}{formatNumber(data.isLost ? 0 : data.effectivePotentialReturn, country.hasComma, country.lang)}
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
