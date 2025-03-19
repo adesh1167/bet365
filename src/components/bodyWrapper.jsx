@@ -1,8 +1,10 @@
 import { useApp } from "../contexts/appContext";
 import History from "./history";
 import HomePage from "./homepage";
+import ManageBets from "./manageBets";
 import MyBets from "./myBets";
 import { MemoryRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import UploadTickets from "./uploadTicket";
 
 const BodyWrapper = () => {
 
@@ -17,9 +19,9 @@ const BodyWrapper = () => {
                     <Route path="/AZ" element={<HomePage/>}/>
                     <Route path="/MB" element={user ? <MyBets/> : <Navigate to="/HO"/>}/>
                     <Route path="/ME" element={user ? <HomePage/> : <Navigate to="/HO"/>}/>
-                    <Route path="/ME/X8020" element={user ? <History/> : <Navigate to="/HO"/>}>
-
-                    </Route>
+                    <Route path="/MaB" element={user ? <ManageBets/> : <Navigate to="/HO"/>}/>
+                    <Route path="/UT" element={user ? <UploadTickets/> : <Navigate to="/HO"/>}/>
+                    <Route path="/ME/X8020" element={user ? <History/> : <Navigate to="/HO"/>}/>
                 </Routes>
             </div>
         </div>

@@ -2,14 +2,17 @@ import React, { useEffect, useRef, useState } from 'react'
 import formatNumber from '../functions/formatNumber';
 import { useApp } from '../contexts/appContext';
 
-const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 0.9 }) => {
+const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 0.9, isDeleted }) => {
 
     const { country, lang } = useApp();
 
     // console.log(ticket);
 
     return (
-        <div className={`myb-SettledBetItem ${ticket.filter === "Win" ? "myb-SettledBetItem_HasWin" : (ticket.filter === "Loss" ? "myb-SettledBetItem_HasLost" : "")} ${expanded ? "myb-SettledBetItem_Open" : "myb-SettledBetItem_Collapsed"}`}>
+        <div
+            className={`myb-SettledBetItem ${ticket.filter === "Win" ? "myb-SettledBetItem_HasWin" : (ticket.filter === "Loss" ? "myb-SettledBetItem_HasLost" : "")} ${expanded ? "myb-SettledBetItem_Open" : "myb-SettledBetItem_Collapsed"}`}
+            style={{opacity: isDeleted ? "0.5" : "1", transition: "0.1s opacity linear" }}
+        >
             <div className="myb-SettledBetItemHeader " onClick={toggleExpand}>
                 <div className="myb-SettledBetItemHeader_HeaderTextContainer ">
                     <div className="myb-SettledBetItemHeader_Title ">

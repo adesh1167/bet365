@@ -1,4 +1,4 @@
-async function generateUUID(dateStr, type) {
+async function generateUUID2(dateStr, type) {
     // Get current date and time (YYYY-MM-DD HH:mm:ss)
   
     // Encode as Uint8Array
@@ -23,6 +23,20 @@ async function generateUUID(dateStr, type) {
     console.log(UUID);
     return UUID
 
+  }
+
+  function generateUUID(timestamp) {
+    // Convert timestamp to a number (removing non-numeric characters)
+    const numericPart = timestamp.replace(/\D/g, ""); // Extracts only digits
+  
+    // Use a simple hash function to create a unique but consistent ID
+    let hash = 0;
+    for (let i = 0; i < numericPart.length; i++) {
+      hash = (hash * 31 + numericPart.charCodeAt(i)) % 0xffffffff;
+    }
+  
+    // Convert hash to a hexadecimal string and format the ID
+    return "D" + Math.abs(hash).toString(16).toUpperCase();
   }
 
   export default generateUUID;

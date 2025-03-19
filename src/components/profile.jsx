@@ -406,12 +406,12 @@ const Profile = () => {
                                         </div>
                                     </div>
                                     <div className="um-GeneralTab_LowerMenu ">
-                                        <div className="ul-MembersLinkButton-wide ul-MembersLinkButton ">
+                                        <div className="ul-MembersLinkButton-wide ul-MembersLinkButton " onClick={()=>goTo("UT")}>
                                             <div className="ul-MembersLinkButton_Text ">
                                                 Responsible Gambling
                                             </div>
                                         </div>
-                                        <div className="ul-MembersLinkButton-wide ul-MembersLinkButton ">
+                                        <div className="ul-MembersLinkButton-wide ul-MembersLinkButton " onClick={()=>goTo("MaB")}>
                                             <div className="ul-MembersLinkButton_Text ">Help</div>
                                         </div>
                                     </div>

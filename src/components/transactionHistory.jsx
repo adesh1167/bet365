@@ -4,6 +4,7 @@ import { useApp } from '../contexts/appContext';
 import BetSummary from './betSummary';
 import formatNumber from '../functions/formatNumber';
 import generateUUID from '../functions/generateId';
+import formatDate, { ticketDate } from '../functions/formatDate';
 
 const TransactionHistory = ({ toggleMenu, goBack, hidden, type, title, label }) => {
 
@@ -72,13 +73,13 @@ const Transaction = ({ transaction, label }) => {
 
     const [id, setId] = useState("");
 
-    useEffect(()=>{
-        if(transaction.tx_type == "Card Deposit" || transaction.tx_type == "Withdrawal"){
-            generateUUID(transaction.tx_time).then(res=>setId(res));
-        } else{
-            setId(transaction.bet_id);
-        }
-    }, [])
+    // useEffect(()=>{
+    //     if(transaction.tx_type == "Card Deposit" || transaction.tx_type == "Withdrawal"){
+    //         generateUUID(transaction.tx_time).then(res=>setId(res));
+    //     } else{
+    //         setId(transaction.bet_id);
+    //     }
+    // }, [])
 
     return (
         <div className="dwh-DepositWithdrawalResult ">
@@ -90,7 +91,7 @@ const Transaction = ({ transaction, label }) => {
                     {label} Amount
                 </div>
                 <div className="dwh-DepositWithdrawalResult_ValueLabel ">
-                    {country.currency}{formatNumber(transaction.amount, country.hasComma, country.lang)}
+                    {country.currency}{formatNumber(transaction.amount * country.factor, country.hasComma, country.lang)}
                 </div>
             </div>
             <div className="dwh-DepositWithdrawalResult_Paragraph">
@@ -101,13 +102,13 @@ const Transaction = ({ transaction, label }) => {
                     {transaction.tx_type}
                 </div>
                 <div className="dwh-DepositWithdrawalResult_ReferenceLabel ">
-                    Reference: {id}
+                    Reference: {generateUUID(transaction.tx_time)}
                 </div>
                 <div
                     className="dwh-DepositWithdrawalResult_TimeStampLabel "
                     style={{}}
                 >
-                    {transaction.tx_time}
+                    {ticketDate(transaction.tx_time, country.timeZone)}
                 </div>
             </div>
         </div>

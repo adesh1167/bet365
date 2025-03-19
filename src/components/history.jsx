@@ -8,10 +8,12 @@ const buttons = [
     {
         text: "Settled Bets",
         value: "settled",
+        types: ["Sports", "Lotto"]
     },
     {
         text: "Unsettled Bets",
         value: "unsettled",
+        types: ["Sports", "Lotto"]
     },
     {
         text: "Instant Games Bets",
@@ -36,6 +38,7 @@ const buttons = [
     {
         text: "Win/Loss",
         value: "winLoss",
+        types: ["Sports", "Lotto", "Instant Games"]
     }
 ]
 
@@ -160,7 +163,7 @@ const History = () => {
                                                             route === "winLoss" ?
                                                                 <div>Win/Loss</div>
                                                                 :
-                                                                <SelectRange title={buttons[selected]} toggleMenu={toggleMenu}  setRoute={setRoute}/>
+                                                                <SelectRange title={buttons[selected]} toggleMenu={toggleMenu}  setRoute={setRoute} sections={buttons[selected]?.types}/>
                                 }
 
                             </div>
@@ -174,7 +177,7 @@ const History = () => {
     )
 }
 
-const SelectRange = ({title, toggleMenu, setRoute}) => {
+const SelectRange = ({title, toggleMenu, setRoute, sections}) => {
 
     const [selected, setSelected] = useState(null);
 
@@ -195,19 +198,22 @@ const SelectRange = ({title, toggleMenu, setRoute}) => {
             <div>
                 <div className="hsc-HistorySearchCriteriaModule ">
                     <div className={`hsc-HistoryRangeSelector ${selected !== null ? "hsc-HistoryRangeSelector-active" : ""}`}>
-                        <div className="hsc-HistoryRangeSelector_Scroller hsc-HistoryRangeScroller ">
-                            <div className="hsc-HistoryRangeScroller_Wrapper">
-                                <div
-                                    role="tablist"
-                                    className="hsc-HistoryRangeSelector_SubMenu scr-HorizontalScroller_ScrollContent "
-                                >
-                                    <div className="hsc-HistoryRangeMenuItem hsc-HistoryRangeMenuItem-selected ">
-                                        Sports
+                        { sections &&
+                            <div className="hsc-HistoryRangeSelector_Scroller hsc-HistoryRangeScroller ">
+                                <div className="hsc-HistoryRangeScroller_Wrapper">
+                                    <div
+                                        role="tablist"
+                                        className="hsc-HistoryRangeSelector_SubMenu scr-HorizontalScroller_ScrollContent "
+                                    >
+                                        {sections.map((section, index) =>
+                                            <div className={`hsc-HistoryRangeMenuItem ${index === 0 ? "hsc-HistoryRangeMenuItem-selected" : ""}`}>
+                                                {section}
+                                            </div>
+                                        )}
                                     </div>
-                                    <div className="hsc-HistoryRangeMenuItem ">Lotto</div>
                                 </div>
                             </div>
-                        </div>
+                        }
                         <div className="hsc-HistoryRangeSelector_SearchContainer ">
                             <div className="hsc-HistoryRangeSelector_ButtonContainer ">
                                 {RangeButtons.map((button, index) =>

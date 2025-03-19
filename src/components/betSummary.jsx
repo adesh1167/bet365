@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useApp } from "../contexts/appContext";
 import formatNumber from "../functions/formatNumber";
+import { ticketDate } from "../functions/formatDate";
 
 const BetSummary = ({ ticket, percent = 1,}) => {
 
@@ -117,7 +118,7 @@ const BetSummary = ({ ticket, percent = 1,}) => {
         <div className="h-BetSummary ">
             <div className="h-BetSummary_Container ">
                 <div className="h-BetSummary_DateAndTime ">
-                    16/03/2025 13:56:06
+                    {ticketDate(ticket.stakeTime, country.timeZone)}
                 </div>
             </div>
             <div className="h-BetSummary_SelectionContainer ">

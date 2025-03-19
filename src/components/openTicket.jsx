@@ -3,13 +3,16 @@ import formatNumber from '../functions/formatNumber';
 import { matchDate } from '../functions/formatDate';
 import { useApp } from '../contexts/appContext';
 
-const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 1}) => {
+const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 1, isDeleted}) => {
 
     const { country, lang } = useApp();
     // console.log(ticket, data);
     
     return (
-        <div className={`myb-OpenBetItem ${expanded ? "myb-OpenBetItem_Open" : "myb-OpenBetItem_Collapsed"}`}>
+        <div
+            className={`myb-OpenBetItem ${expanded ? "myb-OpenBetItem_Open" : "myb-OpenBetItem_Collapsed"}`}
+            style={{opacity: isDeleted ? "0.5" : "1", transition: "0.1s opacity linear" }}
+        >
             <div className="myb-OpenBetItem_Header myb-OpenBetItem_HeaderTitle "  onClick={toggleExpand}>
                 <div className="myb-OpenBetItem_HeaderTextContainer ">
                     <div className="myb-OpenBetItem_StakeDesc ">
