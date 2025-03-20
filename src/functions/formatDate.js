@@ -2,22 +2,10 @@ import { DateTime } from "luxon";
 
 export default function formatDate(seconds, full=false){
     const now = DateTime.now();
-    const date = DateTime.fromSeconds(seconds);
+    const date = DateTime.fromSeconds(seconds / 1000);
   
-    if (date.hasSame(now, 'day')) {
-      return full ? `Today ${date.toLocaleString(DateTime.TIME_24_SIMPLE)}` : date.toLocaleString(DateTime.TIME_24_SIMPLE);
-    } else if (date.plus({ days: 1 }).hasSame(now, 'day')) {
-    //   return `Yesterday ${date.toLocaleString(DateTime.TIME_SIMPLE)}`;
-      return `Yesterday`;
-    } else if (date.minus({ days: 1 }).hasSame(now, 'day')) {
-    //   return `Yesterday ${date.toLocaleString(DateTime.TIME_SIMPLE)}`;
-      return full ? `Tomorrow ${date.toLocaleString(DateTime.TIME_24_SIMPLE)}` : `Tomorrow`;
-    } else if (date.hasSame(now, 'year')) {
-      return full ? `${date.toLocaleString({month: 'short', day: 'numeric'})} at ${date.toLocaleString(DateTime.TIME_24_SIMPLE)}` : date.toLocaleString({month: 'short', day: 'numeric'});
-    } else {
-      // Otherwise, show just the date
-      return date.toLocaleString(DateTime.DATE_MED); 
-    }
+    return date.toFormat("dd/MM/yyyy");
+    
 }
 
 export function highlightDate(dateString, full=false, zone = "+0"){
@@ -194,6 +182,24 @@ export function isGreaterThan24hours(dateString, zone = "+1"){
   date = date.setZone(`UTC${zone}`);
 
   const isGreater = (date.diff(now, "hours").as("hours") * -1) > 120;
+
+  return isGreater;
+}
+
+export function isGreaterThanTime(variableDate, startSeconds, zone = "+1"){
+  variableDate = variableDate.trim();
+  // const now = DateTime.now({zone: `UTC${zone}`});
+  // let date1 = DateTime.fromSeconds(startSeconds, {zone: "UTC+1"});
+  let date2 = DateTime.fromSQL(variableDate, {zone: "UTC+1"});
+  // date1 = date1.setZone(`UTC${zone}`);
+
+  const date1Seconds = startSeconds/1000; 
+  const date2Seconds = date2.toSeconds();
+
+  console.log(date2Seconds, date1Seconds);
+
+  const isGreater = date2Seconds >= date1Seconds;
+  console.log(isGreater);
 
   return isGreater;
 }

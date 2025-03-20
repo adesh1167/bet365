@@ -3,6 +3,8 @@ import Footer from "./footer";
 import "./styles/history.css";
 import BetHistory from "./betHistory";
 import TransactionHistory from "./transactionHistory";
+import getDate from "../functions/getDate";
+import formatDate from "../functions/formatDate";
 
 const buttons = [
     {
@@ -45,12 +47,15 @@ const buttons = [
 const RangeButtons = [
     {
         text: "Last 24 Hours",
+        duration: 1
     },
     {
         text: "Last 48 Hours",
+        duration: 2
     },
     {
         text: "Date Range",
+        duration: 10,
         hasCalender: true,
     },
 ]
@@ -64,6 +69,7 @@ const History = () => {
     const [hidden, setHidden] = useState(false);
 
     const [route, setRoute] = useState();
+    const [duration, setDuration] = useState(1);
 
     const selectedPositionY = useRef(-58);
 
@@ -140,19 +146,19 @@ const History = () => {
                                 </div>
                                 
                                 {route === "settled" ?
-                                    <BetHistory toggleMenu={toggleMenu} hidden={hidden} goBack={()=>setRoute(null)} status="settled" title="Settled Bets"/>
+                                    <BetHistory toggleMenu={toggleMenu} hidden={hidden} goBack={()=>setRoute(null)} status="settled" duration={duration} title="Settled Bets"/>
                                     :
                                     route === "unsettled" ?
-                                        <BetHistory toggleMenu={toggleMenu} hidden={hidden} goBack={()=>setRoute(null)} status="open" title="Unsettled Bets"/>
+                                        <BetHistory toggleMenu={toggleMenu} hidden={hidden} goBack={()=>setRoute(null)} status="open" duration={duration} title="Unsettled Bets"/>
                                         :
                                         route === "instantGames" ?
                                             <div>Instant Games</div>
                                             :
                                             route === "deposits" ?
-                                                <TransactionHistory type="Card Deposit" title="Deposits" goBack={()=>setRoute(null)} hidden={hidden} toggleMenu={toggleMenu} label="Deposit"/>
+                                                <TransactionHistory type="Card Deposit" title="Deposits" goBack={()=>setRoute(null)} hidden={hidden} duration={duration} toggleMenu={toggleMenu} label="Deposit"/>
                                                 :
                                                 route === "withdrawals" ?
-                                                    <TransactionHistory type="Withdrawal" title="Withdrawals" goBack={()=>setRoute(null)} hidden={hidden} toggleMenu={toggleMenu} label="Withdrawal"/>
+                                                    <TransactionHistory type="Withdrawal" title="Withdrawals" goBack={()=>setRoute(null)} hidden={hidden} duration={duration} toggleMenu={toggleMenu} label="Withdrawal"/>
                                                     :
                                                     route === "adjustments" ?
                                                         <div>Adjustments</div>
@@ -163,7 +169,7 @@ const History = () => {
                                                             route === "winLoss" ?
                                                                 <div>Win/Loss</div>
                                                                 :
-                                                                <SelectRange title={buttons[selected]} toggleMenu={toggleMenu}  setRoute={setRoute} sections={buttons[selected]?.types}/>
+                                                                <SelectRange title={buttons[selected]} toggleMenu={toggleMenu}  setRoute={setRoute} sections={buttons[selected]?.types} setDuration={setDuration}/>
                                 }
 
                             </div>
@@ -177,9 +183,11 @@ const History = () => {
     )
 }
 
-const SelectRange = ({title, toggleMenu, setRoute, sections}) => {
+const SelectRange = ({title, toggleMenu, setRoute, setDuration, sections}) => {
 
     const [selected, setSelected] = useState(null);
+    
+    // const [localDuration, setLocalDuration] = useState(1);
 
     if(!title) return null;
     
@@ -220,7 +228,10 @@ const SelectRange = ({title, toggleMenu, setRoute, sections}) => {
                                     <div
                                         key={index}
                                         className={`hsc-HistoryRangeButton ${selected === index ? "hsc-HistoryRangeButton-selected" : ""}`}
-                                        onClick={() => setSelected(index)}
+                                        onClick={() => {
+                                            setDuration(button.duration)
+                                            setSelected(index);
+                                        }}
                                     >
                                         {button.text}
                                     </div>
@@ -232,7 +243,7 @@ const SelectRange = ({title, toggleMenu, setRoute, sections}) => {
                                         <div className="hl-DatePicker ">
                                             <div className="hl-DatePicker_Header ">
                                                 <div className="hl-DatePicker_BoundingLabel ">From:</div>
-                                                <div className="hl-DatePicker_DateLabel ">10/03/2025</div>
+                                                <div className="hl-DatePicker_DateLabel ">{formatDate(Date.now() - 60 * 60 * 24 * 10 * 1000)}</div>
                                                 <div className="hl-DatePicker_CalendarIcon " />
                                             </div>
                                             <div className="hl-CalendarMonth ">
@@ -327,7 +338,7 @@ const SelectRange = ({title, toggleMenu, setRoute, sections}) => {
                                         <div className="hl-DatePicker ">
                                             <div className="hl-DatePicker_Header ">
                                                 <div className="hl-DatePicker_BoundingLabel ">To:</div>
-                                                <div className="hl-DatePicker_DateLabel ">15/03/2025</div>
+                                                <div className="hl-DatePicker_DateLabel ">{formatDate(Date.now())}</div>
                                                 <div className="hl-DatePicker_CalendarIcon " />
                                             </div>
                                         </div>

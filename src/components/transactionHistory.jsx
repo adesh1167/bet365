@@ -4,14 +4,27 @@ import { useApp } from '../contexts/appContext';
 import BetSummary from './betSummary';
 import formatNumber from '../functions/formatNumber';
 import generateUUID from '../functions/generateId';
-import formatDate, { ticketDate } from '../functions/formatDate';
+import formatDate, { isGreaterThanTime, ticketDate } from '../functions/formatDate';
 
-const TransactionHistory = ({ toggleMenu, goBack, hidden, type, title, label }) => {
+const TransactionHistory = ({ toggleMenu, goBack, hidden, type, title, duration, label }) => {
+
+    const dates = useMemo(() => {
+        return {
+            start: Date.now() - 60 * 60 * 24 * duration * 1000,
+            end: Date.now()
+        }
+    }, [duration]);
 
     const { transactions, country,  } = useApp();
 
     const filteredTransactions = useMemo(() => {
-        return transactions.filter(transaction => transaction.tx_type === type);
+        const newTransactions =  transactions.filter(transaction => transaction.tx_type === type);
+        return newTransactions.filter(transaction => {
+            const txTime = transaction.tx_time;
+            if(isGreaterThanTime(txTime, dates.start)) return true;
+            else return false;
+        });
+        
     }, [transactions])
 
     const [loaded, setLoaded] = useState(false);
@@ -38,11 +51,11 @@ const TransactionHistory = ({ toggleMenu, goBack, hidden, type, title, label }) 
                     </div>
                 </div>
                 <div>
-                    <div className="dwh-DepositWithdrawalHistoryModule ">
+                    <div className="h-HistoryModule ">
                         <div className="hl-BackButton " onClick={goBack}>Back</div>
                         {loaded && <div className="hl-SummaryRenderer ">
                             <div className="hl-SummaryRenderer_Title ">
-                                From 01/02/2025 To 16/03/2025
+                                From {formatDate(dates.start)} To {formatDate(dates.end)}
                             </div>
                             {filteredTransactions.length === 0 ?
                                 <div className="hl-SummaryRenderer_Message " style={{}}>

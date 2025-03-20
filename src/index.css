@@ -168,6 +168,10 @@ code {
   color: #00aa55;
 }
 
+.bg-error-500{
+  background-color: red !important;
+}
+
 .ticket-wrapper {
   border-radius: 5px;
 }
@@ -203,10 +207,15 @@ code {
   width: 60%;
   text-align: center;
   padding: 10px;
-  background-color: #fff;
+  background-color: green;
+  color: #fff;
   font-weight: 700;
   margin: 10px auto;
   border-radius: 5px;
+}
+
+.update-tickets-button.bg-error-500{
+  margin-bottom: 20px;
 }
 
 .withdrawal,

@@ -24,12 +24,19 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                         {ticket.matches.map(match => match.userSelection).join(", ")}
                     </div>
                 </div>
-                {(ticket.filter) && <div className="myb-SettledBetItem_BetStateContainer ">
-                    <div className="myb-SettledBetItem_BetStateWrapper">
-                        {ticket.filter !== "Loss" && <div className="myb-SettledBetItem_BetReturnLabel ">{country.currency}{formatNumber(data.potentialReturn, country.hasComma, country.lang)}</div>}
-                        <div className="myb-SettledBetItem_BetStateLabel ">{ticket.filter === "Loss" ? 'Loss' : "Returned"}</div>
+                {(ticket.filter) && 
+                    <div className="myb-SettledBetItem_BetStateContainer "
+                        style={{
+                            transition: "0.2s opacity linear",
+                            opacity: expanded ? 0 : 1
+                        }}
+                    >
+                        <div className="myb-SettledBetItem_BetStateWrapper">
+                            {ticket.filter !== "Loss" && <div className="myb-SettledBetItem_BetReturnLabel ">{country.currency}{formatNumber(data.potentialReturn, country.hasComma, country.lang)}</div>}
+                            <div className="myb-SettledBetItem_BetStateLabel ">{ticket.filter === "Loss" ? 'Loss' : "Returned"}</div>
+                        </div>
                     </div>
-                </div>}
+                }
             </div>
             <div className={`myb-SettledBetItemInnerView ${hidden ? "Hidden" : ""}`} style={{ maxHeight: expanded ? `${height}px` : "0px" }}>
                 <div className="myb-SettledBetItemInnerView_ParticipantContainer myb-SettledBetParticipantRenderer ">

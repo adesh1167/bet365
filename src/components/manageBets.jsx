@@ -199,7 +199,25 @@ const ManageBets = ({ filter }) => {
                             >
                                 Manage Bets
                             </div>
+                            <div
+                                className={`myb-HeaderButton`}
+                                style={{
+                                    width: "100%",
+                                    textAlign: "right",
+                                    fontWeight: 700,
+                                    padding: 0,
+                                    // justifyContent: "center"
+                                }}
+                                onClick={loading.update ? ()=> {} : updateTickets}
+                            >
+                                {loading.update ? 
+                                    <img src={loadingSvg} width="24px" style={{ fill: "red", display: 'inline' }} />
+                                    :
+                                    "UPDATE"
+                                    }
+                            </div>
                             <div className="myb-NavBarSlider " style={{ left: `${0}px`, width: `${100}px` }} />
+                            <div style={{position: "absolute", right: 0, }}>Update</div>
                         </div>
                     </div>
                     <div className="myb-MyBetsScroller ">

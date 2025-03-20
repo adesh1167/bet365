@@ -66,6 +66,7 @@ const MyBets = () => {
             if(isGreaterThan24hours(lastMatch.matchTime)) return false;
         }
         if(buttons[selected].value === 'All') return true;
+        if(buttons[selected].value === 'Cash Out' && ticket.status === 'open') return true;
         return ticket.status === buttons[selected].value || ticket.filter === buttons[selected].value;
     }), [selected])
 

@@ -2,14 +2,36 @@ import React, { useEffect, useMemo, useState } from 'react'
 import NavigationMenuLoadingSpinner from './navigationMenuLoadingSpinner';
 import { useApp } from '../contexts/appContext';
 import BetSummary from './betSummary';
+import formatDate, { isGreaterThanTime } from '../functions/formatDate';
 
-const BetHistory = ({ toggleMenu, goBack, hidden, status, title }) => {
+const BetHistory = ({ toggleMenu, goBack, hidden, status, duration, title }) => {
 
     const {loadedTickets} = useApp();
 
+    const dates = useMemo(() => {
+        return {
+            start: Date.now() - 60 * 60 * 24 * duration * 1000,
+            end: Date.now()
+        }
+    }, [duration]);
+
     const filteredTickets = useMemo(() => {
-        return loadedTickets.tickets.filter(ticket => ticket.status === status)
-    }, [loadedTickets])
+        const tickets =  loadedTickets.tickets.filter(ticket => ticket.status === status);
+        
+        return tickets.filter(ticket => {
+            if(ticket.status === 'settled'){
+                const finsishedMatches = ticket.matches.filter(match => match.winningSelection);
+                const lastMatch = finsishedMatches[finsishedMatches.length - 1];
+                console.log("Last Match: ", lastMatch)
+                if(isGreaterThanTime(lastMatch.matchTime, dates.start)) return true;
+            } else{
+                const stakeTime = ticket.stakeTime;
+                if(isGreaterThanTime(stakeTime, dates.start)) return true;
+            }
+
+            return false
+        })
+    }, [loadedTickets, dates])
 
     const [loaded, setLoaded] = useState(false);
 
@@ -39,7 +61,7 @@ const BetHistory = ({ toggleMenu, goBack, hidden, status, title }) => {
                             {loaded && <div className="h-BetSummariesRenderer ">
                                 <div className="hl-SummaryRenderer ">
                                     <div className="hl-SummaryRenderer_Title " style={{}}>
-                                        From 15/03/2025 To 17/03/2025
+                                        From {formatDate(dates.start)} To {formatDate(dates.end)}
                                     </div>
                                     {filteredTickets.length === 0 ?
                                         <div className="hl-SummaryRenderer_Message " style={{}}>
@@ -48,7 +70,7 @@ const BetHistory = ({ toggleMenu, goBack, hidden, status, title }) => {
                                         :
                                         <div className="hl-SummaryRenderer_Container ">
                                             {filteredTickets.map((ticket, index) => {
-                                                return <BetSummary key={index} ticket={ticket} />
+                                                return <BetSummary key={index} ticket={ticket}/>
                                             })}
                                         </div>
                                     }

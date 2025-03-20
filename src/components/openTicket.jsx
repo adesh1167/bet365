@@ -35,7 +35,9 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
                                 <div className="myb-CloseBetButtonBase_Centre ">
                                     <div className="myb-CloseBetButtonBase_TextReturnWrapper">
                                         <div className="myb-CloseBetButtonBase_Text ">Cash Out</div>
-                                        <div className="myb-CloseBetButtonBase_Return ">$1.20</div>
+                                        <div className="myb-CloseBetButtonBase_Return " style={{
+                                            color: "color(display-p3 .157 1 .733)"
+                                        }}>$1.20</div>
                                     </div>
                                 </div>
                                 <div className="myb-CloseBetButtonBase_Spacer Hidden " />
