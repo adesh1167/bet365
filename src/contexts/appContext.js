@@ -7,10 +7,12 @@ import generateBookingCode from "../functions/generateBookingCode";
 import { langs } from "../data/langs";
 import { addMatchDetails, addOdds, getCarousel, getFeaturedMatches, getHighlightsDetails, getMatches, parseData, sortMatchesByDate } from "../functions/parseData";
 import rawData from "../test3";
+import { useNavigate } from "react-router-dom";
 
 const AppContext = createContext();
 
 const AppProvider = ({children}) => {
+
     const [loadStage, setLoadStage] = useState(0);
     const [user, setUser] = useState(null);
     const [balance, setBalance] = useState(0);
@@ -28,6 +30,7 @@ const AppProvider = ({children}) => {
     const [featuredMatches, setFeaturedMatches] = useState(null);
     const [carousel, setCarousel] = useState(null);
     const [subUrl, setSubUrl] = useState('');
+    // const [ME, setME] = useState(null);
 
     const loadInterval = useRef(null);
 
@@ -314,6 +317,8 @@ const AppProvider = ({children}) => {
             setCarousel,
             subUrl,
             setSubUrl,
+            // ME,
+            // setME,
             init,
             loadStage,
             lang: langs[countries[countryCode]?.lang || "en-US"],

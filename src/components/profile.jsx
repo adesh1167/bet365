@@ -288,7 +288,7 @@ const Profile = () => {
                                                 Gambling Controls
                                             </div>
                                         </div>
-                                        <div className="ul-MembersLinkButton ">
+                                        <div className="ul-MembersLinkButton " onClick={() => goTo("/ME/X6565")}>
                                             <div className="ul-MembersLinkButton_Icon ">
                                                 <svg
                                                     className="ul-MembersLinkButton_Svg"

@@ -7,73 +7,64 @@ import getDate from "../functions/getDate";
 import formatDate from "../functions/formatDate";
 import { Chart } from "react-chartjs-2";
 import { Chart as ChartJS, registerables } from 'chart.js';
+import MyActivityPage from "./myActivity/myActivity";
+import "./styles/myActivity.css";
 
 ChartJS.register(...registerables);
 
 
 const buttons = [
     {
-        text: "Settled Bets",
-        value: "settled",
-        types: ["Sports", "Lotto"]
+        text: "My Activity",
+        value: "myActivity",
     },
     {
-        text: "Unsettled Bets",
-        value: "unsettled",
-        types: ["Sports", "Lotto"]
+        text: "Deposit Limits",
+        value: "depositLimits",
     },
     {
-        text: "Instant Games Bets",
-        value: "instantGames",
+        text: "Time-Out",
+        value: "timeOut",
     },
     {
-        text: "Deposits",
-        value: "deposits",
+        text: "Self-Exclusion",
+        value: "selfExclusion",
     },
     {
-        text: "Withdrawals",
-        value: "withdrawals",
+        text: "Account Closure",
+        value: "accountClosure",
     },
     {
-        text: "Adjustments",
-        value: "adjustments",
-    },
-    {
-        text: "Net Deposits",
-        value: "netDeposits",
-    },
-    {
-        text: "Win/Loss",
-        value: "winLoss",
-        types: ["Sports", "Lotto", "Instant Games"]
+        text: "Reality Checks",
+        value: "realityChecks",
     }
 ]
 
 const RangeButtons = [
     {
-        text: "Last 24 Hours",
+        text: "7 days",
         duration: 1
     },
     {
-        text: "Last 48 Hours",
+        text: "30 Days",
         duration: 2
     },
     {
-        text: "Date Range",
+        text: "12 Months",
         duration: 10,
         hasCalender: true,
     },
 ]
 
-const History = () => {
+const MyActivity = () => {
 
     const [loaded, setLoaded] = useState(false);
-    const [selected, setSelected] = useState(null);
-    const [translateY, setTranslateY] = useState(0);
-    const [expanded, setExpanded] = useState(true);
-    const [hidden, setHidden] = useState(false);
+    const [selected, setSelected] = useState(0);
+    const [translateY, setTranslateY] = useState(-58);
+    const [expanded, setExpanded] = useState(false);
+    const [hidden, setHidden] = useState(true);
 
-    const [route, setRoute] = useState();
+    const [route, setRoute] = useState("myActivity");
     const [duration, setDuration] = useState(1);
 
     const selectedPositionY = useRef(-58);
@@ -98,7 +89,7 @@ const History = () => {
     function selectMenu(e, index) {
         selectedPositionY.current = -(58 + index * 50);
         setSelected(index);
-        setRoute(null);
+        setRoute(buttons[index].value);
         closeMenu();
     }
 
@@ -111,13 +102,13 @@ const History = () => {
 
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         setTimeout(() => {
             setLoaded(true);
         }, 200 + Math.random() * 200)
     }, [])
 
-    if(!loaded) return null;
+    if (!loaded) return null;
 
     return (
         <div className="wcl-CommonElementStyle_NavContentContainer">
@@ -127,14 +118,14 @@ const History = () => {
                         <div className="wc-WebConsoleModule_Content wc-WebConsoleModule_Content-footer-displayed ">
                             <div>{/**/}</div>
                             <div className="wc-PageView g5-Application-lightmode " style={{}}>
-                                <div className="wc-PageView_NavigationMenu " style={{position: "absolute"}}>
+                                <div className="wc-PageView_NavigationMenu " style={{ position: "absolute" }}>
                                     <div
                                         className={`nm-NavigationMenuModule-footerdisplayed nm-NavigationMenuModule ${expanded ? "nm-NavigationMenuModule-opennarrowview" : ""}`}
                                         style={{ visibility: hidden ? "hidden" : "visible" }}
                                     >
 
                                         <div className="nm-MenuHeader ">
-                                            <div className="nm-MenuHeader_Text " style={{ opacity: (translateY === 0 && expanded) ? 1 : 0, transitionDelay: translateY === 0 ? "0.1s" : "0s" }}>History</div>
+                                            <div className="nm-MenuHeader_Text " style={{ opacity: (translateY === 0 && expanded) ? 1 : 0, transitionDelay: translateY === 0 ? "0.1s" : "0s" }}>Gambling Controls</div>
                                             {selected === null || <div className="nm-BurgerIcon " onClick={toggleMenu}>
                                                 <div className="nm-BurgerIcon_Icon " />
                                             </div>}
@@ -149,21 +140,21 @@ const History = () => {
                                         </div>
                                     </div>
                                 </div>
-                                
-                                {route === "settled" ?
-                                    <BetHistory toggleMenu={toggleMenu} hidden={hidden} goBack={()=>setRoute(null)} status="settled" duration={duration} title="Settled Bets"/>
+
+                                {route === "myActivity" ?
+                                    <MyActivityPage toggleMenu={toggleMenu} hidden={hidden} goBack={() => setRoute(null)} status="settled" duration={duration} title="Settled Bets" />
                                     :
                                     route === "unsettled" ?
-                                        <BetHistory toggleMenu={toggleMenu} hidden={hidden} goBack={()=>setRoute(null)} status="open" duration={duration} title="Unsettled Bets"/>
+                                        <BetHistory toggleMenu={toggleMenu} hidden={hidden} goBack={() => setRoute(null)} status="open" duration={duration} title="Unsettled Bets" />
                                         :
                                         route === "instantGames" ?
                                             <div>Instant Games</div>
                                             :
                                             route === "deposits" ?
-                                                <TransactionHistory type="Card Deposit" title="Deposits" goBack={()=>setRoute(null)} hidden={hidden} duration={duration} toggleMenu={toggleMenu} label="Deposit"/>
+                                                <TransactionHistory type="Card Deposit" title="Deposits" goBack={() => setRoute(null)} hidden={hidden} duration={duration} toggleMenu={toggleMenu} label="Deposit" />
                                                 :
                                                 route === "withdrawals" ?
-                                                    <TransactionHistory type="Withdrawal" title="Withdrawals" goBack={()=>setRoute(null)} hidden={hidden} duration={duration} toggleMenu={toggleMenu} label="Withdrawal"/>
+                                                    <TransactionHistory type="Withdrawal" title="Withdrawals" goBack={() => setRoute(null)} hidden={hidden} duration={duration} toggleMenu={toggleMenu} label="Withdrawal" />
                                                     :
                                                     route === "adjustments" ?
                                                         <div>Adjustments</div>
@@ -174,7 +165,7 @@ const History = () => {
                                                             route === "winLoss" ?
                                                                 <div>Win/Loss</div>
                                                                 :
-                                                                <SelectRange title={buttons[selected]} toggleMenu={toggleMenu}  setRoute={setRoute} sections={buttons[selected]?.types} setDuration={setDuration}/>
+                                                                <SelectRange title={buttons[selected]} toggleMenu={toggleMenu} setRoute={setRoute} sections={buttons[selected]?.types} setDuration={setDuration} />
                                 }
 
                             </div>
@@ -188,16 +179,16 @@ const History = () => {
     )
 }
 
-const SelectRange = ({title, toggleMenu, setRoute, setDuration, sections}) => {
+const SelectRange = ({ title, toggleMenu, setRoute, setDuration, sections }) => {
 
     const [selected, setSelected] = useState(null);
-    
+
     // const [localDuration, setLocalDuration] = useState(1);
 
-    if(!title) return null;
-    
+    if (!title) return null;
+
     return (
-        <div className="wc-PageView_ContentContainer " style={{position: "absolute"}}>
+        <div className="wc-PageView_ContentContainer " style={{ position: "absolute" }}>
             <div>
                 <div className="nh-NavigationHeaderModule " onClick={toggleMenu}>
                     <div className="nh-NavigationHeaderModule_Title " style={{}}>
@@ -211,7 +202,7 @@ const SelectRange = ({title, toggleMenu, setRoute, setDuration, sections}) => {
             <div>
                 <div className="hsc-HistorySearchCriteriaModule ">
                     <div className={`hsc-HistoryRangeSelector ${selected !== null ? "hsc-HistoryRangeSelector-active" : ""}`}>
-                        { sections &&
+                        {sections &&
                             <div className="hsc-HistoryRangeSelector_Scroller hsc-HistoryRangeScroller ">
                                 <div className="hsc-HistoryRangeScroller_Wrapper">
                                     <div
@@ -354,37 +345,37 @@ const SelectRange = ({title, toggleMenu, setRoute, setDuration, sections}) => {
                                 </div>
                             }
 
-                            <div className="hsc-HistoryRangeSelector_ShowHistory " onClick={()=>setRoute(title.value)}>
+                            <div className="hsc-HistoryRangeSelector_ShowHistory " onClick={() => setRoute(title.value)}>
                                 Show History
                             </div>
-                            <Chart 
-                                            type="line"
-                                            data={{
-                                                labels: ['Red'],
-                                                datasets: [{
-                                                    label: false,
-                                                    data: [12, 19, 3, 5, -6, -2],
-                                                    backgroundColor: [
-                                                        'rgba(255, 99, 132, 0.2)',
-                                                        'rgba(54, 162, 235, 0.2)',
-                                                        'rgba(255, 206, 86, 0.2)',
-                                                        'rgba(75, 192, 192, 0.2)',
-                                                        'rgba(153, 102, 255, 0.2)',
-                                                        'rgba(255, 159, 64, 0.2)'
-                                                    ],
-                                                    borderColor: [
-                                                        'rgba(255, 99, 132, 1)',
-                                                        'rgba(54, 162, 235, 1)',
-                                                        'rgba(255, 206, 86, 1)',
-                                                        'rgba(75, 192, 192, 1)',
-                                                        'rgba(153, 102, 255, 1)',
-                                                        'rgba(255, 159, 64, 1)'
-                                                    ],
-                                                    borderWidth: 1,
-                                                    
-                                                    }]
-                                                }}
-                                        />
+                            {/* <Chart
+                                type="line"
+                                data={{
+                                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                    datasets: [{
+                                        label: false,
+                                        data: [12, 19, 3, 5, -6, -2],
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.2)',
+                                            'rgba(54, 162, 235, 0.2)',
+                                            'rgba(255, 206, 86, 0.2)',
+                                            'rgba(75, 192, 192, 0.2)',
+                                            'rgba(153, 102, 255, 0.2)',
+                                            'rgba(255, 159, 64, 0.2)'
+                                        ],
+                                        borderColor: [
+                                            'rgba(255, 99, 132, 1)',
+                                            'rgba(54, 162, 235, 1)',
+                                            'rgba(255, 206, 86, 1)',
+                                            'rgba(75, 192, 192, 1)',
+                                            'rgba(153, 102, 255, 1)',
+                                            'rgba(255, 159, 64, 1)'
+                                        ],
+                                        borderWidth: 1,
+
+                                    }]
+                                }}
+                            /> */}
                         </div>
                     </div>
                 </div>
@@ -393,4 +384,4 @@ const SelectRange = ({title, toggleMenu, setRoute, setDuration, sections}) => {
     )
 }
 
-export default History;
+export default MyActivity;
