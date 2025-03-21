@@ -4,11 +4,13 @@ export function filterByDateRange(items, duration, timeField) {
 
     const startDate = new Date();
     startDate.setDate(startDate.getDate() - duration - 2);
+    startDate.setHours(0, 0, 0, 0);
     const endDate = new Date();
     endDate.setDate(endDate.getDate() - 3);
 
     return items.filter(item => {
         const itemTime = new Date(item[timeField]);
+        // console.log(itemTime, startDate, endDate, item)
         return itemTime >= startDate && itemTime <= endDate;
     });
 }

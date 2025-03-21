@@ -98,7 +98,7 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
 
     if (!hidden) return null;
 
-    // console.log("Total Stake: ", metrics.totalStake);
+    // console.log("WinLoss: ", metrics.winLoss);
 
     return (
         <>
