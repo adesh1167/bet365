@@ -1,0 +1,1748 @@
+.dlm-FieldSelectSmall-error .dlm-FieldSelectSmall_Select:focus {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='8' viewBox='0 0 13 8'%3E%3Cpath fill='%23A63838' d='M11.629 0L13 1.393 6.5 8 0 1.393 1.371 0 6.5 5.213z'/%3E%3C/svg%3E")
+}
+
+.allow-hover .dlm-FieldSelectSmall_Select:hover,
+.dlm-FieldSelectSmall_Select:focus {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='8' viewBox='0 0 13 8'%3E%3Cpath fill='%23007A56' d='M11.629 0L13 1.393 6.5 8 0 1.393 1.371 0 6.5 5.213z'/%3E%3C/svg%3E")
+}
+
+.dlm-FieldSelectSmall_Select {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='8' viewBox='0 0 13 8'%3E%3Cpath fill='%23474747' d='M11.629 0L13 1.393 6.5 8 0 1.393 1.371 0 6.5 5.213z'/%3E%3C/svg%3E")
+}
+
+.allow-hover .dlm-FieldParagraphInfo_InfoButton:hover {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='17' height='17' viewBox='0 0 17 17' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EInfo-Icon-Active%3C/title%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='%23F5F7F7' cx='8.5' cy='8.5' r='8.5'/%3E%3Cg fill='%23666' fill-rule='nonzero'%3E%3Cpath d='M8.5 0a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17zm0 1a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15z'/%3E%3Cpath d='M10.098 11.833l-.108.485c-.322.14-.58.248-.772.322a1.86 1.86 0 0 1-.669.11c-.39 0-.694-.106-.91-.316a1.07 1.07 0 0 1-.326-.801c0-.126.008-.255.025-.386.016-.131.042-.28.078-.445l.403-1.576c.036-.151.066-.294.09-.43.026-.134.037-.257.037-.369 0-.201-.037-.342-.112-.42-.075-.08-.219-.12-.431-.12-.105 0-.212.019-.32.054-.11.036-.204.07-.283.103l.108-.486c.264-.119.516-.22.758-.305.241-.085.47-.127.685-.127.388 0 .687.104.897.31.21.208.315.476.315.808 0 .068-.007.189-.021.361a2.65 2.65 0 0 1-.081.475l-.402 1.57a4.575 4.575 0 0 0-.127.8c0 .208.042.35.126.426.085.075.232.113.44.113.097 0 .208-.02.331-.057.124-.037.214-.07.269-.1zm.102-6.59a.964.964 0 0 1-.28.699.907.907 0 0 1-.677.289.917.917 0 0 1-.68-.29.96.96 0 0 1-.283-.698c0-.274.095-.507.284-.702a.913.913 0 0 1 .68-.291c.263 0 .488.097.675.291.188.195.281.428.281.702z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+}
+
+.dlm-FieldParagraphInfo_InfoButton {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17'%3E%3Cg fill='%23757575'%3E%3Cpath d='M8.5 0a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17zm0 1a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15z'/%3E%3Cpath d='M10.098 11.833l-.108.485c-.322.14-.58.248-.772.322a1.86 1.86 0 0 1-.669.11c-.39 0-.694-.106-.91-.316a1.07 1.07 0 0 1-.326-.801c0-.126.008-.255.025-.386.016-.131.042-.28.078-.445l.403-1.576c.036-.151.066-.294.09-.43.026-.134.037-.257.037-.369 0-.201-.037-.342-.112-.42-.075-.08-.219-.12-.431-.12-.105 0-.212.019-.32.054-.11.036-.204.07-.283.103l.108-.486c.264-.119.516-.22.758-.305.241-.085.47-.127.685-.127.388 0 .687.104.897.31.21.208.315.476.315.808 0 .068-.007.189-.021.361a2.65 2.65 0 0 1-.081.475l-.402 1.57a4.575 4.575 0 0 0-.127.8c0 .208.042.35.126.426.085.075.232.113.44.113.097 0 .208-.02.331-.057.124-.037.214-.07.269-.1zm.102-6.59a.964.964 0 0 1-.28.699.907.907 0 0 1-.677.289.917.917 0 0 1-.68-.29.96.96 0 0 1-.283-.698c0-.274.095-.507.284-.702a.913.913 0 0 1 .68-.291c.263 0 .488.097.675.291.188.195.281.428.281.702z'/%3E%3C/g%3E%3C/svg%3E")
+}
+
+.dlm-DepositLimitsModule_Para {
+    font-size: 13px;
+    color: #282828;
+    margin-bottom: 15px;
+    line-height: 20px
+}
+
+.dlm-DepositLimitsModule {
+    padding: 0 15px;
+    max-width: 530px
+}
+
+.dlm-DepositLimitsSimpleLink {
+    font-size: 13px;
+    line-height: 20px;
+    padding: 13px 0;
+    color: #007a56;
+    cursor: pointer;
+    font-weight: 700
+}
+
+.allow-hover .dlm-DepositLimitsSimpleLink:hover,
+.dlm-DepositLimitsSimpleLink:focus {
+    text-decoration: underline
+}
+
+.dlm-ChangeSubmitButton {
+    height: 50px;
+    width: 100%;
+    justify-self: center;
+    padding: 0 15px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #3f3f3f;
+    background-color: #58d7af
+}
+
+.allow-hover .dlm-ChangeSubmitButton:hover,
+.dlm-ChangeSubmitButton:focus {
+    background-color: #5fe8bd
+}
+
+.dlm-ColumnarRadioField {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.dlm-ColumnarRadioField_Label {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 55%;
+    -ms-flex: 0 1 55%;
+    flex: 0 1 55%;
+    margin-bottom: 10px
+}
+
+.dlm-ColumnarRadioField_OptionsWrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    margin-bottom: 30px
+}
+
+.dlm-ColumnarRadioField-error .dlm-ColumnarRadioField_OptionsWrapper {
+    border: 2px solid #a63838;
+    border-radius: 2px
+}
+
+.dlm-DepositLimitsParagraph {
+    font-size: 13px;
+    line-height: 20px;
+    color: #282828;
+    padding-bottom: 7px;
+    text-align: center
+}
+
+.dlm-DepositLimitsSummaryCheckbox {
+    padding-bottom: 13px
+}
+
+.dlm-DepositLimitsSummaryCheckbox_Container {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    position: relative
+}
+
+.dlm-DepositLimitsSummaryCheckbox_TextContainer {
+    padding-top: 12px;
+    padding-bottom: 13px
+}
+
+.dlm-DepositLimitsSummaryCheckbox_Checkbox {
+    width: 46px;
+    height: 46px;
+    margin-left: -13px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer
+}
+
+.dlm-DepositLimitsSummaryCheckbox_Checkbox:after {
+    content: "";
+    display: block;
+    background: #fff;
+    width: 20px;
+    border-radius: 2px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    height: 20px;
+    border: 1px solid #b5b5b5
+}
+
+.allow-hover .dlm-DepositLimitsSummaryCheckbox_Checkbox:hover:after {
+    border: 1px solid #58d7af
+}
+
+.dlm-DepositLimitsSummaryCheckbox-error .dlm-DepositLimitsSummaryCheckbox_Checkbox:after {
+    border-color: #a63838
+}
+
+.dlm-DepositLimitsSummaryCheckbox_Label {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px
+}
+
+.dlm-DepositLimitsSummaryCheckbox-error .dlm-DepositLimitsSummaryCheckbox_Label {
+    color: #a63838
+}
+
+.dlm-DepositLimitsSummaryCheckbox_Input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    visibility: hidden
+}
+
+.dlm-DepositLimitsSummaryCheckbox_Input:checked~.dlm-DepositLimitsSummaryCheckbox_Checkbox:after {
+    background-color: #58d7af;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23222' d='M7.288 0L8 .543 3.189 6 0 3.699l.564-.676 2.481 1.789z'/%3E%3C/svg%3E");
+    background-size: 8px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border: 0
+}
+
+.dlm-DepositLimitsSummaryCheckbox_Input:focus~.dlm-DepositLimitsSummaryCheckbox_Checkbox:after {
+    outline: 1px solid #000
+}
+
+.dlm-DepositLimitTextInputField {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    padding-bottom: 15px
+}
+
+.dlm-DepositLimitTextInputField_Label {
+    padding-bottom: 6px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: left;
+    color: #282828
+}
+
+.dlm-DepositLimitTextInputField_InputRow {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row;
+    -ms-flex-flow: row;
+    flex-flow: row
+}
+
+.dlm-DepositLimitTextInputField-errorwithmessage .dlm-DepositLimitTextInputField_InputRow {
+    margin-bottom: 10px
+}
+
+.dlm-DepositLimitTextInputField-errorwithmessage .dlm-DepositLimitTextInputField_InputRow:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: -5px;
+    border-top: 5px solid #a63838;
+    border-left: 5.5px solid transparent;
+    border-right: 5.5px solid transparent;
+    width: 0;
+    height: 0
+}
+
+.dlm-DepositLimitTextInputField_Input {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 50px;
+    padding: 0 15px;
+    border-radius: 2px;
+    color: #282828;
+    -webkit-text-fill-color: #282828;
+    background-color: #fff;
+    border: 0;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 23px;
+    position: relative
+}
+
+.dlm-DepositLimitTextInputField-focus .dlm-DepositLimitTextInputField_Input,
+.dlm-DepositLimitTextInputField_Input:focus {
+    box-shadow: 0 1px 0 0 #2ec193
+}
+
+.dlm-DepositLimitTextInputField-error .dlm-DepositLimitTextInputField_Input {
+    border: 2px solid #a63838;
+    border-radius: 2px;
+    box-shadow: none;
+    color: #a63838;
+    -webkit-text-fill-color: #a63838
+}
+
+.dlm-DepositLimitTextInputField-error .dlm-DepositLimitTextInputField_Input.dlm-DepositLimitTextInputField_Input-info {
+    border-right: 0
+}
+
+.dlm-DepositLimitTextInputField_Input.dlm-DepositLimitTextInputField_Input-info {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-right: 0
+}
+
+.dlm-DepositLimitTextInputField_Input::-webkit-input-placeholder {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400
+}
+
+.dlm-DepositLimitTextInputField_Input:-ms-input-placeholder {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400
+}
+
+.dlm-DepositLimitTextInputField_Input::placeholder {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400
+}
+
+.dlm-DepositLimitTextInputField_RemoveButton {
+    position: absolute;
+    right: 0;
+    height: 50px;
+    border: 0;
+    padding: 0 15px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    background-color: transparent;
+    color: #007a56;
+    font-weight: 700;
+    font-size: 12px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer
+}
+
+.allow-hover .dlm-DepositLimitTextInputField_RemoveButton:hover,
+.dlm-DepositLimitTextInputField_RemoveButton:focus {
+    color: #007a56
+}
+
+.dlm-DepositLimitTextInputField-focus .dlm-DepositLimitTextInputField_RemoveButton {
+    box-shadow: 0 1px 0 0 #2ec193;
+    color: #007a56
+}
+
+.dlm-DepositLimitTextInputField-error .dlm-DepositLimitTextInputField_RemoveButton {
+    color: #a63838;
+    box-shadow: none
+}
+
+.dlm-DepositLimitTextInputField_Placeholder {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    margin: 0 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #757575;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    -webkit-transition: -webkit-transform .15s ease 0ms;
+    transition: -webkit-transform .15s ease 0ms;
+    transition: transform .15s ease 0ms;
+    transition: transform .15s ease 0ms, -webkit-transform .15s ease 0ms
+}
+
+.dlm-DepositLimitTextInputField-error .dlm-DepositLimitTextInputField_Placeholder {
+    left: 2px
+}
+
+.dlm-DepositLimitTextInputField_Input:-webkit-autofill~.dlm-DepositLimitTextInputField_Placeholder {
+    padding-top: 13px;
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-transform: translateY(-10px) scale(.7);
+    transform: translateY(-10px) scale(.7)
+}
+
+.dlm-DepositLimitTextInputField_Input:not(:placeholder-shown)~.dlm-DepositLimitTextInputField_Placeholder {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    visibility: hidden;
+    display: none
+}
+
+.dlm-DepositLimitTextInputField_Input:not(:-ms-input-placeholder)~.dlm-DepositLimitTextInputField_Placeholder {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    visibility: hidden;
+    display: none
+}
+
+.dlm-DepositLimitTextInputField_HintText-focus .dlm-DepositLimitTextInputField_Placeholder {
+    display: none
+}
+
+.dlm-DepositLimitTextInputField_InfoButton {
+    display: block;
+    cursor: pointer;
+    height: 50px;
+    width: 45px;
+    border: 0;
+    padding: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    padding-left: 15px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17'%3E%3Cg fill='%23757575'%3E%3Cpath d='M8.5 0a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17zm0 1a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15z'/%3E%3Cpath d='M10.098 11.833l-.108.485c-.322.14-.58.248-.772.322a1.86 1.86 0 0 1-.669.11c-.39 0-.694-.106-.91-.316a1.07 1.07 0 0 1-.326-.801c0-.126.008-.255.025-.386.016-.131.042-.28.078-.445l.403-1.576c.036-.151.066-.294.09-.43.026-.134.037-.257.037-.369 0-.201-.037-.342-.112-.42-.075-.08-.219-.12-.431-.12-.105 0-.212.019-.32.054-.11.036-.204.07-.283.103l.108-.486c.264-.119.516-.22.758-.305.241-.085.47-.127.685-.127.388 0 .687.104.897.31.21.208.315.476.315.808 0 .068-.007.189-.021.361a2.65 2.65 0 0 1-.081.475l-.402 1.57a4.575 4.575 0 0 0-.127.8c0 .208.042.35.126.426.085.075.232.113.44.113.097 0 .208-.02.331-.057.124-.037.214-.07.269-.1zm.102-6.59a.964.964 0 0 1-.28.699.907.907 0 0 1-.677.289.917.917 0 0 1-.68-.29.96.96 0 0 1-.283-.698c0-.274.095-.507.284-.702a.913.913 0 0 1 .68-.291c.263 0 .488.097.675.291.188.195.281.428.281.702z'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 50%
+}
+
+.allow-hover .dlm-DepositLimitTextInputField_InfoButton:hover,
+.dlm-DepositLimitTextInputField-focus .dlm-DepositLimitTextInputField_InfoButton,
+.dlm-DepositLimitTextInputField_InfoButton:focus {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='17' height='17' viewBox='0 0 17 17' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EInfo-Icon-Active%3C/title%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='%23F5F7F7' cx='8.5' cy='8.5' r='8.5'/%3E%3Cg fill='%23666' fill-rule='nonzero'%3E%3Cpath d='M8.5 0a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17zm0 1a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15z'/%3E%3Cpath d='M10.098 11.833l-.108.485c-.322.14-.58.248-.772.322a1.86 1.86 0 0 1-.669.11c-.39 0-.694-.106-.91-.316a1.07 1.07 0 0 1-.326-.801c0-.126.008-.255.025-.386.016-.131.042-.28.078-.445l.403-1.576c.036-.151.066-.294.09-.43.026-.134.037-.257.037-.369 0-.201-.037-.342-.112-.42-.075-.08-.219-.12-.431-.12-.105 0-.212.019-.32.054-.11.036-.204.07-.283.103l.108-.486c.264-.119.516-.22.758-.305.241-.085.47-.127.685-.127.388 0 .687.104.897.31.21.208.315.476.315.808 0 .068-.007.189-.021.361a2.65 2.65 0 0 1-.081.475l-.402 1.57a4.575 4.575 0 0 0-.127.8c0 .208.042.35.126.426.085.075.232.113.44.113.097 0 .208-.02.331-.057.124-.037.214-.07.269-.1zm.102-6.59a.964.964 0 0 1-.28.699.907.907 0 0 1-.677.289.917.917 0 0 1-.68-.29.96.96 0 0 1-.283-.698c0-.274.095-.507.284-.702a.913.913 0 0 1 .68-.291c.263 0 .488.097.675.291.188.195.281.428.281.702z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+}
+
+.dlm-DepositLimitTextInputField-focus .dlm-DepositLimitTextInputField_InfoButton {
+    box-shadow: 0 1px 0 0 #2ec193
+}
+
+.dlm-DepositLimitTextInputField-error .dlm-DepositLimitTextInputField_InfoButton {
+    border: 2px solid #a63838;
+    border-left: 0;
+    box-shadow: none
+}
+
+.dlm-FieldInfoMessage_Container {
+    background-color: #f5f7f7;
+    padding: 13px 15px 6px;
+    border: 1px solid #58d7af;
+    border-radius: 2px;
+    margin-bottom: 30px
+}
+
+.dlm-FieldInfoMessage_Text {
+    font-size: 13px;
+    line-height: 20px;
+    color: #282828;
+    padding-bottom: 7px;
+    text-align: center
+}
+
+.dlm-FieldInfoMessage_Divider {
+    position: relative;
+    height: 25px
+}
+
+.dlm-FieldInfoMessage_DividerInner {
+    position: absolute;
+    border-top: 1px solid #9c9c9c;
+    margin-left: -15px;
+    width: calc(100% + 30px)
+}
+
+.dlm-FieldParagraphInfo {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-right: 20px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 50%;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative
+}
+
+.dlm-FieldParagraphInfo_Text {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px
+}
+
+.dlm-FieldParagraphInfo_InfoButtonWrapper {
+    position: relative
+}
+
+.dlm-FieldParagraphInfo_InfoButton {
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 50% 50%
+}
+
+.dlm-FieldSelectSmall_LimitContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.dlm-FieldSelectSmall_LimitContainerLast {
+    padding-bottom: 30px
+}
+
+.dlm-FieldSelectSmall_LeftContainer {
+    padding-right: 15px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 50%;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative
+}
+
+.dlm-FieldSelectSmall_Label {
+    font-size: 13px;
+    line-height: 21px;
+    text-align: left;
+    color: #282828;
+    padding-right: 5px
+}
+
+.dlm-FieldSelectSmall_InputRow {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 50%;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%
+}
+
+.dlm-FieldSelectSmall_Select {
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 35px;
+    padding: 0 15px;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #282828;
+    background-color: #fff;
+    border: 0;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 35px;
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    text-align: left
+}
+
+.dlm-FieldSelectSmall_Select::-ms-expand {
+    display: none
+}
+
+.dlm-FieldSelectSmall-error .dlm-FieldSelectSmall_Select {
+    border: 2px solid #a63838;
+    border-radius: 2px;
+    color: #a63838;
+    box-shadow: none
+}
+
+.dlm-FieldSelectSmall_Option {
+    color: #282828
+}
+
+.dlm-FieldSelectSmall_PendingContainer {
+    padding: 13px 15px 6px;
+    border: 1px solid #58d7af;
+    border-radius: 2px;
+    margin-bottom: 30px;
+    background: #f5f7f7
+}
+
+.dlm-FieldSelectSmall_PendingDescription {
+    font-size: 13px;
+    line-height: 20px;
+    color: #282828;
+    padding-bottom: 7px;
+    text-align: center
+}
+
+.dlm-HigherDepositLimitLink {
+    color: #a63838;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 25px
+}
+
+.dlm-HigherDepositLimitLink_Link {
+    display: inline;
+    color: #007a56;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px
+}
+
+.allow-hover .dlm-HigherDepositLimitLink_Link:hover {
+    text-decoration: underline
+}
+
+.dlm-QuestionnaireRadioButton {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    position: relative
+}
+
+.dlm-QuestionnaireRadioButton:last-of-type {
+    padding-bottom: 15px
+}
+
+.dlm-QuestionnaireRadioButton_Input {
+    position: fixed;
+    opacity: 0;
+    width: 0
+}
+
+.dlm-QuestionnaireRadioButton_Container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 44px 1fr;
+    grid-template-columns: 44px 1fr;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    margin-left: -6px
+}
+
+.dlm-QuestionnaireRadioButton_CheckboxContainer {
+    width: 44px;
+    height: 44px;
+    position: relative;
+    cursor: pointer;
+    display: block
+}
+
+.dlm-QuestionnaireRadioButton_CheckboxContainer:after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: #fff;
+    height: 20px;
+    width: 20px;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+    border-radius: 2px;
+    border: 1px solid #b5b5b5
+}
+
+.allow-hover .dlm-QuestionnaireRadioButton_CheckboxContainer:hover:after {
+    border: 1px solid #58d7af
+}
+
+.dlm-QuestionnaireRadioButton-selected .dlm-QuestionnaireRadioButton_CheckboxContainer:after {
+    background-color: #58d7af;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23222' d='M7.288 0L8 .543 3.189 6 0 3.699l.564-.676 2.481 1.789z'/%3E%3C/svg%3E");
+    background-size: 8px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border: 0
+}
+
+.allow-hover .dlm-QuestionnaireRadioButton_CheckboxContainer.dlm-QuestionnaireRadioButton_Label:hover .dlm-QuestionnaireRadioButton_CheckboxContainer:after {
+    border: 1px solid #58d7af
+}
+
+.fml-FieldBase-error .dlm-QuestionnaireRadioButton_CheckboxContainer:after {
+    border-color: #a63838
+}
+
+.dlm-QuestionnaireRadioButton_Label {
+    margin-top: 12px;
+    position: relative;
+    width: 100%;
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px
+}
+
+.fml-FieldBase-error .dlm-QuestionnaireRadioButton_Label {
+    color: #a63838
+}
+
+.dlm-QuestionnaireRadioInput {
+    display: block;
+    width: 100%;
+    padding-bottom: 15px
+}
+
+.dlm-QuestionnaireRadioInput_Label {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    padding-right: 15px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 55%;
+    -ms-flex: 0 1 55%;
+    flex: 0 1 55%
+}
+
+.dlm-QuestionnaireRadioInput_OptionsWrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border-radius: 2px
+}
+
+.dlm-DepositLimitsSummaryOverviewBox {
+    padding: 13px 15px 6px;
+    border: 1px solid #58d7af;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    background: #f5f7f7
+}
+
+.dlm-DepositLimitsSummaryOverviewBox_Info {
+    font-size: 13px;
+    line-height: 20px;
+    color: #282828;
+    padding-bottom: 7px;
+    text-align: center
+}
+
+.dlm-DepositLimitsTextInputFieldGroup-error {
+    margin-bottom: 10px
+}
+
+.dlm-DepositLimit {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: content-box
+}
+
+.dlm-DepositLimit_DepositLimitPeriodLabel {
+    font-size: 13px;
+    color: #282828;
+    line-height: 21px;
+    padding-right: 5px
+}
+
+.dlm-DepositLimit_DepositLimitValue {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 21px;
+    box-sizing: content-box
+}
+
+.dlm-DepositLimit_TopWrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 25px
+}
+
+.dlm-DepositLimit:last-of-type .dlm-DepositLimit_TopWrapper {
+    padding-bottom: 30px
+}
+
+.dlm-DepositLimit_TopWrapperWithServerMessage {
+    padding-bottom: 20px
+}
+
+.dlm-DepositLimit_DescriptionWrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.dlm-DepositLimit_NoDepositLimitsSetWrapper {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+
+.dlm-DepositLimit_NoDepositLimitsSetValue {
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none
+}
+
+.dlm-DepositLimitPendingElapsed_Container {
+    margin-bottom: 30px
+}
+
+.dlm-DepositLimitPendingElapsed_Panel {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    background: #f5f7f7;
+    border-radius: 2px;
+    border: 1px solid #d4d4d4;
+    padding: 0 15px
+}
+
+.dlm-DepositLimitPendingElapsed_Title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 20px;
+    text-align: center;
+    padding: 20px 0;
+    -webkit-flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%
+}
+
+.dlm-DepositLimitPendingElapsed_Confirm {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 50px;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #3f3f3f;
+    background-color: #58d7af
+}
+
+.allow-hover .dlm-DepositLimitPendingElapsed_Confirm:hover,
+.dlm-DepositLimitPendingElapsed_Confirm:focus {
+    background-color: #5fe8bd
+}
+
+.dlm-DepositLimitPendingElapsed_Cancel {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 50px;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #3f3f3f;
+    background-color: #cacccc
+}
+
+.allow-hover .dlm-DepositLimitPendingElapsed_Cancel:hover,
+.dlm-DepositLimitPendingElapsed_Cancel:focus {
+    background-color: #d2d4d4
+}
+
+.dlm-DepositLimitPendingElapsed_Divider {
+    position: relative;
+    height: 25px
+}
+
+.dlm-DepositLimitPendingElapsed_DividerInner {
+    position: absolute;
+    border-top: 1px solid #9c9c9c;
+    margin-left: -15px;
+    width: calc(100% + 30px)
+}
+
+.dlm-DepositLimitPendingFuture_Container {
+    padding: 13px 15px 6px;
+    border: 1px solid #58d7af;
+    border-radius: 2px;
+    margin-bottom: 30px;
+    background: #f5f7f7
+}
+
+.dlm-DepositLimitPendingFuture_Description {
+    font-size: 13px;
+    line-height: 20px;
+    color: #282828;
+    padding-bottom: 7px;
+    text-align: center
+}
+
+.dlm-DepositLimitPendingFuture_Divider {
+    position: relative;
+    height: 25px
+}
+
+.dlm-DepositLimitPendingFuture_DividerInner {
+    position: absolute;
+    border-top: 1px solid #9c9c9c;
+    margin-left: -15px;
+    width: calc(100% + 30px)
+}
+
+.dlm-DepositLimitsModal {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+    background-color: #e4e4e4;
+    max-width: 345px;
+    border-radius: 2px;
+    padding: 20px 10px 10px
+}
+
+.dlm-DepositLimitsModal-wide {
+    max-width: 435px;
+    padding: 20px 20px 10px
+}
+
+.dlm-DepositLimitsModal_Header {
+    font-size: 15px;
+    color: #333;
+    font-weight: regular;
+    line-height: 22px;
+    padding: 0 30px 20px;
+    text-align: center
+}
+
+.dlm-DepositLimitsModal_CloseButton {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 44px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #f0f0f0;
+    background-color: #126e51;
+    margin-top: 10px
+}
+
+.allow-hover .dlm-DepositLimitsModal_CloseButton:hover,
+.dlm-DepositLimitsModal_CloseButton:focus {
+    color: #fff;
+    background-color: #168361
+}
+
+.dlm-DepositLimitsModal_Body {
+    padding: 0 10px 10px;
+    font-size: 13px;
+    color: #333;
+    line-height: 19px;
+    text-align: center
+}
+
+.dlm-DepositLimitsOverview_Heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 21px;
+    margin-bottom: 25px
+}
+
+.dlm-DepositLimitsOverview_ChangeButtonLabel {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 35px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #3f3f3f;
+    background-color: #58d7af
+}
+
+.allow-hover .dlm-DepositLimitsOverview_ChangeButtonLabel:hover,
+.dlm-DepositLimitsOverview_ChangeButtonLabel:focus {
+    background-color: #5fe8bd
+}
+
+.dlm-DepositLimitsOverviewPendingActioned_Description {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    margin-bottom: 15px
+}
+
+.dlm-DepositLimitsOverviewPendingActioned:last-of-type .dlm-DepositLimitsOverviewPendingActioned_Description {
+    margin-bottom: 20px
+}
+
+.dlm-DepositLimitsOverviewPendingActioned_Button {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #3f3f3f;
+    background-color: #58d7af
+}
+
+.allow-hover .dlm-DepositLimitsOverviewPendingActioned_Button:hover,
+.dlm-DepositLimitsOverviewPendingActioned_Button:focus {
+    background-color: #5fe8bd
+}
+
+.dlm-DepositLimitsQuestionnaireFailed_Para {
+    margin-bottom: 15px
+}
+
+.dlm-DepositLimitsQuestionnaireFailed_Bullet,
+.dlm-DepositLimitsQuestionnaireFailed_Para {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px
+}
+
+.dlm-DepositLimitsUpdate_Heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 21px;
+    margin-bottom: 15px
+}
+
+.dlm-DepositLimitsUpdate_CancelButton {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 44px;
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 8px;
+    margin-bottom: 40px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #282828;
+    background-color: transparent
+}
+
+.allow-hover .dlm-DepositLimitsUpdate_CancelButton:hover,
+.dlm-DepositLimitsUpdate_CancelButton:focus {
+    color: #007a56
+}
+
+.dlm-DepositLimitsUpdateComplete_Para {
+    font-size: 13px;
+    color: #282828;
+    margin-bottom: 15px;
+    line-height: 20px
+}
+
+.dlm-DepositLimitsUpdateComplete_Para:last-of-type {
+    margin-bottom: 30px
+}
+
+.dlm-DepositLimitsUpdateComplete_OkButton {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 35px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #3f3f3f;
+    background-color: #58d7af
+}
+
+.allow-hover .dlm-DepositLimitsUpdateComplete_OkButton:hover,
+.dlm-DepositLimitsUpdateComplete_OkButton:focus {
+    background-color: #5fe8bd
+}
+
+.dlm-DepositLimitsUpdateOverview_Text {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    margin-bottom: 20px
+}
+
+.dlm-DepositLimitsUpdateOverview_InfoContainer {
+    padding: 13px 15px 6px;
+    border: 1px solid #58d7af;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    background: #f5f7f7
+}
+
+.dlm-DepositLimitsUpdateOverview_Info {
+    font-size: 13px;
+    line-height: 20px;
+    color: #282828;
+    padding-bottom: 7px;
+    text-align: center
+}
+
+.dlm-DepositLimitsUpdateOverview_Button-stacked {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    padding: 0 15px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #3f3f3f;
+    background-color: #58d7af
+}
+
+.allow-hover .dlm-DepositLimitsUpdateOverview_Button-stacked:hover,
+.dlm-DepositLimitsUpdateOverview_Button-stacked:focus {
+    background-color: #5fe8bd
+}
+
+.dlm-DepositLimitsUpdateOverview_ButtonDisabled {
+    opacity: .3;
+    cursor: default
+}
+
+.allow-hover .dlm-DepositLimitsUpdateOverview_ButtonDisabled:hover,
+.dlm-DepositLimitsUpdateOverview_ButtonDisabled:focus {
+    background-color: #58d7af
+}
+
+.dlm-DepositLimitsUpdateOverview_CancelButton {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 44px;
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 8px;
+    margin-bottom: 40px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #282828;
+    background-color: transparent
+}
+
+.allow-hover .dlm-DepositLimitsUpdateOverview_CancelButton:hover,
+.dlm-DepositLimitsUpdateOverview_CancelButton:focus {
+    color: #007a56
+}
+
+.dlm-DepositLimitsUpdateSimpleConfirm_Text {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    margin-bottom: 15px
+}
+
+.dlm-DepositLimitsUpdateSimpleConfirm_Text:last-of-type {
+    margin-bottom: 30px
+}
+
+.dlm-DepositLimitsUpdateSimpleConfirm_Button-stacked {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    padding: 0 15px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #3f3f3f;
+    background-color: #58d7af
+}
+
+.allow-hover .dlm-DepositLimitsUpdateSimpleConfirm_Button-stacked:hover,
+.dlm-DepositLimitsUpdateSimpleConfirm_Button-stacked:focus {
+    background-color: #5fe8bd
+}
+
+.dlm-DepositLimitsUpdateSimpleConfirm_CancelButton {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 44px;
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 8px;
+    margin-bottom: 40px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #282828;
+    background-color: transparent
+}
+
+.allow-hover .dlm-DepositLimitsUpdateSimpleConfirm_CancelButton:hover,
+.dlm-DepositLimitsUpdateSimpleConfirm_CancelButton:focus {
+    color: #007a56
+}
+
+.dlm-DepositLimitsUpdateSimpleOK_Text {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    margin-bottom: 30px
+}
+
+.dlm-DepositLimitsUpdateSimpleOK_OKButton {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 44px;
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 8px;
+    margin-bottom: 40px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #3f3f3f;
+    background-color: #58d7af
+}
+
+.allow-hover .dlm-DepositLimitsUpdateSimpleOK_OKButton:hover,
+.dlm-DepositLimitsUpdateSimpleOK_OKButton:focus {
+    color: #007a56
+}
+
+.dlm-DepositLimitUpdateInfo_Container {
+    background: #fff;
+    border-radius: 2px;
+    padding: 10px 0 15px;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    margin-bottom: 15px
+}
+
+.dlm-DepositLimitUpdateInfo_Header {
+    font-size: 15px;
+    color: #282828;
+    line-height: 21px;
+    font-weight: 700;
+    padding: 0 15px 10px;
+    border-bottom: 1px solid #e4e4e4
+}
+
+.dlm-DepositLimitUpdateInfo_Panel {
+    padding: 15px 15px 0;
+    font-size: 12px;
+    color: #282828;
+    line-height: 18px
+}
+
+.dlm-DepositLimitUpdateInfo_DetailsContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 7px
+}
+
+.dlm-DepositLimitUpdateInfo_Label {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: left
+}
+
+.dlm-DepositLimitUpdateInfo_Details {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: right
+}
+
+.dlm-QuestionnaireModalCloseButton {
+    width: 44px;
+    height: 44px;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23494949' d='M11.887.734L11.144 0 6 5.085.856 0 .113.734l5.144 5.085L0 11.016l.743.734L6 6.554l5.257 5.196.743-.734-5.257-5.197z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    background-position: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #494949
+}
+
+.dlm-ResponsibleGamblingQuestionnaireModal {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #e4e4e4;
+    max-width: 345px;
+    border-radius: 2px;
+    padding: 20px 10px 10px
+}
+
+.dlm-ResponsibleGamblingQuestionnaireModal-wide {
+    max-width: 435px;
+    padding: 20px 20px 10px
+}
+
+.dlm-ResponsibleGamblingQuestionnaireModal_Header {
+    font-size: 15px;
+    color: #333;
+    font-weight: regular;
+    line-height: 22px;
+    padding: 0 30px 20px;
+    text-align: center
+}
+
+.dlm-ResponsibleGamblingQuestionnaireModal_Para {
+    padding: 0 10px 10px;
+    font-size: 13px;
+    color: #333;
+    line-height: 19px;
+    text-align: center
+}
+
+.dlm-ResponsibleGamblingQuestionnaireModal_ButtonContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 44px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #f0f0f0;
+    background-color: #126e51;
+    margin-top: 10px
+}
+
+.allow-hover .dlm-ResponsibleGamblingQuestionnaireModal_ButtonContainer:hover,
+.dlm-ResponsibleGamblingQuestionnaireModal_ButtonContainer:focus {
+    color: #fff;
+    background-color: #168361
+}
+
+.dlm-ErrorMessageWithContactLink {
+    color: #a63838;
+    font-size: 12px;
+    line-height: 18px
+}
+
+.dlm-ErrorMessageWithContactLink_Link {
+    display: inline;
+    color: #137a5a;
+    cursor: pointer;
+    font-weight: 700
+}
+
+.allow-hover .dll-InfoButton:hover,
+.dll-NibWrapper_Wrapper-active .dll-InfoButton {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='17' height='17' viewBox='0 0 17 17' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EInfo-Icon-Active%3C/title%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='%23F5F7F7' cx='8.5' cy='8.5' r='8.5'/%3E%3Cg fill='%23666' fill-rule='nonzero'%3E%3Cpath d='M8.5 0a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17zm0 1a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15z'/%3E%3Cpath d='M10.098 11.833l-.108.485c-.322.14-.58.248-.772.322a1.86 1.86 0 0 1-.669.11c-.39 0-.694-.106-.91-.316a1.07 1.07 0 0 1-.326-.801c0-.126.008-.255.025-.386.016-.131.042-.28.078-.445l.403-1.576c.036-.151.066-.294.09-.43.026-.134.037-.257.037-.369 0-.201-.037-.342-.112-.42-.075-.08-.219-.12-.431-.12-.105 0-.212.019-.32.054-.11.036-.204.07-.283.103l.108-.486c.264-.119.516-.22.758-.305.241-.085.47-.127.685-.127.388 0 .687.104.897.31.21.208.315.476.315.808 0 .068-.007.189-.021.361a2.65 2.65 0 0 1-.081.475l-.402 1.57a4.575 4.575 0 0 0-.127.8c0 .208.042.35.126.426.085.075.232.113.44.113.097 0 .208-.02.331-.057.124-.037.214-.07.269-.1zm.102-6.59a.964.964 0 0 1-.28.699.907.907 0 0 1-.677.289.917.917 0 0 1-.68-.29.96.96 0 0 1-.283-.698c0-.274.095-.507.284-.702a.913.913 0 0 1 .68-.291c.263 0 .488.097.675.291.188.195.281.428.281.702z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+}
+
+.dll-InfoButton {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17'%3E%3Cg fill='%23757575'%3E%3Cpath d='M8.5 0a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17zm0 1a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15z'/%3E%3Cpath d='M10.098 11.833l-.108.485c-.322.14-.58.248-.772.322a1.86 1.86 0 0 1-.669.11c-.39 0-.694-.106-.91-.316a1.07 1.07 0 0 1-.326-.801c0-.126.008-.255.025-.386.016-.131.042-.28.078-.445l.403-1.576c.036-.151.066-.294.09-.43.026-.134.037-.257.037-.369 0-.201-.037-.342-.112-.42-.075-.08-.219-.12-.431-.12-.105 0-.212.019-.32.054-.11.036-.204.07-.283.103l.108-.486c.264-.119.516-.22.758-.305.241-.085.47-.127.685-.127.388 0 .687.104.897.31.21.208.315.476.315.808 0 .068-.007.189-.021.361a2.65 2.65 0 0 1-.081.475l-.402 1.57a4.575 4.575 0 0 0-.127.8c0 .208.042.35.126.426.085.075.232.113.44.113.097 0 .208-.02.331-.057.124-.037.214-.07.269-.1zm.102-6.59a.964.964 0 0 1-.28.699.907.907 0 0 1-.677.289.917.917 0 0 1-.68-.29.96.96 0 0 1-.283-.698c0-.274.095-.507.284-.702a.913.913 0 0 1 .68-.291c.263 0 .488.097.675.291.188.195.281.428.281.702z'/%3E%3C/g%3E%3C/svg%3E")
+}
+
+.dll-DepositLimitInfoContainer {
+    padding: 13px 15px 6px;
+    border: 1px solid #58d7af;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    background: #f5f7f7
+}
+
+.dll-DepositLimitInfoContainer_Info {
+    font-size: 13px;
+    line-height: 20px;
+    color: #282828;
+    padding-bottom: 7px;
+    text-align: center
+}
+
+.dll-DepositLimitsHyperlink {
+    color: #a63838;
+    font-size: 12px;
+    line-height: 18px
+}
+
+.dll-DepositLimitsHyperlink_Link {
+    display: inline;
+    color: #007a56;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 15px
+}
+
+.allow-hover .dll-DepositLimitsHyperlink_Link:hover {
+    text-decoration: underline
+}
+
+.dll-DepositLimitsIntro_Para {
+    font-size: 13px;
+    color: #282828;
+    margin-bottom: 15px;
+    line-height: 20px
+}
+
+.dll-DepositLimitsIntro_Para:last-of-type {
+    margin-bottom: 30px
+}
+
+.dll-FixedLimitMessage_Para {
+    font-size: 13px;
+    color: #282828;
+    margin-bottom: 25px;
+    line-height: 20px
+}
+
+.dll-InfoButton_Wrapper {
+    position: relative;
+    margin-top: 3px
+}
+
+.dll-InfoButton {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    margin-left: -5px;
+    margin-top: -22px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 5px 21px
+}
+
+.dll-InfoTooltip {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: absolute;
+    background-color: #f5f7f7;
+    border: 1px solid #b5b5b5;
+    border-radius: 2px;
+    padding: 15px 15px 5px;
+    margin-right: 15px;
+    z-index: 40;
+    top: 27px;
+    left: 0
+}
+
+.dll-InfoTooltip_Header {
+    font-size: 15px;
+    font-weight: 700
+}
+
+.dll-InfoTooltip_Header,
+.dll-InfoTooltip_Text {
+    color: #282828;
+    line-height: 18px;
+    padding-bottom: 10px
+}
+
+.dll-InfoTooltip_Text {
+    font-size: 12px
+}
+
+.dll-InfoTooltip_NibWrapper {
+    z-index: 40;
+    position: absolute;
+    height: 0;
+    top: 18px;
+    left: 3px
+}

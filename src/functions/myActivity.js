@@ -75,7 +75,7 @@ export function computeWinLoss(transactions, duration, factor) {
             };
         }
 
-        if (tx.tx_type === 'Payout') {
+        if (tx.tx_type === 'Payout' || tx.tx_type === "Win Boost Cash Bonus") {
             dateMap[date].totalReturn += tx.amount;
             netReturns += tx.amount;
         } else if (tx.tx_type === 'Wager') {
@@ -98,6 +98,7 @@ export function computeWinLoss(transactions, duration, factor) {
     // console.log(netReturns, result);
 
     return ({
+        duration: duration,
         netReturns: netReturns * factor,
         dateMap: result
     })
@@ -216,6 +217,19 @@ export function computePlayTime(transactions, duration  ) {
         totalPlayTime: totalPlayTime,
         dateMap: result
     })
+}
+
+export function computeStakeTime(transactions, duration) {
+    const result = transactions.filter(tx => tx.tx_type === "Wager") // Only process wagers
+    .map(tx => {
+      const [date, time] = tx.tx_time.split(" "); // Split date and time
+      const [hour, minute] = time.split(":").map(Number); // Extract hour & minute
+      const decimalHour = hour + minute / 60; // Convert to decimal hours
+      return { x: date, y: decimalHour };
+    });
+
+    // console.log(result);
+    return result;
 }
 
 export function computeWinLoss2(tickets, duration, factor) {

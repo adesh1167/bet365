@@ -9,6 +9,8 @@ import { Chart } from "react-chartjs-2";
 import { Chart as ChartJS, registerables } from 'chart.js';
 import MyActivityPage from "./myActivity/myActivity";
 import "./styles/myActivity.css";
+import DepositLimits from "./myActivity/depositLimits";
+import MenuPageWrapper from "./myActivity/menuPageWrapper";
 
 ChartJS.register(...registerables);
 
@@ -142,30 +144,9 @@ const MyActivity = () => {
                                 </div>
 
                                 {route === "myActivity" ?
-                                    <MyActivityPage toggleMenu={toggleMenu} hidden={hidden} goBack={() => setRoute(null)} status="settled" duration={duration} title="Settled Bets" />
+                                    <MyActivityPage toggleMenu={toggleMenu} hidden={hidden} goBack={() => setRoute(null)} duration={duration} title="My Activity" />
                                     :
-                                    route === "unsettled" ?
-                                        <BetHistory toggleMenu={toggleMenu} hidden={hidden} goBack={() => setRoute(null)} status="open" duration={duration} title="Unsettled Bets" />
-                                        :
-                                        route === "instantGames" ?
-                                            <div>Instant Games</div>
-                                            :
-                                            route === "deposits" ?
-                                                <TransactionHistory type="Card Deposit" title="Deposits" goBack={() => setRoute(null)} hidden={hidden} duration={duration} toggleMenu={toggleMenu} label="Deposit" />
-                                                :
-                                                route === "withdrawals" ?
-                                                    <TransactionHistory type="Withdrawal" title="Withdrawals" goBack={() => setRoute(null)} hidden={hidden} duration={duration} toggleMenu={toggleMenu} label="Withdrawal" />
-                                                    :
-                                                    route === "adjustments" ?
-                                                        <div>Adjustments</div>
-                                                        :
-                                                        route === "netDeposits" ?
-                                                            <div>Net Deposits</div>
-                                                            :
-                                                            route === "winLoss" ?
-                                                                <div>Win/Loss</div>
-                                                                :
-                                                                <SelectRange title={buttons[selected]} toggleMenu={toggleMenu} setRoute={setRoute} sections={buttons[selected]?.types} setDuration={setDuration} />
+                                    <MenuPageWrapper toggleMenu={toggleMenu} hidden={hidden} goBack={() => setRoute(null)} duration={duration} title={buttons[selected].text} route={route} />
                                 }
 
                             </div>

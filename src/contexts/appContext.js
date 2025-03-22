@@ -122,7 +122,7 @@ const AppProvider = ({children}) => {
             url: `${baseApiUrl}/get-transactions.php`,
             dataType: 'JSON',
             type: 'POST',
-            data: {user: user, limit: 100},
+            data: {user: user, limit: 1000},
             success: (res)=>{
               console.log(res)
               if(res.status = 'success') setTransactions(res.data.transactions)

@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { useApp } from '../../contexts/appContext';
 import formatDate, { formatDuration, isGreaterThanTime, myActivityDate, xAxisDate } from '../../functions/formatDate';
 import NavigationMenuLoadingSpinner from '../navigationMenuLoadingSpinner';
-import { computeDepositWithdrawal, computePlayTime, computeStake, computeWinLoss, filterByDateRange } from '../../functions/myActivity';
+import { computeDepositWithdrawal, computePlayTime, computeStake, computeStakeTime, computeWinLoss, filterByDateRange } from '../../functions/myActivity';
 import formatNumber from '../../functions/formatNumber';
 import { Chart } from "react-chartjs-2";
 import { Chart as ChartJS, registerables } from 'chart.js';
@@ -33,10 +33,10 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
     const [selected, setSelected] = useState(0);
     const [duration, setDuration] = useState(7);
     const [metrics, setMetrics] = useState({
-        depositWithdrawal: {
+        winLoss: {
 
         },
-        winLoss: {
+        depositWithdrawal: {
 
         },
         totalStake: {
@@ -44,7 +44,10 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
         },
         totalPlayTime: {
 
-        }
+        },
+        stakeTime: [
+
+        ]
     })
 
     const { loadedTickets, transactions, country } = useApp();
@@ -73,27 +76,44 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
         })
     }, [duration])
 
-    useEffect(() => {
-        if (transactions) computeData();
-    }, [duration, transactions])
-
-    function computeData() {
+    const computeData = useCallback(() => {
         const tempDW = computeDepositWithdrawal(filteredTransactions, country.factor);
         const tempWL = computeWinLoss(filteredTransactions, duration, country.factor);
         const tempTS = computeStake(filteredTransactions, duration, country.factor);
         const tempTP = computePlayTime(filteredTransactions, duration);
-        setMetrics({
-            depositWithdrawal: tempDW,
+        const tempST = computeStakeTime(filteredTransactions);
+        return ({
             winLoss: tempWL,
+            depositWithdrawal: tempDW,
             totalStake: tempTS,
-            totalPlayTime: tempTP
+            totalPlayTime: tempTP,
+            stakeTime: tempST
         });
-    }
+    }, [filteredTransactions, country.factor, duration])
+
+    useEffect(() => {
+        if (transactions) setMetrics(computeData());
+    }, [duration, transactions])
+
+    // function computeData() {
+    //     const tempDW = computeDepositWithdrawal(filteredTransactions, country.factor);
+    //     const tempWL = computeWinLoss(filteredTransactions, duration, country.factor);
+    //     const tempTS = computeStake(filteredTransactions, duration, country.factor);
+    //     const tempTP = computePlayTime(filteredTransactions, duration);
+    //     const tempST = computeStakeTime(filteredTransactions);
+    //     setMetrics({
+    //         depositWithdrawal: tempDW,
+    //         winLoss: tempWL,
+    //         totalStake: tempTS,
+    //         totalPlayTime: tempTP,
+    //         stakeTime: tempST
+    //     });
+    // }
 
     useEffect(() => {
         setTimeout(() => {
             if (loadedTickets.tickets && transactions) setLoaded(true)
-        }, 500 + Math.random() * 1500);
+        }, 100 + Math.random() * 300);
     }, [loadedTickets, transactions]);
 
     if (!hidden) return null;
@@ -157,11 +177,10 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                         {metrics.winLoss.dateMap &&
                                             <div style={{ height: "144px", paddingBottom: 20 }}>
                                                 <Chart
-                                                    key={duration}
+                                                    key={`${duration}${metrics.winLoss.dateMap[0]?.label}`}
                                                     type="bar"
                                                     data={{
                                                         labels: metrics.winLoss.dateMap.map(entry => {
-                                                            // console.log(entry.label);
                                                             return entry.label
                                                         }),
                                                         datasets: [{
@@ -174,7 +193,7 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                                             categoryPercentage: 0.8,
                                                             borderRadius: 0,
                                                             borderSkipped: false,
-                                                            backgroundColor: "#d4d4d4"
+                                                            backgroundColor: ctx => ctx.raw.y > 0 ? "#58d7af" : "#d4d4d4"
                                                         }],
                                                     }}
                                                     options={{
@@ -185,8 +204,8 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                                             x: {
                                                                 type: "time",
                                                                 time: {
-                                                                    unit: duration > 30 ? "month" : "day",
-                                                                    round: duration > 30 ? "month" : "day",
+                                                                    unit: metrics.winLoss.duration > 30 ? "month" : "day",
+                                                                    round: metrics.winLoss.duration > 30 ? "month" : "day",
                                                                 },
                                                                 grid: {
                                                                     display: false,
@@ -209,9 +228,12 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                                                 border: {
                                                                     width: 0,
                                                                     color: "#d4d4d4"
+                                                                },
+                                                                afterDataLimits: scale => {
+                                                                    const range = scale.max - scale.min;
+                                                                    scale.min -= range * (duration === 7 ? 0 : duration === 30 ? 0.03 : 0); // Add 5% padding on the left
+                                                                    scale.max += range * (duration === 7 ? 0 : duration === 30 ? 0.03 : 0); // Add 5% padding on the right
                                                                 }
-
-
                                                             },
                                                             y: {
                                                                 afterDataLimits: (scale) => {
@@ -361,7 +383,7 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                                 </div>
                                             </div>
                                             <div className="mya-NetDepositsSection_HeaderRight ">
-                                                <div className="mya-NetDepositsSection_HeaderAmount ">{country.currency}{metrics.depositWithdrawal.netDeposits}</div>
+                                                <div className="mya-NetDepositsSection_HeaderAmount ">{country.currency}{formatNumber(metrics.depositWithdrawal.netDeposits)}</div>
                                                 <div className="mya-NetDepositsSection_HeaderDate ">
                                                     {dates.startDate} - {dates.endDate}
                                                 </div>
@@ -373,7 +395,7 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                                     Total Deposits
                                                 </div>
                                                 <div className="mya-NetDepositsSection_TotalDepositsAmount ">
-                                                    {country.currency}{metrics.depositWithdrawal.totalDeposits}
+                                                    {country.currency}{formatNumber(metrics.depositWithdrawal.totalDeposits)}
                                                 </div>
                                             </div>
                                             <div className="mya-NetDepositsSection_TotalWithdrawalsWrapper ">
@@ -381,7 +403,7 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                                     Total Withdrawals
                                                 </div>
                                                 <div className="mya-NetDepositsSection_TotalWithdrawalsAmount ">
-                                                    {country.currency}{metrics.depositWithdrawal.totalWithdrawals}
+                                                    {country.currency}{formatNumber(metrics.depositWithdrawal.totalWithdrawals)}
                                                 </div>
                                             </div>
                                         </div>
@@ -417,7 +439,7 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                                 </div>
                                             </div>
                                             <div className="mya-AmountStakedSection_HeaderRight ">
-                                                <div className="mya-AmountStakedSection_HeaderAmount ">{country.currency}{metrics.totalStake.totalStakes}</div>
+                                                <div className="mya-AmountStakedSection_HeaderAmount ">{country.currency}{formatNumber(metrics.totalStake.totalStakes)}</div>
                                                 <div className="mya-AmountStakedSection_HeaderDate ">
                                                     {dates.startDate} - {dates.endDate}
                                                 </div>
@@ -483,8 +505,12 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                                                 border: {
                                                                     width: 0,
                                                                     color: "#d4d4d4"
+                                                                },
+                                                                afterDataLimits: scale => {
+                                                                    const range = scale.max - scale.min;
+                                                                    scale.min -= range * (duration === 7 ? 0.06 : duration === 30 ? 0.03 : 0.06); // Add 5% padding on the left
+                                                                    scale.max += range * (duration === 7 ? 0.06 : duration === 30 ? 0.03 : 0.06); // Add 5% padding on the right
                                                                 }
-
 
                                                             },
                                                             y: {
@@ -683,7 +709,7 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                                     {formatDuration(metrics.totalPlayTime.totalPlayTime, true)}
                                                 </div>
                                                 <div className="mya-TimeSpentPlayingSection_HeaderDate ">
-                                                    12th Mar - 18th Mar
+                                                    {dates.startDate} - {dates.endDate}
                                                 </div>
                                             </div>
                                         </div>
@@ -707,7 +733,7 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                                             categoryPercentage: 0.8,
                                                             borderRadius: 0,
                                                             borderSkipped: false,
-                                                            backgroundColor: "#58d7af"
+                                                            backgroundColor: ctx => ctx.raw.y > 0 ? "#58d7af" : "#d4d4d4"
                                                         }],
                                                     }}
                                                     options={{
@@ -742,9 +768,12 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                                                 border: {
                                                                     width: 0,
                                                                     color: "#d4d4d4"
+                                                                },
+                                                                afterDataLimits: scale => {
+                                                                    const range = scale.max - scale.min;
+                                                                    scale.min -= range * (duration === 7 ? 0 : duration === 30 ? 0.03 : 0); // Add 5% padding on the left
+                                                                    scale.max += range * (duration === 7 ? 0 : duration === 30 ? 0.03 : 0); // Add 5% padding on the right
                                                                 }
-
-
                                                             },
                                                             y: {
                                                                 // afterDataLimits: (scale) => {
@@ -766,6 +795,7 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                                                     font: {
                                                                         size: 10
                                                                     },
+                                                                    stepSize: 15,
                                                                     maxTicksLimit: 3,
                                                                 },
                                                                 border: {
@@ -913,90 +943,130 @@ const MyActivity = ({ toggleMenu, goBack, hidden, status, title }) => {
                                             <div className="mya-RealityChecksSection_InfoDuration ">No Check</div>
                                         </div>
                                     </div>
-                                    <div className="mya-MyActivityModule_Section ">
-                                        <div className="mya-TimeOfBetPlacementSection_HeaderWrapper ">
-                                            <div className="mya-TimeOfBetPlacementSection_HeaderLeft ">
-                                                <div className="mya-TimeOfBetPlacementSection_HeaderTitleWrapper ">
-                                                    <div className="mya-TimeOfBetPlacementSection_HeaderTitle ">
-                                                        Time of Bet Placement
+                                    {duration < 31 &&
+                                        <div className="mya-MyActivityModule_Section ">
+                                            <div className="mya-TimeOfBetPlacementSection_HeaderWrapper ">
+                                                <div className="mya-TimeOfBetPlacementSection_HeaderLeft ">
+                                                    <div className="mya-TimeOfBetPlacementSection_HeaderTitleWrapper ">
+                                                        <div className="mya-TimeOfBetPlacementSection_HeaderTitle ">
+                                                            Time of Bet Placement
+                                                        </div>
+                                                        <div className="mya-TimeOfBetPlacementSection_InfoButtonWrapper ">
+                                                            <div className="mya-TimeOfBetPlacementSection_InfoButton " />
+                                                        </div>
                                                     </div>
-                                                    <div className="mya-TimeOfBetPlacementSection_InfoButtonWrapper ">
-                                                        <div className="mya-TimeOfBetPlacementSection_InfoButton " />
+                                                </div>
+                                                <div className="mya-TimeOfBetPlacementSection_HeaderRight ">
+                                                    <div className="mya-TimeOfBetPlacementSection_HeaderDate ">
+                                                        {dates.startDate} - {dates.endDate}
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="mya-TimeOfBetPlacementSection_HeaderRight ">
-                                                <div className="mya-TimeOfBetPlacementSection_HeaderDate ">
-                                                    12th Mar - 18th Mar
+                                            {duration &&
+                                                <div style={{ height: "144px", paddingBottom: 20 }}>
+                                                    <Chart
+                                                        key={duration}
+                                                        type="scatter"
+                                                        data={{
+                                                            labels: metrics.winLoss.dateMap.map(entry => {
+                                                                // console.log(entry.label);
+                                                                return entry.label
+                                                            }),
+                                                            datasets: [{
+                                                                label: 'Test',
+                                                                data: metrics.stakeTime,
+                                                                borderColor: "#777",
+                                                                borderWidth: 2,
+                                                                barPercentage: 1,
+                                                                pointRadius: 3,
+                                                                pointBackgroundColor: "#3cd9a8",
+                                                                pointBorderColor: "#3cd9a8",
+                                                                categoryPercentage: 0.8,
+                                                                borderRadius: 0,
+                                                                borderSkipped: false,
+                                                                backgroundColor: "#d4d4d4",
+                                                            }],
+                                                        }}
+                                                        options={{
+                                                            animation: false,
+                                                            maintainAspectRatio: false,
+                                                            responsive: true,
+                                                            scales: {
+                                                                x: {
+                                                                    type: "time",
+                                                                    time: {
+                                                                        unit: duration > 30 ? "month" : "day",
+                                                                        round: duration > 30 ? "month" : "day",
+                                                                    },
+                                                                    grid: {
+                                                                        display: false,
+                                                                        drawOnChartArea: true,
+                                                                        lineWidth: 10,
+                                                                        color: "#f00"
+
+                                                                    },
+                                                                    ticks: {
+                                                                        callback: (value) => {
+                                                                            return xAxisDate(value, duration);
+                                                                        },
+                                                                        font: {
+                                                                            size: 10,
+                                                                        },
+                                                                        maxRotation: 0,
+                                                                        maxTicksLimit: duration === 7 ? 7 : duration === 30 ? 6 : 13,
+                                                                        autoSkip: false,
+                                                                        align: "center",
+                                                                        // padding: 50,
+                                                                        // labelOffset: -10
+                                                                    },
+                                                                    border: {
+                                                                        width: 0,
+                                                                        color: "#d4d4d4"
+                                                                    },
+                                                                    afterDataLimits: scale => {
+                                                                        const range = scale.max - scale.min;
+                                                                        scale.min -= range * (duration === 7 ? 0.06 : duration === 30 ? 0.03 : 0.06); // Add 5% padding on the left
+                                                                        scale.max += range * (duration === 7 ? 0.06 : duration === 30 ? 0.03 : 0.06); // Add 5% padding on the right
+                                                                    }
+                                                                },
+                                                                y: {
+                                                                    min: 0,
+                                                                    max: 24,
+                                                                    grid: {
+                                                                        display: true,
+                                                                        drawOnChartArea: true,
+                                                                        lineWidth: ctx => ctx.tick.value === 0 ? 1 : 1,
+                                                                        color: ctx => ctx.tick.value === 0 ? "#777" : "#e9e9e9",
+                                                                        drawTicks: false,
+                                                                    },
+                                                                    ticks: {
+                                                                        callback: value => {
+                                                                            const labels = { 0: "12am", 6: "6am", 12: "12pm", 18: "6pm" };
+                                                                            return labels[value] || ""; // Show only defined labels
+                                                                        },
+                                                                        stepSize: 6,
+                                                                        font: {
+                                                                            size: 10
+                                                                        },
+                                                                        // maxTicksLimit: 4,
+                                                                    },
+                                                                    border: {
+                                                                        width: 1,
+                                                                        color: "#777"
+                                                                    }
+                                                                }
+                                                            },
+                                                            plugins: {
+                                                                legend: {
+                                                                    display: false
+                                                                }
+                                                            }
+                                                        }}
+                                                    />
                                                 </div>
-                                            </div>
+                                            }
                                         </div>
-                                        <div className="mya-TimeOfBetPlacementChart ">
-                                            <div className="mya-TimeOfBetPlacementChart_YAxisContainer ">
-                                                <div className="mya-TimeOfBetPlacementChart_YAxisContainerInner ">
-                                                    <div className="mya-TimeOfBetPlacementChart_YAxisText ">6pm</div>
-                                                    <div className="mya-TimeOfBetPlacementChart_YAxisText ">12pm</div>
-                                                    <div className="mya-TimeOfBetPlacementChart_YAxisText ">6am</div>
-                                                    <div className="mya-TimeOfBetPlacementChart_YAxisText ">12am</div>
-                                                </div>
-                                            </div>
-                                            <div className="mya-TimeOfBetPlacementChart_XAxisContainer ">
-                                                <div className="mya-TimeOfBetPlacementChart_ChartContainer ">
-                                                    <div className="mya-TimeOfBetPlacementChart_ChartContainerInner ">
-                                                        <div className="mya-TimeOfBetPlacementChart_PointContainer mya-TimeOfBetPlacementChart_PointContainer-sevendays ">
-                                                            <div
-                                                                className="mya-TimeOfBetPlacementChart_Point "
-                                                                style={{ bottom: "59.3333px" }}
-                                                            />
-                                                        </div>
-                                                        <div className="mya-TimeOfBetPlacementChart_PointContainer mya-TimeOfBetPlacementChart_PointContainer-sevendays ">
-                                                            <div
-                                                                className="mya-TimeOfBetPlacementChart_Point "
-                                                                style={{ bottom: "50.6667px" }}
-                                                            />
-                                                            <div
-                                                                className="mya-TimeOfBetPlacementChart_Point "
-                                                                style={{ bottom: 68 }}
-                                                            />
-                                                        </div>
-                                                        <div className="mya-TimeOfBetPlacementChart_PointContainer mya-TimeOfBetPlacementChart_PointContainer-sevendays " />
-                                                        <div className="mya-TimeOfBetPlacementChart_PointContainer mya-TimeOfBetPlacementChart_PointContainer-sevendays " />
-                                                        <div className="mya-TimeOfBetPlacementChart_PointContainer mya-TimeOfBetPlacementChart_PointContainer-sevendays ">
-                                                            <div
-                                                                className="mya-TimeOfBetPlacementChart_Point "
-                                                                style={{ bottom: "59.3333px" }}
-                                                            />
-                                                        </div>
-                                                        <div className="mya-TimeOfBetPlacementChart_PointContainer mya-TimeOfBetPlacementChart_PointContainer-sevendays " />
-                                                        <div className="mya-TimeOfBetPlacementChart_PointContainer mya-TimeOfBetPlacementChart_PointContainer-sevendays " />
-                                                    </div>
-                                                </div>
-                                                <div className="mya-TimeOfBetPlacementChart_XAxisLabelContainer ">
-                                                    <div className="mya-TimeOfBetPlacementChart_XAxisText mya-TimeOfBetPlacementChart_XAxisText-sevendays ">
-                                                        Wed
-                                                    </div>
-                                                    <div className="mya-TimeOfBetPlacementChart_XAxisText mya-TimeOfBetPlacementChart_XAxisText-sevendays ">
-                                                        Thu
-                                                    </div>
-                                                    <div className="mya-TimeOfBetPlacementChart_XAxisText mya-TimeOfBetPlacementChart_XAxisText-sevendays ">
-                                                        Fri
-                                                    </div>
-                                                    <div className="mya-TimeOfBetPlacementChart_XAxisText mya-TimeOfBetPlacementChart_XAxisText-sevendays ">
-                                                        Sat
-                                                    </div>
-                                                    <div className="mya-TimeOfBetPlacementChart_XAxisText mya-TimeOfBetPlacementChart_XAxisText-sevendays ">
-                                                        Sun
-                                                    </div>
-                                                    <div className="mya-TimeOfBetPlacementChart_XAxisText mya-TimeOfBetPlacementChart_XAxisText-sevendays ">
-                                                        Mon
-                                                    </div>
-                                                    <div className="mya-TimeOfBetPlacementChart_XAxisText mya-TimeOfBetPlacementChart_XAxisText-sevendays ">
-                                                        Tue
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    }
                                 </div>
                                 <div className="mya-MyActivityModule_ResponsibleGamblingWrapper ">
                                     <div className="mya-ResponsibleGamblingBanner ">

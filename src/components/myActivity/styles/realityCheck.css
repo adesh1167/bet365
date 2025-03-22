@@ -1,0 +1,119 @@
+.rcm-MainPage_Time {
+    font-size: 15px;
+    line-height: 25px;
+    color: #282828;
+    margin-bottom: 25px
+}
+
+.rcm-MainPage_SecondaryTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 21px;
+    margin-bottom: 15px
+}
+
+.rcm-RealityCheckModule {
+    margin: 0 15px
+}
+
+.rcm-CancelButton {
+    height: 44px;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    font-weight: 700;
+    text-align: center;
+    font-size: 15px;
+    line-height: 44px;
+    vertical-align: middle;
+    margin-top: -22px
+}
+
+.allow-hover .rcm-CancelButton:hover,
+.rcm-CancelButton,
+.rcm-CancelButton:focus {
+    background-color: transparent
+}
+
+.rcm-ChangeButton {
+    height: 50px;
+    width: 100%;
+    justify-self: center;
+    padding: 0 15px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #3f3f3f;
+    background-color: #58d7af;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.allow-hover .rcm-ChangeButton:hover,
+.rcm-ChangeButton:focus {
+    background-color: #5fe8bd
+}
+
+.rcm-ChangeButton_Text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    word-break: break-word;
+    word-wrap: break-word;
+    line-height: 18px;
+    max-height: calc(18px * 2)
+}
+
+.rcm-ConfirmPage_Message {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    margin-bottom: 30px
+}
+
+.rcm-InfoMessage {
+    background-color: #f5f7f7;
+    padding: 13px 5px 6px 15px;
+    border: 1px solid #58d7af;
+    border-radius: 2px;
+    margin-bottom: 25px
+}
+
+.rcm-InfoMessage_Text {
+    margin-bottom: 7px;
+    text-align: center
+}
+
+.rcm-InfoMessage_Text,
+.rcm-Paragraph {
+    font-size: 13px;
+    line-height: 20px;
+    color: #282828
+}
+
+.rcm-Paragraph {
+    margin-bottom: 30px
+}
+
+.rcm-Paragraph_Para {
+    margin-bottom: 15px
+}

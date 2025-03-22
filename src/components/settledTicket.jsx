@@ -17,7 +17,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                 <div className="myb-SettledBetItemHeader_HeaderTextContainer ">
                     <div className="myb-SettledBetItemHeader_Title ">
                         <div className="myb-SettledBetItemHeader_Text ">
-                            {country.currency}{data.wager} {lang[`${ticket.matches.length}Fold`]}
+                            {country.currency}{formatNumber(data.wager, country.hasComma, country.lang)} {lang[`${ticket.matches.length}Fold`]}
                         </div>
                     </div>
                     <div className="myb-SettledBetItemHeader_SubHeaderText ">

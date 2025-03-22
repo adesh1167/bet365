@@ -16,7 +16,7 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
             <div className="myb-OpenBetItem_Header myb-OpenBetItem_HeaderTitle "  onClick={toggleExpand}>
                 <div className="myb-OpenBetItem_HeaderTextContainer ">
                     <div className="myb-OpenBetItem_StakeDesc ">
-                        {country.currency}{data.wager} {lang[`${ticket.matches.length}Fold`]}
+                        {country.currency}{formatNumber(data.wager, country.hasComma, country.lang)} {lang[`${ticket.matches.length}Fold`]}
                     </div>
                     <div className="myb-OpenBetItem_HeaderText Hidden " />
                     <div className="myb-OpenBetItem_SubHeaderText ">

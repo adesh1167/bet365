@@ -1,0 +1,417 @@
+.acm-AccountClosureDate-error .acm-SelectComponent,
+.acm-AccountClosureDate-error .acm-SelectComponent:focus,
+.allow-hover .acm-AccountClosureDate-error .acm-SelectComponent:hover {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='8' viewBox='0 0 13 8'%3E%3Cpath fill='%23A63838' d='M11.629 0L13 1.393 6.5 8 0 1.393 1.371 0 6.5 5.213z'/%3E%3C/svg%3E")
+}
+
+.acm-SelectComponent:focus,
+.allow-hover .acm-SelectComponent:hover {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='8' viewBox='0 0 13 8'%3E%3Cpath fill='%23007A56' d='M11.629 0L13 1.393 6.5 8 0 1.393 1.371 0 6.5 5.213z'/%3E%3C/svg%3E")
+}
+
+.acm-SelectComponent {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='8' viewBox='0 0 13 8'%3E%3Cpath fill='%23474747' d='M11.629 0L13 1.393 6.5 8 0 1.393 1.371 0 6.5 5.213z'/%3E%3C/svg%3E")
+}
+
+.acm-AccountClosureModule {
+    max-width: 530px;
+    margin: auto;
+    background-color: #ebeded
+}
+
+.acm-AccountClosureModule_Form {
+    width: 100%;
+    padding: 0 15px
+}
+
+.acm-AccountClosureModal {
+    background-color: #e4e4e4;
+    padding: 20px 10px 10px;
+    max-width: 345px;
+    border-radius: 2px;
+    position: relative
+}
+
+.acm-AccountClosureModal_Closebutton {
+    height: 44px;
+    width: 44px;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M11.887.734L11.144 0 6 5.085.856 0 .113.734l5.144 5.085L0 11.016l.743.734L6 6.554l5.257 5.196.743-.734-5.257-5.197z'/%3E%3C/svg%3E") no-repeat;
+    background-position: 50%;
+    background-size: 12px 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: middle;
+    cursor: pointer
+}
+
+.acm-AccountClosureModal_Header {
+    font-size: 15px;
+    color: #282828;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 34px
+}
+
+.acm-AccountClosureModal_Paragraph {
+    font-size: 13px;
+    color: #282828;
+    line-height: 19px;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 0 10px
+}
+
+.acm-AccountClosureModal_CloseBigButton {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f2;
+    line-height: 18px;
+    text-align: center;
+    padding: 0 10px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 44px;
+    border-radius: 2px;
+    background-color: #126e51;
+    margin-top: 10px;
+    cursor: pointer
+}
+
+.allow-hover .acm-AccountClosureModal_CloseBigButton:hover {
+    color: #fff;
+    background-color: #168361
+}
+
+.acm-AccountClosureCancelButton {
+    background-color: transparent;
+    font-weight: 700;
+    color: #282828;
+    margin-top: -7px;
+    height: 44px
+}
+
+.acm-AccountClosureCancelButton:focus,
+.allow-hover .acm-AccountClosureCancelButton:hover {
+    background-color: transparent;
+    color: #007a56;
+    font-weight: 700
+}
+
+.acm-AccountClosureDate {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    margin-bottom: 40px
+}
+
+.acm-AccountClosureDate_Label {
+    padding-bottom: 6px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: left;
+    color: #282828
+}
+
+.acm-AccountClosureDate_SelectRow {
+    width: 100%;
+    height: 50px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    border-radius: 2px
+}
+
+.acm-AccountClosureDate-error .acm-AccountClosureDate_SelectRow {
+    height: 54px;
+    border: 2px solid #a63838;
+    box-shadow: none
+}
+
+.acm-AccountClosureDate-errorwithmessage .acm-AccountClosureDate_SelectRow {
+    margin-bottom: 10px
+}
+
+.acm-AccountClosureDate-errorwithmessage .acm-AccountClosureDate_SelectRow:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: -12px;
+    border: 5px solid transparent;
+    border-top: 5px solid #a63838;
+    width: 0;
+    height: 0
+}
+
+.acm-AccountClosureDate_SelectContainer {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.3333%;
+    -ms-flex: 0 0 33.3333%;
+    flex: 0 0 33.3333%;
+    position: relative
+}
+
+.acm-AccountClosureDate_SelectContainer:first-child:after,
+.acm-AccountClosureDate_SelectContainer:last-child:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    background: #e4e4e4;
+    height: 30px;
+    right: 0;
+    top: 10px
+}
+
+.acm-AccountClosureDate_SelectContainer:last-child:before {
+    right: auto;
+    left: 0
+}
+
+.acm-AccountClosureDate_Select {
+    border-radius: 0
+}
+
+.acm-AccountClosureDate-error .acm-AccountClosureDate_Select {
+    color: #a63838
+}
+
+.acm-AccountClosureDate_SelectContainer:first-child .acm-AccountClosureDate_Select {
+    border-radius: 2px 0 0 2px
+}
+
+.acm-AccountClosureDate_SelectContainer:last-child .acm-AccountClosureDate_Select {
+    border-radius: 0 2px 2px 0
+}
+
+.acm-AccountClosureDate_Select:focus {
+    outline: 0;
+    box-shadow: 0 1px 0 0 #2ec193;
+    z-index: 1
+}
+
+.acm-AccountClosureDate-errorwithmessage .acm-AccountClosureDate_Select:focus {
+    box-shadow: none
+}
+
+.acm-AccountClosureParagraph {
+    margin: 0 15px 30px;
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px
+}
+
+.acm-AccountClosureParagraph_Para {
+    margin-bottom: 15px
+}
+
+.acm-AccountClosureParagraph_Link {
+    color: #007a56;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative
+}
+
+.allow-hover .acm-AccountClosureParagraph_Link:hover {
+    text-decoration: underline
+}
+
+.acm-AccountClosureParagraph_Link:after {
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    content: " "
+}
+
+.acm-AccountClosureReadOnly_Label {
+    font-size: 13px;
+    color: #282828;
+    font-weight: regular;
+    line-height: 20px;
+    margin-bottom: 7px;
+    display: inline-block
+}
+
+.acm-AccountClosureReadOnly_InputRow {
+    display: inline-block
+}
+
+.acm-AccountClosureReadOnly_Input {
+    background: none;
+    border: 0;
+    font-size: 13px;
+    color: #282828;
+    font-weight: 700;
+    line-height: 24px;
+    margin-left: 7px;
+    margin-bottom: 7px
+}
+
+.acm-AccountClosureSelect {
+    padding-bottom: 40px
+}
+
+.acm-FieldInputRadioCheckbox {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 15px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.acm-FieldInputRadioCheckbox_Label {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    padding-bottom: 15px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%
+}
+
+.acm-FieldInputRadioCheckbox_OptionsWrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden
+}
+
+.acm-FieldInputRadioCheckbox_OptionsWrapper,
+.acm-RadioButtonCheckbox {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1
+}
+
+.acm-RadioButtonCheckbox {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    position: relative
+}
+
+.acm-RadioButtonCheckbox_Label {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    padding: 13px 0
+}
+
+.acm-RadioButtonCheckbox_Input {
+    width: 46px;
+    height: 46px;
+    margin-left: -13px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer
+}
+
+.acm-RadioButtonCheckbox_Input:after {
+    content: "";
+    display: block;
+    background: #fff;
+    width: 20px;
+    border-radius: 2px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    height: 20px;
+    border: 1px solid #b5b5b5
+}
+
+.allow-hover .acm-RadioButtonCheckbox_Input:hover:after {
+    border: 1px solid #58d7af
+}
+
+.acm-RadioButtonCheckbox-selected .acm-RadioButtonCheckbox_Input:after {
+    background-color: #58d7af;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23222' d='M7.288 0L8 .543 3.189 6 0 3.699l.564-.676 2.481 1.789z'/%3E%3C/svg%3E");
+    background-size: 8px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border: 0
+}
+
+.acm-SelectComponent {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 50px;
+    padding: 0 43px 0 15px;
+    cursor: pointer;
+    color: #282828;
+    background-color: #fff;
+    border: 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 23px;
+    background-repeat: no-repeat;
+    background-position: right 15px center
+}
+
+.acm-SelectComponent::-ms-expand {
+    display: none
+}
+
+.acm-SelectComponent:focus {
+    box-shadow: 0 1px 0 0 #2ec193
+}
+
+.acm-SelectComponent.acm-SelectComponent-placeholder {
+    color: #757575
+}
+
+.acm-AccountClosureDate-error .acm-SelectComponent.acm-SelectComponent-placeholder {
+    color: #a63838
+}
+
+.acm-SelectComponent_Option {
+    color: #282828
+}

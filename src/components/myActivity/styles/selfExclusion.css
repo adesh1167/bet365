@@ -1,0 +1,885 @@
+.sem-CloseLink {
+    height: 44px;
+    width: 100%;
+    background-color: transparent;
+    padding: 0 15px;
+    margin-top: -2px;
+    margin-bottom: 40px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 18px;
+    text-align: center;
+    border: none
+}
+
+.allow-hover .sem-CloseLink:hover {
+    color: #007a56
+}
+
+.sem-CompletePopup {
+    background-color: #e4e4e4;
+    padding: 20px 10px 10px;
+    max-width: 345px;
+    border-radius: 2px
+}
+
+.sem-CompletePopup_Title {
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: regular;
+    color: #333;
+    padding: 0 10px 10px
+}
+
+.sem-CompletePopup_Paragraph {
+    font-size: 13px;
+    line-height: 19px;
+    color: #333;
+    text-align: center;
+    padding: 0 10px 10px
+}
+
+.sem-CompletePopup_Paragraph:last-of-type {
+    margin-bottom: 10px
+}
+
+.sem-CompletePopup_Paragraph-hidden {
+    display: none
+}
+
+.sem-CompletePopup_ContinueButton {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f0f0;
+    line-height: 20px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 0 10px;
+    height: 45px;
+    width: 100%;
+    border-radius: 2px;
+    background-color: #126e51;
+    justify-self: center;
+    cursor: pointer;
+    margin-bottom: 10px
+}
+
+.allow-hover .sem-CompletePopup_ContinueButton:hover,
+.sem-CompletePopup_ContinueButton:focus {
+    color: #fff;
+    background-color: #168361
+}
+
+.sem-CompletePopup_ContinueButton:disabled {
+    opacity: .3
+}
+
+.sem-FieldCheckboxButton {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    position: relative
+}
+
+.sem-FieldCheckboxButton:last-of-type {
+    padding-bottom: 15px
+}
+
+.sem-FieldCheckboxButton_Input {
+    position: fixed;
+    opacity: 0;
+    width: 0
+}
+
+.sem-FieldCheckboxButton_Container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 44px 1fr;
+    grid-template-columns: 44px 1fr;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start
+}
+
+.sem-FieldCheckboxButton_CheckboxContainer {
+    width: 44px;
+    height: 44px;
+    position: relative;
+    cursor: pointer;
+    display: block
+}
+
+.sem-FieldCheckboxButton_CheckboxContainer:after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: #fff;
+    height: 20px;
+    width: 20px;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+    border-radius: 2px;
+    border: 1px solid #b5b5b5
+}
+
+.allow-hover .sem-FieldCheckboxButton_CheckboxContainer:hover:after {
+    border: 1px solid #58d7af
+}
+
+.sem-FieldCheckboxButton-selected .sem-FieldCheckboxButton_CheckboxContainer:after {
+    background-color: #58d7af;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23222' d='M7.288 0L8 .543 3.189 6 0 3.699l.564-.676 2.481 1.789z'/%3E%3C/svg%3E");
+    background-size: 8px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border: 0
+}
+
+.allow-hover .sem-FieldCheckboxButton_CheckboxContainer.sem-FieldCheckboxButton_Label:hover .sem-FieldCheckboxButton_CheckboxContainer:after {
+    border: 1px solid #58d7af
+}
+
+.fml-FieldBase-error .sem-FieldCheckboxButton_CheckboxContainer:after {
+    border-color: #a63838
+}
+
+.sem-FieldCheckboxButton_Label {
+    margin-top: 12px;
+    position: relative;
+    width: 100%;
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px
+}
+
+.fml-FieldBase-error .sem-FieldCheckboxButton_Label {
+    color: #a63838
+}
+
+.sem-FieldCheckboxInput {
+    margin-left: 13px
+}
+
+.sem-FieldCheckboxInput:last-of-type {
+    padding-bottom: 15px
+}
+
+.sem-FieldCheckboxInput_Container {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    position: relative
+}
+
+.sem-FieldCheckboxInput_Checkbox {
+    width: 44px;
+    height: 44px;
+    position: relative;
+    cursor: pointer;
+    margin-left: -12px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.sem-FieldCheckboxInput_Checkbox:after {
+    content: "";
+    display: block;
+    background: #fff;
+    height: 20px;
+    width: 20px;
+    border-radius: 2px;
+    border: 1px solid #b5b5b5;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0
+}
+
+.allow-hover .sem-FieldCheckboxInput_Checkbox:hover:after {
+    border: 1px solid #58d7af
+}
+
+.sem-FieldCheckboxInput-error .sem-FieldCheckboxInput_Checkbox:after,
+.sem-FieldGroupCheckboxes-error .sem-FieldCheckboxInput_Checkbox:after {
+    border-color: #a63838
+}
+
+.sem-FieldCheckboxInput_CheckboxDisabled {
+    width: 44px;
+    height: 44px;
+    position: relative;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-left: -12px
+}
+
+.sem-FieldCheckboxInput_CheckboxDisabled:after {
+    content: "";
+    display: block;
+    background: #fff;
+    height: 20px;
+    width: 20px;
+    border-radius: 2px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    border: 1px solid #b5b5b5;
+    opacity: .4;
+    background-color: #fff
+}
+
+.allow-hover .sem-FieldCheckboxInput_CheckboxDisabled:hover:after {
+    cursor: default
+}
+
+.sem-FieldCheckboxInput-error .sem-FieldCheckboxInput_CheckboxDisabled:after {
+    border-color: #a63838
+}
+
+.sem-FieldCheckboxInput_SelfExcludedLabel {
+    color: #666;
+    font-size: 11px
+}
+
+.sem-FieldCheckboxInput_Label {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    padding: 13px 0;
+    display: block
+}
+
+.sem-FieldCheckboxInput-error .sem-FieldCheckboxInput_Label,
+.sem-FieldGroupCheckboxes-error .sem-FieldCheckboxInput_Label {
+    color: #a63838
+}
+
+.sem-FieldCheckboxInput_TextContainer-excluded .sem-FieldCheckboxInput_Label {
+    color: #282828;
+    padding: 13px 0 7px
+}
+
+.sem-FieldCheckboxInput_TextContainer-excluded {
+    padding: 0 0 7px
+}
+
+.sem-FieldCheckboxInput_Input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    visibility: hidden
+}
+
+.sem-FieldCheckboxInput_Input:focus~.sem-FieldCheckboxInput_Checkbox:after {
+    outline: 1px solid #000
+}
+
+.sem-FieldCheckboxInput_CheckboxActive:after {
+    background-color: #58d7af;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23222' d='M7.288 0L8 .543 3.189 6 0 3.699l.564-.676 2.481 1.789z'/%3E%3C/svg%3E");
+    background-size: 8px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border: 0
+}
+
+.sem-FieldCheckboxInput_InputDisabled {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    visibility: hidden
+}
+
+.sem-FieldExternalSelfExclusionButton {
+    margin-top: -15px
+}
+
+.sem-FieldInfoDisplay {
+    color: #282828;
+    margin-bottom: 30px;
+    padding-top: 5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.sem-FieldInfoDisplay_Key {
+    font-size: 12px;
+    line-height: 24px
+}
+
+.sem-FieldInfoDisplay_Value {
+    font-size: 13px;
+    line-height: 24px;
+    margin-left: 7px;
+    font-weight: 700
+}
+
+.sem-FieldInputRadioCheckboxes {
+    display: block;
+    width: 100%;
+    padding-bottom: 15px
+}
+
+.sem-FieldInputRadioCheckboxes_Label {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    padding-right: 15px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 55%;
+    -ms-flex: 0 1 55%;
+    flex: 0 1 55%
+}
+
+.sem-FieldInputRadioCheckboxes_OptionsWrapper {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border-radius: 2px
+}
+
+.sem-FieldInputRadioCheckboxes_OptionsWrapper,
+.sem-FieldPasswordInput {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal
+}
+
+.sem-FieldPasswordInput {
+    -webkit-flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    padding-bottom: 15px
+}
+
+.sem-FieldPasswordInput_InputRow {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    background: #fff;
+    border-radius: 2px
+}
+
+.sem-FieldPasswordInput-errorwithmessage .sem-FieldPasswordInput_InputRow {
+    margin-bottom: 10px
+}
+
+.sem-FieldPasswordInput-errorwithmessage .sem-FieldPasswordInput_InputRow:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: -5px;
+    border-top: 5px solid #a63838;
+    border-left: 5.5px solid transparent;
+    border-right: 5.5px solid transparent;
+    width: 0;
+    height: 0
+}
+
+.sem-FieldPasswordInput_Input {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 50px;
+    padding: 0 15px;
+    border-radius: 2px;
+    color: #282828;
+    -webkit-text-fill-color: #282828;
+    background-color: #fff;
+    border: 0;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 23px
+}
+
+.sem-FieldPasswordInput_Input:not(:placeholder-shown) {
+    padding-top: 13px
+}
+
+.sem-FieldPasswordInput_Input:not(:-ms-input-placeholder) {
+    padding-top: 13px
+}
+
+.sem-FieldPasswordInput_Input:-webkit-autofill {
+    padding-top: 13px
+}
+
+.sem-FieldPasswordInput_Input:not(:-webkit-autofill) {
+    color: #282828;
+    -webkit-text-fill-color: #282828;
+    font-size: 16px;
+    font-weight: 700
+}
+
+.sem-FieldPasswordInput-focus .sem-FieldPasswordInput_Input,
+.sem-FieldPasswordInput_Input:focus {
+    box-shadow: 0 1px 0 0 #2ec193
+}
+
+.sem-FieldPasswordInput-error .sem-FieldPasswordInput_Input {
+    border: 2px solid #a63838;
+    border-radius: 2px;
+    box-shadow: none;
+    color: #a63838;
+    -webkit-text-fill-color: #a63838
+}
+
+.sem-FieldPasswordInput-error .sem-FieldPasswordInput_Input.sem-FieldPasswordInput-info,
+.sem-FieldPasswordInput-maskpresent.sem-FieldPasswordInput-error .sem-FieldPasswordInput_Input {
+    border-right: 0
+}
+
+.sem-FieldPasswordInput-maskpresent .sem-FieldPasswordInput_Input,
+.sem-FieldPasswordInput_Input.sem-FieldPasswordInput-info {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-right: 0
+}
+
+.sem-FieldPasswordInput_Input::-webkit-input-placeholder {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400
+}
+
+.sem-FieldPasswordInput_Input:-ms-input-placeholder {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400
+}
+
+.sem-FieldPasswordInput_Input::placeholder {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400
+}
+
+.sem-FieldPasswordInput_Placeholder {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    margin: 0 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #757575;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    -webkit-transition: -webkit-transform .15s ease 0ms;
+    transition: -webkit-transform .15s ease 0ms;
+    transition: transform .15s ease 0ms;
+    transition: transform .15s ease 0ms, -webkit-transform .15s ease 0ms
+}
+
+.sem-FieldPasswordInput-error .sem-FieldPasswordInput_Placeholder {
+    left: 2px
+}
+
+.sem-FieldPasswordInput_Input:-webkit-autofill~.sem-FieldPasswordInput_Placeholder {
+    padding-top: 13px;
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-transform: translateY(-10px) scale(.7);
+    transform: translateY(-10px) scale(.7)
+}
+
+.sem-FieldPasswordInput_Input:not(:placeholder-shown)~.sem-FieldPasswordInput_Placeholder {
+    padding-top: 13px;
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+    -webkit-transform: translateY(-10px) scale(.7);
+    transform: translateY(-10px) scale(.7)
+}
+
+.sem-FieldPasswordInput_Input:not(:-ms-input-placeholder)~.sem-FieldPasswordInput_Placeholder {
+    padding-top: 13px;
+    transform-origin: top left;
+    transform: translateY(-10px) scale(.7)
+}
+
+.sem-FieldPasswordInput_MaskToggle {
+    height: 50px;
+    border: 0;
+    padding: 0 15px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    background-color: #fff;
+    color: #494949;
+    font-weight: 700;
+    font-size: 12px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer
+}
+
+.allow-hover .sem-FieldPasswordInput_MaskToggle:hover,
+.sem-FieldPasswordInput_MaskToggle:focus {
+    color: #007a56
+}
+
+.sem-FieldPasswordInput-focus .sem-FieldPasswordInput_MaskToggle {
+    box-shadow: 0 1px 0 0 #2ec193
+}
+
+.sem-FieldPasswordInput-error .sem-FieldPasswordInput_MaskToggle {
+    border: 2px solid #a63838;
+    border-left: 0;
+    color: #a63838;
+    box-shadow: none
+}
+
+.sem-FieldPasswordInput_InfoButton {
+    display: block;
+    cursor: pointer;
+    height: 50px;
+    width: 45px;
+    border: 0;
+    padding: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    padding-left: 15px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17'%3E%3Cg fill='%23333'%3E%3Cpath d='M8.5 0a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17zm0 1a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15z'/%3E%3Cpath d='M10.098 11.833l-.108.485c-.322.14-.58.248-.772.322a1.86 1.86 0 0 1-.669.11c-.39 0-.694-.106-.91-.316a1.07 1.07 0 0 1-.326-.801c0-.126.008-.255.025-.386.016-.131.042-.28.078-.445l.403-1.576c.036-.151.066-.294.09-.43.026-.134.037-.257.037-.369 0-.201-.037-.342-.112-.42-.075-.08-.219-.12-.431-.12-.105 0-.212.019-.32.054-.11.036-.204.07-.283.103l.108-.486c.264-.119.516-.22.758-.305.241-.085.47-.127.685-.127.388 0 .687.104.897.31.21.208.315.476.315.808 0 .068-.007.189-.021.361a2.65 2.65 0 0 1-.081.475l-.402 1.57a4.575 4.575 0 0 0-.127.8c0 .208.042.35.126.426.085.075.232.113.44.113.097 0 .208-.02.331-.057.124-.037.214-.07.269-.1zm.102-6.59a.964.964 0 0 1-.28.699.907.907 0 0 1-.677.289.917.917 0 0 1-.68-.29.96.96 0 0 1-.283-.698c0-.274.095-.507.284-.702a.913.913 0 0 1 .68-.291c.263 0 .488.097.675.291.188.195.281.428.281.702z'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 50%
+}
+
+.allow-hover .sem-FieldPasswordInput_InfoButton:hover,
+.sem-FieldPasswordInput-focus .sem-FieldPasswordInput_InfoButton,
+.sem-FieldPasswordInput_InfoButton:focus {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='17' height='17' viewBox='0 0 17 17' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EInfo-Icon-Active%3C/title%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle fill='%23F5F7F7' cx='8.5' cy='8.5' r='8.5'/%3E%3Cg fill='%23666' fill-rule='nonzero'%3E%3Cpath d='M8.5 0a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17zm0 1a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15z'/%3E%3Cpath d='M10.098 11.833l-.108.485c-.322.14-.58.248-.772.322a1.86 1.86 0 0 1-.669.11c-.39 0-.694-.106-.91-.316a1.07 1.07 0 0 1-.326-.801c0-.126.008-.255.025-.386.016-.131.042-.28.078-.445l.403-1.576c.036-.151.066-.294.09-.43.026-.134.037-.257.037-.369 0-.201-.037-.342-.112-.42-.075-.08-.219-.12-.431-.12-.105 0-.212.019-.32.054-.11.036-.204.07-.283.103l.108-.486c.264-.119.516-.22.758-.305.241-.085.47-.127.685-.127.388 0 .687.104.897.31.21.208.315.476.315.808 0 .068-.007.189-.021.361a2.65 2.65 0 0 1-.081.475l-.402 1.57a4.575 4.575 0 0 0-.127.8c0 .208.042.35.126.426.085.075.232.113.44.113.097 0 .208-.02.331-.057.124-.037.214-.07.269-.1zm.102-6.59a.964.964 0 0 1-.28.699.907.907 0 0 1-.677.289.917.917 0 0 1-.68-.29.96.96 0 0 1-.283-.698c0-.274.095-.507.284-.702a.913.913 0 0 1 .68-.291c.263 0 .488.097.675.291.188.195.281.428.281.702z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+}
+
+.sem-FieldPasswordInput-focus .sem-FieldPasswordInput_InfoButton {
+    box-shadow: 0 1px 0 0 #2ec193
+}
+
+.sem-FieldPasswordInput_InputRow-error .sem-FieldPasswordInput_InfoButton {
+    border: 2px solid #a63838;
+    border-left: 0;
+    box-shadow: none
+}
+
+.sem-FieldPasswordInput_HiddenUsername {
+    display: none
+}
+
+.sem-FieldPeriodButton {
+    height: 50px;
+    width: 100%;
+    justify-self: center;
+    padding: 0 15px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #3f3f3f;
+    background-color: #58d7af;
+    margin-bottom: 30px
+}
+
+.allow-hover .sem-FieldPeriodButton:hover,
+.sem-FieldPeriodButton:focus {
+    background-color: #5fe8bd
+}
+
+.sem-FieldPeriodButton:disabled {
+    opacity: .3;
+    cursor: default
+}
+
+.allow-hover .sem-FieldPeriodButton:disabled:hover {
+    background-color: #58d7af
+}
+
+.sem-FieldPeriodDisplay {
+    color: #282828;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 25px
+}
+
+.sem-FieldPeriodDisplay_Value {
+    font-size: 13px;
+    margin-left: 7px;
+    font-weight: 700;
+    line-height: 24px
+}
+
+.sem-FieldProductDisplay {
+    color: #282828;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 15px
+}
+
+.sem-FieldProductDisplay_Value {
+    font-size: 13px;
+    font-weight: 700;
+    margin-left: 7px;
+    line-height: 24px
+}
+
+.sem-FieldSelectPeriod {
+    margin-bottom: 25px
+}
+
+.sem-FieldSimpleText {
+    padding-bottom: 15px
+}
+
+.sem-FieldSubmitCompactButton,
+.sem-FieldSubmitCompactButton:last-of-type {
+    margin-bottom: 0
+}
+
+.sem-Heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 21px;
+    margin-bottom: 15px
+}
+
+.sem-Heading:first-child {
+    padding-top: 0
+}
+
+.sem-ParagraphTextBasicComponent {
+    padding-bottom: 15px;
+    font-size: 13px;
+    line-height: 20px;
+    color: #282828
+}
+
+.sem-ParagraphTextBasicComponent:last-of-type {
+    margin-bottom: 20px
+}
+
+.sem-ParagraphTextBasicComponent-confirmation:last-of-type {
+    margin-bottom: 10px
+}
+
+.sem-ParagraphTextComponent {
+    padding-bottom: 15px
+}
+
+.sem-ParagraphTextComponent_BoldedText {
+    font-weight: 700;
+    display: inline
+}
+
+.sem-FieldGroupCheckboxes_Header {
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 21px;
+    margin-bottom: 15px
+}
+
+.sem-FieldGroupWithHeaderConfirm_Header {
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 21px;
+    margin-bottom: 20px
+}
+
+.sem-Paragraph {
+    font-size: 13px;
+    line-height: 20px;
+    color: #282828
+}
+
+.sem-Paragraph:last-of-type {
+    margin-bottom: 15px
+}
+
+.sem-ParagraphLink {
+    color: #007a56;
+    cursor: pointer
+}
+
+.allow-hover .sem-ParagraphLink:hover {
+    text-decoration: underline
+}
+
+.sem-ParagraphLink.sem-ParagraphLink-bold {
+    font-weight: 700
+}
+
+.sem-SelfExclusionModule {
+    padding: 0 15px;
+    max-width: 530px
+}
+
+.sem-SelfExclusionModule_Form {
+    padding-bottom: 10px
+}
+
+.sem-SelfExclusionModule_Modal {
+    max-width: 345px;
+    background: #e4e4e4;
+    padding: 20px 10px 10px;
+    border-radius: 2px;
+    position: relative
+}
+
+.sem-SelfExclusionModule_ModalTitle {
+    font-size: 15px;
+    color: #282828;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 10px
+}
+
+.sem-SelfExclusionModule_ModalBody {
+    font-size: 13px;
+    color: #282828;
+    line-height: 19px;
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0 10px 10px
+}
+
+.sem-ErrorMessageMultiline_Label {
+    color: #a63838;
+    font-size: 12px;
+    line-height: 18px
+}
+
+.sem-ModalButton {
+    cursor: pointer;
+    border: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #f0f1f2;
+    line-height: 18px;
+    text-align: center;
+    width: 100%;
+    min-height: 44px;
+    border-radius: 2px;
+    background: #126e51;
+    margin-top: 10px;
+    padding-top: 12px
+}
+
+.allow-hover .sem-ModalButton:hover {
+    color: #fff;
+    background: #168361
+}

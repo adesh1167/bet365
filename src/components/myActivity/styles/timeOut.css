@@ -1,0 +1,1158 @@
+.tom-TabScroller_RightButton:after {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12'%3E%3Cpath fill='%233F3F3F' fill-rule='evenodd' d='M.784 12L0 11.242 5.43 6 0 .758.784 0l5.432 5.242L7 6l-.784.758z'/%3E%3C/svg%3E")
+}
+
+.tom-TabScroller_LeftButton:after {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12'%3E%3Cpath fill='%233F3F3F' fill-rule='evenodd' d='M6.216 12L7 11.243 1.569 6 7 .757 6.216 0 .784 5.243 0 6l.784.757z'/%3E%3C/svg%3E")
+}
+
+.tom-FieldTime_Select {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='8' viewBox='0 0 13 8'%3E%3Cpath fill='%23474747' d='M11.629 0L13 1.393 6.5 8 0 1.393 1.371 0 6.5 5.213z'/%3E%3C/svg%3E")
+}
+
+.tom-DatePicker_CalendarIcon {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23' height='19' viewBox='0 0 23 19'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='86.777%25' x2='0%25' y1='50%25' y2='50%25'%3E%3Cstop offset='0%25' stop-color='%23F1F1F1'/%3E%3Cstop offset='100%25' stop-color='%23C6C6C6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%23D8D8D8' stroke='%23C2C2C2' d='M.5.5h22v18H.5z'/%3E%3Cpath fill='%23D8D8D8' stroke='url(%23a)' d='M1.5 1.5h20v1h-20z'/%3E%3Cpath fill='%23D1D1D1' d='M1 3h21v15H1z'/%3E%3Cpath fill='%23F1F1F1' d='M21 4v13H2V4h19zm-1 10h-2v2h2v-2zM8 14H6v2h2v-2zm-3 0H3v2h2v-2zm6 0H9v2h2v-2zm3 0h-2v2h2v-2zm3 0h-2v2h2v-2zm-9-3H6v2h2v-2zm-3 0H3v2h2v-2zm6 0H9v2h2v-2zm3 0h-2v2h2v-2zm3 0h-2v2h2v-2zm3 0h-2v2h2v-2zM5 8H3v2h2V8zm3 0H6v2h2V8zm3 0H9v2h2V8zm3 0h-2v2h2V8zm3 0h-2v2h2V8zm3 0h-2v2h2V8zM5 5H3v2h2V5zm6 0H9v2h2V5zm3 0h-2v2h2V5zM8 5H6v2h2V5zm9 0h-2v2h2V5zm3 0h-2v2h2V5z'/%3E%3C/g%3E%3C/svg%3E")
+}
+
+.allow-hover .tom-CalendarMonth_RightArrow:hover,
+.allow-hover .tom-TabScroller_RightButton:hover:after {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12'%3E%3Cpath fill='%23007A56' fill-rule='evenodd' d='M.784 12L0 11.242 5.43 6 0 .758.784 0l5.432 5.242L7 6l-.784.758z'/%3E%3C/svg%3E")
+}
+
+.tom-CalendarMonth_RightArrow {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12'%3E%3Cpath fill='%23303030' fill-rule='evenodd' d='M.784 12L0 11.242 5.43 6 0 .758.784 0l5.432 5.242L7 6l-.784.758z'/%3E%3C/svg%3E")
+}
+
+.allow-hover .tom-CalendarMonth_LeftArrow:hover,
+.allow-hover .tom-TabScroller_LeftButton:hover:after {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12'%3E%3Cpath fill='%23007A56' fill-rule='evenodd' d='M6.216 12L7 11.243 1.569 6 7 .757 6.216 0 .784 5.243 0 6l.784.757z'/%3E%3C/svg%3E")
+}
+
+.tom-CalendarMonth_LeftArrow {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12'%3E%3Cpath fill='%23303030' fill-rule='evenodd' d='M6.216 12L7 11.243 1.569 6 7 .757 6.216 0 .784 5.243 0 6l.784.757z'/%3E%3C/svg%3E")
+}
+
+.tom-CalendarDay {
+    color: #282828;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0;
+    -ms-flex: 1 0;
+    flex: 1 0;
+    min-width: 13%;
+    text-align: center;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 40px;
+    padding: 0
+}
+
+.tom-CalendarDay:nth-child(7n) {
+    border-right: none
+}
+
+.tom-CalendarMonth_Row:last-child .tom-CalendarDay {
+    border-bottom: none
+}
+
+.tom-CalendarDay-selected {
+    background-color: #58d7af
+}
+
+.tom-CalendarDay-invalid {
+    color: #b5b5b5;
+    cursor: default;
+    pointer-events: none
+}
+
+.tom-CalendarDay-outsidemonth {
+    color: #b5b5b5
+}
+
+.tom-CalendarMonth {
+    visibility: hidden
+}
+
+.tom-DatePicker-calendaropen .tom-CalendarMonth {
+    visibility: visible
+}
+
+.tom-CalendarMonth_MonthYearContainer {
+    height: 42px;
+    width: 100%;
+    font-size: 16px;
+    color: #585858;
+    background-color: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    border-bottom: 1px solid #e4e4e4
+}
+
+.tom-CalendarMonth_LeftArrow,
+.tom-CalendarMonth_RightArrow {
+    width: 45px;
+    height: 42px;
+    background-size: 8px 13px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: relative
+}
+
+.tom-CalendarMonth_LeftArrow {
+    background-position: 15px
+}
+
+.tom-CalendarMonth_RightArrow {
+    background-position: 22px
+}
+
+.tom-CalendarMonth_DayNamesContainer {
+    width: 100%;
+    background-color: #f8f8f8
+}
+
+.tom-CalendarMonth_DayName {
+    padding: 0;
+    height: 18px;
+    font-size: 11px;
+    line-height: 17px;
+    font-weight: 700;
+    color: #666;
+    min-width: 13%;
+    text-align: center;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4
+}
+
+.tom-CalendarMonth_DayName:last-child {
+    border-right: none
+}
+
+.tom-CalendarMonth_CalendarContainer {
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    background-color: #fff;
+    border-bottom: 1px solid #c3c3c3
+}
+
+.tom-CalendarMonth_MonthsContainer {
+    width: 100%;
+    border-spacing: 0;
+    table-layout: fixed
+}
+
+.tom-CalendarMonth_CalendarContainer-slideleft .tom-CalendarMonth_MonthsContainer {
+    -webkit-animation: slideLeft .3s;
+    animation: slideLeft .3s
+}
+
+.tom-CalendarMonth_CalendarContainer-slideright .tom-CalendarMonth_MonthsContainer {
+    -webkit-animation: slideRight .3s;
+    animation: slideRight .3s
+}
+
+.tom-CalendarMonth_CalendarMonthContainer {
+    height: auto;
+    width: 100%
+}
+
+@-webkit-keyframes slideLeft {
+    0% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%)
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%)
+    }
+}
+
+@-webkit-keyframes slideRight {
+    0% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%)
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%)
+    }
+}
+
+.tom-DatePicker {
+    max-height: 50px;
+    -webkit-transition: max-height .2s ease;
+    transition: max-height .2s ease;
+    overflow: hidden
+}
+
+.tom-DatePicker-calendaropen {
+    max-height: 356px
+}
+
+.tom-DatePicker_Header {
+    width: 100%;
+    height: 50px;
+    color: #282828;
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid #d4d4d4;
+    padding: 0 15px;
+    cursor: pointer
+}
+
+.tom-DatePicker_BoundingLabel,
+.tom-DatePicker_DateLabel {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 33.33%;
+    -ms-flex: 0 1 33.33%;
+    flex: 0 1 33.33%
+}
+
+.tom-DatePicker_DateLabel {
+    text-align: center;
+    white-space: nowrap
+}
+
+.tom-DatePicker_CalendarIcon {
+    background-repeat: no-repeat;
+    background-position: 100%;
+    width: 23px;
+    height: 50px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 33.33%;
+    -ms-flex: 0 1 33.33%;
+    flex: 0 1 33.33%
+}
+
+.tom-DateRangeSelector {
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    overflow: hidden
+}
+
+.tom-TimeOutModule {
+    background-color: #ebeded;
+    max-width: 530px;
+    margin: auto
+}
+
+.tom-CloseButton {
+    height: 50px;
+    width: 100%;
+    justify-self: center;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #3f3f3f;
+    background-color: #58d7af;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.allow-hover .tom-CloseButton:hover,
+.tom-CloseButton:focus {
+    background-color: #5fe8bd
+}
+
+.tom-CloseTimeOut_TextContainer {
+    margin-bottom: 35px
+}
+
+.tom-CloseTimeOut_Text {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px
+}
+
+.tom-ConfirmRemoval {
+    background-color: #ebeded
+}
+
+.tom-ConfirmRemoval_Form {
+    text-align: left
+}
+
+.tom-ConfirmRemoval_Title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 21px;
+    margin-bottom: 15px
+}
+
+.tom-ConfirmRemoval_BodyText {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    margin-bottom: 15px
+}
+
+.tom-ConfirmRemoval_CancelBtn {
+    margin-top: -22px;
+    height: 44px;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 40px;
+    border: none;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #282828
+}
+
+.allow-hover .tom-ConfirmRemoval_CancelBtn:hover {
+    color: #007a56
+}
+
+.tom-ConfirmTimeOut {
+    padding: 0 15px
+}
+
+.tom-ConfirmTimeOut_Intro {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    margin-bottom: 25px
+}
+
+.tom-ConfirmTimeOut_Text {
+    margin-bottom: 15px
+}
+
+.tom-ConfirmTimeOut_Text:last-child {
+    margin-bottom: 0
+}
+
+.tom-ConfirmTimeOut_Text-bold {
+    margin-bottom: 15px;
+    font-weight: 700
+}
+
+.tom-ConfirmTimeOut_CancelBtn {
+    background-color: transparent;
+    height: 44px;
+    padding: 0 15px;
+    margin-top: -22px;
+    margin-bottom: 40px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 18px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.allow-hover .tom-ConfirmTimeOut_CancelBtn:hover {
+    color: #007a56
+}
+
+.tom-SelfExclusionLink {
+    color: #007a56;
+    cursor: pointer;
+    font-weight: 700;
+    padding-bottom: 15px
+}
+
+.allow-hover .tom-SelfExclusionLink:hover,
+.tom-SelfExclusionLink:focus {
+    text-decoration: underline
+}
+
+.tom-CreateTimeOut {
+    padding: 0 15px
+}
+
+.tom-CreateTimeOut_IntroParagraph {
+    color: #282828;
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 15px;
+    padding: 0
+}
+
+.tom-CreateTimeOut_IntroParagraph:last-child {
+    margin-bottom: 35px
+}
+
+.tom-CancelButton {
+    font-size: 13px;
+    line-height: 15px;
+    font-weight: 700;
+    color: #007a56;
+    padding-bottom: 7px;
+    cursor: pointer
+}
+
+.allow-hover .tom-CancelButton:hover {
+    text-decoration: underline
+}
+
+.tom-ExistingTimeOuts {
+    padding: 0 15px 15px
+}
+
+.tom-ExistingTimeOuts_Text {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    padding-top: 13px;
+    text-align: center
+}
+
+.tom-RemoveButton {
+    background-color: #58d7af;
+    height: 50px;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.allow-hover .tom-RemoveButton:hover {
+    background-color: #5fe8bd
+}
+
+.tom-RemoveButton.tom-RemoveButton-ButtonInactive {
+    opacity: .3;
+    cursor: default
+}
+
+.allow-hover .tom-RemoveButton.tom-RemoveButton-ButtonInactive:hover {
+    background-color: #58d7af
+}
+
+.tom-RemoveButton_Text {
+    font-size: 15px;
+    font-weight: 700;
+    color: #3f3f3f;
+    line-height: 18px;
+    text-align: center
+}
+
+.tom-TimeOutInProgress_Text {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    margin-bottom: 15px
+}
+
+.tom-TimeOutList_Container {
+    margin-bottom: 15px
+}
+
+.tom-TimeOutList_HeaderText {
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 21px;
+    margin-bottom: 15px
+}
+
+.tom-TimeOutList_BodyText {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    margin-bottom: 15px
+}
+
+.tom-TimeOutList_BodyText:last-child {
+    margin-bottom: 25px
+}
+
+.tom-TimeOutList_TimeOutElem {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px
+}
+
+.tom-TimeOutList_Bullet,
+.tom-TimeOutList_TimeOutElem {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex
+}
+
+.tom-TimeOutList_Bullet {
+    border-radius: 5px;
+    color: #585858;
+    width: 5px;
+    height: 5px;
+    border: 1px solid #585858;
+    background-color: #585858;
+    margin: 7px 10px 0
+}
+
+.tom-TimeOutList_TimeOutComponent {
+    padding-bottom: 10px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.tom-TimeOutList_TimeOutLabel {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px
+}
+
+.tom-TimeOutList_WillBeRemovedMsgWrapper {
+    -webkit-transition: max-height .35s ease 0ms;
+    transition: max-height .35s ease 0ms;
+    max-height: 150px;
+    overflow: hidden
+}
+
+.tom-TimeOutList_WillBeRemovedMsgWrapperClose {
+    opacity: 0;
+    max-height: 0
+}
+
+.tom-TimeOutList_WillBeRemovedMsg {
+    display: block;
+    text-align: center;
+    background-color: #f5f7f7;
+    width: 100%;
+    padding: 13px 15px 6px;
+    border: 1px solid #58d7af;
+    border-radius: 2px;
+    margin-bottom: 25px
+}
+
+.tom-TimeOutList_WillBeRemovedMsgText {
+    font-size: 13px;
+    line-height: 20px;
+    color: #282828;
+    padding-bottom: 7px
+}
+
+.tom-FieldDatePicker_Title {
+    color: #282828;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21px;
+    margin-bottom: 15px
+}
+
+.tom-FieldDatePicker_DateRangeSelector {
+    margin-top: 15px
+}
+
+.tom-FieldExistingCheckbox:last-child {
+    padding-bottom: 15px
+}
+
+.tom-FieldExistingCheckbox_Container {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    position: relative
+}
+
+.tom-FieldExistingCheckbox_Checkbox {
+    width: 46px;
+    height: 46px;
+    margin-left: -13px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer
+}
+
+.tom-FieldExistingCheckbox_Checkbox:after {
+    content: "";
+    display: block;
+    background: #fff;
+    width: 20px;
+    border-radius: 2px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    height: 20px;
+    border: 1px solid #b5b5b5
+}
+
+.allow-hover .tom-FieldExistingCheckbox_Checkbox:hover:after {
+    border: 1px solid #58d7af
+}
+
+.tom-FieldExistingCheckbox-error .tom-FieldExistingCheckbox_Checkbox:after,
+.tom-FieldGroupCheckboxes-error .tom-FieldExistingCheckbox_Checkbox:after {
+    border-color: #a63838
+}
+
+.tom-FieldExistingCheckbox_Label {
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px;
+    padding: 13px 0
+}
+
+.tom-FieldExistingCheckbox-error .tom-FieldExistingCheckbox_Label,
+.tom-FieldGroupCheckboxes-error .tom-FieldExistingCheckbox_Label {
+    color: #a63838
+}
+
+.tom-FieldExistingCheckbox_Input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    visibility: hidden
+}
+
+.tom-FieldExistingCheckbox_Input:checked~.tom-FieldExistingCheckbox_Checkbox:after {
+    background-color: #58d7af;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6'%3E%3Cpath fill='%23222' d='M7.288 0L8 .543 3.189 6 0 3.699l.564-.676 2.481 1.789z'/%3E%3C/svg%3E");
+    background-size: 8px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border: 0
+}
+
+.tom-FieldExistingCheckbox_Input:focus~.tom-FieldExistingCheckbox_Checkbox:after {
+    outline: 1px solid #000
+}
+
+.tom-FieldGroupTime-error {
+    margin-bottom: 15px
+}
+
+.tom-FieldGroupTime_Header {
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828;
+    line-height: 21px;
+    margin-bottom: 15px
+}
+
+.tom-FieldLabel {
+    display: inline-block;
+    color: #282828;
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 15px
+}
+
+.tom-FieldRepeat {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: block;
+    padding-bottom: 15px
+}
+
+.tom-FieldRepeat_Label {
+    color: #282828;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 55%;
+    -ms-flex: 0 1 55%;
+    flex: 0 1 55%;
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 15px;
+    padding-right: 15px
+}
+
+.tom-FieldRepeat_OptionsWrapper {
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    overflow: hidden
+}
+
+.tom-FieldRepeat-error .tom-FieldRepeat_OptionsWrapper {
+    border: 1px solid #a63838
+}
+
+.tom-FieldTime {
+    position: relative;
+    padding-bottom: 0;
+    margin-bottom: 15px;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 50%;
+    vertical-align: top;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column
+}
+
+.tom-FieldTime:first-child .tom-FieldTime_InputRow:after {
+    content: "";
+    background: #e4e4e4;
+    position: absolute;
+    bottom: 20%;
+    right: 0;
+    height: 60%;
+    width: 1px
+}
+
+.tom-FieldGroupTime-error .tom-FieldTime {
+    margin-bottom: 0;
+    border-right: none
+}
+
+.tom-FieldTime_InputRow {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row;
+    -ms-flex-flow: row;
+    flex-flow: row
+}
+
+.tom-FieldGroupTime-error .tom-FieldTime:first-child .tom-FieldTime_InputRow {
+    margin-bottom: 10px
+}
+
+.tom-FieldGroupTime-error .tom-FieldTime:first-child .tom-FieldTime_InputRow:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: -5px;
+    border-top: 5px solid #a63838;
+    border-left: 5.5px solid transparent;
+    border-right: 5.5px solid transparent;
+    width: 0;
+    height: 0
+}
+
+.tom-FieldTime_Select {
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 50px;
+    padding: 0 43px 0 15px;
+    cursor: pointer;
+    color: #282828;
+    background-color: #fff;
+    border: 0;
+    width: 100%;
+    box-shadow: 0 1px 0 0 #d4d4d4;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 23px;
+    background-repeat: no-repeat;
+    background-position: right 15px center
+}
+
+.tom-FieldTime_Select::-ms-expand {
+    display: none
+}
+
+.tom-FieldTime:first-child .tom-FieldTime_Select {
+    border-bottom-left-radius: 2px
+}
+
+.tom-FieldTime:last-child .tom-FieldTime_Select {
+    border-bottom-right-radius: 2px
+}
+
+.tom-FieldGroupTime-error .tom-FieldTime_Select,
+.tom-FieldTime-error .tom-FieldTime_Select {
+    border: 2px solid #a63838;
+    border-radius: 2px;
+    color: #a63838;
+    -webkit-text-fill-color: #a63838
+}
+
+.tom-FieldGroupTime-error .tom-FieldTime:first-child .tom-FieldTime_Select {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.tom-FieldGroupTime-error .tom-FieldTime:nth-of-type(2) .tom-FieldTime_Select {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0
+}
+
+.tom-FieldTime-inactive .tom-FieldTime_Select {
+    background: #fafafa;
+    color: #282828
+}
+
+.tom-ReactivateAccount {
+    padding: 0 15px
+}
+
+.tom-ReactivateAccount_Text {
+    margin-bottom: 35px;
+    font-size: 13px;
+    color: #282828;
+    line-height: 20px
+}
+
+.tom-SubmitErrorPopup {
+    position: fixed;
+    max-width: 345px;
+    width: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #e4e4e4;
+    border-radius: 2px;
+    z-index: 100;
+    padding: 20px 10px 10px
+}
+
+.tom-SubmitErrorPopup_Header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 20px
+}
+
+.tom-SubmitErrorPopup_TitleContainer {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    font-weight: 700;
+    line-height: 22px;
+    padding-left: 34px;
+    color: #282828;
+    font-size: 15px;
+    -ms-flex-pack: center;
+    -ms-flex-align: center
+}
+
+.tom-SubmitErrorPopup_CloseContainer,
+.tom-SubmitErrorPopup_TitleContainer {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center
+}
+
+.tom-SubmitErrorPopup_CloseContainer {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 44px;
+    -ms-flex: 0 0 44px;
+    flex: 0 0 44px;
+    height: 44px;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    cursor: pointer;
+    margin-top: -20px;
+    margin-right: -10px
+}
+
+.tom-SubmitErrorPopup_Text {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #282828;
+    font-size: 13px;
+    line-height: 19px;
+    padding: 0 10px 10px
+}
+
+.tom-SubmitErrorPopup_CloseButton {
+    height: 12px;
+    width: 12px;
+    background-position-x: center;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M11.887.734L11.144 0 6 5.085.856 0 .113.734l5.144 5.085L0 11.016l.743.734L6 6.554l5.257 5.196.743-.734-5.257-5.197z'/%3E%3C/svg%3E") no-repeat;
+    background-position-y: center;
+    vertical-align: middle;
+    cursor: pointer
+}
+
+.tom-SubmitErrorPopup_Link {
+    color: #007a56;
+    cursor: pointer;
+    font-weight: 700
+}
+
+.allow-hover .tom-SubmitErrorPopup_Link:hover,
+.tom-SubmitErrorPopup_Link:focus {
+    text-decoration: underline
+}
+
+.tom-TabMenuItem {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+    min-width: 40px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    padding: 0 0 0 15px
+}
+
+.tom-TabMenuItem:first-child {
+    padding: 0 15px 0 0
+}
+
+.tom-TabMenuItem_Title {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-self: normal;
+    -ms-flex-item-align: normal;
+    align-self: normal;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #282828;
+    line-height: 22px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    padding-bottom: 14px
+}
+
+.tom-TabMenuItem-selected .tom-TabMenuItem_Title {
+    font-weight: 700;
+    border-color: #3f3f3f;
+    padding-bottom: 12px
+}
+
+.allow-hover .tom-TabMenuItem:hover.tom-TabMenuItem-selected .tom-TabMenuItem_Title {
+    color: #282828
+}
+
+.allow-hover .tom-TabMenuItem:hover .tom-TabMenuItem_Title {
+    color: #666
+}
+
+.tom-TabScroller {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    background-color: #ebeded;
+    box-shadow: inset 0 -2px 0 0 #ddd;
+    margin: 0 15px 20px
+}
+
+.tom-TabScroller.tom-TabScroller-0 {
+    margin: 0 0 20px;
+    padding: 0 15px
+}
+
+.tom-TabScroller_LeftButton,
+.tom-TabScroller_RightButton {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    bottom: 2px;
+    cursor: pointer;
+    display: none;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+    width: 45px;
+    height: 44px;
+    background-color: #ebeded;
+    z-index: 1
+}
+
+.tom-TabScroller_LeftButton:after,
+.tom-TabScroller_RightButton:after {
+    background-size: 8px 13px;
+    content: "";
+    display: block;
+    width: 8px;
+    height: 13px
+}
+
+.allow-hover .tom-TabScroller-mouse:hover .tom-TabScroller_LeftButton,
+.allow-hover .tom-TabScroller-mouse:hover .tom-TabScroller_RightButton,
+.tom-TabScroller-showbuttons .tom-TabScroller_LeftButton,
+.tom-TabScroller-showbuttons .tom-TabScroller_RightButton {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.tom-TabScroller_RightButton {
+    right: 0
+}
+
+.tom-TabScroller_Wrapper {
+    overflow-x: auto;
+    position: relative;
+    scrollbar-width: none;
+    width: 100%;
+    -webkit-overflow-scrolling: touch
+}
+
+.tom-TabScroller_Wrapper::-webkit-scrollbar {
+    display: none
+}
+
+.tom-TabScroller-mouse .tom-TabScroller_Wrapper {
+    overflow-x: hidden
+}
+
+.tom-TabScroller_ScrollContent {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    height: 36px
+}

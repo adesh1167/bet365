@@ -27,6 +27,14 @@ function Root(){
   const navigate = useNavigate();
   const location = useLocation();
 
+  const [lastPathName, setLastPathName] = useState(location.pathname);
+
+  useEffect(()=>{
+    if(lastPathName === "/UT" || lastPathName === "/MaB") setPopup("profile");
+    console.log("Last Path Name: ", lastPathName);
+    setLastPathName(location.pathname);
+  }, [location.pathname])
+
   // console.log("Location: ", location);
 
   useEffect(()=>{
