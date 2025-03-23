@@ -2,13 +2,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import OpenTicket from './openTicket'
 import SettledTicket from './settledTicket'
 import { useApp } from '../contexts/appContext';
+import gameTypes from '../data/gameTypes';
 
-const TicketWrapper = ({ type, ticket, filter, percent = 1}) => {
+const TicketWrapper = ({ type, ticket, index, filter, percent = 1}) => {
 
     const { country, lang } = useApp();
 
-    const [expanded, setExpanded] = useState(false);
-    const [hidden, setHidden] = useState(true);
+    const [expanded, setExpanded] = useState(index > 1 ? false : true);
+    const [hidden, setHidden] = useState(index > 1 ? true : false);
     const [data, setData] = useState({});
 
     const status = useRef({
@@ -136,7 +137,16 @@ const TicketWrapper = ({ type, ticket, filter, percent = 1}) => {
         }
     }
 
-    const height = useRef(100 + 125 * ticket.matches.length);
+    // const height = useRef(100 + 125 * ticket.matches.length);
+    const height = useRef(
+        ticket.matches.reduce((acc, match) => {
+            const userSelection = gameTypes[match.gameType] ? gameTypes[match.gameType].callBack(match.userSelection, match.home, match.away) : match.userSelection
+            const userSelectionLength = userSelection.length;
+            const additions = Math.floor((userSelectionLength * 10) / window.innerWidth);
+            console.log(userSelection, userSelectionLength, window.innerWidth, additions);
+            return acc + additions * 20;
+        }, 100 + 126 * ticket.matches.length)
+    );
 
     return (
         type === "open" ?

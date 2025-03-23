@@ -247,7 +247,7 @@ const Profile = () => {
                                             </div>
                                             <div className="ul-MembersLinkButton_Text ">My Account</div>
                                         </div>
-                                        <div className="ul-MembersLinkButton ">
+                                        <a className="ul-MembersLinkButton " href="https://www.bet365.com/pullpodapi/gethomepagepods?lid=1&zid=3&pd=%23HO%23COL1%23&cid=141&cstid=2&tcstid=2&crid=54&cgid=1&ctid=141">
                                             <div className="ul-MembersLinkButton_Icon ">
                                                 <svg
                                                     className="ul-MembersLinkButton_Svg"
@@ -287,7 +287,7 @@ const Profile = () => {
                                             <div className="ul-MembersLinkButton_Text ">
                                                 Gambling Controls
                                             </div>
-                                        </div>
+                                        </a>
                                         <div className="ul-MembersLinkButton " onClick={() => goTo("/ME/X6565")}>
                                             <div className="ul-MembersLinkButton_Icon ">
                                                 <svg

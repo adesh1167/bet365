@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import formatNumber from '../functions/formatNumber';
 import { useApp } from '../contexts/appContext';
+import gameTypes from '../data/gameTypes';
 
 const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 0.9, isDeleted }) => {
 
@@ -184,7 +185,7 @@ const Match = ({ odd, winningSelection, userSelection, home, away, gameType, lea
                     <div className="myb-BetParticipant_HeaderTitle ">
                         <div className="myb-BetParticipant_HeaderText ">
                             <span className="myb-BetParticipant_ParticipantSpan ">
-                                {userSelection}{" "}
+                                {gameTypes[gameType] ? gameTypes[gameType].callBack(userSelection, home, away) : userSelection}{" "}
                             </span>
                             <div className="myb-BetParticipant_HeaderOdds ">{formatNumber(odd)}</div>
                         </div>
@@ -199,7 +200,7 @@ const Match = ({ odd, winningSelection, userSelection, home, away, gameType, lea
                     </div>
                     <div className="myb-BetParticipant_BetBoost myb-SettledBetParticipant_MarketDescriptionContainer ">
                         <div className="myb-BetParticipant_MarketDescription ">
-                            {gameType}
+                            {gameTypes[gameType]?.text || gameType}
                         </div>
                     </div>
                 </div>

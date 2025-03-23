@@ -2,11 +2,11 @@ import React from 'react'
 import formatNumber from '../functions/formatNumber';
 import { matchDate } from '../functions/formatDate';
 import { useApp } from '../contexts/appContext';
+import gameTypes from '../data/gameTypes';
 
 const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 1, isDeleted}) => {
 
     const { country, lang } = useApp();
-    // console.log(ticket, data);
     
     return (
         <div
@@ -16,7 +16,7 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
             <div className="myb-OpenBetItem_Header myb-OpenBetItem_HeaderTitle "  onClick={toggleExpand}>
                 <div className="myb-OpenBetItem_HeaderTextContainer ">
                     <div className="myb-OpenBetItem_StakeDesc ">
-                        {country.currency}{formatNumber(data.wager, country.hasComma, country.lang)} {lang[`${ticket.matches.length}Fold`]}
+                        {data.wager && `${country.currency}${formatNumber(data.wager, country.hasComma, country.lang)} ${lang[`${ticket.matches.length}Fold`]}`}
                     </div>
                     <div className="myb-OpenBetItem_HeaderText Hidden " />
                     <div className="myb-OpenBetItem_SubHeaderText ">
@@ -68,7 +68,7 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
                     <div className="myb-OpenBetItemInnerView_BetInformation ">
                         <div className="myb-OpenBetItemInnerView_StakeInformationWrapper myd-StakeDisplay ">
                             <div className="myd-StakeDisplay_Title">Stake</div>
-                            <div className="myd-StakeDisplay_StakeWrapper">{country.currency}{formatNumber(data.wager, country.hasComma, country.lang)}0</div>
+                            <div className="myd-StakeDisplay_StakeWrapper">{country.currency}{formatNumber(data.wager, country.hasComma, country.lang)}</div>
                         </div>
                         <div className="myb-OpenBetItemInnerView_BetInformationWrapper ">
                             <div className="myb-OpenBetItemInnerView_BetInformationLabel ">
@@ -116,7 +116,7 @@ const Match = ({match}) => {
                     <div className="myb-BetParticipant_HeaderTitle ">
                         <div className="myb-BetParticipant_HeaderText ">
                             <span className="myb-BetParticipant_ParticipantSpan ">
-                                {match.userSelection}
+                                {gameTypes[match.gameType] ? gameTypes[match.gameType].callBack(match.userSelection, match.home, match.away) : match.userSelection}
                             </span>
                             <div className="myb-BetParticipant_HeaderOdds ">{formatNumber(match.odd)}</div>
                         </div>
@@ -131,7 +131,7 @@ const Match = ({match}) => {
                     </div>
                     <div className="myb-BetParticipant_BetBoost ">
                         <div className="myb-BetParticipant_MarketDescription ">
-                           {match.gameType}
+                           {gameTypes[match.gameType]?.text || match.gameType}
                         </div>
                     </div>
                 </div>

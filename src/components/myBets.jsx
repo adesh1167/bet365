@@ -149,7 +149,7 @@ const MyBets = () => {
                                 {filteredTickets.length ? 
                                     <div className="myb-BetItemsContainer_Container " >
                                         {filteredTickets.map((ticket, index) =>
-                                            <TicketWrapper type={ticket.status} key={`${ticket.id}-${index}-${ticket.filter}-${ticket.status}-${ticket.wager}`} ticket={ticket} filter={buttons[selected].value}/>
+                                            <TicketWrapper type={ticket.status} key={`${ticket.id}-${index}-${ticket.filter}-${ticket.status}-${ticket.wager}`} ticket={ticket}  index={index} filter={buttons[selected].value}/>
                                         )}
                                         {buttons[selected].value === "settled" &&
                                             <div className="myb-ViewOlderBets ">
