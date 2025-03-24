@@ -317,7 +317,7 @@ a.hm-HeaderMenuItem {
 .delete-transaction{
   position: absolute;
   font-weight: bold;
-  right: 10px;
+  right: 6px;
   bottom: 5px;
   color: red;
   padding: 10px;

@@ -163,7 +163,7 @@ const ManageBets = ({ filter }) => {
             type: 'POST',
             dataType: 'JSON',
             success: (res) => {
-                // alert(res.message)
+                alert(res.message)
                 if (res.status == 'success') setBalance(res.data.balance)
                 getTransactions();
             },
