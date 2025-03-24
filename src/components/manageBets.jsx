@@ -16,9 +16,9 @@ const ManageBets = ({ filter }) => {
         settled: null,
     })
     const [withdrawalAmount, setWithdrawalAmount] = useState((balance).toFixed(2));
-    const [withdrawalTime, setWithdrawalTime] = useState((new Date()).toISOString().slice(0, 16));
+    const [withdrawalTime, setWithdrawalTime] = useState((new Date()).toISOString().slice(0, 19));
     const [depositAmount, setDepositAmount] = useState(0);
-    const [depositTime, setDepositTime] = useState((new Date()).toISOString().slice(0, 16));
+    const [depositTime, setDepositTime] = useState((new Date()).toISOString().slice(0, 19));
     const [localTickets, setLocalTickets] = useState(loadedTickets.tickets);
 
     const [loading, setLoading] = useState({
@@ -163,8 +163,9 @@ const ManageBets = ({ filter }) => {
             type: 'POST',
             dataType: 'JSON',
             success: (res) => {
-                alert(res.message)
+                // alert(res.message)
                 if (res.status == 'success') setBalance(res.data.balance)
+                getTransactions();
             },
             error: (res) => {
                 alert('Unable to withdraw. Check internet connection and try again')

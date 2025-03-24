@@ -29,7 +29,8 @@ function Root(){
 
   useEffect(()=>{
     const lastPathName = sessionStorage.getItem("lastPathName");
-    if(lastPathName === "/UT" || lastPathName === "/MaB") setPopup("profile");
+    if((lastPathName === "/UT" || lastPathName === "/MaB" || lastPathName === "/TR") && location.pathname === "/HO") setPopup("profile");
+    else setPopup(null);
     console.log("Last Path Name: ", lastPathName);
     sessionStorage.setItem("lastPathName", location.pathname);
   }, [location.pathname])

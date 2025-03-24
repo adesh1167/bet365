@@ -24,6 +24,10 @@ code {
   padding-top: 56px;
 }
 
+a{
+  text-decoration: none;
+}
+
 /* UPDATE TICKETS */
 
 .ut-home {
@@ -233,8 +237,9 @@ code {
   height: 40px;
   padding: 10px;
   width: 40%;
-  background-color: #000;
-  border: 0;
+  background-color: #1a1a1a;
+  /* border: 1px #777 solid; */
+  /* border: 0; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -253,6 +258,7 @@ code {
   color: white;
   font-weight: 700;
   flex-shrink: 1;
+  border: none;
   /* width: 10%; */
 }
 
@@ -304,4 +310,15 @@ a.hm-HeaderMenuItem {
   top: 13px;
   width: 50px;
   left: 12px;
+}
+
+/* TRANSACTIONS */
+
+.delete-transaction{
+  position: absolute;
+  font-weight: bold;
+  right: 10px;
+  bottom: 5px;
+  color: red;
+  padding: 10px;
 }

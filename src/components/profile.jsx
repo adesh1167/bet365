@@ -21,7 +21,7 @@ const Profile = () => {
     }
 
     function goTo(path) {
-        setPopup(null);
+        // setPopup(null);
         navigate(path);
     }
 
@@ -103,7 +103,7 @@ const Profile = () => {
                             <div className="um-MainMenu ">
                                 <div className="um-GeneralTab ">
                                     <div className="um-GeneralTab_AccountContainer ">
-                                        <div className="ul-MembersLinkButton ">
+                                        <div className="ul-MembersLinkButton " onClick={()=>goTo("TR")}>
                                             <div className="ul-MembersLinkButton_Icon ">
                                                 <svg
                                                     className="ul-MembersLinkButton_Svg"
