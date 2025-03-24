@@ -143,7 +143,7 @@ const TicketWrapper = ({ type, ticket, index, filter, percent = 1}) => {
             const userSelection = gameTypes[match.gameType] ? gameTypes[match.gameType].callBack(match.userSelection, match.home, match.away) : match.userSelection
             const userSelectionLength = userSelection.length;
             const additions = Math.floor((userSelectionLength * 10) / window.innerWidth);
-            console.log(userSelection, userSelectionLength, window.innerWidth, additions);
+            // console.log(userSelection, userSelectionLength, window.innerWidth, additions);
             return acc + additions * 20;
         }, 100 + 126 * ticket.matches.length)
     );

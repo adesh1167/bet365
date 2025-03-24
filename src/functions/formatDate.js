@@ -171,7 +171,7 @@ export function matchDate(dateString, zone = "+1") {
     time: date.toLocaleString(DateTime.TIME_24_SIMPLE)
   }
 
-  console.log(date, newDate);
+  // console.log(date, newDate);
   return newDate
   // }
 }

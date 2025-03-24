@@ -7,16 +7,16 @@ import gameTypes from '../data/gameTypes';
 const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 1, isDeleted}) => {
 
     const { country, lang } = useApp();
-    
+    console.log("expanded: ", expanded, data.wager, height);
     return (
         <div
             className={`myb-OpenBetItem ${expanded ? "myb-OpenBetItem_Open" : "myb-OpenBetItem_Collapsed"}`}
-            style={{opacity: isDeleted ? "0.5" : "1", transition: "0.1s opacity linear" }}
+            style={{visibility: data.wager ? "visible" : "hidden", opacity: isDeleted ? "0.5" : "1", transition: "0.1s opacity linear" }}
         >
             <div className="myb-OpenBetItem_Header myb-OpenBetItem_HeaderTitle "  onClick={toggleExpand}>
                 <div className="myb-OpenBetItem_HeaderTextContainer ">
                     <div className="myb-OpenBetItem_StakeDesc ">
-                        {data.wager && `${country.currency}${formatNumber(data.wager, country.hasComma, country.lang)} ${lang[`${ticket.matches.length}Fold`]}`}
+                        {country.currency}{formatNumber(data.wager, country.hasComma, country.lang)} {lang[`${ticket.matches.length}Fold`]}
                     </div>
                     <div className="myb-OpenBetItem_HeaderText Hidden " />
                     <div className="myb-OpenBetItem_SubHeaderText ">
@@ -28,7 +28,11 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
                     </div>
                 </div>
                 <div className="myb-OpenBetItem_HeaderControlsWrapper " />
-                <div className="myb-CloseBetButtonBase myb-CloseBetButtonSummaryBar ">
+                <div className="myb-CloseBetButtonBase myb-CloseBetButtonSummaryBar " style={{
+                    animation: "none",
+                    opacity: expanded ? 0 : 1,
+                    transition: "0.2s opacity linear"
+                }}>
                     <div className="myb-CloseBetButtonBase_Wrapper ">
                         <div className="myb-CloseBetButtonBase_WrapperInner myb-CloseBetButtonBase_WrapperInner-cashout ">
                             <span className="myb-CloseBetButtonBase_Button myb-CloseBetButtonBase-cashout ">
@@ -37,7 +41,7 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
                                         <div className="myb-CloseBetButtonBase_Text ">Cash Out</div>
                                         <div className="myb-CloseBetButtonBase_Return " style={{
                                             color: "color(display-p3 .157 1 .733)"
-                                        }}>$1.20</div>
+                                        }}>{formatNumber(data.cashout)}</div>
                                     </div>
                                 </div>
                                 <div className="myb-CloseBetButtonBase_Spacer Hidden " />

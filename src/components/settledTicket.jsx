@@ -12,7 +12,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
     return (
         <div
             className={`myb-SettledBetItem ${ticket.filter === "Win" ? "myb-SettledBetItem_HasWin" : (ticket.filter === "Loss" ? "myb-SettledBetItem_HasLost" : "")} ${expanded ? "myb-SettledBetItem_Open" : "myb-SettledBetItem_Collapsed"}`}
-            style={{opacity: isDeleted ? "0.5" : "1", transition: "0.1s opacity linear" }}
+            style={{visibility: data.wager ? "visible" : "hidden", opacity: isDeleted ? "0.5" : "1", transition: "0.1s opacity linear" }}
         >
             <div className="myb-SettledBetItemHeader " onClick={toggleExpand}>
                 <div className="myb-SettledBetItemHeader_HeaderTextContainer ">

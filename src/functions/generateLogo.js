@@ -1,5 +1,6 @@
 const generateLogo = (type, colors) => {
-  return logos[type](colors.split(","));
+    if(logos[type]) return logos[type](colors.split(","));
+    return null;
 };
 
 const logos = {
