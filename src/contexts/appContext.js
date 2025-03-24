@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const AppContext = createContext();
 
-const AppProvider = ({children}) => {
+const AppProvider = ({ children }) => {
 
     const [loadStage, setLoadStage] = useState(0);
     const [user, setUser] = useState(null);
@@ -35,171 +35,183 @@ const AppProvider = ({children}) => {
     const loadInterval = useRef(null);
 
 
-    function init({full= true} = {}){
-    
-        window.$.ajax({
-          url: `${baseApiUrl}/get-tickets.php`,
-          dataType: 'JSON',
-          type: 'POST',
-          data: {user: user},
-          success: (data)=>{
-            console.log(data)
-            if(data.status == 'success'){
-    
-              let tempTickets = data.data;
-    
-              tempTickets.forEach((ticket,i)=>{
-    
-                  if(ticket.status == 'open'){
-    
-                  } else{
-                      let losts = 0;
-                      let cashouts = 0;
-                      let winWithVoids = 0;
-                      let filter;
-    
-                      ticket.matches.forEach(match=>{
-                          if(match.winningSelection == '') cashouts++;
-                          else if(match.winningSelection == 'NotResulted') winWithVoids++;
-                          else if(match.winningSelection != match.userSelection) losts++;
-                      })
-    
-                      if(losts > 0) filter = 'Loss';
-                      else if(cashouts > 0) filter = 'Cash Out'
-                      else if(winWithVoids > 0) filter = 'Win with void(s)'
-                      else filter = 'Win'
-    
-                      tempTickets[i].filter = filter
-                  }
-              });
-    
-              tempTickets.sort((a,b) => Number(b.id) - Number(a.id));
+    function init({ full = true } = {}) {
 
-                if(countries[countryCode]){
-                    console.log("Country Selected: ", countryCode);
-                    tempTickets = tempTickets.map(ticket => ({
-                        ...ticket,
-                        bookingCode: ticket.bookingCode ? replaceBookingCode(ticket.bookingCode, countries[countryCode].bookingCodePrefix) : generateBookingCode(countries[countryCode].bookingCodePrefix)
-                    }))
+        window.$.ajax({
+            url: `${baseApiUrl}/get-tickets.php`,
+            dataType: 'JSON',
+            type: 'POST',
+            data: { user: user },
+            success: (data) => {
+                console.log(data)
+                if (data.status == 'success') {
+
+                    let tempTickets = data.data;
+
+                    tempTickets.forEach((ticket, i) => {
+
+                        if (ticket.status == 'open') {
+
+                        } else {
+                            let losts = 0;
+                            let cashouts = 0;
+                            let winWithVoids = 0;
+                            let filter;
+
+                            ticket.matches.forEach(match => {
+                                if (match.winningSelection == '') cashouts++;
+                                else if (match.winningSelection == 'NotResulted') winWithVoids++;
+                                else if (match.winningSelection != match.userSelection) losts++;
+                            })
+
+                            if (losts > 0) filter = 'Loss';
+                            else if (cashouts > 0) filter = 'Cash Out'
+                            else if (winWithVoids > 0) filter = 'Win with void(s)'
+                            else filter = 'Win'
+
+                            tempTickets[i].filter = filter
+                        }
+                    });
+
+                    tempTickets.sort((a, b) => Number(b.id) - Number(a.id));
+
+                    // if (countries[countryCode]) {
+                    //     console.log("Country Selected: ", countryCode);
+                    //     tempTickets = tempTickets.map(ticket => ({
+                    //         ...ticket,
+                    //         bookingCode: ticket.bookingCode ? replaceBookingCode(ticket.bookingCode, countries[countryCode].bookingCodePrefix) : generateBookingCode(countries[countryCode].bookingCodePrefix)
+                    //     }))
+                    // }
+
+                    setLoadedTickets(prev => ({ ...prev, tickets: tempTickets }));
+                } else {
+                    console.log(data.message);
                 }
-    
-              setLoadedTickets(prev=>({...prev, tickets: tempTickets}));
-            } else{
-              console.log(data.message);
+            },
+            error: (res) => {
+                console.log(res)
             }
-          },
-          error: (res)=>{
-            console.log(res)
-          }
         })
 
-        if(!full) return;
+        if (!full) return;
 
         getTransactions();
 
-        setTimeout(()=>{
+        setTimeout(() => {
             getBalance()
                 .then(res => {
-                    if(res.status = 'success') setBalance(res.data.balance)
+                    if (res.status = 'success') setBalance(res.data.balance)
                     else setBalance(400)
                 })
-                .catch(err=> setBalance(400))
-          }, 2000)
-    
+                .catch(err => setBalance(400))
+        }, 2000)
+
     }
 
-    function getBalance(){
+    function getBalance() {
         return window.$.ajax({
             url: `${baseApiUrl}/get-balance.php`,
             dataType: 'JSON',
             type: 'POST',
-            data: {user: user},
+            data: { user: user },
         })
     }
-    
-    function getTransactions(){
+
+    function getTransactions() {
         window.$.ajax({
             url: `${baseApiUrl}/get-transactions.php`,
             dataType: 'JSON',
             type: 'POST',
-            data: {user: user, limit: 1000},
-            success: (res)=>{
-              console.log(res)
-              if(res.status = 'success') setTransactions(res.data.transactions)
-              else setBalance(400)
+            data: { user: user, limit: 1000 },
+            success: (res) => {
+                console.log(res)
+                if (res.status = 'success') setTransactions(res.data.transactions)
+                else setBalance(400)
             },
-            error: (res)=>{
-              console.log(res)
+            error: (res) => {
+                console.log(res)
             }
         })
     }
 
-    function getSportTypes(){
-        console.log(`https://config.betwayafrica.com/cron/sports/${countries[countryCode].code}/${countries[countryCode].lang}`);
+    function getHighlights() {
+
+        let data;
         window.$.ajax({
-            url: `https://config.betwayafrica.com/cron/sports/${countries[countryCode].code}/${countries[countryCode].lang}`,
-            type: 'GET',
+            url: `${baseApiUrl}/get-highlights.php`,
             dataType: 'JSON',
-            success: (res)=>{
-                console.log(res)
-                if(res){
-                    setSportTypes(res.sports)
+            type: 'POST',
+            data: { user: user },
+            success: res => {
+                if (res.status == 'success') {
+                    data = parseData(res.data);
+                } else {
+                    data = parseData(rawData);
                 }
             },
-            timeout: 10000,
-            error: (res)=>{
-                setSportTypes([])
-                console.log(res)
+            error: error => {
+                console.log("Error Fetching Highlights: ", error);
+                data = parseData(rawData);
             },
-            complete: (res)=>{
-                // console.log(res)
+            complete: res => {
+                const matchesData = getMatches(data);
+                const matchesWithOdds = addOdds(matchesData, data);
+                const sortedMatches = sortMatchesByDate(matchesWithOdds);
+                setMatches(sortedMatches);
+    
+                const featuredMatches = getFeaturedMatches(data);
+                const featuredMatchesWithDetails = addMatchDetails(featuredMatches, data);
+                setFeaturedMatches(featuredMatchesWithDetails);
+    
+                const carousselData = getCarousel(data);
+                setCarousel(carousselData);
+    
+                // console.log(featuredMatchesWithDetails);
+                console.log(sortedMatches);
             }
         })
-    }
 
-    function getHighlights(){
-        const data = parseData(rawData);
         console.log(data);
 
-        setTimeout(()=>{
-            const matchesData = getMatches(data);
-            const matchesWithOdds = addOdds(matchesData, data);
-            const sortedMatches = sortMatchesByDate(matchesWithOdds);
-            setMatches(sortedMatches);
-    
-            const featuredMatches = getFeaturedMatches(data);
-            const featuredMatchesWithDetails = addMatchDetails(featuredMatches, data);
-            setFeaturedMatches(featuredMatchesWithDetails);
-    
-            const carousselData = getCarousel(data);
-            setCarousel(carousselData);
-    
-            // console.log(featuredMatchesWithDetails);
-            console.log(sortedMatches);
-            // console.log(carousselData);
-        }, 1000 + Math.random() * 1000)
+        // setTimeout(() => {
+        //     const matchesData = getMatches(data);
+        //     const matchesWithOdds = addOdds(matchesData, data);
+        //     const sortedMatches = sortMatchesByDate(matchesWithOdds);
+        //     setMatches(sortedMatches);
+
+        //     const featuredMatches = getFeaturedMatches(data);
+        //     const featuredMatchesWithDetails = addMatchDetails(featuredMatches, data);
+        //     setFeaturedMatches(featuredMatchesWithDetails);
+
+        //     const carousselData = getCarousel(data);
+        //     setCarousel(carousselData);
+
+        //     // console.log(featuredMatchesWithDetails);
+        //     console.log(sortedMatches);
+        //     // console.log(carousselData);
+        // // }, 1000 + Math.random() * 1000)
 
     }
 
-    function toggleDropDown(e, dropDownName = null){
+    function toggleDropDown(e, dropDownName = null) {
         e.stopPropagation();
-        if(dropDown == dropDownName){
+        if (dropDown == dropDownName) {
             setDropDown(null);
-        } else{
+        } else {
             setDropDown(dropDownName);
         }
     }
 
-    function logout(){
+    function logout() {
 
         const ask = window.confirm("Are you sure you want to Logout?");
-        if(ask){
+        if (ask) {
             setUser(null);
             logoutCleanUp();
         }
     }
 
-    function logoutCleanUp(){
+    function logoutCleanUp() {
         setLoadedTickets({
             tickets: [],
             openVisited: false,
@@ -211,84 +223,85 @@ const AppProvider = ({children}) => {
         setTransactions(null);
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         const url = window.location.href;
         const urlParamSide = url.split('?')[1];
         const params = urlParamSide?.split('&');
         const allParams = {};
-        if(params){
-            for(const param of params){
+        if (params) {
+            for (const param of params) {
                 const paramSplit = param.split('=')
                 allParams[paramSplit[0]] = paramSplit[1]
             }
         }
         const localCountryCode = localStorage.getItem('country');
-        if(localCountryCode){
+        if (localCountryCode) {
             setCountryCode(localCountryCode);
-        } else{
+        } else {
             setCountryCode(0);
         }
 
-        if(allParams.user){
+        if (allParams.user) {
             setUser(allParams.user);
-        } else{
+        } else {
             const localUser = localStorage.getItem('user');
-            if(localUser){
+            if (localUser) {
                 setUser(localUser);
             }
         }
+
+        getHighlights();
     }, [])
 
-    useEffect(()=>{
-        if(user){
+    useEffect(() => {
+        if (user) {
             init();
             localStorage.setItem('user', user);
-        } else{
+        } else {
             setPopup(null);
             localStorage.removeItem('user');
         }
 
         setLoadStage(0);
 
-        loadInterval.current = setInterval(()=>{
+        loadInterval.current = setInterval(() => {
             setLoadStage(prevLoadStage => {
-                if(prevLoadStage >= 125){
+                if (prevLoadStage >= 125) {
                     clearInterval(loadInterval.current)
                 }
 
                 return prevLoadStage + 2
             });
         }, 100)
-    
+
         return () => clearInterval(loadInterval.current);
-        
+
     }, [user])
 
-    useEffect(()=>{
-        if(popup){
+    useEffect(() => {
+        if (popup) {
             document.body.classList.add('g5-Application-scrolllock');
-        } else{
+        } else {
             document.body.classList.remove('g5-Application-scrolllock');
         }
     }, [popup])
 
-    useEffect(()=>{
-        if(countryCode !== null) localStorage.setItem("country", countryCode);
-        if(countries[countryCode]){
-            setLoadedTickets(prev => ({
-                ...prev,
-                tickets: prev.tickets.map(ticket => ({
-                    ...ticket,
-                    bookingCode: ticket.bookingCode ? replaceBookingCode(ticket.bookingCode, countries[countryCode].bookingCodePrefix) : generateBookingCode(countries[countryCode].bookingCodePrefix)
-                }))
-            }))
-        }
-        if(countryCode == null) return
-        getSportTypes();
-        getHighlights();
-        
+    useEffect(() => {
+        if (countryCode !== null) localStorage.setItem("country", countryCode);
+        // if (countries[countryCode]) {
+        //     setLoadedTickets(prev => ({
+        //         ...prev,
+        //         tickets: prev.tickets.map(ticket => ({
+        //             ...ticket,
+        //             bookingCode: ticket.bookingCode ? replaceBookingCode(ticket.bookingCode, countries[countryCode].bookingCodePrefix) : generateBookingCode(countries[countryCode].bookingCodePrefix)
+        //         }))
+        //     }))
+        // }
+        if (countryCode == null) return
+        // getHighlights();
+
     }, [countryCode])
-    
+
     return (
         <AppContext.Provider value={{
             user,
@@ -297,13 +310,14 @@ const AppProvider = ({children}) => {
             setPopup,
             loadedTickets,
             setLoadedTickets,
-            transactions, 
+            transactions,
             setTransactions,
             getTransactions,
             balance: balance * countries[countryCode]?.factor,
             setBalance,
             getBalance,
             country: countries[countryCode],
+            countryCode,
             setCountryCode,
             dropDown,
             toggleDropDown,

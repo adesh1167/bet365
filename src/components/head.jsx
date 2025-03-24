@@ -4,7 +4,8 @@ import Profile from "./profile";
 import HeadOverlay from "./headOverlay";
 import formatDate from "../functions/formatDate";
 import formatNumber from "../functions/formatNumber";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { countries } from "../data/countries";
 
 const buttons = [
     {
@@ -27,7 +28,7 @@ const buttons = [
 
 const Head = () => {
 
-    const { lang, setPopup, popup, country, balance, user, loadStage, loadedTickets } = useApp();
+    const { lang, setPopup, popup, country, countryCode, setCountryCode, balance, user, loadStage, loadedTickets } = useApp();
 
     const [openTicketsCount, setOpenTicketsCount] = useState(null);
 
@@ -76,7 +77,17 @@ const Head = () => {
                     {/**/}
                     <div className="hm-MainHeaderNarrow_TopRowContainer ">
                         <div className="hm-MainHeaderLHSNarrow ">
-                            <div className="hm-MainHeaderLHSNarrow_OffersLabel hm-HeaderMenuItem ">
+                            <div className="hm-MainHeaderLHSNarrow_OffersLabel hm-HeaderMenuItem " >
+                                <div className="select-currency">
+                                    <select
+                                        onChange={e=>setCountryCode(e.target.value)}
+                                        value={countryCode}
+                                    >
+                                        {Object.values(countries).map((option, index) => 
+                                            <option value={index}>{option.name}</option>
+                                            )}
+                                    </select>
+                                </div>
                                 <div className="hm-HeaderMenuItem_Link ">{lang["offers"]}</div>
                             </div>
                         </div>

@@ -1,39 +1,40 @@
 import { useApp } from "../contexts/appContext";
+import generateLogo from "../functions/generateLogo";
 import { convertOddsToDecimal } from "../functions/parseData";
 
 const FeaturedMatches = () => {
 
-    const {featuredMatches, lang} = useApp();
+    const { featuredMatches, lang } = useApp();
 
-    if(!featuredMatches) return null;
-    
-    return(
+    if (!featuredMatches) return null;
+
+    return (
         <div className="ss-HomepageSpotlight_Pod ss-HomepageSpotlight_PopularModuleContainer ">
             <div className="pbb-PopularModule pbb-PopularModule-homepagespotlight pbb-PopularModule_betBoost ">
                 <div className="pbb-PopularModule_HeaderWrapper ">
-                <img
-                    src="https://bet365.com/sports-assets/sports/PopularModule/assets/BetBoostBadges/Bet-Boost-1.svg"
-                    className="pbb-BetBoost "
-                />
+                    <img
+                        src="https://bet365.com/sports-assets/sports/PopularModule/assets/BetBoostBadges/Bet-Boost-1.svg"
+                        className="pbb-BetBoost "
+                    />
                 </div>
                 <div className="pbb-PopularModuleHorizontalScrollBar ">
-                <div className="pbb-PopularModuleHorizontalScrollBar_Wrapper ">
-                    <div className="pbb-PopularModuleHorizontalScrollBar_ScrollContent gl-MarketGrid ">
-                        {featuredMatches.slice(0,6).map((match, index) =>
+                    <div className="pbb-PopularModuleHorizontalScrollBar_Wrapper ">
+                        <div className="pbb-PopularModuleHorizontalScrollBar_ScrollContent gl-MarketGrid ">
+                            {featuredMatches.slice(0, 6).map((match, index) =>
 
-                            <FeaturedMatch key={index} data={match}/>
-                        )}
+                                <FeaturedMatch key={index} data={match} />
+                            )}
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
     )
 }
 
-const FeaturedMatch = ({data}) => {
+const FeaturedMatch = ({ data }) => {
 
-    return(
+    return (
         <div className="pbb-PopularBetBuilder gl-Participant_General ">
             <div className="pbb-PopularBetBuilder_Content">
                 <div className="pbb-PopularBetBuilder_HeaderContainer">
@@ -58,20 +59,30 @@ const FeaturedMatch = ({data}) => {
                             {data.NA}
                         </div>
                         <div className="pbb-PopularBetBuilder_FixImageContainer ">
-                            <div className="tk-TeamKitImage-autowidth pbb-PopularBetBuilder_FixImage pbb-PopularBetBuilder_FixImage-teamkit pbb-PopularBetBuilder_FixImage-teamkitauto tk-TeamKitImage ">
-                                <img
-                                    src={`https://content001.bet365.com/SoccerSilks/${data.K1}`}
-                                    draggable="false"
-                                    className="tk-TeamKitImage_SVG "
-                                />
-                            </div>
-                            <div className="tk-TeamKitImage-autowidth pbb-PopularBetBuilder_FixImage pbb-PopularBetBuilder_FixImage-teamkit pbb-PopularBetBuilder_FixImage-teamkitauto tk-TeamKitImage ">
-                                <img
-                                    src={`https://content001.bet365.com/SoccerSilks/${data.K2}`}
-                                    draggable="false"
-                                    className="tk-TeamKitImage_SVG "
-                                />
-                            </div>
+                            {data.K1 ?
+                                <div className="tk-TeamKitImage-autowidth pbb-PopularBetBuilder_FixImage pbb-PopularBetBuilder_FixImage-teamkit pbb-PopularBetBuilder_FixImage-teamkitauto tk-TeamKitImage ">
+                                    <img
+                                        src={`https://content001.bet365.com/SoccerSilks/${data.K1}`}
+                                        draggable="false"
+                                        className="tk-TeamKitImage_SVG "
+                                    />
+                                </div>
+                                :
+                                <div className={`tk-TeamKitImage-autowidth pbb-PopularBetBuilder_FixImage pbb-PopularBetBuilder_FixImage-teamkit pbb-PopularBetBuilder_FixImage-teamkitauto tk-TeamKitImage tk-TeamKit tk-TeamKit-16 tk-TeamKit-16-${data.KI} `} dangerouslySetInnerHTML={{ __html: generateLogo(data.KI, data.KC) }}>
+                                </div>
+                            }
+                            {data.K2 ?
+                                <div className="tk-TeamKitImage-autowidth pbb-PopularBetBuilder_FixImage pbb-PopularBetBuilder_FixImage-teamkit pbb-PopularBetBuilder_FixImage-teamkitauto tk-TeamKitImage ">
+                                    <img
+                                        src={`https://content001.bet365.com/SoccerSilks/${data.K2}`}
+                                        draggable="false"
+                                        className="tk-TeamKitImage_SVG "
+                                    />
+                                </div>
+                                :
+                                <div className={`tk-TeamKitImage-autowidth pbb-PopularBetBuilder_FixImage pbb-PopularBetBuilder_FixImage-teamkit pbb-PopularBetBuilder_FixImage-teamkitauto tk-TeamKitImage tk-TeamKit tk-TeamKit-16 tk-TeamKit-16-${data.TX} `} dangerouslySetInnerHTML={{ __html: generateLogo(data.TX, data.TC) }}>
+                                </div>
+                            }
                         </div>
                     </div>
                     <div className="pbb-PopularBetBuilder_BetLines ">

@@ -160,15 +160,15 @@ code {
 
 /* MANAGE TICKETS */
 
-.text-error-600{
+.text-error-600 {
   color: #ff5555;
 }
 
-.text-identity-600{
+.text-identity-600 {
   color: #00aa55;
 }
 
-.bg-error-500{
+.bg-error-500 {
   background-color: red !important;
 }
 
@@ -186,11 +186,11 @@ code {
   color: #fff;
 }
 
-.ticket-date{
+.ticket-date {
   margin: 0 10px;
 }
 
-.ticket-buttons{
+.ticket-buttons {
   display: flex;
 
 }
@@ -214,7 +214,7 @@ code {
   border-radius: 5px;
 }
 
-.update-tickets-button.bg-error-500{
+.update-tickets-button.bg-error-500 {
   margin-bottom: 20px;
 }
 
@@ -296,4 +296,12 @@ a.hm-HeaderMenuItem {
 .myb-OpenBetItemInnerView {
   overflow: hidden;
   transition: 0.15s all linear;
+}
+
+.select-currency {
+  opacity: 0;
+  position: absolute;
+  top: 13px;
+  width: 50px;
+  left: 12px;
 }
