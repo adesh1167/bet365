@@ -1,6 +1,16 @@
+import { createElement } from "react";
 import { featuredDate } from "./formatDate";
 
-export function parseData(data) {
+export function parseData(data){
+  const parser = new DOMParser();
+  const divs = parser.parseFromString(data, 'text/html');
+  const sections = divs.body.children;
+
+  console.log(sections[3]);
+  return sections;
+}
+
+export function parseData1(data) {
     // 1) Split the entire string by the '|' character into "sections"
     const sections = data.split('|');
     const parsedData = {};

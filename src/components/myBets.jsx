@@ -79,7 +79,7 @@ const MyBets = () => {
     const ref = useRef(null);
 
     useEffect(()=>{
-        setTimeout(()=>setLoaded(true), 1000 + Math.random() * 1000);
+        setTimeout(()=>setLoaded(true), 500 + Math.random() * 700);
         // console.log("Ref: ", ref.current);
         if(!ref.current) {
             return;

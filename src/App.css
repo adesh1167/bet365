@@ -21,6 +21,11 @@
     src: url("assets/fonts/FTN86__W.woff2")
 }
 
+@font-face {
+    font-family: FuturaPTCond-Bold;
+    src: url("assets/fonts/futura-pt_cond-bold.woff2")
+}
+
 [class*=" b365ui-"],
 [class^=b365ui-] {
     font-family: bet365UI;
@@ -54884,3 +54889,4 @@ body {
 .dwh-DepositWithdrawalResult_ReferenceLabel {
     padding-bottom: 10px
 }
+

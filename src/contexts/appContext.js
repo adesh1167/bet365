@@ -154,6 +154,39 @@ const AppProvider = ({ children }) => {
                 data = parseData(rawData);
             },
             complete: res => {
+                const dataArr = Object.values(data);
+                const rest = dataArr.filter((dt, i) => i > 2)
+                console.log("Section: ", rest)
+                setCarousel(data[0]);
+                setFeaturedMatches(data[3])
+                setMatches(rest);
+            }
+        })
+
+        console.log(data);
+
+    }
+
+    function getHighlights2() {
+
+        let data;
+        window.$.ajax({
+            url: `${baseApiUrl}/get-highlights.php`,
+            dataType: 'JSON',
+            type: 'POST',
+            data: { user: user },
+            success: res => {
+                if (res.status == 'success') {
+                    data = parseData(res.data);
+                } else {
+                    data = parseData(rawData);
+                }
+            },
+            error: error => {
+                console.log("Error Fetching Highlights: ", error);
+                data = parseData(rawData);
+            },
+            complete: res => {
                 const matchesData = getMatches(data);
                 const matchesWithOdds = addOdds(matchesData, data);
                 const sortedMatches = sortMatchesByDate(matchesWithOdds);

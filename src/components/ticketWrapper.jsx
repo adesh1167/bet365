@@ -126,7 +126,7 @@ const TicketWrapper = ({ type, ticket, index, filter, percent = 1}) => {
         setExpanded(false);
         setTimeout(() => {
             setHidden(true);
-        }, 150);
+        }, 200);
     }
 
     function toggleExpand() {

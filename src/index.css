@@ -12,6 +12,20 @@ code {
     monospace;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none !important;
+}
+
+/* For Edge & IE (old versions) */
+body {
+  -ms-overflow-style: none !important;
+}
+
 .display-none {
   display: none;
 }
