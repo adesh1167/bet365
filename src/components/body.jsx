@@ -7,7 +7,7 @@ import Footer from "./footer";
 
 const Body = () => {
 
-    const { lang, highlights, featuredMatches, matches } = useApp();
+    const { lang, highlights, featuredMatches, matches, carousel } = useApp();
     const containerRef = useRef(null);
     const contentRef = useRef(null);
 
@@ -45,6 +45,7 @@ const Body = () => {
                 <div>
                     <div className="pl-PodLoaderModule ">
                         {/* <Carousel /> */}
+                        <div dangerouslySetInnerHTML={{__html: carousel.innerHTML}}/>
                         <div className="pl-PodLoaderModule_Pod-996 ">
                             <div className="scr-NavBarScroller_RightArrowVisible ">
                                 <div className="crm-ClassificationRibbonModule_CompetitionScrollerContainer ">
