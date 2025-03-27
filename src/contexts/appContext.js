@@ -158,7 +158,8 @@ const AppProvider = ({ children }) => {
                 const rest = dataArr.filter((dt, i) => i > 2)
                 console.log("Section: ", rest)
                 setCarousel(data[0]);
-                setFeaturedMatches(data[3])
+                if(data[3]) setFeaturedMatches(data[3])
+                else setFeaturedMatches("test");
                 setMatches(rest);
             }
         })

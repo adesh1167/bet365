@@ -45,7 +45,7 @@ const Body = () => {
                 <div>
                     <div className="pl-PodLoaderModule ">
                         {/* <Carousel /> */}
-                        <div dangerouslySetInnerHTML={{__html: carousel.innerHTML}}/>
+                        {carousel && <div dangerouslySetInnerHTML={{__html: carousel.innerHTML}}/>}
                         <div className="pl-PodLoaderModule_Pod-996 ">
                             <div className="scr-NavBarScroller_RightArrowVisible ">
                                 <div className="crm-ClassificationRibbonModule_CompetitionScrollerContainer ">
