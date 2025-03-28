@@ -252,8 +252,9 @@ const AppProvider = ({ children }) => {
             settledVisited: false
         });
 
+        setPopup(null);
+        
         setBalance(0);
-
         setTransactions(null);
     }
 

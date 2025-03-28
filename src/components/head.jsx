@@ -41,7 +41,7 @@ const Head = () => {
     return (
         <div className="wc-WebConsoleModule_Header ">
             <div className={`hm-HeaderModule hm-HeaderModule_ProductClosed ${popup === "profile" ? "hm-MembersMenuModuleContainer_Open" : ""}`}>
-                {popup === 'profile' && <Profile />}
+                {(popup === 'profile' && user) && <Profile />}
                 <div className="hm-ProductHeaderNarrow ">
                     <div className="hm-ProductHeaderNarrow_Container ">
                         <div

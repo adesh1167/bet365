@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const Profile = () => {
 
-    const { balance, getBalance, setBalance, country, setPopup, logout } = useApp();
+    const { balance, getBalance, setBalance, country, setPopup, user, logout } = useApp();
     const navigate = useNavigate();
 
     const [loadingBalance, setLoadingBalance] = useState(false)
@@ -38,7 +38,7 @@ const Profile = () => {
                                 <div className="um-Header_LeftSideWrapper ">
                                     <div className="um-UserInfo ">
                                         <div className="um-UserInfo_AccountInfo ">
-                                            <span className="um-UserInfo_UserName ">ezekolo</span>
+                                            <span className="um-UserInfo_UserName ">{user.split("_")[0]}</span>
                                             <span className="um-UserInfo_DepositMessage Hidden ">
                                                 Deposit Successful
                                             </span>
