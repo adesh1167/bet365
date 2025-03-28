@@ -155,8 +155,8 @@ const AppProvider = ({ children }) => {
             },
             complete: res => {
                 const dataArr = Object.values(data);
-                const rest = dataArr.filter((dt, i) => i > 2)
-                console.log("Section: ", rest)
+                const rest = dataArr.filter((dt, i) => i > 1)
+                console.log("Section: ", dataArr)
                 setCarousel(data[0]);
                 if(data[3]) setFeaturedMatches(data[3])
                 else setFeaturedMatches("test");
@@ -300,13 +300,13 @@ const AppProvider = ({ children }) => {
 
         loadInterval.current = setInterval(() => {
             setLoadStage(prevLoadStage => {
-                if (prevLoadStage >= 125) {
+                if (prevLoadStage >= 60) {
                     clearInterval(loadInterval.current)
                 }
 
-                return prevLoadStage + 2
+                return prevLoadStage + 20
             });
-        }, 100)
+        }, 1000)
 
         return () => clearInterval(loadInterval.current);
 

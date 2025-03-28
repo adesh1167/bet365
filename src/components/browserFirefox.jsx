@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useApp } from "../contexts/appContext";
-import './styles/browser.css';
+import './styles/browserFirefox.css';
 import { useLocation } from "react-router-dom";
 
-const menu = require('./../assets/menu.png');
-const secured = require('./../assets/secured.png');
+const home = require('./../assets/home-firefox.png');
+const menu = require('./../assets/menu-firefox.png');
+const secured = require('./../assets/secured-firefox.png');
 
-function Browser({ }) {
+function BrowserFirefox({ }) {
 
   const location = useLocation();
 
@@ -41,6 +42,9 @@ function Browser({ }) {
 
   return (
     <div className="browser">
+      <div className="browser-home">
+        <img src={home}/>
+      </div>
       <div className="address-bar">
         <img className="browser-secured" src={secured} />
         <span className="url" type="text">
@@ -54,7 +58,7 @@ function Browser({ }) {
       <div className="browser-buttons">
         <div className=" browser-button browser-tabs">
           <div className="browser-tabs-wrapper">
-            <div className="browser-tabs-decoy">{(tabs == 0 || Number(tabs) > 99) ? ':D' : tabs}</div>
+            <div className={`browser-tabs-decoy ${tabs > 9 ? "multiple" : ""}`}>{(tabs == 0 || Number(tabs) > 99) ? ':D' : tabs}</div>
             <input className="browser-tabs-box" type="number" value={tabs} onChange={e => setTabs(e.target.value)} />
           </div>
         </div>
@@ -70,4 +74,4 @@ function Browser({ }) {
   )
 }
 
-export default Browser;
+export default BrowserFirefox;

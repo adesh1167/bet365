@@ -45,7 +45,7 @@ const Body = () => {
                 <div>
                     <div className="pl-PodLoaderModule ">
                         {/* <Carousel /> */}
-                        {carousel && <div dangerouslySetInnerHTML={{__html: carousel.innerHTML}}/>}
+                        {carousel && <div dangerouslySetInnerHTML={{ __html: carousel.innerHTML }} />}
                         <div className="pl-PodLoaderModule_Pod-996 ">
                             <div className="scr-NavBarScroller_RightArrowVisible ">
                                 <div className="crm-ClassificationRibbonModule_CompetitionScrollerContainer ">
@@ -329,7 +329,7 @@ const Body = () => {
                                 </div>
                             </div>
                         </div>
-                        <div ref={containerRef} className="pl-PodLoaderModule_Pod-993 ">
+                        {/* <div ref={containerRef} className="pl-PodLoaderModule_Pod-993 ">
                             <div className="hsn-HomepageStickyNavModule ">
                                 <div
                                     ref={contentRef}
@@ -337,7 +337,6 @@ const Body = () => {
                                     style={{ width: "100%", top: 146 }}
                                 >
                                     <div className="hsn-Scroller ">
-                                        {/**/}
                                         <div className="hsn-Scroller_HScroll ">
                                             <div className="hsn-Scroller_ScrollContent ">
                                                 <div className="hsn-NavTab hsn-NavTab-selected">
@@ -352,18 +351,29 @@ const Body = () => {
                                                 <div className="hsn-NavTab ">
                                                     <div className="hsn-NavTab_Label ">NBA</div>
                                                 </div>
-                                                {/**/}
-                                                {/**/}
                                             </div>
                                         </div>
-                                        {/**/}
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        {matches.map((section, index) =>
-                            <div key={index} dangerouslySetInnerHTML={{ __html: section.innerHTML }} />
-                        )}
+                        </div> */}
+                        {matches.map((section, index) => {
+                            console.log(section.className.trim === "pl-PodLoaderModule_Pod-993", section.className)
+                            return section.className.trim() === "pl-PodLoaderModule_Pod-993" ?
+                                <div ref={containerRef} className="pl-PodLoaderModule_Pod-993">
+                                    <div className="hsn-HomepageStickyNavModule ">
+                                        <div
+                                            ref={contentRef}
+                                            className="hsn-HomepageStickyNavModule_ScrollerContainer"
+                                            style={{ width: "100%", top: 146 }}
+                                            dangerouslySetInnerHTML={{ __html: section.getElementsByClassName('hsn-HomepageStickyNavModule_ScrollerContainer')[0]?.innerHTML }}
+                                        >
+                                        </div>
+                                    </div>
+                                </div>
+                                :
+                                <div key={index} className={section.className} dangerouslySetInnerHTML={{ __html: section.innerHTML }} />
+                        })}
                         {/* <div dangerouslySetInnerHTML={{__html: featuredMatches.innerHTML}}/> */}
                         {false && <>
                             <div className="pl-PodLoaderModule_Pod-61 ">
@@ -11360,7 +11370,7 @@ const Body = () => {
                             </div>
                         </>
                         }
-                        <Footer/>
+                        <Footer />
                     </div>
                 </div>
             </div>
