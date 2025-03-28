@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import formatNumber from '../functions/formatNumber';
 import { matchDate } from '../functions/formatDate';
 import { useApp } from '../contexts/appContext';
 import gameTypes from '../data/gameTypes';
+import GenerateRandomJersey from '../functions/generateRandomJersey';
 
 const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 1, isDeleted}) => {
 
@@ -112,6 +113,11 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
 }
 
 const Match = ({match}) => {
+
+    const jersey = useRef({
+        home: GenerateRandomJersey(`${match.home}home${match.league}`),
+        away: GenerateRandomJersey(`${match.away}away${match.league}`)
+    })
     return(
         <div className="myb-OpenBetParticipant myb-BetParticipant ">
             <div className="myb-BetParticipant_TopContainer ">
@@ -150,13 +156,10 @@ const Match = ({match}) => {
                     <div className="myb-BetParticipant_TeamKits myb-TeamKits-1 " />
                     <div className="myb-BetParticipant_TeamContainer ">
                         <div className="myb-BetParticipant_Team1Container ">
-                            <div className="myb-BetParticipant_TeamKit myb-BetParticipant_1 tk-TeamKitImage ">
-                                <img
-                                    src="https://content001.bet365.com/SoccerSilks/Rangers Home 24-25.svg"
-                                    draggable="false"
-                                    className="tk-TeamKitImage_SVG "
-                                />
-                            </div>
+                            <div
+                                className={`myb-BetParticipant_TeamKit tk-TeamKitImage-autowidth pbb-PopularBetBuilder_FixImage-teamkit pbb-PopularBetBuilder_FixImage-teamkitauto tk-TeamKitImage tk-TeamKit tk-TeamKit-16 tk-TeamKit-16-${jersey.current.home.type} `}
+                                dangerouslySetInnerHTML={{ __html: jersey.current.home.logo }}
+                            />
                             <div className="myb-BetParticipant_Team1Name ">
                                 {match.home}
                             </div>
@@ -166,13 +169,10 @@ const Match = ({match}) => {
                             </div>
                         </div>
                         <div className="myb-BetParticipant_Team2Container ">
-                            <div className="myb-BetParticipant_TeamKit myb-BetParticipant_1 tk-TeamKitImage ">
-                                <img
-                                    src="https://content001.bet365.com/SoccerSilks/Fenerbache Home 24-25.svg"
-                                    draggable="false"
-                                    className="tk-TeamKitImage_SVG "
-                                />
-                            </div>
+                            <div
+                                className={`myb-BetParticipant_TeamKit tk-TeamKitImage-autowidth pbb-PopularBetBuilder_FixImage-teamkit pbb-PopularBetBuilder_FixImage-teamkitauto tk-TeamKitImage tk-TeamKit tk-TeamKit-16 tk-TeamKit-16-${jersey.current.away.type} `}
+                                dangerouslySetInnerHTML={{ __html: jersey.current.away.logo }}
+                            />
                             <div className="myb-BetParticipant_Team2Name ">
                                 {match.away}
                             </div>
