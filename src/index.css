@@ -336,3 +336,7 @@ a.hm-HeaderMenuItem {
   color: red;
   padding: 10px;
 }
+
+.hpc-HomepageCarouselModule_Pod:first-child{
+  display: none;
+}
