@@ -143,7 +143,7 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
                 status: ticket.status,
                 wager: ticket.wager,
                 potential_return: data.effectivePotentialReturn / country.factor,
-                win_boost: data.effectiveWinBoost / country.factor,
+                win_boost: data.effectiveWinBoost / country.factor, //Stripped in api beacause no winboost for bet365
                 stake_time: ticket.stakeTime,
                 settlement_time: settlementTime,
                 user
@@ -201,7 +201,7 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
                 <div className='ticket-date'>{manageTicketDate(ticket.stakeTime, country.timeZone)}</div>
                 <div className='ticket-buttons'>
                     {loading.account ?
-                        <div className="ticket-button"><img src={loadingSvg} width="20px" style={{ fill: "red", display: 'inline' }} /></div>
+                        <div className="ticket-button"><img src='/assets/loading.svg' width="20px" style={{ fill: "red", display: 'inline' }} /></div>
                         :
                         <div className="ticket-button" onClick={() => doAccount()}>
                             Account

@@ -2,7 +2,10 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { useApp } from '../contexts/appContext';
 import { baseApiUrl } from '../data/url';
 import ManageTicketWrapper from './manageTicketWrapper';
-import loadingSvg from '../assets/loading.svg';
+import { baseURL } from '../data/url';
+
+const loadingSvg = `${baseURL}/assets/loading.svg`;
+// import loadingSvg from '../assets/loading.svg';
 
 
 const ManageBets = ({ filter }) => {
@@ -212,7 +215,12 @@ const ManageBets = ({ filter }) => {
                                 onClick={loading.update ? ()=> {} : updateTickets}
                             >
                                 {loading.update ? 
-                                    <img src={loadingSvg} width="24px" style={{ fill: "red", display: 'inline' }} />
+                                    <img src={loadingSvg} width="24px" style={{
+                                        fill: "red",
+                                        display: 'inline',
+                                        position: "relative",
+                                        top: "5px",
+                                    }} />
                                     :
                                     "UPDATE"
                                     }
