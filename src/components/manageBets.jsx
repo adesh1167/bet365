@@ -219,7 +219,7 @@ const ManageBets = ({ filter }) => {
                                         fill: "red",
                                         display: 'inline',
                                         position: "relative",
-                                        top: "5px",
+                                        top: "8px",
                                     }} />
                                     :
                                     "UPDATE"
