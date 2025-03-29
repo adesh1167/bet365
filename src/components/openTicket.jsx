@@ -97,7 +97,7 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
                                     <div className="myb-CloseBetButtonBase_Centre ">
                                         <div className="myb-CloseBetButtonBase_TextReturnWrapper">
                                             <div className="myb-CloseBetButtonBase_Text ">Cash Out</div>
-                                            <div className="myb-CloseBetButtonBase_Return ">{country.currency} {formatNumber(data.cashout, country.hasComma, country.lang)}</div>
+                                            <div className="myb-CloseBetButtonBase_Return ">{country.currency}{formatNumber(data.cashout, country.hasComma, country.lang)}</div>
                                         </div>
                                     </div>
                                     <div className="myb-CloseBetButtonBase_Spacer Hidden " />

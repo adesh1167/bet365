@@ -182,7 +182,7 @@ export function isGreaterThan24hours(dateString, zone = "+1") {
   let date = DateTime.fromFormat(dateString, "yyyy-MM-dd HH:mm", { zone: "UTC+1" });
   date = date.setZone(`UTC${zone}`);
 
-  const isGreater = (date.diff(now, "hours").as("hours") * -1) > 120;
+  const isGreater = (date.diff(now, "hours").as("hours") * -1) > 24;
 
   return isGreater;
 }
@@ -197,10 +197,8 @@ export function isGreaterThanTime(variableDate, startSeconds, zone = "+1") {
   const date1Seconds = startSeconds / 1000;
   const date2Seconds = date2.toSeconds();
 
-  // console.log(date2Seconds, date1Seconds);
 
   const isGreater = date2Seconds >= date1Seconds;
-  // console.log(isGreater);
 
   return isGreater;
 }
@@ -219,9 +217,6 @@ export function myActivityDate(dateObj, duration, zone = "+1") {
 
 export function xAxisDate(dateObj, duration, zone = "+1") {
   const date = DateTime.fromSeconds(dateObj / 1000, { zone: `UTC${zone}` });
-
-  // console.log(dateObj, date.weekdayLong);
-  // return date.weekdayShort;
 
   const newDate = duration <= 7 ? date.weekdayShort : duration <= 31 ? ordinal(date.day) : date.monthShort.charAt(0);
 
