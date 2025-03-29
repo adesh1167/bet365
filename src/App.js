@@ -39,7 +39,7 @@ function Root() {
   // console.log("Location: ", location);
 
   useEffect(() => {
-    if (featuredMatches && location.pathname === "/") navigate('/HO');
+    if (featuredMatches && location.pathname === "/") navigate('/HO', {replace: true});
   }, [featuredMatches])
 
   const content = useMemo(() => {

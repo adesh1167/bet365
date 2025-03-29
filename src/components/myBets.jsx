@@ -3,7 +3,7 @@ import LoadingSpinner from "./loadingSpinner";
 // import Ticket from "./ticket";
 import { useApp } from "../contexts/appContext";
 import SettledTicket from "./settledTicket";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import TicketWrapper from "./ticketWrapper";
 import Footer from "./footer";
 import { isGreaterThan24hours } from "../functions/formatDate";
@@ -36,7 +36,8 @@ const buttons = [
         selected: false,
         animate: false,
         emptyText: "Bets that are settled will appear here for 24 hours",
-        emptyTextLink: "View older settled bets in your Account History"
+        emptyTextLink: "View older settled bets in your Account History",
+        link: "/ME/X8020",
     },
     {
         name: 'All',
@@ -44,7 +45,8 @@ const buttons = [
         selected: false,
         animate: false,
         emptyText: "Bets appear here for 24 hours",
-        emptyTextLink: "Older bets can be viewed in your Account History"
+        emptyTextLink: "Older bets can be viewed in your Account History",
+        link: "/ME/X8020",
     }
 ]
 
@@ -52,6 +54,7 @@ const buttons = [
 const MyBets = () => {
 
     const location = useLocation();
+    const navigate = useNavigate();
 
     const {loadedTickets, setLoadedTickets} = useApp();
 
@@ -153,7 +156,7 @@ const MyBets = () => {
                                         )}
                                         {buttons[selected].value === "settled" &&
                                             <div className="myb-ViewOlderBets ">
-                                                <div className="myb-ViewOlderBets_Label ">
+                                                <div onClick={()=>navigate("/ME/X8020")} className="myb-ViewOlderBets_Label ">
                                                     View older settled bets in your Account History
                                                 </div>
                                             </div>
@@ -167,9 +170,11 @@ const MyBets = () => {
                                         <div className="myb-BetItemsContainer_NoBetsMessageLineTwo ">
                                             {buttons[selected].emptyText}
                                         </div>
-                                        {buttons[selected].emptyTextLink &&<div className="myb-MembersLink">
-                                            {buttons[selected].emptyTextLink}
-                                        </div>}
+                                        {buttons[selected].emptyTextLink &&
+                                            <div onClick={()=>navigate(buttons[selected].link)} className="myb-MembersLink">
+                                                {buttons[selected].emptyTextLink}
+                                            </div>
+                                        }
                                     </div>
                                 }
                             </div>
