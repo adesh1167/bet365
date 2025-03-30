@@ -3,7 +3,7 @@ import OpenTicket from './openTicket'
 import SettledTicket from './settledTicket'
 import { useApp } from '../contexts/appContext';
 import loadingSvg from '../assets/loading.svg';
-import { baseApiUrl } from '../data/url';
+import { baseApiUrl, baseURL } from '../data/url';
 import getDate from '../functions/getDate';
 import { manageTicketDate, ticketDate } from '../functions/formatDate';
 
@@ -201,7 +201,7 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
                 <div className='ticket-date'>{manageTicketDate(ticket.stakeTime, country.timeZone)}</div>
                 <div className='ticket-buttons'>
                     {loading.account ?
-                        <div className="ticket-button"><img src='/assets/loading.svg' width="20px" style={{ fill: "red", display: 'inline' }} /></div>
+                        <div className="ticket-button"><img src={`${baseURL}/assets/loading.svg`} width="20px" style={{ fill: "red", display: 'inline' }} /></div>
                         :
                         <div className="ticket-button" onClick={() => doAccount()}>
                             Account

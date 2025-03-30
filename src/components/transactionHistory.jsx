@@ -112,7 +112,7 @@ const Transaction = ({ transaction, label }) => {
                     className="dwh-DepositWithdrawalResult_DepositLabel "
                     style={{}}
                 >
-                    {transaction.tx_type}
+                    {transaction.tx_type === "Card Deposit" ? "Deposit AstroPay" : transaction.tx_type}
                 </div>
                 <div className="dwh-DepositWithdrawalResult_ReferenceLabel ">
                     Reference: {generateUUID(transaction.tx_time)}

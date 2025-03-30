@@ -84,7 +84,7 @@ const Head = () => {
                                         value={countryCode}
                                     >
                                         {Object.values(countries).map((option, index) => 
-                                            <option value={index}>{option.name}</option>
+                                            <option key={index} value={index}>{option.name}</option>
                                             )}
                                     </select>
                                 </div>
@@ -133,7 +133,7 @@ const Head = () => {
                                     <div className="hm-MainHeaderTabRow_InPlayLabel ">
                                         {lang[button.name]}
                                     </div>
-                                    {(button.name === "mybets" && openTicketsCount > 0) && <span class="hm-HeaderMenuItemMyBets_MyBetsCount ">{openTicketsCount}</span>}
+                                    {(button.name === "mybets" && openTicketsCount > 0) && <span className="hm-HeaderMenuItemMyBets_MyBetsCount ">{openTicketsCount}</span>}
                                 </Link  >
                             )
                         })}

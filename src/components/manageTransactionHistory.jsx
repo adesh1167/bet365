@@ -70,7 +70,7 @@ const ManageTransactionHistory = ({ toggleMenu, goBack, hidden, type, title, dur
                                 :
                                 <div className="hl-SummaryRenderer_Container ">
                                     {transactions.map(transaction =>
-                                        <Transaction transaction={transaction} deleteTransaction={deleteTransaction} label={label}/>    
+                                        <Transaction key={transaction.id} transaction={transaction} deleteTransaction={deleteTransaction} label={label}/>    
                                     )}
                                 </div>
                             }

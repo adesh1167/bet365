@@ -58,7 +58,7 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
                 <div className="myb-OpenBetItemInnerView_Details ">
                     <div className="myb-OpenBetItemInnerView_ParticipantContainer ">
                         {ticket.matches.map((match, index) =>
-                            <Match match={match}/>
+                            <Match key={match.home+index} match={match}/>
                         )}
                     </div>
                 </div>
