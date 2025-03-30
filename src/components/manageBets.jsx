@@ -179,7 +179,7 @@ const ManageBets = ({ filter }) => {
         })
     }
 
-    console.log(filteredTickets);
+    console.log(withdrawalTime);
     return (
         <div className="wc-MyBetsPageResponsive_Container">
             <div className="myb-MyBetsModule ">
@@ -237,7 +237,7 @@ const ManageBets = ({ filter }) => {
                             >
                                 <div className="deposit">
                                     <input type="number" className="amount" value={depositAmount} onChange={e => setDepositAmount(e.target.value)} />
-                                    <input type="datetime-local" className="time" value={depositTime} onChange={e => setDepositTime(e.target.value)} />
+                                    <input type="datetime-local" step={1} className="time" value={depositTime} onChange={e => setDepositTime(e.target.value)} />
                                     {
                                         loading.deposit ?
                                             <div className="deposit-button"><img src={loadingSvg} width="20px" style={{ fill: "red", display: 'inline' }} /></div>
@@ -247,7 +247,7 @@ const ManageBets = ({ filter }) => {
                                 </div>
                                 <div className="withdrawal">
                                     <input type="number" className="amount" value={withdrawalAmount} onChange={e => setWithdrawalAmount(e.target.value)} />
-                                    <input type="datetime-local" className="time" value={withdrawalTime} onChange={e => setWithdrawalTime(e.target.value)} />
+                                    <input type="datetime-local" step={1} className="time" value={withdrawalTime} onChange={e => setWithdrawalTime(e.target.value)} />
                                     {
                                         loading.withdraw ?
                                             <div className="withdrawal-button"><img src={loadingSvg} width="20px" style={{ fill: "red", display: 'inline' }} /></div>
