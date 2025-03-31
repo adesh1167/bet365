@@ -1,19 +1,19 @@
 {
-  "short_name": "Bet365",
-  "name": "Bet365",
+  "short_name": "Chrome",
+  "name": "Chrome",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "icon.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "icon.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo192.png",
+      "src": "icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }
