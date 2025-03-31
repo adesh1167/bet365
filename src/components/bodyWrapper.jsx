@@ -10,7 +10,7 @@ import ManageTransactionHistory from "./manageTransactionHistory";
 
 const BodyWrapper = () => {
 
-    console.log("Boddy Wrapper Rendered")
+    // console.log("Boddy Wrapper Rendered")
 
     const {user} = useApp();
 

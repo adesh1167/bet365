@@ -3,7 +3,9 @@ import { useApp } from "../contexts/appContext";
 import formatNumber from "../functions/formatNumber";
 import { ticketDate } from "../functions/formatDate";
 
-const BetSummary = ({ ticket, percent = 1,}) => {
+import "./styles/betSummary.css";
+
+const BetSummary = ({ ticket, percent = 1, }) => {
 
     console.log("Ticket: ", ticket);
 
@@ -124,7 +126,7 @@ const BetSummary = ({ ticket, percent = 1,}) => {
             <div className="h-BetSummary_SelectionContainer ">
                 <div>
                     {ticket.matches.map((match, index) => (
-                        <Match key={index} match={match} />
+                        <Match key={index} match={match} isOpen={ticket.status === "open"} />
                     ))}
                 </div>
                 <div className="h-StakeDescription ">
@@ -160,10 +162,12 @@ const BetSummary = ({ ticket, percent = 1,}) => {
     )
 }
 
-const Match = ({match}) => {
+const Match = ({ match, isOpen }) => {
 
+    const hasOfferBadges = useRef((isOpen && match.hasEarlyPayout && match.status === "finished") || (!isOpen && match.hasEarlyPayout));
+    
     return (
-        <div className="h-BetSelection ">
+        <div className={`h-BetSelection ${hasOfferBadges.current ? "h-BetSelection-hasofferbadges" : ""}`}>
             <div className="h-BetSelection_Container ">
                 <div className="h-BetSelection_InfoContainer ">
                     <div className="h-BetSelection_NameContainer ">
@@ -175,6 +179,20 @@ const Match = ({match}) => {
                 </div>
             </div>
             <div className="h-BetSelection_SubOnBadgeContainer " />
+            {hasOfferBadges.current &&
+                <div className="h-BetSelection_OfferBadgesContainer hob-OfferBadgesContainer hob-OfferBadgesContainer-betitemmode ">
+                    <div className="hob-OfferBadgesContainer_BadgeContainer ">
+                        <div className="hob-OfferBadgesContainer_BadgeContainerInner ">
+                            <div className="hob-OfferBadgeSettled ">
+                                <div className="hob-OfferBadgeSettled_Text hob-OfferBadgeSettled_Badge-with-settledtext ">
+                                    Early Payout
+                                </div>
+                                <div className="hob-OfferBadgeSettled_SettledText ">Received</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     )
 }

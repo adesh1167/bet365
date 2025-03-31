@@ -5,16 +5,16 @@ import { useApp } from '../contexts/appContext';
 import gameTypes from '../data/gameTypes';
 import GenerateRandomJersey from '../functions/generateRandomJersey';
 
-const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 1, isDeleted}) => {
+const OpenTicket = ({ ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 1, isDeleted }) => {
 
     const { country, lang } = useApp();
     console.log("expanded: ", expanded, data.wager, height);
     return (
         <div
             className={`myb-OpenBetItem ${expanded ? "myb-OpenBetItem_Open" : "myb-OpenBetItem_Collapsed"}`}
-            style={{visibility: data.wager ? "visible" : "hidden", opacity: isDeleted ? "0.5" : "1", transition: "0.1s opacity linear" }}
+            style={{ visibility: data.wager ? "visible" : "hidden", opacity: isDeleted ? "0.5" : "1", transition: "0.1s opacity linear" }}
         >
-            <div className="myb-OpenBetItem_Header myb-OpenBetItem_HeaderTitle "  onClick={toggleExpand}>
+            <div className="myb-OpenBetItem_Header myb-OpenBetItem_HeaderTitle " onClick={toggleExpand}>
                 <div className="myb-OpenBetItem_HeaderTextContainer ">
                     <div className="myb-OpenBetItem_StakeDesc ">
                         {country.currency}{formatNumber(data.wager, country.hasComma, country.lang)} {lang[`${ticket.matches.length}Fold`]}
@@ -22,7 +22,7 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
                     <div className="myb-OpenBetItem_HeaderText Hidden " />
                     <div className="myb-OpenBetItem_SubHeaderText ">
                         {ticket.matches.map(match => match.userSelection).join(", ")}
-{/*                        
+                        {/*                        
                         Fenerbahce 3-2, Lazio &amp; No, Man Utd v Real Sociedad, Over 2.5, Roma,
                         Lyon, Draw - Athletic Bilbao, Eintracht Frankfurt, Draw, Roma to win by
                         1 goal */}
@@ -54,21 +54,36 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
             <div className="Hidden myb-MessageSubHeader ">
                 Edit Bet is no longer available
             </div>
-            <div className={`myb-OpenBetItemInnerView ${hidden ? "Hidden" : ""}`} style={{ maxHeight: expanded ? `${height}px` : "0px" }}>
+            <div className={`myb-OpenBetItemInnerView ${data.winBoost ? "myb-OpenBetItemInnerView-hasoffers" : ""} ${hidden ? "Hidden" : ""}`} style={{ maxHeight: expanded ? `${height}px` : "0px" }}>
                 <div className="myb-OpenBetItemInnerView_Details ">
                     <div className="myb-OpenBetItemInnerView_ParticipantContainer ">
                         {ticket.matches.map((match, index) =>
-                            <Match key={match.home+index} match={match}/>
+                            <Match key={match.home + index} match={match} />
                         )}
                     </div>
                 </div>
-                <div className="myb-OpenBetItemInnerView_BadgeContainer ">
-                    <div className="myb-OpenBetItemInnerView_BadgeContainerInner ">
-                        <div>
-                            <div />
+                {data.winBoost &&
+                    <div className="myb-OpenBetItemInnerView_BadgeContainer ">
+                        <div className="myb-OpenBetItemInnerView_BadgeContainerInner ">
+                            <div className="mbo-OfferBadgesContainer ">
+                                <div className="mbo-OfferBadgesContainer_BadgeContainer ">
+                                    <div className="mbo-OfferBadgesContainer_BadgeContainerInner ">
+                                        <div className="mbo-OfferBadgeStandard ">
+                                            <div className="mbo-OfferBadgeStandard_BonusText ">+{formatNumber(data.boostFactor*100, false, country.lang)}%</div>
+                                            <div className="mbo-OfferBadgeStandard_Badge mbo-OfferBadgeStandard_Badge-with-bonus ">
+                                                {" "}
+                                                Acca Boost
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="mbo-OfferBadgesContainer_Disclaimer ">
+                                    applied when all matches have finished
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
                 <div className="myb-OpenBetItemInnerView_BetInformationContainer myb-OpenBetItemInnerView_BetInformationContainer-hasCloseButton ">
                     <div className="myb-OpenBetItemInnerView_BetInformation ">
                         <div className="myb-OpenBetItemInnerView_StakeInformationWrapper myd-StakeDisplay ">
@@ -112,16 +127,33 @@ const OpenTicket = ({ticket, data, filter, height, hidden, expanded, toggleExpan
     )
 }
 
-const Match = ({match}) => {
+const Match = ({ match }) => {
 
     const jersey = useRef({
         home: GenerateRandomJersey(`${match.home}home${match.league}`),
         away: GenerateRandomJersey(`${match.away}away${match.league}`)
     })
-    return(
+
+    let isWon;
+    let isCancelled;
+    let winningSelectionText;
+    let oddText;
+    let filter;
+    let color;
+    let isFinished;
+
+
+    isWon = match.winningSelection === match.userSelection;
+    isCancelled = match.winningSelection === 'NotResulted';
+    winningSelectionText = match.isCancelled ? 'NotResulted' : match.winningSelection;
+    oddText = isCancelled ? 'NotResulted' : Number(match.odd).toFixed(2);
+    color = match.status === 'finished' ? 'win-color' : 'black-color';
+    filter = match.status === 'finished' ? "won" : "torun";
+    
+    return (
         <div className="myb-OpenBetParticipant myb-BetParticipant ">
             <div className="myb-BetParticipant_TopContainer ">
-                <div className="myb-WinLossIndicator myb-WinLossIndicator-torun " />
+                <div className={`myb-WinLossIndicator myb-WinLossIndicator-${filter}`} />
                 <div className="myb-BetParticipant_LeftContainer ">
                     <div className="myb-BetParticipant_HeaderTitle ">
                         <div className="myb-BetParticipant_HeaderText ">
@@ -141,14 +173,21 @@ const Match = ({match}) => {
                     </div>
                     <div className="myb-BetParticipant_BetBoost ">
                         <div className="myb-BetParticipant_MarketDescription ">
-                           {gameTypes[match.gameType]?.text || match.gameType}
+                            {gameTypes[match.gameType]?.text || match.gameType}
                         </div>
                     </div>
                 </div>
                 <div className="myb-BetParticipant_RightContainer ">
-                    <div className="mbo-OfferBadgesContainer_Rhs ">
-                        <div />
-                    </div>
+                    {match.hasEarlyPayout === "true" && <div className="mbo-OfferBadgesContainer_Rhs mbo-OfferBadgesContainer mbo-OfferBadgesContainer-betitemmode ">
+                        <div className="mbo-OfferBadgesContainer_BadgeContainer ">
+                            <div className="mbo-OfferBadgesContainer_BadgeContainerInner ">
+                                <div className="mbo-OfferBadgeStandard ">
+                                    <div className="mbo-OfferBadgeStandard_Badge "> Early Payout</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>}
+
                 </div>
             </div>
             <div className="myb-BetParticipant_FixtureContainer ">

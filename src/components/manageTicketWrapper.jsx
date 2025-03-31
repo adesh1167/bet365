@@ -196,7 +196,7 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
     const height = useRef(100 + 125 * ticket.matches.length);
 
     return (
-        <div className="ticket-wrapper">
+        <div className={`ticket-wrapper ${isDeleted ? "deleted" : ""}`}>
             <div className="manage-ticket-header">
                 <div className='ticket-date'>{manageTicketDate(ticket.stakeTime, country.timeZone)}</div>
                 <div className='ticket-buttons'>
@@ -228,7 +228,7 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
                     hidden={hidden}
                     expanded={expanded}
                     toggleExpand={toggleExpand}
-                    isDeleted={isDeleted}
+                    // isDeleted={isDeleted}
                 />
                 :
                 <SettledTicket
@@ -240,7 +240,7 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
                     hidden={hidden}
                     expanded={expanded}
                     toggleExpand={toggleExpand}
-                    isDeleted={isDeleted}
+                    // isDeleted={isDeleted}
                 />
             }
         </div>

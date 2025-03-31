@@ -1,0 +1,734 @@
+.allow-hover .hob-BonusBetBadge_Container:hover .hob-BonusBetBadge_OfferLabel-tick,
+.hob-BonusBetBadge_OfferLabel-tick {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='13' viewBox='0 0 17 13'%3E%3Cpath fill='%23333' d='M0 6.252L6.224 13 17 1.489 15.699 0 6.224 10.023l-4.83-5.161z'/%3E%3C/svg%3E")
+}
+
+.hob-BonusBetBadge_Container {
+    background-color: #ffdf1b;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 1px;
+    font-weight: 700;
+    font-style: italic;
+    height: 15px;
+    cursor: pointer
+}
+
+.hob-BetSummary .hob-BonusBetBadge_Container {
+    margin-bottom: 10px
+}
+
+.hob-BonusBetBadge_OfferLabel,
+.hob-BonusBetBadge_QualifiedLabel,
+.hob-BonusBetBadge_RedeemedLabel {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 13px;
+    padding: 0 3px
+}
+
+.hob-BonusBetBadge_OfferLabel {
+    border: 1px solid #a7a7a7;
+    text-transform: uppercase;
+    border-radius: 2px 0 0 2px;
+    color: #1f1f1f;
+    border-right: none
+}
+
+.allow-hover .hob-BonusBetBadge_Container:hover .hob-BonusBetBadge_OfferLabel {
+    color: #000
+}
+
+.hob-BonusBetBadge_OfferLabel-tick {
+    border-radius: 2px;
+    border: 1px solid #a7a7a7;
+    padding-left: 17px;
+    background-size: 12px 10px;
+    background-repeat: no-repeat;
+    background-position: 3px 1px
+}
+
+.hob-BonusBetBadge_QualifiedLabel {
+    color: #fafafa;
+    border: 1px solid #666;
+    border-radius: 0 2px 2px 0;
+    background-color: #666
+}
+
+.hob-BonusBetBadge_RedeemedLabel {
+    color: #c3c3c3;
+    background-color: #383838;
+    border: 1px solid #383838;
+    border-radius: 0 2px 2px 0
+}
+
+.hob-OfferBadge {
+    font-size: 10px;
+    line-height: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    color: #545454;
+    border: 1px solid #b5b5b5;
+    border-radius: 1px;
+    background-color: #fff
+}
+
+.allow-hover .hob-OfferBadgesContainer_BadgeContainerInner:hover .hob-OfferBadge,
+.hob-OfferBadge.hob-OfferBadgeStandard-active {
+    cursor: pointer;
+    color: #333;
+    border-color: #d4d4d4
+}
+
+.hob-OfferBadgeBog {
+    height: 18px;
+    width: -webkit-fit-content;
+    width: fit-content;
+    margin: 5px 0;
+    font-size: 10px;
+    color: #333;
+    line-height: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-style: italic;
+    text-align: center;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative
+}
+
+.hob-OfferBadgeBog_Text {
+    padding: 0 4px;
+    border-radius: 2px 0 0 2px;
+    background-color: #e4e4e4
+}
+
+.allow-hover .hob-OfferBadgeBog_Text:hover,
+.hob-OfferBadgeBog_Text.hob-OfferBadgeBog-active {
+    color: #000
+}
+
+.hob-OfferBadgeBog_OddsText {
+    border-radius: 0 2px 2px 0;
+    padding: 0 4px;
+    background-color: #2ec193
+}
+
+.allow-hover .hob-OfferBadgeBog_OddsText:hover,
+.hob-OfferBadgeBog_OddsText.hob-OfferBadgeBog-active {
+    background-color: #58d7af;
+    color: #000
+}
+
+.hob-OfferBadgeBog_Wrapper {
+    position: relative
+}
+
+.hob-OfferBadgeEnhancedPrice {
+    font-size: 10px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    color: #545454;
+    border: 1px solid #b5b5b5;
+    border-radius: 1px;
+    background-color: #fff;
+    line-height: 15px;
+    height: 17px;
+    padding: 0 0 1px
+}
+
+.allow-hover .hob-OfferBadgesContainer_BadgeContainerInner:hover .hob-OfferBadgeEnhancedPrice,
+.hob-OfferBadgeEnhancedPrice.hob-OfferBadgeEnhancedPrice-active {
+    cursor: pointer;
+    color: #333;
+    border-color: #d4d4d4
+}
+
+.hob-OfferBadgeEnhancedPrice_Text {
+    padding: 0 5px
+}
+
+.hob-OfferBadgeEnhancedPrice_Wrapper {
+    position: relative;
+    width: 100%
+}
+
+.hob-OfferBadgesContainer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: visible;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.hob-OfferBadgesContainer_NoFlex {
+    display: block
+}
+
+.hob-OfferBadgesContainer_BadgeContainer {
+    white-space: nowrap;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    padding-bottom: 5px
+}
+
+.hob-OfferBadgesContainer-betitemmode .hob-OfferBadgesContainer_BadgeContainer {
+    padding-bottom: 0
+}
+
+.hob-OfferBadgesContainer-betbuilder .hob-OfferBadgesContainer_BadgeContainer {
+    padding-bottom: 5px
+}
+
+.hob-OfferBadgesContainer_Disclaimer {
+    text-align: left;
+    color: #666;
+    font-size: 11px;
+    line-height: 16px
+}
+
+.hob-OfferBadgesContainer_DisclaimerNoFlex {
+    padding-bottom: 10px
+}
+
+.hob-OfferBadgesContainer_BadgeContainerInner {
+    cursor: pointer;
+    position: relative;
+    margin-right: 15px
+}
+
+.hob-OfferBadgesContainer_BadgeContainerInner.hob-OfferBadgesContainer_BadgeContainerInner-betbuilder {
+    padding-top: 14px;
+    padding-bottom: 15px
+}
+
+.hob-OfferBadgesContainer_BadgeContainerInner:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: -14px;
+    bottom: -14px
+}
+
+.hob-OfferBadgeSettled {
+    font-size: 10px;
+    line-height: 12px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+    position: relative;
+    color: #333;
+    font-weight: 700;
+    border-radius: 1px;
+    cursor: pointer
+}
+
+.hob-OfferBadgeSettled_Text {
+    padding: 2px 5px;
+    border-radius: 1px;
+    background-color: #b5b5b5
+}
+
+.allow-hover .hob-OfferBadgesContainer_BadgeContainerInner:hover .hob-OfferBadgeSettled_Text,
+.hob-OfferBadgeSettled-active .hob-OfferBadgeSettled_Text {
+    background-color: #d4d4d4
+}
+
+.hob-OfferBadgeSettled_Text.hob-OfferBadgeSettled_Badge-with-settledtext {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.hob-OfferBadgeSettled_Text.hob-OfferBadgeSettled_Badge-with-bonus {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0
+}
+
+.hob-OfferBadgeSettled_SettledText {
+    margin-left: 1px;
+    padding: 2px 5px;
+    background-color: #2ec193;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px
+}
+
+.hob-OfferBadgeSettled_BonusText {
+    margin-right: 1px;
+    padding: 2px 5px;
+    background-color: #2ec193;
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px
+}
+
+.hob-OfferBadgeSettled_Wrapper {
+    position: relative;
+    width: 100%
+}
+
+.hob-OfferBadgesPopup {
+    position: absolute;
+    z-index: 30;
+    border-radius: 2px;
+    max-width: 480px;
+    padding: 15px;
+    background-color: #f5f7f7;
+    text-align: left;
+    cursor: default;
+    white-space: normal;
+    border: 1px solid #b5b5b5;
+    margin: 10px 0 0
+}
+
+.hob-OfferBadgesPopup.hob-OfferBadgesPopup-above {
+    margin: 0 10px 0 0
+}
+
+.hob-OfferBadgesPopup_Header {
+    line-height: 22px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828
+}
+
+.hob-OfferBadgesPopup_Header-gap {
+    padding-top: 0
+}
+
+.hob-OfferBadgesPopup_Text {
+    line-height: 18px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: #282828;
+    white-space: normal
+}
+
+.hob-OfferBadgesPopup_Nib {
+    border: 1px solid transparent;
+    border-radius: 1px;
+    border-right: 1px solid #b5b5b5;
+    border-top: 1px solid #b5b5b5;
+    height: 8px;
+    width: 8px;
+    padding: 0;
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    z-index: 40;
+    background-color: #f5f7f7;
+    margin-top: 7px
+}
+
+.hob-OfferBadgesPopup_Nib.hob-OfferBadgesPopup_Nib-above {
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    margin-bottom: 7px
+}
+
+.hob-OfferBadgesPopupBog {
+    position: absolute;
+    z-index: 30;
+    border-radius: 2px;
+    max-width: 480px;
+    padding: 15px;
+    background-color: #f5f7f7;
+    text-align: left;
+    cursor: default;
+    white-space: normal;
+    border: 1px solid #b5b5b5;
+    margin: 10px 0 0
+}
+
+.hob-OfferBadgesPopupBog.hob-OfferBadgesPopupBog-above {
+    margin: 0 10px 0 0
+}
+
+.hob-OfferBadgesPopupBog_Header {
+    line-height: 22px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828
+}
+
+.hob-OfferBadgesPopupBog_Text {
+    line-height: 18px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: #282828;
+    white-space: normal
+}
+
+.hob-OfferBadgesPopupBog_Text:first-child {
+    padding-top: 15px
+}
+
+.hob-OfferBadgesPopupBog_Text:last-child {
+    padding-bottom: 15px
+}
+
+.hob-OfferBadgesPopupBog_Nib {
+    border: 1px solid transparent;
+    border-radius: 1px;
+    border-right: 1px solid #b5b5b5;
+    border-top: 1px solid #b5b5b5;
+    height: 8px;
+    width: 8px;
+    padding: 0;
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    z-index: 40;
+    background-color: #f5f7f7;
+    margin-top: 7px
+}
+
+.hob-OfferBadgesPopupBog_Nib.hob-OfferBadgesPopupBog_Nib-above {
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    margin-bottom: 7px
+}
+
+.hob-OfferBadgesPopupBog_OfferLink {
+    font-size: 10px;
+    color: #007a56;
+    line-height: 18px;
+    cursor: pointer;
+    font-weight: 700
+}
+
+.allow-hover .hob-OfferBadgesPopupBog_OfferLink:hover {
+    text-decoration: underline
+}
+
+.hob-OfferBadgesPopupFooter {
+    font-size: 12px;
+    color: #007a56;
+    line-height: 20px;
+    cursor: pointer;
+    font-weight: 700
+}
+
+.allow-hover .hob-OfferBadgesPopupFooter:hover {
+    text-decoration: underline
+}
+
+.hob-OfferBadgesPopupNoStem {
+    position: absolute;
+    z-index: 30;
+    border-radius: 2px;
+    max-width: 480px;
+    padding: 15px;
+    background-color: #f5f7f7;
+    margin: 10px 0 0;
+    text-align: left;
+    pointer-events: none;
+    white-space: normal;
+    border: 1px solid #b5b5b5
+}
+
+.hob-OfferBadgesPopupNoStem.hob-OfferBadgesPopupNoStem-above {
+    margin: 0 10px 0 0
+}
+
+.hob-OfferBadgesPopupNoStem_Header {
+    line-height: 22px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828
+}
+
+.hob-OfferBadgesPopupNoStem_Text {
+    line-height: 18px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: #282828;
+    white-space: normal
+}
+
+.hob-OfferBadgesPopupNoStem_Nib {
+    border: 1px solid transparent;
+    border-radius: 1px;
+    border-right: 1px solid #b5b5b5;
+    border-top: 1px solid #b5b5b5;
+    height: 8px;
+    width: 8px;
+    padding: 0;
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    z-index: 40;
+    background-color: #f5f7f7;
+    margin-top: 7px
+}
+
+.hob-OfferBadgesPopupNoStem_Nib.hob-OfferBadgesPopupNoStem_Nib-above {
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    margin-bottom: 7px
+}
+
+.hob-OfferBadgesSubOnPopup {
+    position: absolute;
+    z-index: 30;
+    border-radius: 2px;
+    max-width: 480px;
+    padding: 15px;
+    background-color: #f5f7f7;
+    text-align: left;
+    cursor: default;
+    white-space: normal;
+    border: 1px solid #b5b5b5;
+    margin: 10px 0 0
+}
+
+.hob-OfferBadgesSubOnPopup.hob-OfferBadgesSubOnPopup-above {
+    margin: 0 10px 0 0
+}
+
+.hob-OfferBadgesSubOnPopup_Header {
+    line-height: 22px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #282828
+}
+
+.hob-OfferBadgesSubOnPopup_Text {
+    line-height: 18px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: #282828;
+    white-space: normal
+}
+
+.hob-OfferBadgesSubOnPopup_Nib {
+    border: 1px solid transparent;
+    border-radius: 1px;
+    border-right: 1px solid #b5b5b5;
+    border-top: 1px solid #b5b5b5;
+    height: 8px;
+    width: 8px;
+    padding: 0;
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    z-index: 40;
+    background-color: #f5f7f7;
+    margin-top: 7px
+}
+
+.hob-OfferBadgesSubOnPopup_Nib.hob-OfferBadgesSubOnPopup_Nib-above {
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    margin-bottom: 7px
+}
+
+.hob-OfferBadgeStandard {
+    font-size: 10px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    color: #545454;
+    border: 1px solid #b5b5b5;
+    border-radius: 1px;
+    background-color: #fff;
+    line-height: 15px;
+    height: 17px;
+    padding: 0 0 1px
+}
+
+.allow-hover .hob-OfferBadgesContainer_BadgeContainerInner:hover .hob-OfferBadgeStandard,
+.hob-OfferBadgeStandard.hob-OfferBadgeStandard-active {
+    cursor: pointer;
+    color: #333;
+    border-color: #d4d4d4
+}
+
+.hob-OfferBadgeStandard_Badge {
+    padding: 0 5px
+}
+
+.hob-OfferBadgeStandard_BonusText {
+    padding: 0 5px;
+    border-right: 1px solid;
+    border-color: #b5b5b5
+}
+
+.allow-hover .hob-OfferBadgesContainer_BadgeContainerInner:hover .hob-OfferBadgeStandard_BonusText,
+.hob-OfferBadgeStandard-active .hob-OfferBadgeStandard_BonusText {
+    border-color: #d4d4d4
+}
+
+.hob-OfferBadgeStandard_Wrapper {
+    position: relative;
+    width: 100%
+}
+
+.hob-OfferBadgeSubOn_OfferBadgeCont {
+    border-radius: 2px;
+    height: 15px
+}
+
+.hob-OfferBadgeSubOn_OfferBadgeContActive {
+    border: 1px solid #333;
+    background-color: #333
+}
+
+.hob-OfferBadgeSubOn_OfferBadgeContInactive {
+    border: 1px solid #888
+}
+
+.hob-OfferBadgeSubOn_OfferBadge {
+    font-family: FuturaPTObliqueBold, Futura, "sans-serif";
+    text-transform: uppercase;
+    font-size: 10px;
+    position: relative;
+    top: -4px;
+    line-height: 21px;
+    padding: 0 3px;
+    font-style: oblique;
+    font-weight: 900;
+    width: -webkit-max-content;
+    width: max-content
+}
+
+.hob-OfferBadgeSubOn_OfferBadgeActive {
+    color: #fff
+}
+
+.hob-OfferBadgeSubOn_OfferBadgeInactive {
+    color: #888
+}
+
+.hob-OfferBadgesUserPopup {
+    width: 280px;
+    padding: 0 10px 5px;
+    border-radius: 2px;
+    background-color: #e4e4e4;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+    position: absolute;
+    text-align: left;
+    margin-top: 9px;
+    font-weight: 400;
+    z-index: 99
+}
+
+.hob-OfferBadgesUserPopup.hob-OfferBadgesUserPopup-above {
+    margin-bottom: 11px
+}
+
+.hob-OfferBadgesUserPopup_Header {
+    font-size: 15px;
+    color: #282828;
+    font-weight: 700;
+    line-height: 18px;
+    padding-top: 20px;
+    padding-bottom: 5px
+}
+
+.hob-OfferBadgesUserPopup_Text {
+    font-size: 13px;
+    color: #282828;
+    line-height: 18px;
+    padding-bottom: 10px
+}
+
+.hob-OfferBadgesUserPopup_SubText {
+    font-size: 11px;
+    color: #282828;
+    line-height: 17px;
+    margin-bottom: 4px
+}
+
+.hob-OfferBadgesUserPopup_FooterLink {
+    font-size: 11px;
+    line-height: 17px;
+    font-weight: 400;
+    color: #126e51;
+    cursor: pointer;
+    padding-bottom: 10px;
+    position: relative
+}
+
+.allow-hover .hob-OfferBadgesUserPopup_FooterLink:hover {
+    text-decoration: underline
+}
+
+.hob-OfferBadgesUserPopup_FooterLink:after {
+    content: "";
+    width: 100%;
+    height: 45px;
+    position: absolute;
+    display: block;
+    top: -12px
+}
+
+.hob-OfferBadgesUserPopup_Nib {
+    border-bottom: 5px solid #e4e4e4;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    position: absolute;
+    z-index: 40;
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top: 4px;
+    margin-left: -6px;
+    top: -9px
+}
+
+.hob-OfferBadgesUserPopup_Nib.hob-OfferBadgesUserPopup_Nib-above {
+    border-bottom: none;
+    border-top: 5px solid #e4e4e4;
+    margin-bottom: 6px;
+    margin-top: 0
+}

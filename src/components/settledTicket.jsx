@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import formatNumber from '../functions/formatNumber';
 import { useApp } from '../contexts/appContext';
 import gameTypes from '../data/gameTypes';
+import GenerateRandomJersey from '../functions/generateRandomJersey';
 
 const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleExpand, percent = 0.9, isDeleted }) => {
 
@@ -12,7 +13,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
     return (
         <div
             className={`myb-SettledBetItem ${ticket.filter === "Win" ? "myb-SettledBetItem_HasWin" : (ticket.filter === "Loss" ? "myb-SettledBetItem_HasLost" : "")} ${expanded ? "myb-SettledBetItem_Open" : "myb-SettledBetItem_Collapsed"}`}
-            style={{visibility: data.wager ? "visible" : "hidden", opacity: isDeleted ? "0.5" : "1", transition: "0.1s opacity linear" }}
+            style={{ visibility: data.wager ? "visible" : "hidden", opacity: isDeleted ? "0.5" : "1", transition: "0.1s opacity linear" }}
         >
             <div className="myb-SettledBetItemHeader " onClick={toggleExpand}>
                 <div className="myb-SettledBetItemHeader_HeaderTextContainer ">
@@ -25,7 +26,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                         {ticket.matches.map(match => match.userSelection).join(", ")}
                     </div>
                 </div>
-                {(ticket.filter) && 
+                {(ticket.filter) &&
                     <div className="myb-SettledBetItem_BetStateContainer "
                         style={{
                             transition: "0.2s opacity linear",
@@ -34,7 +35,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                     >
                         <div className="myb-SettledBetItem_BetStateWrapper">
                             {ticket.filter !== "Loss" && <div className="myb-SettledBetItem_BetReturnLabel ">{country.currency}{formatNumber(data.potentialReturn, country.hasComma, country.lang)}</div>}
-                            <div className="myb-SettledBetItem_BetStateLabel ">{ticket.filter === "Loss" ? 'Loss' : "Returned"}</div>
+                            <div className="myb-SettledBetItem_BetStateLabel ">{ticket.filter === "Loss" ? 'Loss' : ticket.filter === "Cash Out" ? "Cashed Out" : "Returned"}</div>
                         </div>
                     </div>
                 }
@@ -43,7 +44,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                 <div className="myb-SettledBetItemInnerView_ParticipantContainer myb-SettledBetParticipantRenderer ">
 
                     {ticket.matches.map((match, index) =>
-                        <Match {...match} key={`${filter}-${index}`} isOpen={data.isOpen}/>
+                        <Match {...match} key={`${filter}-${index}`} isOpen={data.isOpen} />
                     )}
 
                 </div>
@@ -74,63 +75,63 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                         <div className="myb-SettledBetItemFooter_SettledButtonBase ">
                             <div className="myb-SettledBetItemFooter_SettledButtonWrapper ">
                                 <div className="myb-SettledBetItemFooter_SettledButton ">
-                                    <div className={`myb-SettledBetItemFooter_SettledButtonTextWrapper myb-SettledBetItemFooter_SettledButtonTextWrapper${ticket.filter === "Loss" ? "-lost" : ""}`}>
+                                    <div className={`myb-SettledBetItemFooter_SettledButtonTextWrapper${ticket.filter === "Loss" ? "-lost" : ""}`}>
                                         {ticket.filter === "Win" &&
                                             <div className="myb-SettledBetItemFooter_Tick myb-TickWithBorder ">
-                                            <div className="myb-TickWithBorder_Tick ">
-                                              <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="10.608"
-                                                height={9}
-                                                viewBox="0 0 10.608 9"
-                                              >
-                                                <polygon
-                                                  fill="#222"
-                                                  className="myb-TickWithBorder_TickFill"
-                                                  fillRule="evenodd"
-                                                  points="0 4.5 1.515 3 4.354 6 9.164 0 10.608 1.5 4.354 9"
-                                                />
-                                              </svg>
+                                                <div className="myb-TickWithBorder_Tick ">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="10.608"
+                                                        height={9}
+                                                        viewBox="0 0 10.608 9"
+                                                    >
+                                                        <polygon
+                                                            fill="#222"
+                                                            className="myb-TickWithBorder_TickFill"
+                                                            fillRule="evenodd"
+                                                            points="0 4.5 1.515 3 4.354 6 9.164 0 10.608 1.5 4.354 9"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                                <div className="myb-TickWithBorder_Border ">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 21 21"
+                                                        width={21}
+                                                        height={21}
+                                                        className="myb-TickWithBorder_BorderSvg"
+                                                        transform="translate(-1 0)"
+                                                    >
+                                                        <circle
+                                                            className="myb-TickWithBorder_BorderSvgPositive"
+                                                            stroke="#58D7AF"
+                                                            strokeWidth={2}
+                                                            fill="none"
+                                                            cx="10.5"
+                                                            cy="10.5"
+                                                            r="9.5"
+                                                        />
+                                                        <circle
+                                                            className="myb-TickWithBorder_BorderSvgNegative"
+                                                            stroke="#383838"
+                                                            strokeWidth={2}
+                                                            strokeDasharray="10,100"
+                                                            strokeLinecap="round"
+                                                            fill="none"
+                                                            cx="10.5"
+                                                            cy="10.5"
+                                                            r="9.5"
+                                                        />
+                                                    </svg>
+                                                </div>
                                             </div>
-                                            <div className="myb-TickWithBorder_Border ">
-                                              <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 21 21"
-                                                width={21}
-                                                height={21}
-                                                className="myb-TickWithBorder_BorderSvg"
-                                                transform="translate(-1 0)"
-                                              >
-                                                <circle
-                                                  className="myb-TickWithBorder_BorderSvgPositive"
-                                                  stroke="#58D7AF"
-                                                  strokeWidth={2}
-                                                  fill="none"
-                                                  cx="10.5"
-                                                  cy="10.5"
-                                                  r="9.5"
-                                                />
-                                                <circle
-                                                  className="myb-TickWithBorder_BorderSvgNegative"
-                                                  stroke="#383838"
-                                                  strokeWidth={2}
-                                                  strokeDasharray="10,100"
-                                                  strokeLinecap="round"
-                                                  fill="none"
-                                                  cx="10.5"
-                                                  cy="10.5"
-                                                  r="9.5"
-                                                />
-                                              </svg>
-                                            </div>
-                                          </div>
-                                          
+
                                         }
                                         <div className={`myb-SettledBetItemFooter_SettledButtonReturnText myb-SettledBetItemFooter_SettledButtonReturnText${ticket.filter === "Loss" ? "-lost" : ""}`}>
                                             {country.currency}{formatNumber(data.isLost ? 0 : data.effectivePotentialReturn, country.hasComma, country.lang)}
                                         </div>
                                         <div className={`myb-SettledBetItemFooter_SettledButtonText myb-SettledBetItemFooter_SettledButtonText${ticket.filter === "Loss" ? "-lost" : ""}`}>
-                                            Returned
+                                            {ticket.filter === "Cash Out" ? "Cashed Out" : "Returned"}
                                         </div>
                                     </div>
                                 </div>
@@ -147,7 +148,12 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
 
 const Match = ({ odd, winningSelection, userSelection, home, away, gameType, league, newMatchTime, status, isOpen, score, hasEdit }) => {
 
-    const {country} = useApp();
+    const jersey = useRef({
+        home: GenerateRandomJersey(`${home}home${league}`),
+        away: GenerateRandomJersey(`${away}away${league}`)
+    })
+
+    const { country } = useApp();
 
     let isWon;
     let isCancelled;
@@ -162,7 +168,7 @@ const Match = ({ odd, winningSelection, userSelection, home, away, gameType, lea
         winningSelectionText = isCancelled ? 'NotResulted' : winningSelection;
         oddText = isCancelled ? 'NotResulted' : Number(odd).toFixed(2);
         color = isCancelled ? 'black-color' : winningSelection == '' ? 'black-color' : (winningSelection == userSelection) ? 'win-color' : 'loss-color';
-        filter = isCancelled ? "torun" : winningSelection == '' ? "torun" : (winningSelection == userSelection) ? "won" : "lost";
+        filter = isCancelled ? "torun" : winningSelection == '' ? "cashout" : (winningSelection == userSelection) ? "won" : "lost";
 
     } else {
         isWon = winningSelection == userSelection;
@@ -180,7 +186,7 @@ const Match = ({ odd, winningSelection, userSelection, home, away, gameType, lea
     return (
         <div className="myb-SettledBetParticipant myb-BetParticipant ">
             <div className="myb-BetParticipant_TopContainer ">
-                <div className={`myb-WinLossIndicator myb-WinLossIndicator-${filter}`}/>
+                <div className={`myb-WinLossIndicator myb-WinLossIndicator-${filter}`} />
                 <div className="myb-BetParticipant_LeftContainer ">
                     <div className="myb-BetParticipant_HeaderTitle ">
                         <div className="myb-BetParticipant_HeaderText ">
@@ -215,14 +221,45 @@ const Match = ({ odd, winningSelection, userSelection, home, away, gameType, lea
                     <div className="myb-BetParticipant_TeamKits myb-TeamKits-1 " />
                     <div className="myb-BetParticipant_TeamContainer ">
                         <div className="myb-BetParticipant_Team1Container ">
+                            <div
+                                className={`myb-BetParticipant_TeamKit tk-TeamKitImage-autowidth pbb-PopularBetBuilder_FixImage-teamkit pbb-PopularBetBuilder_FixImage-teamkitauto tk-TeamKitImage tk-TeamKit tk-TeamKit-16 tk-TeamKit-16-${jersey.current.home.type} `}
+                                dangerouslySetInnerHTML={{ __html: jersey.current.home.logo }}
+                            />
                             <div className="myb-BetParticipant_Team1Name ">{home}</div>
                             <div className="myb-BetParticipant_FixtureStartTime " />
                         </div>
                         <div className="myb-BetParticipant_Team2Container ">
+                            <div
+                                className={`myb-BetParticipant_TeamKit tk-TeamKitImage-autowidth pbb-PopularBetBuilder_FixImage-teamkit pbb-PopularBetBuilder_FixImage-teamkitauto tk-TeamKitImage tk-TeamKit tk-TeamKit-16 tk-TeamKit-16-${jersey.current.away.type} `}
+                                dangerouslySetInnerHTML={{ __html: jersey.current.away.logo }}
+                            />
                             <div className="myb-BetParticipant_Team2Name ">{away}</div>
                             <div className="myb-BetParticipant_FixtureStartTime2 " />
                         </div>
                     </div>
+                    {score &&
+                        <div className="myb-OpenBetScores myb-OpenBetScores_Soccer ">
+                            <div className="myb-OpenBetScores_Container ">
+                                <div className="myb-OpenBetScores_TeamContainer ">
+                                    <div className="myb-OpenBetScores_Team1Container ">
+                                        <div className="myb-OpenBetScores_Team1Details " />
+                                    </div>
+                                    <div className="myb-OpenBetScores_Team2Container ">
+                                        <div className="myb-OpenBetScores_Team2Details " />
+                                    </div>
+                                </div>
+                                <div className="myb-OpenBetScores_TeamScoreContainer ">
+                                    <div className="myb-OpenBetScores_Team1ScoreContainer ">
+                                        <div className="myb-OpenBetScores_Team1Score ">{score.split("-")[0]}</div>
+                                    </div>
+                                    <div className="myb-OpenBetScores_Team2ScoreContainer ">
+                                        <div className="myb-OpenBetScores_Team2Score ">{score.split("-")[1]}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
                 </div>
             </div>
         </div>

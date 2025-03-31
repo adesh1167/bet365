@@ -71,7 +71,7 @@ const Profile = () => {
                                     <div className="um-BalanceDropdown_Column ">
                                         <div className="um-BalanceDropdown_Cell um-BalanceDropdown_Cell-bonus ">
                                             <div className="um-BalanceDropdown_Title ">Bonus</div>
-                                            <div className="um-BalanceDropdown_Value ">$0.00</div>
+                                            <div className="um-BalanceDropdown_Value ">{country.currency}0.00</div>
                                             <div className="um-BalanceDropdown_Expires " />
                                         </div>
                                     </div>

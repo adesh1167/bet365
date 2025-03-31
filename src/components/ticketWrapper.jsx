@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import OpenTicket from './openTicket'
 import SettledTicket from './settledTicket'
 import { useApp } from '../contexts/appContext';
 import gameTypes from '../data/gameTypes';
 
-const TicketWrapper = ({ type, ticket, index, filter, percent = 1}) => {
+const TicketWrapper = ({ type, ticket, index, filter, percent = 1 }) => {
 
     const { country, lang } = useApp();
 
@@ -21,7 +21,9 @@ const TicketWrapper = ({ type, ticket, index, filter, percent = 1}) => {
     })
 
     function calculate() {
-        const temp = {};
+        // const temp = {};
+
+        const temp = { ...ticket };
 
         temp.wager = ticket.wager * country.factor;
         temp.totalOdds = 1;
@@ -48,7 +50,7 @@ const TicketWrapper = ({ type, ticket, index, filter, percent = 1}) => {
                     } else {
                         status.current.pending++;
                     }
-    
+
                     if (Number(match.odd) >= 1.2) {
                         temp.boostMatches++;
                     }
@@ -138,15 +140,15 @@ const TicketWrapper = ({ type, ticket, index, filter, percent = 1}) => {
     }
 
     // const height = useRef(100 + 125 * ticket.matches.length);
-    const height = useRef(
+    const height = useMemo(()=>
         ticket.matches.reduce((acc, match) => {
             const userSelection = gameTypes[match.gameType] ? gameTypes[match.gameType].callBack(match.userSelection, match.home, match.away) : match.userSelection
-            const userSelectionLength = userSelection.length;
+            const userSelectionLength = userSelection.length + (match.hasEarlyPayout === "true" ? 15 : 0);
             const additions = Math.floor((userSelectionLength * 10) / window.innerWidth);
             // console.log(userSelection, userSelectionLength, window.innerWidth, additions);
             return acc + additions * 20;
-        }, 100 + 126 * ticket.matches.length)
-    );
+        }, (100 + (126 * ticket.matches.length) + (data.winBoost ? 70 : 0)))
+    , [data.winBoost]);
 
     return (
         type === "open" ?
@@ -155,18 +157,18 @@ const TicketWrapper = ({ type, ticket, index, filter, percent = 1}) => {
                 ticket={ticket}
                 filter={filter}
                 percent={percent}
-                height={height.current}
+                height={height}
                 hidden={hidden}
                 expanded={expanded}
                 toggleExpand={toggleExpand}
-                />
-                :
-                <SettledTicket
+            />
+            :
+            <SettledTicket
                 data={data}
                 ticket={ticket}
                 filter={filter}
                 percent={percent}
-                height={height.current}
+                height={height}
                 hidden={hidden}
                 expanded={expanded}
                 toggleExpand={toggleExpand}

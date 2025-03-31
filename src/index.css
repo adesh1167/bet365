@@ -192,6 +192,11 @@ a{
 
 .ticket-wrapper {
   border-radius: 5px;
+  transition: 0.15s linear opacity;
+}
+
+.ticket-wrapper.deleted{
+  opacity: 0.5;
 }
 
 .manage-ticket-header {
@@ -205,6 +210,7 @@ a{
 }
 
 .ticket-date {
+  font-size: 14px;
   margin: 0 10px;
 }
 

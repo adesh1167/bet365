@@ -65,7 +65,7 @@ const MyBets = () => {
         if(ticket.status === 'settled'){
             const finsishedMatches = ticket.matches.filter(match => match.winningSelection);
             const lastMatch = finsishedMatches[finsishedMatches.length - 1];
-            console.log("Last Match: ", lastMatch)
+            // console.log("Last Match: ", lastMatch)
             if(isGreaterThan24hours(lastMatch.matchTime)) return false;
         }
         if(buttons[selected].value === 'All') return true;

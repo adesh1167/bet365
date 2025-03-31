@@ -120,6 +120,7 @@ export default function UploadTickets({visible}){
 					matchTime: fixture.trim(),
 					status: "",
 					score: "",
+					hasEarlyPayout: "",
 				})				
 				
 			}
@@ -251,7 +252,8 @@ export default function UploadTickets({visible}){
 					userSelection: (winner == '' || winner == 'NotResulted' ? mySelection : winner).trim(),
 					winningSelection: winner.trim(),
 					matchTime: fixture.trim(),
-					status: ""
+					status: "",
+					hasEarlyPayout: "",
 				})				
 				
 			}

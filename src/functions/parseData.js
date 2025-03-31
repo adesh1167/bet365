@@ -6,7 +6,7 @@ export function parseData(data){
   const divs = parser.parseFromString(data, 'text/html');
   const sections = divs.body.children;
 
-  console.log(sections[3]);
+  // console.log(sections[3]);
   return sections;
 }
 

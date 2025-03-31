@@ -156,7 +156,7 @@ const AppProvider = ({ children }) => {
             complete: res => {
                 const dataArr = Object.values(data);
                 const rest = dataArr.filter((dt, i) => i > 1)
-                console.log("Section: ", dataArr)
+                // console.log("Section: ", dataArr)
                 setCarousel(data[0]);
                 if(data[3]) setFeaturedMatches(data[3])
                 else setFeaturedMatches("test");
@@ -164,7 +164,7 @@ const AppProvider = ({ children }) => {
             }
         })
 
-        console.log(data);
+        // console.log(data);
 
     }
 
