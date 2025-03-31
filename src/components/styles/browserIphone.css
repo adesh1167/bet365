@@ -1,0 +1,183 @@
+.browser-head{
+    width: 100%;
+    height: 56px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    z-index: +99;
+    background-color: #363838;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+  }
+  
+  .address-bar{
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .url{
+    width: 100%;
+    height: 35px;
+    flex-shrink: 1;
+    background-color: #626666;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+  }
+  
+  .url-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    bottom: 2px;
+  }
+  
+  .url span{
+    white-space: nowrap;
+  }
+  
+  .sub-url{
+    color: #444746;
+  }
+  
+  .browser-share{
+    position: absolute;
+    width: 28px;
+    color: #fff;
+    right: 10px;
+    stroke-width: 5px;
+  }
+  
+  .address-bar input:focus{
+    outline: none;
+  }
+
+  .browser-foot{
+    position:  fixed;
+    width: 100%;
+    height: 80px;
+    left: 0;
+    bottom: 0;
+    z-index: +99;
+    background-color: #363838;
+  }
+  
+  .browser-buttons{
+    display: flex;
+    align-items: center;
+    height: 46px;
+    width: 100%;
+    flex-shrink: 0;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  
+  .browser-button{
+    width: 25px;
+    /* height: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .browser-button.circle{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #626666;
+    border-radius: 50%;
+  }
+
+  .browser-button.circle svg{
+    width: 28px;
+    fill: #ddd;
+  }
+
+  .browser-button.ellipsis{
+    width: 30px;
+  }
+
+  .browser-tabs{
+    width: 24px;
+  }
+  
+  .browser-tabs-wrapper{
+    border: 2.2px #fff solid;
+    border-radius: 8px;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+    left: 0.6px;
+    text-align: center;
+    font-family: sans-serif;
+    color: #fff;
+  }
+  .browser-tabs-box{
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    background: none;
+    opacity: 0.01;
+    position: absolute;
+    top: 0;
+  }
+  .browser-tabs-box:focus{
+    opacity: 1;
+    outline: 0.5px orange solid;
+    background-color: white;
+    color: #000;
+  }
+  .browser-tabs-decoy{
+    /* border: 1px #fff solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 10px;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .browser-menu{
+    width: 5px;
+  }
+  
+  .browser-loading-bar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #CEDCF4;
+  }
+  
+  .browser-loading-fill{
+    background-color: #0B87CF;
+    width: 30%;
+    height: 100%;
+    transition: 0.05s all linear;
+  }

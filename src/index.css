@@ -16,6 +16,10 @@ code {
   display: none;
 }
 
+*{
+  box-sizing: border-box;
+}
+
 /* For Firefox */
 html {
   scrollbar-width: none !important;

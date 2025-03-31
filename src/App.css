@@ -39132,7 +39132,7 @@ body {
 
 .bl-Preloader {
     position: absolute;
-    z-index: 1000;
+    z-index: 98;
     width: 100%;
     /* Edited */
     padding-top: 56px;
