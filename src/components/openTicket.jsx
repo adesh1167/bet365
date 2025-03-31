@@ -41,7 +41,7 @@ const OpenTicket = ({ ticket, data, filter, height, hidden, expanded, toggleExpa
                                     <div className="myb-CloseBetButtonBase_TextReturnWrapper">
                                         <div className="myb-CloseBetButtonBase_Text ">Cash Out</div>
                                         <div className="myb-CloseBetButtonBase_Return " style={{
-                                            color: "color(display-p3 .157 1 .733)"
+                                            // color: "color(display-p3 .157 1 .733)"
                                         }}>{formatNumber(data.cashout)}</div>
                                     </div>
                                 </div>

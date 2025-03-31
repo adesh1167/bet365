@@ -78,6 +78,7 @@ a{
   padding-bottom: 50px;
   border: 1px #0ff solid;
   resize: none;
+  font-size: 15px;
 }
 
 .ut-section textarea:focus {
