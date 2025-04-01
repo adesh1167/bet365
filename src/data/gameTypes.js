@@ -43,7 +43,7 @@ const gameTypes = {
         text: "Winning Margin",
         callBack: (value) => value.split(" by ").join(" to win by ")
     },
-    "1X2 and Both Teams To Score" : {
+    "1X2 & Both Teams To Score" : {
         text: "Result/Both Teams To Score",
         callBack: (value) => value
     },
