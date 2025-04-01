@@ -10,7 +10,7 @@ const gameTypes = {
             if(scores[0] > scores[1]){
                 return `${home} ${scores[0]}-${scores[1]}`
             } else if(scores[1] > scores[0]){
-                return `${away} ${scores[0]}-${scores[1]}`
+                return `${away} ${scores[1]}-${scores[0]}`
             }
             return `Draw ${scores[0]}-${scores[1]}`
         }
