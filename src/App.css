@@ -3367,7 +3367,7 @@ svg {
     position: sticky;
     width: 100%;
     /* top: 0; */
-    top: 56px;
+    top: var(--browser-head-height);
     /*edited*/
     z-index: 50
 }
@@ -4787,7 +4787,9 @@ svg {
 
 .hsn-HomepageStickyNavModule_ScrollerContainer.hsn-HomepageStickyNavModule_ScrollerContainer-sticky {
     position: fixed;
-    top: 0;
+    /* top: 0; */
+    /* edited */
+    top: calc(90px + var(--browser-head-height));
     z-index: 35;
     width: 100%
 }
@@ -18081,7 +18083,7 @@ svg {
     position: fixed;
     /* top: 0; */
     /* Edited */
-    top: 56px;
+    top: var(--browser-head-height);
     right: 0;
     bottom: 0;
     left: 0;
@@ -18118,7 +18120,7 @@ svg {
     z-index: 40;
     /* top: 46px; */
     /* Edited */
-    top: 102px;
+    top: calc(90px + var(--browser-head-height));
     right: 0;
     bottom: 0;
     left: 0;
@@ -18127,7 +18129,7 @@ svg {
 }
 
 .lms-StandardLogin-betslip .lms-StandardLogin_Overlay {
-    top: 0
+    top: 0;
 }
 
 .lms-StandardLogin_Content {
@@ -18783,7 +18785,7 @@ svg {
     position: fixed;
     /* top: 50%; */
     /* Edited */
-    top: calc(50% + 56px);
+    top: calc(50% + var(--browser-head-height));
     transform: translate(-50%, -50%);
     width: 95vw;
     z-index: var(--zi-modal-component)
@@ -39135,7 +39137,7 @@ body {
     z-index: 98;
     width: 100%;
     /* Edited */
-    padding-top: 56px;
+    padding-top: var(--browser-head-height);
     top: 0;
     left: 0;
     height: 100%;

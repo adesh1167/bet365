@@ -365,7 +365,7 @@ const Body = () => {
                                         <div
                                             ref={contentRef}
                                             className="hsn-HomepageStickyNavModule_ScrollerContainer"
-                                            style={{ width: "100%", top: 146 }}
+                                            style={{ width: "100%"}}
                                             dangerouslySetInnerHTML={{ __html: section.getElementsByClassName('hsn-HomepageStickyNavModule_ScrollerContainer')[0]?.innerHTML }}
                                         >
                                         </div>

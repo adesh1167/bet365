@@ -39,7 +39,9 @@ body {
 }
 
 .base {
-  padding-top: 56px;
+  padding-top: var(--browser-head-height);
+  padding-bottom: var(--browser-foot-height);
+  /* Variable declared in browser.css */
 }
 
 a{

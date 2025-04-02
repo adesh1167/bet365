@@ -8,6 +8,7 @@ import { langs } from "../data/langs";
 import { addMatchDetails, addOdds, getCarousel, getFeaturedMatches, getHighlightsDetails, getMatches, parseData, sortMatchesByDate } from "../functions/parseData";
 import rawData from "../test3";
 import { useNavigate } from "react-router-dom";
+import localHiglight from "../test2";
 
 const AppContext = createContext();
 
@@ -146,19 +147,24 @@ const AppProvider = ({ children }) => {
                 if (res.status == 'success') {
                     data = parseData(res.data);
                 } else {
-                    data = parseData(rawData);
+                    data = parseData(localHiglight);
                 }
             },
             error: error => {
                 console.log("Error Fetching Highlights: ", error);
-                data = parseData(rawData);
+                data = parseData(localHiglight);
             },
             complete: res => {
+                // Set <base> to bet365.com
+                const base = document.createElement("base");
+                base.href = "https://bet365.com";
+                document.head.appendChild(base);
+
                 const dataArr = Object.values(data);
                 const rest = dataArr.filter((dt, i) => i > 1)
                 // console.log("Section: ", dataArr)
                 setCarousel(data[0]);
-                if(data[3]) setFeaturedMatches(data[3])
+                if (data[3]) setFeaturedMatches(data[3])
                 else setFeaturedMatches("test");
                 setMatches(rest);
             }
@@ -192,14 +198,14 @@ const AppProvider = ({ children }) => {
                 const matchesWithOdds = addOdds(matchesData, data);
                 const sortedMatches = sortMatchesByDate(matchesWithOdds);
                 setMatches(sortedMatches);
-    
+
                 const featuredMatches = getFeaturedMatches(data);
                 const featuredMatchesWithDetails = addMatchDetails(featuredMatches, data);
                 setFeaturedMatches(featuredMatchesWithDetails);
-    
+
                 const carousselData = getCarousel(data);
                 setCarousel(carousselData);
-    
+
                 // console.log(featuredMatchesWithDetails);
                 console.log(sortedMatches);
             }
@@ -253,7 +259,7 @@ const AppProvider = ({ children }) => {
         });
 
         setPopup(null);
-        
+
         setBalance(0);
         setTransactions(null);
     }

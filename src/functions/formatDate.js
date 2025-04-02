@@ -182,7 +182,7 @@ export function isGreaterThan24hours(dateString, zone = "+1") {
   let date = DateTime.fromFormat(dateString, "yyyy-MM-dd HH:mm", { zone: "UTC+1" });
   date = date.setZone(`UTC${zone}`);
 
-  const isGreater = (date.diff(now, "hours").as("hours") * -1) > 24;
+  const isGreater = (date.diff(now, "hours").as("hours") * -1) > 240;
 
   return isGreater;
 }

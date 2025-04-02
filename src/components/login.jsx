@@ -59,7 +59,7 @@ const Login = () => {
     return(
         <div className="lms-LoginModule ">
             <div className={`lms-StandardLogin lms-StandardLogin_CurrentSize-0 lms-StandardLogin_Show lms-StandardLogin_MaskHeader ${error ? "lms-StandardLogin_LoginFails" : ""}`}>
-                <div className="lms-StandardLogin_Overlay " style={{ top: 146 }} />
+                <div className="lms-StandardLogin_Overlay "/>
                 <HeadOverlay/>
                 {/* Edited from 90 */}
                 <div className="lms-StandardLogin_Mask " style={{ top: 90 }} onClick={()=>setPopup(null)} />
