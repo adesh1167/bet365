@@ -124,7 +124,7 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
         console.log(data);
         // return;
 
-        setLoading(prev => ({...prev, account: true}))
+        setLoading(prev => ({ ...prev, account: true }))
 
         let settlementTime = ticket.matches[ticket.matches.length - 1].matchTime;
         settlementTime = new Date(settlementTime);
@@ -161,8 +161,8 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
                 alert('Unable to update transaction. Check internet connection and try again')
                 console.log(res)
             },
-            complete: ()=>{
-                setLoading(prev => ({...prev, account: false}))
+            complete: () => {
+                setLoading(prev => ({ ...prev, account: false }))
             }
         })
     }
@@ -205,7 +205,8 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
                         :
                         <div className="ticket-button" onClick={() => doAccount()}>
                             Account
-                        </div>}
+                        </div>
+                    }
                     {isDeleted ?
                         <div className="ticket-button text-identity-600" onClick={() => toggleDelete(index)}>
                             Restore
@@ -228,7 +229,7 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
                     hidden={hidden}
                     expanded={expanded}
                     toggleExpand={toggleExpand}
-                    // isDeleted={isDeleted}
+                // isDeleted={isDeleted}
                 />
                 :
                 <SettledTicket
@@ -240,7 +241,7 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
                     hidden={hidden}
                     expanded={expanded}
                     toggleExpand={toggleExpand}
-                    // isDeleted={isDeleted}
+                // isDeleted={isDeleted}
                 />
             }
         </div>
