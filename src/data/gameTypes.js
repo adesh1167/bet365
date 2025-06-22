@@ -6,6 +6,9 @@ const gameTypes = {
     "Correct Score" : {
         text: "Correct Score",
         callBack: (value, home, away) => {
+            if(value.toLowerCase() === "others"){
+                return "Others";
+            }
             const scores = value.split(":").map(Number);
             if(scores[0] > scores[1]){
                 return `${home} ${scores[0]}-${scores[1]}`

@@ -127,7 +127,7 @@ export function computeStake(transactions, duration, factor,) {
         }
     }
 
-    // console.log(dateMap);
+    console.log(dateMap);
 
     transactions.filter(tx => tx.tx_type === 'Wager').map(tx => {
         // Extract date portion from stakeTime (assuming "YYYY-MM-DD HH:MM:SS" format)
