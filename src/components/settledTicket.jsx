@@ -157,6 +157,7 @@ const Match = ({ odd, winningSelection, userSelection, home, away, gameType, lea
 
     let isWon;
     let isCancelled;
+    let isPending = false;
     let winningSelectionText;
     let oddText;
     let filter;
@@ -165,10 +166,11 @@ const Match = ({ odd, winningSelection, userSelection, home, away, gameType, lea
     if (!isOpen) {
         isWon = winningSelection == userSelection;
         isCancelled = winningSelection == 'NotResulted';
+        isPending = status === 'pending';
         winningSelectionText = isCancelled ? 'NotResulted' : winningSelection;
         oddText = isCancelled ? 'NotResulted' : Number(odd).toFixed(2);
         color = isCancelled ? 'black-color' : winningSelection == '' ? 'black-color' : (winningSelection == userSelection) ? 'win-color' : 'loss-color';
-        filter = isCancelled ? "torun" : winningSelection == '' ? "cashout" : (winningSelection == userSelection) ? "won" : "lost";
+        filter = (isCancelled || isPending) ? "torun" : winningSelection == '' ? "cashout" : (winningSelection == userSelection) ? "won" : "lost";
 
     } else {
         isWon = winningSelection == userSelection;
