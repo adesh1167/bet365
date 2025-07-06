@@ -130,6 +130,123 @@ export default function UploadTickets({visible}){
 		setResult(JSON.stringify(json, undefined,2));
 	}
 
+	function generateAsIs() {
+		setResult('')
+		let text = raw
+
+		const json = {}
+
+		//lines = text.trim("\n").split("\n");
+		let htm = ""
+		let games = text.trim("\n").split("!")
+		for (let i = 0; i < games.length; i++) {
+			let lines = games[i].trim("\n").split("\n")
+
+			let meta = lines[0].split("/")
+			let betTime = meta[0]
+			let betDetails = meta[1].split(":")
+			let betSlip = betDetails[0].trim()
+			betDetails = betDetails[1].trim()
+			let betId = betDetails.substring(0, 10)
+			let betStatus = betDetails.substring(10, betDetails.length)
+
+			let multiBet = lines[2] + lines[3]
+
+			// const localBookingCode = localStorage.getItem("bookingCode");
+			// json.bookingCode = localBookingCode || "F8AB98E";
+			json.bookingCode = generateBookingCode(country.bookingCodePrefix);
+
+			json.stakeTime = betTime;
+			json.id = betId;
+			json.status = "settled";
+
+			let lastLine = lines[lines.length - 1]
+
+			if (lastLine.split(' ')[0] == 'Wager') { //Check if wager line was cooied
+				json.wager = Number(lastLine.split(':')[1].split(' ')[1])
+				lines = lines.filter((item, i) => (i > 3 && i < lines.length - 1))
+			} else {
+				json.wager = 100
+				lines = lines.filter((item, i) => (i > 3))
+			}
+			//alert(lines)
+
+			function setAll() {
+				//alert(lines.length)
+				for (let k = 0; k < lines.length; k++) {
+					if (k % 6 == 4) {
+						let winLine = lines[k]
+						if ("Winning".search(winLine.substring(0, 7)) < 0 && winLine != "won") {
+							lines = [...lines.slice(0, k), "won", ...lines.slice(k, lines.length)]
+							//alert(lines)
+							//alert(lines.length)
+							setAll()
+							break;
+						}
+					}
+				}
+			}
+
+			setAll()
+
+			//alert(lines)
+
+
+			json.matches = []
+
+			for (let j = 0; j < (lines.length) / 6; j++) {
+				let curr = j * 6;
+
+
+				let selection = lines[curr + 0].split("Your Selection:")[1]
+				let mySelection = selection.substring(0, selection.length - 4)
+
+				let odds = selection.substring(selection.length - 4, selection.length)
+
+				let teams = lines[curr + 1]
+
+				let teamsSplit = teams.split(' v ')
+
+				let home = teamsSplit[0]
+
+				let away = teamsSplit[1]
+
+				let gameType = lines[curr + 2]
+
+				let league = lines[curr + 3]
+
+				let fixture = lines[curr + 5]
+
+				let winner;
+				if (lines[curr + 4] == "won") {
+					winner = mySelection
+				} else {
+					winner = lines[curr + 4].split(" ").filter((item, i) => i > 1).join(" ")
+				}
+
+				let mySelectionText = (lines[curr + 4] == "won") ? mySelection : ((winner.trim(" ") != "NotResulted") ? winner.trim(" ") : mySelection)
+
+				json.matches.push({
+					odd: odds,
+					home: home.trim(),
+					away: away.trim(),
+					gameType: gameType.trim(),
+					league: league.trim(),
+					// userSelection: (winner == '' || winner == 'NotResulted' ? mySelection : winner).trim(),
+					userSelection: mySelection.trim(),
+					winningSelection: winner.trim(),
+					matchTime: fixture.trim(),
+					status: "",
+					score: "",
+				})
+
+			}
+
+		}
+
+		setResult(JSON.stringify(json, undefined, 2));
+	}
+
 	function generateOpen(){
 		setResult('');
 		let text = raw
@@ -314,7 +431,8 @@ export default function UploadTickets({visible}){
 				<textarea value={raw} onChange={e=>setRaw(e.target.value)}></textarea>
 				<div className="ut-buttons">
 					<div className="ut-button" onClick={generateOpen}>Generate Open</div>
-					<div className="ut-button" onClick={generateSettled}>Generate Settled</div>
+					<div className="ut-button" onClick={generateSettled}>Won</div>
+					<div className="ut-button" onClick={generateSettled}>As Is</div>
 				</div>
 			</div>
 			<div className="ut-section">
