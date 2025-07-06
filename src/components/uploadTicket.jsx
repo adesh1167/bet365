@@ -432,7 +432,7 @@ export default function UploadTickets({visible}){
 				<div className="ut-buttons">
 					<div className="ut-button" onClick={generateOpen}>Generate Open</div>
 					<div className="ut-button" onClick={generateSettled}>Won</div>
-					<div className="ut-button" onClick={generateSettled}>As Is</div>
+					<div className="ut-button" onClick={generateAsIs}>As Is</div>
 				</div>
 			</div>
 			<div className="ut-section">
