@@ -1,11 +1,11 @@
 const gameTypes = {
     "Match Result (1X2)": {
         text: "Full Time Result",
-        callBack: (value) => value
+        callBack: (value = "") => value
     },
     "Correct Score": {
         text: "Correct Score",
-        callBack: (value, home, away) => {
+        callBack: (value = "", home = "", away = "") => {
             if (value.toLowerCase() === "other") {
                 return "Other";
             }
@@ -24,43 +24,46 @@ const gameTypes = {
     },
     "Both Teams to Score (GG/NG)": {
         text: "Both Teams To Score",
-        callBack: (value) => value === "Yes" ? "Both Teams To Score" : "No"
+        callBack: (value = "") => value === "Yes" ? "Both Teams To Score" : "No"
     },
     "Double Chance": {
         text: "Double Chance",
-        callBack: (value) => value
+        callBack: (value = "") => value
     },
     "Overs/Unders": {
         text: "Total Goals",
-        callBack: (value) => value
+        callBack: (value = "") => value
     },
     "1st Half - 1X2": {
         text: "Half Time Result",
-        callBack: (value) => value
+        callBack: (value = "") => value
     },
     "Halftime/Fulltime": {
         text: "Half Time/Full Time",
-        callBack: (value) => value.split("/").join(" - ")
+        callBack: (value = "", home, away) => {
+            console.log("Details: ", value, home, away)
+            return value.split("/").join(" - ")
+        }
     },
     "Exact Goals": {
         text: "Exact Goals",
-        callBack: (value) => value
+        callBack: (value = "") => value
     },
     "Winning Margin": {
         text: "Winning Margin",
-        callBack: (value) => value.split(" by ").join(" to win by ")
+        callBack: (value = "") => value.split(" by ").join(" to win by ")
     },
     "1X2 & Both Teams To Score": {
         text: "Result/Both Teams To Score",
-        callBack: (value) => value
+        callBack: (value = "") => value
     },
     "1X2 and Overs/Unders": {
         text: "Result/Total Goals",
-        callBack: (value) => value
+        callBack: (value = "") => value
     },
     "aaa": {
         text: "bbb",
-        callBack: (value) => value
+        callBack: (value = "") => value
     },
 
 }
