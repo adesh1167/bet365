@@ -41,7 +41,6 @@ const gameTypes = {
     "Halftime/Fulltime": {
         text: "Half Time/Full Time",
         callBack: (value = "", home, away) => {
-            console.log("Details: ", value, home, away)
             return value.split("/").join(" - ")
         }
     },
