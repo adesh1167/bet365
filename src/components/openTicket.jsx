@@ -220,6 +220,28 @@ const Match = ({ match }) => {
                             </div>
                         </div>
                     </div>
+                    {match.score &&
+                        <div className="myb-OpenBetScores myb-OpenBetScores_Soccer ">
+                            <div className="myb-OpenBetScores_Container ">
+                                <div className="myb-OpenBetScores_TeamContainer ">
+                                    <div className="myb-OpenBetScores_Team1Container ">
+                                        <div className="myb-OpenBetScores_Team1Details " />
+                                    </div>
+                                    <div className="myb-OpenBetScores_Team2Container ">
+                                        <div className="myb-OpenBetScores_Team2Details " />
+                                    </div>
+                                </div>
+                                <div className="myb-OpenBetScores_TeamScoreContainer ">
+                                    <div className="myb-OpenBetScores_Team1ScoreContainer ">
+                                        <div className="myb-OpenBetScores_Team1Score ">{match.score.split("-")[0]}</div>
+                                    </div>
+                                    <div className="myb-OpenBetScores_Team2ScoreContainer ">
+                                        <div className="myb-OpenBetScores_Team2Score ">{match.score.split("-")[1]}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

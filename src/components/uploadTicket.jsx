@@ -238,6 +238,7 @@ export default function UploadTickets({visible}){
 					matchTime: fixture.trim(),
 					status: "",
 					score: "",
+					hasEarlyPayout: "",
 				})
 
 			}
@@ -370,6 +371,7 @@ export default function UploadTickets({visible}){
 					winningSelection: winner.trim(),
 					matchTime: fixture.trim(),
 					status: "",
+					score: "",
 					hasEarlyPayout: "",
 				})				
 				
