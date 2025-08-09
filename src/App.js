@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import AppProvider, { useApp } from './contexts/appContext';
 import { HashRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
+import './index2.css';
 import './added.css';
 const BrowserIphone = lazy(() => import('./components/browserIphone'));
 const BrowserFirefox  = lazy(() => import('./components/browserFirefox'));

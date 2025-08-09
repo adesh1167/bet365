@@ -3908,7 +3908,8 @@ svg {
     --pbm-PromoBannerBackground: #233430;
     --pbm-PromoBannerGradient: #153c34;
     --pbm-green-text-shadow: 0 0 5px rgba(21, 60, 52, .7);
-    --pbm-yellow-text-shadow: 0 0 5px rgba(255, 223, 27, .1)
+    --pbm-yellow-text-shadow: 0 0 5px rgba(255, 223, 27, .1);
+    --pbm-banner-fontstack: FuturaPTCond-ExtraBoldObl, FuturaPTCond-Bold, -apple-system, "sans-serif-condensed", BlinkMacSystemFont, Segoe UI, Roboto, Open Sans Condensed, sans-serif
 }
 
 .pbm-ActionCTA {
@@ -3918,7 +3919,7 @@ svg {
     height: 25px;
     min-width: 85px;
     padding: 0 10px;
-    border-radius: 2px;
+    border-radius: 5px;
     background: linear-gradient(90deg, var(--color-whiteFF), var(--color-whiteFF), var(--color-yellowFFDF1B), var(--color-yellowFFDF1B));
     background-position: 100%, 50%;
     background-size: 300%, 100%;
@@ -3950,14 +3951,15 @@ svg {
     overflow: hidden;
     word-break: break-word;
     word-wrap: break-word;
-    line-height: 13px;
-    max-height: calc(13px * 3);
+    line-height: 12px;
+    max-height: calc(12px * 3);
     font-size: 10px;
     color: var(--color-greyFF);
     opacity: .6;
     vertical-align: bottom;
     text-shadow: 1px 1px rgba(39, 52, 49, .6);
-    margin: 0 10px 7px 0
+    margin: 5px 0 7px;
+    text-align: center
 }
 
 .pbm-PromoBannersModule-us .pbm-NotesWrapper {
@@ -3965,30 +3967,35 @@ svg {
     margin: 0
 }
 
-.pbm-PromoBanner {
+.pbm-PromoBanner_Pod {
     position: relative;
-    height: 200px;
+    height: 150px;
     width: 340px;
-    border-radius: 4px;
-    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .4);
+    margin-top: 10px;
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer
 }
 
-.allow-hover .pbm-PromoBanner:hover {
+.allow-hover .pbm-PromoBanner_Pod:hover {
     -webkit-filter: brightness(1.2);
     filter: brightness(1.2)
 }
 
-.pbm-PromoBanner:before {
+.pbm-PromoBanner_Pod:before {
     position: absolute;
     content: "";
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    border: 1px solid var(--color-white10p);
-    border-radius: 4px
+    border: 1px solid var(--color-green28FFBB-30p);
+    border-radius: 10px
+}
+
+.pbm-PromoBanner-boost .pbm-PromoBanner_Pod:before {
+    mix-blend-mode: overlay;
+    border: 1px solid var(--color-greyFF)
 }
 
 .pbm-PromoBanner_BackgroundImage {
@@ -4013,7 +4020,9 @@ svg {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center
+    justify-content: center;
+    flex: 1 0 100%;
+    padding-bottom: 15px
 }
 
 .pbm-PromoBanner_OfferBadge {
@@ -4021,10 +4030,10 @@ svg {
 }
 
 .pbm-PromoBanner_MainHeading {
-    font-size: 14px;
+    font-size: 11px;
     line-height: 16px;
     font-weight: 700;
-    color: var(--color-green28FFBB);
+    color: var(--color-greyFF);
     text-shadow: var(--pbm-green-text-shadow);
     margin: 0 10px 7px 0
 }
@@ -4037,15 +4046,14 @@ svg {
 .pbm-PromoBanner_WhiteHeading {
     line-clamp: 3;
     -webkit-line-clamp: 3;
-    max-height: calc(28px * 3);
-    font-size: 28px;
-    font-family: FuturaPTCond-BoldObl, FuturaPTCond-Bold, -apple-system, "sans-serif-condensed", BlinkMacSystemFont, Segoe UI, Roboto, Open Sans Condensed, sans-serif;
+    max-height: calc(23px * 3);
+    font-size: 23px;
+    font-family: var(--pbm-banner-fontstack);
+    max-width: 190px;
     font-weight: 700;
     font-style: oblique;
     text-transform: uppercase;
     color: var(--color-greyFF);
-    max-width: 202px;
-    max-height: none;
     text-shadow: var(--pbm-green-text-shadow);
     margin-right: 5px
 }
@@ -4057,15 +4065,51 @@ svg {
     overflow: hidden;
     word-break: break-word;
     word-wrap: break-word;
-    line-height: 28px;
-    line-height: 31px
+    line-height: 23px
 }
 
 .pbm-PromoBanner_WhiteHeading.pbm-PromoBanner_WhiteHeading-cta {
     line-clamp: 2;
     -webkit-line-clamp: 2;
-    max-height: calc(28px * 2);
-    max-height: none
+    max-height: calc(23px * 2)
+}
+
+.pbm-PromoBannerNoText {
+    position: relative;
+    height: 160px;
+    width: 340px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer
+}
+
+.allow-hover .pbm-PromoBannerNoText:hover {
+    -webkit-filter: brightness(1.1);
+    filter: brightness(1.1)
+}
+
+.pbm-PromoBannerNoText_BackgroundImage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    padding: 10px 0 0 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 100% 0
+}
+
+.pbm-PromoBannersModule-us .pbm-PromoBannerNoText_BackgroundImage {
+    padding: 20px 0 0 10px
+}
+
+.pbm-PromoBannerNoText_NotesWrapper {
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    left: 0;
+    bottom: 0
 }
 
 .allow-hover .hpc-CarouselScroller_RightArrow:hover:after,
@@ -55896,7 +55940,7 @@ body {
     padding-bottom: 10px
 }
 
-.brr-1d,
+/* .brr-1d,
 .brr-f {
     width: 100%
 }
@@ -57609,7 +57653,7 @@ body {
     font-weight: 700;
     line-height: 17px;
     margin-top: 9px
-}
+} */
 
 .rtk-4 {
     height: 100%;
@@ -57942,4 +57986,3 @@ body {
 .allow-hover .prr-8:hover {
     background-color: var(--color-greyFF)
 }
-
