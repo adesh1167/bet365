@@ -9,6 +9,7 @@ import { addMatchDetails, addOdds, getCarousel, getFeaturedMatches, getHighlight
 import rawData from "../test3";
 import { useNavigate } from "react-router-dom";
 import localHiglight from "../test2";
+import css from "../live";
 
 const AppContext = createContext();
 
@@ -144,11 +145,13 @@ const AppProvider = ({ children }) => {
             type: 'POST',
             data: { user: user },
             success: res => {
+                console.log("Response: ", res);
                 if (res.status == 'success') {
                     data = parseData(res.data);
                 } else {
                     data = parseData(localHiglight);
                 }
+                console.log("Data: ", data);
             },
             error: error => {
                 console.log("Error Fetching Highlights: ", error);
@@ -159,6 +162,10 @@ const AppProvider = ({ children }) => {
                 const base = document.createElement("base");
                 base.href = "https://bet365.com";
                 document.head.appendChild(base);
+
+                // const style = document.createElement('style');
+                // style.innerHTML = css;
+                // document.head.appendChild(style);
 
                 const dataArr = Object.values(data);
                 const rest = dataArr.filter((dt, i) => i > 1)

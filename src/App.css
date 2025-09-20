@@ -38393,10 +38393,10 @@ body {
 
 .um-TabSection {
     height: 51px;
-    background-color: #f3f5f4;
+    background-color: #f3f5f4 !important;
     position: relative;
     display: flex;
-    border-bottom: none
+    border-bottom: none !important;
 }
 
 .um-TabSectionScrollable_ScrollContent {
@@ -51355,11 +51355,11 @@ body {
     cursor: pointer
 }
 
-.frm-75 {
+/* .frm-75 {
     text-wrap: nowrap;
     align-items: center;
     display: flex
-}
+} */
 
 .allow-hover .frm-75:hover {
     color: var(--color-whiteFF);
@@ -51445,7 +51445,7 @@ body {
     z-index: var(--zi-modal-component)
 }
 
-.frm-f5 {
+/* .frm-f5 {
     color: var(--color-grey66);
     cursor: pointer;
     display: block;
@@ -51455,12 +51455,12 @@ body {
     right: 5px;
     top: 5px;
     width: 15px
-}
+} */
 
-.frm-10,
+/* .frm-10,
 .frm-f5 {
     text-align: center
-}
+} */
 
 .frm-10 {
     background-color: var(--color-whiteE4);
@@ -51767,17 +51767,17 @@ body {
     --fm-m-flex-align: flex-start
 }
 
-.frm-7 {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%
-}
+/* .frm-7 {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    width: 100% !important;
+} */
 
 @media (min-width:768px) {
-    .frm-7 {
+    /* .frm-7 {
         width: 33%
-    }
+    } */
 }
 
 @media (min-width:768px) {
@@ -51790,13 +51790,13 @@ body {
     justify-content: space-between
 }
 
-.frm-2 {
+/* .frm-2 {
     --fm-mg-background-color: var(--color-grey28);
     --fm-p-color: #b5b5b5;
     --fm-m-max-width: 800px;
     background-color: var(--color-grey28);
     padding-bottom: 35px
-}
+} */
 
 /*# sourceMappingURL=/sports-assets/map/sports?m=frm&t=css&v=2*/
 

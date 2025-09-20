@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import Head from './components/head';
 import {useNavigate, useLocation } from 'react-router-dom';
 import { Suspense, lazy, useEffect, useMemo, useRef, useState } from 'react';

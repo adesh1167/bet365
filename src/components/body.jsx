@@ -365,14 +365,17 @@ const Body = () => {
                                         <div
                                             ref={contentRef}
                                             className="hsn-HomepageStickyNavModule_ScrollerContainer"
-                                            style={{ width: "100%"}}
+                                            style={{ width: "100%" }}
                                             dangerouslySetInnerHTML={{ __html: section.getElementsByClassName('hsn-HomepageStickyNavModule_ScrollerContainer')[0]?.innerHTML }}
                                         >
                                         </div>
                                     </div>
                                 </div>
                                 :
-                                <div key={index} className={section.className} dangerouslySetInnerHTML={{ __html: section.innerHTML }} />
+                                section.tagName === "STYLE" ?
+                                    <style dangerouslySetInnerHTML={{__html: section.innerHTML}}/>
+                                    :
+                                    <div key={index} className={section.className} dangerouslySetInnerHTML={{ __html: section.innerHTML }} />
                         })}
                         {/* <div dangerouslySetInnerHTML={{__html: featuredMatches.innerHTML}}/> */}
                         {false && <>
