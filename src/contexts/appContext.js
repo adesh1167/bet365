@@ -162,12 +162,17 @@ const AppProvider = ({ children }) => {
                 base.href = "https://bet365.com";
                 document.head.appendChild(base);
 
-                // const style = document.createElement('style');
-                // style.innerHTML = css;
-                // document.head.appendChild(style);
-
+                
                 const dataArr = Object.values(data);
-                const rest = dataArr.filter((dt, i) => i > 1)
+                let rest = dataArr.filter((dt, i) => i > 1)
+                const styleSection = dataArr.find((dt, i) => dt.tagName == "STYLE");
+                if(styleSection){
+                    // const style = document.createElement('style');
+                    // style.innerHTML = styleSection;
+                    document.head.appendChild(styleSection);
+                }
+                console.log("Style Section: ", styleSection);
+                rest = rest.filter((dt, i) => dt.tagName != "STYLE");
                 // console.log("Section: ", dataArr)
                 setCarousel(data[0]);
                 if (data[3]) setFeaturedMatches(data[3])

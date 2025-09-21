@@ -373,7 +373,7 @@ const Body = () => {
                                 </div>
                                 :
                                 section.tagName === "STYLE" ?
-                                    <style dangerouslySetInnerHTML={{__html: section.innerHTML}}/>
+                                    ""
                                     :
                                     <div key={index} className={section.className} dangerouslySetInnerHTML={{ __html: section.innerHTML }} />
                         })}
