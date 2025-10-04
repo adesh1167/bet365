@@ -4833,7 +4833,7 @@ svg {
     position: fixed;
     /* top: 0; */
     /* edited */
-    top: calc(90px + var(--browser-head-height));
+    top: calc(90px + var(--browser-head-height)) !important;
     z-index: 35;
     width: 100%
 }
