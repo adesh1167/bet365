@@ -357,7 +357,7 @@ const Body = () => {
                                 </div>
                             </div>
                         </div> */}
-                        {matches.map((section, index) => {
+                        {matches?.filter(item => item.className !== "").map((section, index) => {
                             console.log(section.className.trim === "pl-PodLoaderModule_Pod-993", section.className)
                             return section.className.trim() === "pl-PodLoaderModule_Pod-993" ?
                                 <div ref={containerRef} className="pl-PodLoaderModule_Pod-993">

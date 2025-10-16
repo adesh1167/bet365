@@ -13,7 +13,7 @@ const Carousel = () => {
                 {/**/}
                 <div className="hpc-CarouselScroller_HScroll ">
                     <div className="hpc-CarouselScroller_ScrollContent ">
-                        {carousel.map(card =>
+                        {carousel.map((card, i) =>
                             <Card data={card}/>    
                         )}
 
