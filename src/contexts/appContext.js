@@ -44,7 +44,7 @@ const AppProvider = ({ children }) => {
             type: 'POST',
             data: { user: user },
             success: (data) => {
-                console.log(data)
+                // console.log(data)
                 if (data.status == 'success') {
 
                     let tempTickets = data.data;
