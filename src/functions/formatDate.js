@@ -84,6 +84,7 @@ export function manageTicketDate(dateString, zone) {
   dateString = dateString.trim();
   const now = DateTime.now({ zone: `UTC${zone}` });
   let date = DateTime.fromFormat(dateString, "yyyy-MM-dd HH:mm:ss", { zone: "UTC+1" });
+  if (date?.invalid) date = DateTime.fromFormat(dateString, "yyyy-MM-dd HH:mm", { zone: `UTC+1` })
   date = date.setZone(`UTC${zone}`);
 
   if (date.hasSame(now, 'day')) {
@@ -106,7 +107,7 @@ export function ticketDate(dateString, zone) {
   dateString = dateString.trim();
   const now = DateTime.now({ zone: `UTC${zone}` });
   let date = DateTime.fromFormat(dateString, "yyyy-MM-dd HH:mm:ss", { zone: "UTC+1" });
-  if (date?.invalid) date = DateTime.fromFormat(dateString, "yyyy-MM-dd HH:mm", { zone: `UTC${baseZone}` })
+  if (date?.invalid) date = DateTime.fromFormat(dateString, "yyyy-MM-dd HH:mm", { zone: `UTC+1` })
   date = date.setZone(`UTC${zone}`);
 
   // if (date.hasSame(now, 'day')) {

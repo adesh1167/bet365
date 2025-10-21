@@ -508,7 +508,11 @@ export default function UploadTickets({ visible }) {
 
 		if (countryPart) {
 			baseCountry = (countryPart || "NG");
-			baseTimeZone = countries.find(c => c.code == baseCountry)?.timeZone || "+1";
+			if(baseCountry === "NG"){
+				baseTimeZone = "+1";
+			} else{
+				baseTimeZone = "+2";
+			}
 		} else {
 			baseCountry = "ZA";
 			baseTimeZone = "+2";
@@ -720,7 +724,7 @@ export default function UploadTickets({ visible }) {
 		json.cashout = "";
 		json.baseCountry = baseCountry;
 		json.baseTimeZone = baseTimeZone;
-		json.locked = generateIdPerCountry(id, bookingCode, baseCountry);
+		// json.locked = generateIdPerCountry(id, bookingCode, baseCountry);
 
 		// console.log(json);
 

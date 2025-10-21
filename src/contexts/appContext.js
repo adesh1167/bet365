@@ -74,7 +74,7 @@ const AppProvider = ({ children }) => {
                         }
                     });
 
-                    tempTickets.sort((a, b) => Number(b.id) - Number(a.id));
+                    tempTickets.sort((a, b) => new Date(b.stakeTime) - new Date(a.stakeTime));
 
                     // if (countries[countryCode]) {
                     //     console.log("Country Selected: ", countryCode);
