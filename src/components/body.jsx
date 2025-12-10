@@ -46,7 +46,7 @@ const Body = () => {
                     <div className="pl-PodLoaderModule ">
                         {/* <Carousel /> */}
                         {carousel && <div dangerouslySetInnerHTML={{ __html: carousel.innerHTML }} />}
-                        <div className="pl-PodLoaderModule_Pod-996 ">
+                        {/* <div className="pl-PodLoaderModule_Pod-996 ">
                             <div className="scr-NavBarScroller_RightArrowVisible ">
                                 <div className="crm-ClassificationRibbonModule_CompetitionScrollerContainer ">
                                     <div className="crm-ClassificationRibbonScroller ">
@@ -328,7 +328,7 @@ const Body = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         {/* <div ref={containerRef} className="pl-PodLoaderModule_Pod-993 ">
                             <div className="hsn-HomepageStickyNavModule ">
                                 <div

@@ -1,0 +1,1 @@
+text.split('|').map(item => item.split(';').filter(item2 => item2.includes('=')).map(item3 => item3.split('='))).flat().filter(item => item[0] == "NA").map(item2 => item2[1])

@@ -164,7 +164,7 @@ const AppProvider = ({ children }) => {
 
                 
                 const dataArr = Object.values(data);
-                let rest = dataArr.filter((dt, i) => i > 1)
+                let rest = dataArr.filter((dt, i) => i > 0)
                 const styleSection = dataArr.find((dt, i) => dt.tagName == "STYLE");
                 if(styleSection){
                     // const style = document.createElement('style');
