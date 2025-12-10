@@ -8,7 +8,7 @@ import { langs } from "../data/langs";
 import { addMatchDetails, addOdds, getCarousel, getFeaturedMatches, getHighlightsDetails, getMatches, parseData, sortMatchesByDate } from "../functions/parseData";
 import rawData from "../test3";
 import { useNavigate } from "react-router-dom";
-import localHiglight from "../test2";
+import localHighlight from "../test2";
 
 const AppContext = createContext();
 
@@ -148,13 +148,13 @@ const AppProvider = ({ children }) => {
                 if (res.status == 'success') {
                     data = parseData(res.data);
                 } else {
-                    data = parseData(localHiglight);
+                    data = parseData(localHighlight);
                 }
                 console.log("Data: ", data);
             },
             error: error => {
                 console.log("Error Fetching Highlights: ", error);
-                data = parseData(localHiglight);
+                data = parseData(localHighlight);
             },
             complete: res => {
                 // Set <base> to bet365.com
