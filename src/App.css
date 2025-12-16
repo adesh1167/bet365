@@ -51956,7 +51956,7 @@ body {
 
 .mbo-OfferBadgesContainer_BadgeContainerInner {
     width: 100%;
-    padding-left: 16px
+    /* padding-left: 16px */
 }
 
 .mbo-OfferBadgesContainer_BadgeContainerInner-betbuilder.mbo-OfferBadgesContainer_BadgeContainerInner {
@@ -52338,6 +52338,11 @@ body {
     display: flex;
     align-items: center;
     padding: 2px 5px
+}
+
+.mbo-OfferBadgeStandard_BonusText {
+    border-right: 1px solid;
+    border-color: var(--color-grey6)
 }
 
 /* ... */

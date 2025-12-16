@@ -4823,3 +4823,144 @@ svg {
 .allow-hover .fh-ShowMore:hover .fh-ShowMore_Text:after {
     background-color: var(--color-greyFF)
 }
+
+.mrl-c7d622 {
+    gap: 5px
+}
+
+.mrl-407c46,
+.mrl-c7d622 {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+
+.mrl-407c46 {
+    flex-direction: column;
+    padding: 0 15px
+}
+
+.mrl-47455b {
+    background-color: var(--color-grey9);
+    border-radius: 3px;
+    color: var(--color-grey28);
+    margin: auto;
+    max-width: 440px;
+    padding: 5px;
+    z-index: 999
+}
+
+.mrl-47455b,
+.mrl-752d2e {
+    position: relative;
+    width: 100%
+}
+
+.mrl-2bb1e5 {
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center
+}
+
+.mrl-24426f {
+    border-bottom: 6px solid var(--color-grey9);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    display: block;
+    height: 0;
+    margin: 0 auto;
+    position: absolute;
+    top: -6px;
+    width: 0
+}
+
+.mrl-24426f,
+.mrl-dfb19a {
+    left: calc(50% - 6px)
+}
+
+.mrl-c74954 {
+    left: calc(25% - 6px)
+}
+
+.mrl-02a2c8 {
+    align-items: center;
+    background-color: var(--color-white7p);
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+    height: 35px;
+    justify-content: center;
+    width: 100%
+}
+
+.mrl-02a2c8:active {
+    background-color: var(--color-white10p)
+}
+
+.allow-hover .mrl-02a2c8:hover .mrl-c4c69b,
+.mrl-02a2c8:active .mrl-c4c69b {
+    color: var(--color-green28FFBB)
+}
+
+@keyframes mrl-abb231 {
+    0% {
+        transform: translateX(-4px)
+    }
+
+    25% {
+        transform: translateX(8px)
+    }
+
+    75% {
+        transform: translateX(-4px)
+    }
+
+    to {
+        transform: none
+    }
+}
+
+.mrl-abb231 {
+    animation: mrl-abb231 .9s ease-out;
+    transform-origin: center
+}
+
+.allow-hover .mrl-02a2c8:hover .mrl-422ef1,
+.mrl-02a2c8:active .mrl-422ef1 {
+    color: var(--color-green28FFBB)
+}
+
+.mrl-c4c69b {
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    word-wrap: break-word;
+    display: -webkit-box;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+    margin-right: 10px;
+    max-height: 30px;
+    overflow: hidden;
+    word-break: break-word
+}
+
+.mrl-422ef1,
+.mrl-c4c69b {
+    color: var(--color-whiteE4)
+}
+
+.mrl-422ef1 {
+    align-items: center;
+    display: flex;
+    height: 15px;
+    justify-content: center;
+    margin-left: 10px;
+    min-width: 15px;
+    width: 15px
+}

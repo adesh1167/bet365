@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { baseApiUrl } from "../data/url";
 import { countries } from "../data/countries";
 import sortLeaguesByFixtureCount from "../functions/sortLeagues";
@@ -11,6 +11,39 @@ import { useNavigate } from "react-router-dom";
 import localHighlight from "../test2";
 
 const AppContext = createContext();
+
+const featuresPreset = {
+    harry: {
+        flauntWin: true,
+        cover: true,
+        watermark: true,
+        shareBet: true,
+        selections: true,
+        editTicket: true,
+        hideTicket: true,
+        hasAi: true,
+    },
+    gadeNew: {
+        flauntWin: true,
+        cover: true,
+        watermark: true,
+        shareBet: true,
+        selections: true,
+        editTicket: true,
+        hideTicket: false,
+        hasAi: true,
+    },
+    gade: {
+        flauntWin: false,
+        cover: false,
+        watermark: false,
+        shareBet: false,
+        selections: false,
+        editTicket: false,
+        hideTicket: false,
+        hasAi: false,
+    }
+}
 
 const AppProvider = ({ children }) => {
 
@@ -31,6 +64,7 @@ const AppProvider = ({ children }) => {
     const [featuredMatches, setFeaturedMatches] = useState(null);
     const [carousel, setCarousel] = useState(null);
     const [subUrl, setSubUrl] = useState('');
+    const [features, setFeatures] = useState(featuresPreset.harry)
     // const [ME, setME] = useState(null);
 
     const loadInterval = useRef(null);
@@ -162,11 +196,11 @@ const AppProvider = ({ children }) => {
                 base.href = "https://bet365.com";
                 document.head.appendChild(base);
 
-                
+
                 const dataArr = Object.values(data);
                 let rest = dataArr.filter((dt, i) => i > 0)
                 const styleSection = dataArr.find((dt, i) => dt.tagName == "STYLE");
-                if(styleSection){
+                if (styleSection) {
                     // const style = document.createElement('style');
                     // style.innerHTML = styleSection;
                     document.head.appendChild(styleSection);
@@ -354,42 +388,57 @@ const AppProvider = ({ children }) => {
 
     }, [countryCode])
 
+    const values = useMemo(() => ({
+        user,
+        setUser,
+        popup,
+        setPopup,
+        loadedTickets,
+        setLoadedTickets,
+        transactions,
+        setTransactions,
+        getTransactions,
+        balance: balance * countries[countryCode]?.factor,
+        setBalance,
+        getBalance,
+        country: countries[countryCode],
+        countryCode,
+        setCountryCode,
+        dropDown,
+        toggleDropDown,
+        sportTypes,
+        setSportTypes,
+        matches,
+        setMatches,
+        featuredMatches,
+        setFeaturedMatches,
+        carousel,
+        setCarousel,
+        subUrl,
+        setSubUrl,
+        features,
+        init,
+        loadStage,
+        lang: langs[countries[countryCode]?.lang || "en-US"],
+        logout
+    }), [
+        user,
+        popup,
+        loadedTickets,
+        transactions,
+        balance,
+        countryCode,
+        dropDown,
+        sportTypes,
+        matches,
+        featuredMatches,
+        carousel,
+        subUrl,
+        loadStage,
+    ])
+
     return (
-        <AppContext.Provider value={{
-            user,
-            setUser,
-            popup,
-            setPopup,
-            loadedTickets,
-            setLoadedTickets,
-            transactions,
-            setTransactions,
-            getTransactions,
-            balance: balance * countries[countryCode]?.factor,
-            setBalance,
-            getBalance,
-            country: countries[countryCode],
-            countryCode,
-            setCountryCode,
-            dropDown,
-            toggleDropDown,
-            sportTypes,
-            setSportTypes,
-            matches,
-            setMatches,
-            featuredMatches,
-            setFeaturedMatches,
-            carousel,
-            setCarousel,
-            subUrl,
-            setSubUrl,
-            // ME,
-            // setME,
-            init,
-            loadStage,
-            lang: langs[countries[countryCode]?.lang || "en-US"],
-            logout
-        }}>
+        <AppContext.Provider value={values}>
             {children}
         </AppContext.Provider>
     );

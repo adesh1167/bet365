@@ -251,3 +251,17 @@ export function createDateKey(difference, month) {
   return result;
 }
 
+export function rawTicketDate({ dateString, zone, baseZone = "+1", isEpoch = false }) {
+  try {
+    dateString = isEpoch ? dateString : dateString.trim();
+    const now = DateTime.now({ zone: `UTC${zone}` });
+    let date = isEpoch ? DateTime.fromSeconds(dateString, { zone: `UTC${baseZone}` }) : DateTime.fromISO(dateString);
+    // date = date.setZone(`UTC${zone}`);
+
+    return date.toFormat("yyyy-MM-dd HH:mm")
+  } catch (error) {
+    console.error("Error Occured in date: ", error, "Date String: ", dateString);
+    return "";
+  }
+}
+

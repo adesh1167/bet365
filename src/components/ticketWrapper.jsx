@@ -143,11 +143,11 @@ const TicketWrapper = ({ type, ticket, index, filter, percent = 1 }) => {
     const height = useMemo(()=>
         ticket.matches.reduce((acc, match) => {
             const userSelection = gameTypes[match.gameType] ? gameTypes[match.gameType].callBack(match.userSelection, match.home, match.away) : match.userSelection
-            const userSelectionLength = userSelection.length + (match.hasEarlyPayout === "true" ? 15 : 0);
+            const userSelectionLength = userSelection.length + ((match.up2 === "true" || match.up2 === true) ? 15 : 0);
             const additions = Math.floor((userSelectionLength * 10) / window.innerWidth);
             // console.log(userSelection, userSelectionLength, window.innerWidth, additions);
             return acc + additions * 20;
-        }, (100 + (126 * ticket.matches.length) + (data.winBoost ? 70 : 0)))
+        }, (100 + (126 * ticket.matches.length) + (data.winBoost ? 70 : 0) + (ticket.status === "open" ? 35 : 0)))
     , [data.winBoost]);
 
     return (

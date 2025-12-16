@@ -164,7 +164,7 @@ const BetSummary = ({ ticket, percent = 1, }) => {
 
 const Match = ({ match, isOpen }) => {
 
-    const hasOfferBadges = useRef((isOpen && match.hasEarlyPayout && match.status === "finished") || (!isOpen && match.hasEarlyPayout));
+    const hasOfferBadges = useRef((isOpen && (match.up2 === "true" || match.up2 === true) && match.status === "finished") || (!isOpen && (match.up2 === "true" || match.up2 === true)));
     
     return (
         <div className={`h-BetSelection ${hasOfferBadges.current ? "h-BetSelection-hasofferbadges" : ""}`}>

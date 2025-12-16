@@ -55,6 +55,71 @@ const OpenTicket = ({ ticket, data, filter, height, hidden, expanded, toggleExpa
                 Edit Bet is no longer available
             </div>
             <div className={`myb-OpenBetItemInnerView ${data.winBoost ? "myb-OpenBetItemInnerView-hasoffers" : ""} ${hidden ? "Hidden" : ""}`} style={{ maxHeight: expanded ? `${height}px` : "0px" }}>
+                <div>
+                    <div className="mrl-407c46">
+                        <div className="mrl-c7d622">
+                            <button className="mrl-02a2c8" type="button">
+                                <div className="mrl-422ef1">
+                                    <svg
+                                        width={15}
+                                        height={15}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden="true"
+                                        focusable="false"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            transform="translate(2.1 0)"
+                                            d="M5.4000001 0L8.5 3.0999999L5.4000001 6.1999998L5.4000001 4.0500002C3.4946177 4.0500002 1.95 5.5946178 1.95 7.5C1.95 7.829679 1.9962423 8.1485577 2.0825944 8.4505033L0.59441435 9.9654865C0.21445605 9.2263823 0 8.3882351 0 7.5C0 4.5176625 2.4176624 2.0999999 5.4000001 2.0999999L5.4000001 0Z"
+                                            fillRule="evenodd"
+                                        />
+                                        <path
+                                            fill="currentColor"
+                                            transform="translate(4.4 5.0592)"
+                                            d="M7.9184489 0.00049410923C8.2903805 0.73343068 8.5 1.5626335 8.5 2.4407957C8.5 5.4227996 6.0828786 7.8402548 3.101001 7.8407955L3.0999999 9.9407959L0 6.8407955L3.0999999 3.7407956L3.0999999 5.8899999L3.2892919 5.8856907C5.1066408 5.7874203 6.5500002 4.2826653 6.5500002 2.4407957C6.5500002 2.1217635 6.5066962 1.8128453 6.4256458 1.5195986L7.9184489 0.00049410923Z"
+                                            fillRule="evenodd"
+                                        />
+                                    </svg>
+                                </div>
+                                <p className="mrl-c4c69b">Reuse Selections</p>
+                            </button>
+                            <button className="mrl-02a2c8" type="button">
+                                <div className="mrl-422ef1">
+                                    <svg
+                                        width={12}
+                                        height={16}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden="true"
+                                        focusable="false"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            transform="translate(0 5.11612)"
+                                            d="M3.5 1.5L2.5 1.5C1.9477153 1.5 1.5 1.9477153 1.5 2.5L1.5 7.5C1.5 8.0522852 1.9477153 8.5 2.5 8.5L9.5 8.5C10.052285 8.5 10.5 8.0522852 10.5 7.5L10.5 2.5C10.5 1.9477153 10.052285 1.5 9.5 1.5L8.5 1.5L8.5 0L10 0C11.104569 0 12 0.89543051 12 2L12 8C12 9.1045694 11.104569 10 10 10L2 10C0.89543051 10 0 9.1045694 0 8L0 2C0 0.89543051 0.89543051 2.220446e-16 2 0L3.5 0L3.5 1.5Z"
+                                            fillRule="evenodd"
+                                        />
+                                        <path
+                                            fill="currentColor"
+                                            transform="translate(2.96967 0.323226)"
+                                            d="M2.6767766 0.14644662C2.8720388 -0.048815537 3.1886213 -0.048815537 3.3838835 0.14644662L5.9053302 2.6678932C6.1124368 2.875 6.1124368 3.2107863 5.9053302 3.4178932C5.6982231 3.625 5.3624368 3.625 5.1553302 3.4178932L3.53 1.7920001L3.5303302 8.2928934C3.5303302 8.5690355 3.3064725 8.7928934 3.0303302 8.7928934C2.7541878 8.7928934 2.5303302 8.5690355 2.5303302 8.2928934L2.53 1.7920001L0.90533006 3.4178932C0.72123516 3.6019881 0.43546745 3.6224432 0.22877856 3.4792583L0.15533009 3.4178932C-0.051776696 3.2107863 -0.051776696 2.875 0.15533009 2.6678932L2.6767766 0.14644662Z"
+                                            fillRule="evenodd"
+                                        />
+                                        <path
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="0.5"
+                                            strokeMiterlimit={10}
+                                            transform="translate(2.96967 0.323226)"
+                                            d="M2.6767766 0.14644662C2.8720388 -0.048815537 3.1886213 -0.048815537 3.3838835 0.14644662L5.9053302 2.6678932C6.1124368 2.875 6.1124368 3.2107863 5.9053302 3.4178932C5.6982231 3.625 5.3624368 3.625 5.1553302 3.4178932L3.53 1.7920001L3.5303302 8.2928934C3.5303302 8.5690355 3.3064725 8.7928934 3.0303302 8.7928934C2.7541878 8.7928934 2.5303302 8.5690355 2.5303302 8.2928934L2.53 1.7920001L0.90533006 3.4178932C0.72123516 3.6019881 0.43546745 3.6224432 0.22877856 3.4792583L0.15533009 3.4178932C-0.051776696 3.2107863 -0.051776696 2.875 0.15533009 2.6678932L2.6767766 0.14644662Z"
+                                            fillRule="evenodd"
+                                        />
+                                    </svg>
+                                </div>
+                                <p className="mrl-c4c69b">Share</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <div className="myb-OpenBetItemInnerView_Details ">
                     <div className="myb-OpenBetItemInnerView_ParticipantContainer ">
                         {ticket.matches.map((match, index) =>
@@ -69,7 +134,7 @@ const OpenTicket = ({ ticket, data, filter, height, hidden, expanded, toggleExpa
                                 <div className="mbo-OfferBadgesContainer_BadgeContainer ">
                                     <div className="mbo-OfferBadgesContainer_BadgeContainerInner ">
                                         <div className="mbo-OfferBadgeStandard ">
-                                            <div className="mbo-OfferBadgeStandard_BonusText ">+{formatNumber(data.boostFactor*100, false, country.lang)}%</div>
+                                            <div className="mbo-OfferBadgeStandard_BonusText ">+{formatNumber(data.boostFactor * 100, false, country.lang)}%</div>
                                             <div className="mbo-OfferBadgeStandard_Badge mbo-OfferBadgeStandard_Badge-with-bonus ">
                                                 {" "}
                                                 Acca Boost
@@ -86,24 +151,30 @@ const OpenTicket = ({ ticket, data, filter, height, hidden, expanded, toggleExpa
                 }
                 <div className="myb-OpenBetItemInnerView_BetInformationContainer myb-OpenBetItemInnerView_BetInformationContainer-hasCloseButton ">
                     <div className="myb-OpenBetItemInnerView_BetInformation ">
-                        <div className="myb-OpenBetItemInnerView_StakeInformationWrapper myd-StakeDisplay ">
+                        <div className="myb-OpenBetItemInnerView_StakeInformationWrapper myb-StakeDisplay ">
                             <div className="myd-StakeDisplay_Title">Stake</div>
                             <div className="myd-StakeDisplay_StakeWrapper">{country.currency}{formatNumber(data.wager, country.hasComma, country.lang)}</div>
                         </div>
                         <div className="myb-OpenBetItemInnerView_BetInformationWrapper ">
                             <div className="myb-OpenBetItemInnerView_BetInformationLabel ">
-                                To Return
+                                Total To Return
                             </div>
                             <div className="myb-OpenBetItemInnerView_BetInfoContainer ">
-                                <div className="myb-OpenBetItemInnerView_BonusAndReturnContainer ">
+                                <div className="myb-OpenBetItemInnerView_BonusAndReturnContainer myb-OpenBetItemInnerView_BonusAndReturnContainer-offer ">
                                     <div className="myb-OpenBetItemInnerView_ReturnTextWrapper ">
                                         <div className="myb-OpenBetItemInnerView_BetInformationText ">
                                             {country.currency}{formatNumber(data.potentialReturn, country.hasComma, country.lang)}
                                         </div>
                                     </div>
+                                    <div className="myb-OpenBetItemInnerView_BonusTextWrapper ">
+                                        <div className="myb-OpenBetItemInnerView_BonusText ">
+                                            Incl {country.currency}{formatNumber(data.winBoost, true, country.lang)} Boost
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div className="myb-CloseBetButtonBase myb-CloseBetButtonWithSlider myb-CloseBetButtonWithSlider_NoSlider ">
                         <div className="myb-CloseBetButtonBase_Wrapper ">
@@ -149,7 +220,7 @@ const Match = ({ match }) => {
     oddText = isCancelled ? 'NotResulted' : Number(match.odd).toFixed(2);
     color = match.status === 'finished' ? 'win-color' : 'black-color';
     filter = match.status === 'finished' ? "won" : "torun";
-    
+
     return (
         <div className="myb-OpenBetParticipant myb-BetParticipant ">
             <div className="myb-BetParticipant_TopContainer ">
@@ -178,7 +249,7 @@ const Match = ({ match }) => {
                     </div>
                 </div>
                 <div className="myb-BetParticipant_RightContainer ">
-                    {match.hasEarlyPayout === "true" && <div className="mbo-OfferBadgesContainer_Rhs mbo-OfferBadgesContainer mbo-OfferBadgesContainer-betitemmode ">
+                    {(match.up2 === "true" || match.up2 === true) && <div className="mbo-OfferBadgesContainer_Rhs mbo-OfferBadgesContainer mbo-OfferBadgesContainer-betitemmode ">
                         <div className="mbo-OfferBadgesContainer_BadgeContainer ">
                             <div className="mbo-OfferBadgesContainer_BadgeContainerInner ">
                                 <div className="mbo-OfferBadgeStandard ">

@@ -1,0 +1,116 @@
+/* LIGHT AI ACTIVITY OVERLAY WITH ANIMATED BACKDROP */
+
+.ai-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: +1;
+  pointer-events: none;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.ai-overlay.blocking{
+    pointer-events: auto;
+}
+
+.ai-overlay.active {
+  display: flex;
+}
+
+/* --- BACKDROP WITH LIGHT ANIMATING COLORS --- */
+.ai-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    130deg,
+    rgba(0, 200, 255, 0),
+    rgba(0, 200, 255, 0.2),
+    rgba(0, 200, 255, 0),
+    rgba(100, 0, 255, 0.2),
+    rgba(0, 200, 255, 0),
+    rgba(0, 255, 180, 0.2),
+    rgba(0, 200, 255, 0)
+  );
+  background-size: 200% 200%;
+  animation: ai-gradient 16s linear infinite forwards;
+  backdrop-filter: blur(3px) saturate(120%);
+}
+
+/* Subtle pulsing gradient animation */
+@keyframes ai-gradient {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* --- PANEL --- */
+.ai-overlay__panel {
+  position: relative;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  color: #fff;
+  opacity: 0.95;
+  color: blue;
+}
+
+.dark .ai-overlay__panel{
+    background: rgba(255, 255, 255, 0.28);
+    color: #fff;
+}
+
+/* --- ICON (pulse) --- */
+.ai-overlay__icon {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  /* background: linear-gradient(180deg, rgba(0, 200, 255, 1), rgba(0, 140, 200, 0.9)); */
+  /* box-shadow: 0 0 8px rgba(0, 200, 255, 0.5); */
+  animation: ai-pulse 1.6s infinite;
+}
+
+@keyframes ai-pulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* --- TEXT --- */
+.ai-overlay__text {
+  display: inline-flex;
+  align-items: center;
+  /* color: blue; */
+  font-weight: bold;
+  /* color: rgba(255, 255, 255, 0.95); */
+  font-size: 14px;
+}
+
+.ai-overlay__dots::after {
+  content: "...";
+  display: inline-block;
+  animation: ai-dots 2s infinite;
+  margin-left: 1px;
+}
+
+@keyframes ai-dots {
+  0% { content: "   "; }
+  25% { content: ".  "; }
+  50% { content: ".. "; }
+  75% { content: "..."; }
+  100% { content: "   "; }
+}
+
+/* Optional: reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  .ai-overlay::before,
+  .ai-overlay__icon,
+  .ai-overlay__dots::after {
+    animation: none;
+  }
+}
