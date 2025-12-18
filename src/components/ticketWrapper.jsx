@@ -142,7 +142,7 @@ const TicketWrapper = ({ type, ticket, index, filter, percent = 1 }) => {
     // const height = useRef(100 + 125 * ticket.matches.length);
     const height = useMemo(()=>
         ticket.matches.reduce((acc, match) => {
-            const userSelection = gameTypes[match.gameType] ? gameTypes[match.gameType].callBack(match.userSelection, match.home, match.away) : match.userSelection
+            const userSelection = gameTypes({type: match.gameType, value: match.userSelection, home: match.home, away: match.away}).userSelection
             const userSelectionLength = userSelection.length + ((match.up2 === "true" || match.up2 === true) ? 15 : 0);
             const additions = Math.floor((userSelectionLength * 10) / window.innerWidth);
             // console.log(userSelection, userSelectionLength, window.innerWidth, additions);

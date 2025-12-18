@@ -412,7 +412,9 @@ export default function UploadTickets({ visible }) {
 			if (useAi) {
 
 				const job = data.matches.map(async match => {
-					if ((match.winningSelection !== null && match.winningSelection !== undefined && match.winningSelection !== "") || match.status !== "finished") {
+					const hasWinningSelection = (match.winningSelection !== null && match.winningSelection !== undefined && match.winningSelection !== "");
+					const hasFinalScore = (match.status === "finished" && (match.half === "2nd half" || match.half === "Match Ended") && match.liveScore)
+					if ((hasWinningSelection && hasFinalScore) || (hasWinningSelection && !showScore) || match.status !== "finished") {
 						return ({
 							...match,
 						})
@@ -479,7 +481,8 @@ export default function UploadTickets({ visible }) {
 
 				const gameType = m.gameType.trim();
 				// const score = m.score;
-				const score = (m.score?.home !== undefined && m.score?.home !== null) ? `${m.score?.home} - ${m.score?.away}` : null;
+				let score = (m.score?.home !== undefined && m.score?.home !== null) ? `${m.score?.home} - ${m.score?.away}` : null;
+				score = score || ((m.status === "finished" && (m.half === "2nd half" || m.half === "Match Ended") && m.liveScore) ? m.liveScore : null)
 				const userSelection = m.userSelection.trim();
 
 				const isTotalGoals = gameType.includes('Total Goals') && !(gameType.split("-")?.length > 1);
@@ -531,7 +534,7 @@ export default function UploadTickets({ visible }) {
 					up2: up2Value,
 					settlementTime: m.settlementTime && rawTicketDate({ dateString: m.settlementTime, baseZone: baseTimeZone, isEpoch: false }),
 					status: m.status,
-					score: showScore ? score : "",
+					score: showScore ? (score || "") : "",
 					live: m.isLive ? `${m.liveFinished ? "Ended" : m.half} | ${m.timePlayed}:00 min | ${m.liveScore}` : "",
 				})
 			});
@@ -711,21 +714,10 @@ export default function UploadTickets({ visible }) {
 	}, [])
 
 	useEffect(() => {
-		let timeout;
 		calculateOdds()
 		if (resultRef.current) {
 			updateLines();
 		}
-		// console.log("Changed: ", justGenerated.current, result.length, issues);
-		// if (justGenerated.current) {
-		// 	timeout = setTimeout(()=>{
-		// 		justGenerated.current = false
-		// 	}, 100);
-		// } else {
-		// 	setIssues([]);
-		// }
-
-		return () => clearTimeout(timeout);
 	}, [result])
 
 	const lines = useMemo(() => {

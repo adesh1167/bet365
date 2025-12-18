@@ -41,6 +41,47 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                 }
             </div>
             <div className={`myb-SettledBetItemInnerView ${hidden ? "Hidden" : ""}`} style={{ maxHeight: expanded ? `${height}px` : "0px" }}>
+                <div>
+                    <div className="mrl-407c46">
+                        <div className="mrl-c7d622">
+                            <button className="mrl-02a2c8" type="button">
+                                <div className="mrl-422ef1">
+                                    <svg
+                                        width={12}
+                                        height={16}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden="true"
+                                        focusable="false"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            transform="translate(0 5.11612)"
+                                            d="M3.5 1.5L2.5 1.5C1.9477153 1.5 1.5 1.9477153 1.5 2.5L1.5 7.5C1.5 8.0522852 1.9477153 8.5 2.5 8.5L9.5 8.5C10.052285 8.5 10.5 8.0522852 10.5 7.5L10.5 2.5C10.5 1.9477153 10.052285 1.5 9.5 1.5L8.5 1.5L8.5 0L10 0C11.104569 0 12 0.89543051 12 2L12 8C12 9.1045694 11.104569 10 10 10L2 10C0.89543051 10 0 9.1045694 0 8L0 2C0 0.89543051 0.89543051 2.220446e-16 2 0L3.5 0L3.5 1.5Z"
+                                            fillRule="evenodd"
+                                        />
+                                        <path
+                                            fill="currentColor"
+                                            transform="translate(2.96967 0.323226)"
+                                            d="M2.6767766 0.14644662C2.8720388 -0.048815537 3.1886213 -0.048815537 3.3838835 0.14644662L5.9053302 2.6678932C6.1124368 2.875 6.1124368 3.2107863 5.9053302 3.4178932C5.6982231 3.625 5.3624368 3.625 5.1553302 3.4178932L3.53 1.7920001L3.5303302 8.2928934C3.5303302 8.5690355 3.3064725 8.7928934 3.0303302 8.7928934C2.7541878 8.7928934 2.5303302 8.5690355 2.5303302 8.2928934L2.53 1.7920001L0.90533006 3.4178932C0.72123516 3.6019881 0.43546745 3.6224432 0.22877856 3.4792583L0.15533009 3.4178932C-0.051776696 3.2107863 -0.051776696 2.875 0.15533009 2.6678932L2.6767766 0.14644662Z"
+                                            fillRule="evenodd"
+                                        />
+                                        <path
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="0.5"
+                                            strokeMiterlimit={10}
+                                            transform="translate(2.96967 0.323226)"
+                                            d="M2.6767766 0.14644662C2.8720388 -0.048815537 3.1886213 -0.048815537 3.3838835 0.14644662L5.9053302 2.6678932C6.1124368 2.875 6.1124368 3.2107863 5.9053302 3.4178932C5.6982231 3.625 5.3624368 3.625 5.1553302 3.4178932L3.53 1.7920001L3.5303302 8.2928934C3.5303302 8.5690355 3.3064725 8.7928934 3.0303302 8.7928934C2.7541878 8.7928934 2.5303302 8.5690355 2.5303302 8.2928934L2.53 1.7920001L0.90533006 3.4178932C0.72123516 3.6019881 0.43546745 3.6224432 0.22877856 3.4792583L0.15533009 3.4178932C-0.051776696 3.2107863 -0.051776696 2.875 0.15533009 2.6678932L2.6767766 0.14644662Z"
+                                            fillRule="evenodd"
+                                        />
+                                    </svg>
+                                </div>
+                                <p className="mrl-c4c69b">Share</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="myb-SettledBetItemInnerView_ParticipantContainer myb-SettledBetParticipantRenderer ">
 
                     {ticket.matches.map((match, index) =>
@@ -48,6 +89,23 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                     )}
 
                 </div>
+                {data.winBoost > 0 && data.filter === "Win" &&
+                    <div className="myb-SettledBetItemInnerView_BadgeContainer ">
+                        <div className="myb-SettledBetItemInnerView_OfferBadgesContainer mbo-OfferBadgesContainer ">
+                            <div className="mbo-OfferBadgesContainer_BadgeContainer ">
+                                <div className="mbo-OfferBadgesContainer_BadgeContainerInner ">
+                                    <div className="mbo-OfferBadgeSettled mbo-OfferBadgeSettled_HasBonus ">
+                                        <div className="mbo-OfferBadgeSettled_BonusText ">+{formatNumber(data.boostFactor * 100, false, country.lang)}%</div>
+                                        <div className="mbo-OfferBadgeSettled_Text mbo-OfferBadgeSettled_Badge-with-bonus ">
+                                            Acca Boost
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
                 <div className="myb-SettledBetItemInnerView_BadgeContainer ">
                     <div>
                         <div />
@@ -61,7 +119,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                         </div>
                         <div className="myb-SettledBetItemFooter_BetInformationWrapper ">
                             <div className="myb-SettledBetItemFooter_BetInformationLabel ">
-                                Return
+                                Total Returns
                             </div>
                             <div className="myb-SettledBetItemFooter_BetInfoContainer ">
                                 <div className="myb-SettledBetItemFooter_ReturnTextWrapper ">
@@ -70,6 +128,9 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                                         {formatNumber(data.potentialReturn, country.hasComma, country.lang)}
                                     </span>
                                 </div>
+                            </div>
+                            <div className="myb-SettledBetItemFooter_BonusTextWrapper ">
+                                <div className="myb-SettledBetItemFooter_BonusText ">Incl $0.06 Boost</div>
                             </div>
                         </div>
                         <div className="myb-SettledBetItemFooter_SettledButtonBase ">
@@ -146,7 +207,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
     )
 }
 
-const Match = ({ odd, winningSelection, userSelection, home, away, gameType, league, newMatchTime, status, isOpen, score, hasEdit }) => {
+const Match = ({ odd, winningSelection, userSelection, home, away, gameType, league, newMatchTime, status, isOpen, score, hasEdit, up2 }) => {
 
     const jersey = useRef({
         home: GenerateRandomJersey(`${home}home${league}`),
@@ -193,7 +254,7 @@ const Match = ({ odd, winningSelection, userSelection, home, away, gameType, lea
                     <div className="myb-BetParticipant_HeaderTitle ">
                         <div className="myb-BetParticipant_HeaderText ">
                             <span className="myb-BetParticipant_ParticipantSpan ">
-                                {gameTypes[gameType] ? gameTypes[gameType].callBack(userSelection, home, away) : userSelection}{" "}
+                                {gameTypes({type: gameType, value: userSelection, home, away}).userSelection}{" "}
                             </span>
                             <div className="myb-BetParticipant_HeaderOdds ">{formatNumber(odd)}</div>
                         </div>
@@ -208,15 +269,26 @@ const Match = ({ odd, winningSelection, userSelection, home, away, gameType, lea
                     </div>
                     <div className="myb-BetParticipant_BetBoost myb-SettledBetParticipant_MarketDescriptionContainer ">
                         <div className="myb-BetParticipant_MarketDescription ">
-                            {gameTypes[gameType]?.text || gameType}
+                            {gameTypes({type: gameType, value: userSelection, home, away}).gameType}
                         </div>
                     </div>
                 </div>
-                <div className="myb-BetParticipant_RightContainer ">
-                    <div className="mbo-OfferBadgesContainer_Rhs ">
-                        <div />
+                {((up2 === "true" || up2 === true) && gameType === "1X2") &&
+                    <div className="myb-BetParticipant_RightContainer ">
+                        <div className="myb-BetParticipant_OfferBadgesContainer mbo-OfferBadgesContainer_Rhs mbo-OfferBadgesContainer mbo-OfferBadgesContainer-betitemmode ">
+                            <div className="mbo-OfferBadgesContainer_BadgeContainer ">
+                                <div className="mbo-OfferBadgesContainer_BadgeContainerInner ">
+                                    <div className="mbo-OfferBadgeSettled mbo-OfferBadgeSettled_EarlyPayout ">
+                                        <div className="mbo-OfferBadgeSettled_Text ">Early Payout</div>
+                                        <div className="mbo-OfferBadgeSettled_SettledText ">Received</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+
+                }
+
             </div>
             <div className="myb-BetParticipant_FixtureContainer ">
                 <div className="myb-BetParticipant_FixtureDescription myb-BetParticipant_FixtureDescription-hasTeamNames myb-SettledBetParticipant_FixtureDescription ">
@@ -239,7 +311,7 @@ const Match = ({ odd, winningSelection, userSelection, home, away, gameType, lea
                             <div className="myb-BetParticipant_FixtureStartTime2 " />
                         </div>
                     </div>
-                    {score &&
+                    {(score && score !== "") &&
                         <div className="myb-OpenBetScores myb-OpenBetScores_Soccer ">
                             <div className="myb-OpenBetScores_Container ">
                                 <div className="myb-OpenBetScores_TeamContainer ">

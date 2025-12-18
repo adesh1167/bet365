@@ -229,7 +229,7 @@ const Match = ({ match }) => {
                     <div className="myb-BetParticipant_HeaderTitle ">
                         <div className="myb-BetParticipant_HeaderText ">
                             <span className="myb-BetParticipant_ParticipantSpan ">
-                                {gameTypes[match.gameType] ? gameTypes[match.gameType].callBack(match.userSelection, match.home, match.away) : match.userSelection}
+                                {gameTypes({type: match.gameType, value: match.userSelection, home: match.home, away: match.away}).userSelection}
                             </span>
                             <div className="myb-BetParticipant_HeaderOdds ">{formatNumber(match.odd)}</div>
                         </div>
@@ -244,12 +244,12 @@ const Match = ({ match }) => {
                     </div>
                     <div className="myb-BetParticipant_BetBoost ">
                         <div className="myb-BetParticipant_MarketDescription ">
-                            {gameTypes[match.gameType]?.text || match.gameType}
+                            {gameTypes({type: match.gameType, value: match.userSelection, home: match.home, away: match.away}).gameType}
                         </div>
                     </div>
                 </div>
                 <div className="myb-BetParticipant_RightContainer ">
-                    {(match.up2 === "true" || match.up2 === true) && <div className="mbo-OfferBadgesContainer_Rhs mbo-OfferBadgesContainer mbo-OfferBadgesContainer-betitemmode ">
+                    {((match.up2 === "true" || match.up2 === true) && match.gameType === "1X2" ) && <div className="mbo-OfferBadgesContainer_Rhs mbo-OfferBadgesContainer mbo-OfferBadgesContainer-betitemmode ">
                         <div className="mbo-OfferBadgesContainer_BadgeContainer ">
                             <div className="mbo-OfferBadgesContainer_BadgeContainerInner ">
                                 <div className="mbo-OfferBadgeStandard ">

@@ -49912,6 +49912,7 @@ body {
 }
 
 .myb-SettledBetItemFooter_StakeInformationWrapper {
+    margin-bottom: 4px;
     flex: 1 0 50%;
     padding: 0 15px
 }
@@ -49929,7 +49930,7 @@ body {
 .myb-SettledBetItemFooter_BetInformationWrapper {
     display: flex;
     flex-direction: column;
-    flex: 1 0 50%;
+    /* flex: 1 0 50%; */ 
     padding: 0 15px
 }
 
@@ -50032,7 +50033,7 @@ body {
 }
 
 .myb-MyBets_Breakpoints-1 .myb-SettledBetItemFooter_SettledButtonBase {
-    top: 7px
+    /* top: 7px */
 }
 
 .myb-MyBets_Breakpoints-2 .myb-SettledBetItemFooter_SettledButtonBase {
@@ -50264,6 +50265,8 @@ body {
 }
 
 .myb-SettledBetItemInnerView_BadgeContainer {
+    display: flex;
+    align-items: center;
     margin-left: 15px
 }
 
