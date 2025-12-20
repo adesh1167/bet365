@@ -112,8 +112,9 @@ const gameTypes = ({ type, value = "", home = "", away = "" }) => {
                     finalValue = `${home} ${scores[0]}-${scores[1]}`
                 } else if (scores[1] > scores[0]) {
                     finalValue = `${away} ${scores[1]}-${scores[0]}`
+                } else{
+                    finalValue = `Draw ${scores[0]}-${scores[1]}`
                 }
-                finalValue = `Draw ${scores[0]}-${scores[1]}`
             }
             break;
         }
