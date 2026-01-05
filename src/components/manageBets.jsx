@@ -1,8 +1,10 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useApp } from '../contexts/appContext';
 import { baseApiUrl } from '../data/url';
 import ManageTicketWrapper from './manageTicketWrapper';
 import { baseURL } from '../data/url';
+import EditTicket from './editTicket';
+import { useLocation, useMatch, useParams } from 'react-router-dom';
 
 const loadingSvg = `${baseURL}/assets/loading.svg`;
 // import loadingSvg from '../assets/loading.svg';
@@ -29,6 +31,17 @@ const ManageBets = ({ filter }) => {
         withdraw: false,
         update: false
     });
+
+    const baseTickets = useRef(loadedTickets.tickets)
+
+    const beingEdited = useMatch("MaB/ET/:id");
+    const { pathname } = useLocation();
+    const { id } = useParams();
+
+    const editedId = useMemo(() => {
+        if (beingEdited) return null;
+        return id;
+    }, [pathname])
 
     const filteredTickets = useMemo(() => {
         return (localTickets.filter((ticket, index) => !deleted.includes(index)))
@@ -59,8 +72,8 @@ const ManageBets = ({ filter }) => {
     }
 
     function closeMyBets({ force = false }) {
-        if (deleted.length > 0 && !force) {
-            if (window.confirm("Do you want to update tickets before leaving?")) {
+        if ((deleted.length > 0 || localTickets !== baseTickets.current) && !force && !loading.update) {
+            if (window.confirm(deleted.length > 0 ? "You've not updated deleted tickets. Do you want to update?" : "You have unsaved changes. Do you want to update tickets before leaving?")) {
                 updateTickets({ exit: true });
             } else {
                 setSubUrl('');
@@ -94,6 +107,7 @@ const ManageBets = ({ filter }) => {
                     alert(res.message)
                     setLocalTickets(tempTickets)
                     setDeleted([]);
+                    baseTickets.current = tempTickets;
                     setLoadedTickets(prev => ({ ...prev, tickets: tempTickets }));
                 },
                 error: (res) => {
@@ -179,14 +193,24 @@ const ManageBets = ({ filter }) => {
         })
     }
 
+    function updateTicket(index, data) {
+        setLocalTickets(prev => {
+            const temp = [...prev];
+            temp[index] = data;
+            return temp;
+        })
+    }
+
     console.log(withdrawalTime);
+
     return (
-        <div className="wc-MyBetsPageResponsive_Container">
-            <div className="myb-MyBetsModule ">
-                <div className="myb-MyBets myb-MyBets_Breakpoints-1 ">
-                    <div className="myb-MyBetsHeader ">
-                        <div className="myb-MyBetsHeader_Scroller ">
-                            {/* {buttons.map((button, index) =>
+        <>
+            <div className="wc-MyBetsPageResponsive_Container">
+                <div className="myb-MyBetsModule ">
+                    <div className="myb-MyBets myb-MyBets_Breakpoints-1 ">
+                        <div className="myb-MyBetsHeader ">
+                            <div className="myb-MyBetsHeader_Scroller ">
+                                {/* {buttons.map((button, index) =>
                                 <div
                                     key={button.name}
                                     data-content={button.name}
@@ -198,104 +222,113 @@ const ManageBets = ({ filter }) => {
                                 </div>
 
                             )} */}
-                            <div
-                                className={`myb-HeaderButton ${true ? 'myb-HeaderButton-selected myb-HeaderButton-animate' : ''}`}
-                            >
-                                Manage Bets
-                            </div>
-                            <div
-                                className={`myb-HeaderButton`}
-                                style={{
-                                    width: "100%",
-                                    textAlign: "right",
-                                    fontWeight: 700,
-                                    padding: 0,
-                                    // justifyContent: "center"
-                                }}
-                                onClick={loading.update ? ()=> {} : updateTickets}
-                            >
-                                {loading.update ? 
-                                    <img src={loadingSvg} width="24px" style={{
-                                        fill: "red",
-                                        display: 'inline',
-                                        position: "relative",
-                                        top: "8px",
-                                    }} />
-                                    :
-                                    "UPDATE"
+                                <div
+                                    className={`myb-HeaderButton ${true ? 'myb-HeaderButton-selected myb-HeaderButton-animate' : ''}`}
+                                >
+                                    Manage Bets
+                                </div>
+                                <div
+                                    className={`myb-HeaderButton`}
+                                    style={{
+                                        width: "100%",
+                                        textAlign: "right",
+                                        fontWeight: 700,
+                                        padding: 0,
+                                        // justifyContent: "center"
+                                    }}
+                                    onClick={loading.update ? () => { } : updateTickets}
+                                >
+                                    {loading.update ?
+                                        <img src={loadingSvg} width="24px" style={{
+                                            fill: "red",
+                                            display: 'inline',
+                                            position: "relative",
+                                            top: "8px",
+                                        }} />
+                                        :
+                                        "UPDATE"
                                     }
+                                </div>
+                                <div className="myb-NavBarSlider " style={{ left: `${0}px`, width: `${100}px` }} />
+                                <div style={{ position: "absolute", right: 0, }}>Update</div>
                             </div>
-                            <div className="myb-NavBarSlider " style={{ left: `${0}px`, width: `${100}px` }} />
-                            <div style={{position: "absolute", right: 0, }}>Update</div>
                         </div>
-                    </div>
-                    <div className="myb-MyBetsScroller ">
-                        <div className="myb-MyBetsScroller_Content ">
-                            <div
-                                className="myb-BetItemsContainer "
-                                style={{ minHeight: "calc(-135px + 100vh)" }}
-                            >
-                                <div className="deposit">
-                                    <input type="number" className="amount" value={depositAmount} onChange={e => setDepositAmount(e.target.value)} />
-                                    <input type="datetime-local" step={1} className="time" value={depositTime} onChange={e => setDepositTime(e.target.value)} />
-                                    {
-                                        loading.deposit ?
-                                            <div className="deposit-button"><img src={loadingSvg} width="20px" style={{ fill: "red", display: 'inline' }} /></div>
-                                            :
-                                            <div className="deposit-button" onClick={deposit}>Deposit</div>
-                                    }
-                                </div>
-                                <div className="withdrawal">
-                                    <input type="number" className="amount" value={withdrawalAmount} onChange={e => setWithdrawalAmount(e.target.value)} />
-                                    <input type="datetime-local" step={1} className="time" value={withdrawalTime} onChange={e => setWithdrawalTime(e.target.value)} />
-                                    {
-                                        loading.withdraw ?
-                                            <div className="withdrawal-button"><img src={loadingSvg} width="20px" style={{ fill: "red", display: 'inline' }} /></div>
-                                            :
-                                            <div className="withdrawal-button" onClick={withdraw}>Withdraw</div>
-                                    }
-                                </div>
-                                {filteredTickets.length ?
-                                    <div className="myb-BetItemsContainer_Container " >
-                                        {loadedTickets.tickets.map((ticket, index) =>
-                                            <ManageTicketWrapper
-                                                type={ticket.status}
-                                                key={`${ticket.id}-${index}-${ticket.filter}-${ticket.status}-${ticket.wager}`}
-                                                ticket={ticket}
-                                                filter={"none"}
-                                                index={index}
-                                                isDeleted={deleted.includes(index)}
-                                                toggleDelete={toggleDelete}
-                                            />
-                                        )}
+                        <div className="myb-MyBetsScroller ">
+                            <div className="myb-MyBetsScroller_Content ">
+                                <div
+                                    className="myb-BetItemsContainer "
+                                    style={{ minHeight: "calc(-135px + 100vh)" }}
+                                >
+                                    <div className="deposit">
+                                        <input type="number" className="amount" value={depositAmount} onChange={e => setDepositAmount(e.target.value)} />
+                                        <input type="datetime-local" step={1} className="time" value={depositTime} onChange={e => setDepositTime(e.target.value)} />
+                                        {
+                                            loading.deposit ?
+                                                <div className="deposit-button"><img src={loadingSvg} width="20px" style={{ fill: "red", display: 'inline' }} /></div>
+                                                :
+                                                <div className="deposit-button" onClick={deposit}>Deposit</div>
+                                        }
                                     </div>
-                                    :
-                                    <div className="myb-BetItemsContainer_EmptyMessage ">
-                                        <div className="myb-BetItemsContainer_NoBetsMessageLineOne ">
-                                            There are currently no bets to display
+                                    <div className="withdrawal">
+                                        <input type="number" className="amount" value={withdrawalAmount} onChange={e => setWithdrawalAmount(e.target.value)} />
+                                        <input type="datetime-local" step={1} className="time" value={withdrawalTime} onChange={e => setWithdrawalTime(e.target.value)} />
+                                        {
+                                            loading.withdraw ?
+                                                <div className="withdrawal-button"><img src={loadingSvg} width="20px" style={{ fill: "red", display: 'inline' }} /></div>
+                                                :
+                                                <div className="withdrawal-button" onClick={withdraw}>Withdraw</div>
+                                        }
+                                    </div>
+                                    {filteredTickets.length ?
+                                        <div className="myb-BetItemsContainer_Container " >
+                                            {loadedTickets.tickets.map((ticket, index) =>
+                                                <ManageTicketWrapper
+                                                    type={ticket.status}
+                                                    key={`${ticket.id}-${index}-${ticket.filter}-${ticket.status}-${ticket.wager}`}
+                                                    ticket={ticket}
+                                                    filter={"none"}
+                                                    index={index}
+                                                    isDeleted={deleted.includes(index)}
+                                                    toggleDelete={toggleDelete}
+                                                    updateTicket={updateTicket}
+                                                />
+                                            )}
+                                        </div>
+                                        :
+                                        <div className="myb-BetItemsContainer_EmptyMessage ">
+                                            <div className="myb-BetItemsContainer_NoBetsMessageLineOne ">
+                                                There are currently no bets to display
+                                            </div>
+                                        </div>
+                                    }
+                                    {loading.update ?
+                                        <div className="update-tickets-button"><img src={loadingSvg} width="20px" style={{ fill: "red", display: 'inline' }} /></div>
+                                        :
+                                        <div className="update-tickets-button" onClick={updateTickets}>Update</div>
+                                    }
+                                    <div className="update-tickets-button bg-error-500 text-light-50" onClick={loading.update ? () => { } : deleteAll}>Delete All</div>
+                                </div>
+                                <div>
+                                    <div className="wc-MyBetsPageResponsive_OffersContainer ">
+                                        <div>
+                                            <div className="pl-PodLoaderModule " />
                                         </div>
                                     </div>
-                                }
-                                {loading.update ?
-                                    <div className="update-tickets-button"><img src={loadingSvg} width="20px" style={{ fill: "red", display: 'inline' }} /></div>
-                                    :
-                                    <div className="update-tickets-button" onClick={updateTickets}>Update</div>
-                                }
-                                <div className="update-tickets-button bg-error-500 text-light-50" onClick={loading.update ? () => { } : deleteAll}>Delete All</div>
-                            </div>
-                            <div>
-                                <div className="wc-MyBetsPageResponsive_OffersContainer ">
-                                    <div>
-                                        <div className="pl-PodLoaderModule " />
-                                    </div>
                                 </div>
+                                {/* <Footer /> */}
                             </div>
-                            {/* <Footer /> */}
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            {beingEdited &&
+                <EditTicket
+                    updateTicket={updateTicket}
+                    ticket={localTickets[id]}
+                    index={id}
+                />
+            }
+        </>
     )
 }
 

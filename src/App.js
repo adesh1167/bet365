@@ -6,7 +6,7 @@ import './App.css';
 // import './index2.css';
 import './added.css';
 const BrowserIphone = lazy(() => import('./components/browserIphone'));
-const BrowserFirefox  = lazy(() => import('./components/browserFirefox'));
+const BrowserFirefox = lazy(() => import('./components/browserFirefox'));
 const MainContent = lazy(() => import('./AppWrapper'));
 
 
@@ -14,11 +14,11 @@ const isIOS = typeof navigator.standalone === 'boolean';
 
 function App() {
   return (
-    <AppProvider>
-      <Router>
+    <Router>
+      <AppProvider>
         <Root />
-      </Router>
-    </AppProvider>
+      </AppProvider>
+    </Router>
   );;
 }
 
@@ -26,14 +26,14 @@ function Root() {
 
   const { popup, setPopup, toggleDropDown, highlights, country, featuredMatches, loadStage, setloadStage } = useApp();
 
-  return(
+  return (
     <div className="App" onClick={e => { toggleDropDown(e, null); }}>
-    <Suspense>
-      {isIOS ? <BrowserIphone/> : <BrowserFirefox/>}
-    </Suspense>
-    <Suspense>
-      <MainContent/>
-    </Suspense>
+      <Suspense>
+        {isIOS ? <BrowserIphone /> : <BrowserFirefox />}
+      </Suspense>
+      <Suspense>
+        <MainContent />
+      </Suspense>
     </div>
   )
 }

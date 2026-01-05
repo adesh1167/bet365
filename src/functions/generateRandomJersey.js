@@ -5,6 +5,7 @@ import generateLogo from "./generateLogo";
 function GenerateRandomJersey(data) {
     const index = getTextValue(data) % jerseyPresets.length;
     const preset = jerseyPresets[index];
+
     return {
         type: preset.type,
         colors: preset.colors,

@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { baseApiUrl } from "../data/url";
 import { countries } from "../data/countries";
 import sortLeaguesByFixtureCount from "../functions/sortLeagues";
@@ -64,8 +64,11 @@ const AppProvider = ({ children }) => {
     const [featuredMatches, setFeaturedMatches] = useState(null);
     const [carousel, setCarousel] = useState(null);
     const [subUrl, setSubUrl] = useState('');
-    const [features, setFeatures] = useState(featuresPreset.harry)
+    const [features, setFeatures] = useState(featuresPreset.harry);
+    const [lastPathName, setLastPathName] = useState(null);
     // const [ME, setME] = useState(null);
+
+    const navigate = useNavigate();
 
     const loadInterval = useRef(null);
 
@@ -83,31 +86,66 @@ const AppProvider = ({ children }) => {
 
                     let tempTickets = data.data;
 
-                    tempTickets.forEach((ticket, i) => {
+const computedTickets = [];
 
-                        if (ticket.status == 'open') {
+                    try {
 
-                        } else {
-                            let losts = 0;
-                            let cashouts = 0;
-                            let winWithVoids = 0;
-                            let filter;
+                        for (let i = 0; i < tempTickets.length; i++) {
 
-                            ticket.matches.forEach(match => {
-                                if (match.winningSelection == '') cashouts++;
-                                else if (match.winningSelection == 'NotResulted') winWithVoids++;
-                                else if (match.winningSelection != match.userSelection) losts++;
-                            })
+                            let ticket = tempTickets[i];
+                            if (!ticket.uniqueId) ticket.uniqueId = crypto.randomUUID();
 
-                            if (losts > 0) filter = 'Loss';
-                            else if (cashouts > 0) filter = 'Cash Out'
-                            else if (winWithVoids > 0) filter = 'Win with void(s)'
-                            else filter = 'Win'
+                            if (computeFilter({
+                                ticket,
+                                tempTickets,
+                                i
+                            })) {
+                                computedTickets.push(tempTickets[i]);
 
-                            tempTickets[i].filter = filter
-                        }
-                    });
+                            } else {
+                                continue;
+                            }
 
+                            // if (ticket.status == 'open') {
+
+                            // } else {
+                            //     let losts = 0;
+                            //     let cashouts = 0;
+                            //     let winWithVoids = 0;
+                            //     let filter;
+
+                            //     try {
+
+                            //         ticket.matches.forEach(match => {
+                            //             if (match.winningSelection == '') cashouts++;
+                            //             else if (match.winningSelection == 'NotResulted') winWithVoids++;
+                            //             else if (match.winningSelection != match.userSelection) losts++;
+                            //         })
+
+                            //     } catch (error) {
+                            //         console.error("Matches forEach Error. Index: ", i, "Affected Ticket: ", tempTickets[i], "Error: ", error);
+                            //         tempTickets = tempTickets.filter((t, j) => j != i)
+                            //         continue;
+                            //     }
+
+
+                            //     if (losts > 0) filter = 'Loss';
+                            //     else if (cashouts > 0) filter = 'Cash Out'
+                            //     else if (winWithVoids > 0) filter = 'Win with void(s)'
+                            //     else filter = 'Win'
+
+                            //     tempTickets[i].filter = filter
+                            // }
+                        };
+
+                    } catch (error) {
+                        alert("Ticket error: " + error);
+                        console.error("General Tickets Error in forEach: ", error);
+                    }
+
+                    tempTickets = computedTickets;
+
+                    console.log("After Compute: ", tempTickets)
                     tempTickets.sort((a, b) => new Date(b.stakeTime) - new Date(a.stakeTime));
 
                     // if (countries[countryCode]) {
@@ -141,6 +179,60 @@ const AppProvider = ({ children }) => {
                 .catch(err => setBalance(400))
         }, 2000)
 
+    }
+
+    function computeFilter({
+        ticket,
+        tempTickets,
+        i,
+        single = false
+    }) {
+        if (ticket.status == 'open') {
+            return ticket
+        } else {
+            let losts = 0;
+            let cashouts = 0;
+            let winWithVoids = 0;
+            let filter;
+
+            try {
+
+                ticket.matches.forEach(match => {
+                    if (match.winningSelection == '') cashouts++;
+                    else if (match.winningSelection == 'NotResulted') winWithVoids++;
+                    else if (match.winningSelection != match.userSelection && !(match.gameType === "1X2" && (match.up2 === true || match.up2 === "true"))) losts++;
+                })
+
+            } catch (error) {
+                if (single) {
+                    alert("Error: ", error);
+                    console.error("Matches forEach Error. Single Match: Affected Ticket: ", ticket, "Error: ", error);
+                } else {
+                    alert("Error: ", error);
+                    console.error("Matches forEach Error. Index: ", i, "Affected Ticket: ", tempTickets[i], "Error: ", error);
+                    tempTickets = tempTickets.filter((t, j) => j != i)
+                }
+
+                console.log(tempTickets);
+                return false;
+                // continue;
+            }
+
+
+            if (losts > 0) filter = 'Loss';
+            else if (cashouts > 0) filter = 'Cash Out'
+            else if (winWithVoids > 0) filter = 'Win with void(s)'
+            else filter = 'Win'
+
+            if (single) {
+                ticket.filter = filter;
+                return ticket;
+            };
+
+            tempTickets[i].filter = filter
+        }
+
+        return true;
     }
 
     function getBalance() {
@@ -388,6 +480,14 @@ const AppProvider = ({ children }) => {
 
     }, [countryCode])
 
+    const goBack = useCallback((path) => {
+        if (lastPathName === path) {
+            navigate(-1)
+        } else {
+            navigate(path, { replace: true });
+        }
+    }, [lastPathName])
+
     const values = useMemo(() => ({
         user,
         setUser,
@@ -416,7 +516,11 @@ const AppProvider = ({ children }) => {
         setCarousel,
         subUrl,
         setSubUrl,
+        lastPathName,
+        setLastPathName,
         features,
+        computeFilter,
+        goBack,
         init,
         loadStage,
         lang: langs[countries[countryCode]?.lang || "en-US"],
@@ -435,6 +539,7 @@ const AppProvider = ({ children }) => {
         carousel,
         subUrl,
         loadStage,
+        lastPathName
     ])
 
     return (

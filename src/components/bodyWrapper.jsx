@@ -7,6 +7,7 @@ import { MemoryRouter as Router, Routes, Route, Navigate } from 'react-router-do
 import UploadTickets from "./uploadTicket";
 import MyActivity from "./myActivity";
 import ManageTransactionHistory from "./manageTransactionHistory";
+import EditTicket from "./editTicket";
 
 const BodyWrapper = () => {
 
@@ -24,6 +25,7 @@ const BodyWrapper = () => {
                     <Route path="/MB" element={user ? <MyBets/> : <Navigate to="/HO"/>}/>
                     <Route path="/ME" element={user ? <HomePage/> : <Navigate to="/HO"/>}/>
                     <Route path="/MaB" element={user ? <ManageBets/> : <Navigate to="/HO"/>}/>
+                    <Route path="/MaB/ET/:id" element={user ? <ManageBets/> : <Navigate to="/HO"/>}/>
                     <Route path="/UT" element={user ? <UploadTickets/> : <Navigate to="/HO"/>}/>
                     <Route path="/TR" element={user ? <ManageTransactionHistory/> : <Navigate to="/HO"/>}/>
                     <Route path="/ME/X8020" element={user ? <History/> : <Navigate to="/HO"/>}/>

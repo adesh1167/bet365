@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import OpenTicket from './openTicket'
 import SettledTicket from './settledTicket'
 import { useApp } from '../contexts/appContext';
@@ -6,11 +6,14 @@ import loadingSvg from '../assets/loading.svg';
 import { baseApiUrl, baseURL } from '../data/url';
 import getDate from '../functions/getDate';
 import { manageTicketDate, ticketDate } from '../functions/formatDate';
+import { useNavigate } from 'react-router-dom';
+import gameTypes from '../data/gameTypes';
 
 
 const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, toggleDelete, index }) => {
 
     const { country, lang, user, setBalance, getTransactions } = useApp();
+    const navigate = useNavigate();
 
     const [loading, setLoading] = useState({
         account: false,
@@ -29,7 +32,9 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
     })
 
     function calculate() {
-        const temp = {};
+        // const temp = {};
+
+        const temp = { ...ticket };
 
         temp.wager = ticket.wager * country.factor;
         temp.totalOdds = 1;
@@ -193,13 +198,32 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
         }
     }
 
-    const height = useRef(100 + 125 * ticket.matches.length);
+    // const height = useRef(100 + 125 * ticket.matches.length);
+    const height = useMemo(() =>
+        ticket.matches.reduce((acc, match) => {
+            console.log("Acc: ", acc)
+            const userSelection = gameTypes({ type: match.gameType, value: match.userSelection, home: match.home, away: match.away }).userSelection
+            const userSelectionLength = userSelection.length + ((match.up2 === "true" || match.up2 === true) ? 15 : 0);
+            const additions = Math.floor((userSelectionLength * 10) / window.innerWidth);
+            // console.log(userSelection, userSelectionLength, window.innerWidth, additions);
+            return acc + additions * 20;
+        }, (100 + (126 * ticket.matches.length) + (data.winBoost ? 70 : 0) + (ticket.status === "open" ? 35 : 0)))
+        , [data.winBoost]);
 
     return (
         <div className={`ticket-wrapper ${isDeleted ? "deleted" : ""}`}>
             <div className="manage-ticket-header">
                 <div className='ticket-date'>{manageTicketDate(ticket.stakeTime, country.timeZone)}</div>
                 <div className='ticket-buttons'>
+                    <div className="ticket-button" onClick={() => navigate(`/MaB/ET/${index}`, {
+                        state: {
+                            // ticket,
+                            // updateTicket: updateTicket
+                        }
+                    })}>
+                        Edit
+                    </div>
+
                     {loading.account ?
                         <div className="ticket-button"><img src={`${baseURL}/assets/loading.svg`} width="20px" style={{ fill: "red", display: 'inline' }} /></div>
                         :
@@ -225,7 +249,7 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
                     ticket={ticket}
                     filter={filter}
                     percent={percent}
-                    height={height.current}
+                    height={height}
                     hidden={hidden}
                     expanded={expanded}
                     toggleExpand={toggleExpand}
@@ -237,7 +261,7 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
                     ticket={ticket}
                     filter={filter}
                     percent={percent}
-                    height={height.current}
+                    height={height}
                     hidden={hidden}
                     expanded={expanded}
                     toggleExpand={toggleExpand}
