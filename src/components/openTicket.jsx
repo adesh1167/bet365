@@ -123,7 +123,7 @@ const OpenTicket = ({ ticket, data, filter, height, hidden, expanded, toggleExpa
                 <div className="myb-OpenBetItemInnerView_Details ">
                     <div className="myb-OpenBetItemInnerView_ParticipantContainer ">
                         {ticket.matches.map((match, index) =>
-                            <Match key={match.home + index} match={match} />
+                            <Match key={match.home + index} match={match} showScore={ticket.showScore}/>
                         )}
                     </div>
                 </div>
@@ -198,7 +198,7 @@ const OpenTicket = ({ ticket, data, filter, height, hidden, expanded, toggleExpa
     )
 }
 
-const Match = ({ match }) => {
+const Match = ({ match, showScore }) => {
 
     const jersey = useRef({
         home: GenerateRandomJersey(`${match.home}home${match.league}`),
@@ -291,7 +291,7 @@ const Match = ({ match }) => {
                             </div>
                         </div>
                     </div>
-                    {match.score &&
+                    {showScore !== false && showScore !== "false" && match.score &&
                         <div className="myb-OpenBetScores myb-OpenBetScores_Soccer ">
                             <div className="myb-OpenBetScores_Container ">
                                 <div className="myb-OpenBetScores_TeamContainer ">

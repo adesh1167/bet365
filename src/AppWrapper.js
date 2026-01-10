@@ -11,13 +11,14 @@ import Preloader from './components/preloader';
 
 function MainContent() {
 
-  const { popup, setPopup, toggleDropDown, featuredMatches, loadStage } = useApp();
+  const { popup, setPopup, toggleDropDown, featuredMatches, loadStage, setLastPathName } = useApp();
 
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     const lastPathName = sessionStorage.getItem("lastPathName");
+    setLastPathName(lastPathName);
     if ((lastPathName === "/UT" || lastPathName === "/MaB" || lastPathName === "/TR") && location.pathname === "/HO") setPopup("profile");
     else setPopup(null);
     console.log("Last Path Name: ", lastPathName);

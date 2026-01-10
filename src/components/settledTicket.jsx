@@ -85,7 +85,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                 <div className="myb-SettledBetItemInnerView_ParticipantContainer myb-SettledBetParticipantRenderer ">
 
                     {ticket.matches.map((match, index) =>
-                        <Match {...match} key={`${filter}-${index}`} isOpen={data.isOpen} />
+                        <Match {...match} key={`${filter}-${index}`} isOpen={data.isOpen} showScore={ticket.showScore} />
                     )}
 
                 </div>
@@ -207,7 +207,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
     )
 }
 
-const Match = ({ odd, winningSelection, userSelection, home, away, gameType, league, newMatchTime, status, isOpen, score, hasEdit, up2 }) => {
+const Match = ({ odd, winningSelection, userSelection, home, away, gameType, league, newMatchTime, status, isOpen, score, hasEdit, showScore, up2 }) => {
 
     const jersey = useRef({
         home: GenerateRandomJersey(`${home}home${league}`),

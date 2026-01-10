@@ -5,7 +5,7 @@ import generateBookingCode from "../functions/generateBookingCode";
 import { useNavigate } from "react-router-dom";
 import AppInfo from "./appInfo";
 import AiOverlay from "./aiOverlay";
-import determineWinner from "../functions/determineWinner";
+import determineWinner, { fullTimeScoreEnough } from "../functions/determineWinner";
 import { leaguesCountry } from "../data/leaguesCountry";
 import { rawTicketDate } from "../functions/formatDate";
 import getMatchData from "../functions/getMatchData";
@@ -128,13 +128,15 @@ export default function UploadTickets({ visible }) {
 
 	async function generate({
 		status = "open",
-		type = "won"
+		type = "won",
+		state
 	}) {
 
 		setResult('');
 		// justGenerated.current = true;
 
 		const json = {};
+		const isOpen = state === "open";
 
 		try {
 			if (JSON.parse(raw)) {
@@ -381,7 +383,7 @@ export default function UploadTickets({ visible }) {
 					matchTime: gameDateTime,
 					up2: up2Value,
 					status: "",
-					score: showScore ? (score.length < 10 ? score : "") : "",
+					score: (score.length < 10 ? score : ""),
 					live: isLive ? score : ""
 				})
 			}
@@ -389,6 +391,7 @@ export default function UploadTickets({ visible }) {
 			// const baseCountry = bookingCode.startsWith("BW") ? "ZA" : "NG";
 
 			json.cashout = "";
+			json.showScore = showScore;
 			json.hasRebet = false;
 			json.baseCountry = baseCountry;
 			json.baseTimeZone = baseTimeZone;
@@ -413,10 +416,19 @@ export default function UploadTickets({ visible }) {
 
 				const job = data.matches.map(async match => {
 					const hasWinningSelection = (match.winningSelection !== null && match.winningSelection !== undefined && match.winningSelection !== "");
-					const hasFinalScore = (match.status === "finished" && (match.half === "2nd half" || match.half === "Match Ended") && match.liveScore)
-					if ((hasWinningSelection && hasFinalScore) || (hasWinningSelection && !showScore) || match.status !== "finished") {
+					const hasFinalScore = (match.status === "finished" && (match.half === "2nd half" || match.half === "Match Ended") && match.liveScore);
+					const isFullTimeScoreEnough = fullTimeScoreEnough(match);
+
+					let score = undefined;
+
+					if (hasFinalScore) {
+						score = match.liveScore;
+					}
+
+					if ((hasFinalScore && (hasWinningSelection || fullTimeScoreEnough)) || match.status !== "finished") {
 						return ({
 							...match,
+							score
 						})
 					}
 					const fetchedData = await getMatchData({ matchId: match.id, user });
@@ -529,17 +541,18 @@ export default function UploadTickets({ visible }) {
 					league: m.league,
 					leagueCountry: m.leagueCountry,
 					userSelection: type === "won" ? (winner == '' || winner == 'NotResulted' ? userSelection : winner).trim() : userSelection,
-					winningSelection: winner,
+					winningSelection: isOpen ? "" : winner,
 					matchTime: rawTicketDate({ dateString: m.matchDateTime, baseZone: baseTimeZone, isEpoch: true }),
 					up2: up2Value,
 					settlementTime: m.settlementTime && rawTicketDate({ dateString: m.settlementTime, baseZone: baseTimeZone, isEpoch: false }),
-					status: m.status,
-					score: showScore ? (score || "") : "",
-					live: m.isLive ? `${m.liveFinished ? "Ended" : m.half} | ${m.timePlayed}:00 min | ${m.liveScore}` : "",
+					status: isOpen ? "pending" : m.status,
+					score: isOpen ? "" : (score || ""),
+					live: isOpen ? "" : (m.isLive ? `${m.liveFinished ? "Ended" : m.half} | ${m.timePlayed}:00 min | ${m.liveScore}` : ""),
 				})
 			});
 
 			json.cashout = "";
+			json.showScore = showScore;
 			json.hasRebet = false;
 			json.baseCountry = baseCountry;
 			json.baseTimeZone = baseTimeZone;
@@ -740,7 +753,8 @@ export default function UploadTickets({ visible }) {
 				{/* {raw === "" && <div className="ut-paste" onClick={() => pasteText()}>Paste</div>} */}
 				<textarea className="no-scroll" value={raw} onChange={e => setRaw(e.target.value)}></textarea>
 				<div className="ut-buttons">
-					<div className="ut-button" onClick={() => generate({ status: "open", type: "won" })}>Open</div>
+					<div className="ut-button" onClick={() => generate({ status: "open", type: "won", state: "open" })}>Open</div>
+					<div className="ut-button" onClick={() => generate({ status: "open", type: "won" })}>Running</div>
 					<div className="ut-button" onClick={() => generate({ status: "settled", type: "won" })}>Won</div>
 					<div className="ut-button" onClick={() => generate({ status: "settled", type: "as is" })}>As Is</div>
 				</div>
