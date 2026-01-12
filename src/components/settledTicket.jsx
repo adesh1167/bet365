@@ -311,7 +311,7 @@ const Match = ({ odd, winningSelection, userSelection, home, away, gameType, lea
                             <div className="myb-BetParticipant_FixtureStartTime2 " />
                         </div>
                     </div>
-                    {(showScore !== false && showScore !== "false" && score && score !== "") &&
+                    {(((showScore !== false && showScore !== "false") || true) && (score && score !== "")) &&
                         <div className="myb-OpenBetScores myb-OpenBetScores_Soccer ">
                             <div className="myb-OpenBetScores_Container ">
                                 <div className="myb-OpenBetScores_TeamContainer ">
