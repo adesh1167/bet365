@@ -291,7 +291,7 @@ const Match = ({ match, showScore }) => {
                             </div>
                         </div>
                     </div>
-                    {(((showScore !== false && showScore !== "false") || true) && (score && score !== "")) &&
+                    {(((showScore !== false && showScore !== "false") || true) && (match.score && match.score !== "")) &&
                         <div className="myb-OpenBetScores myb-OpenBetScores_Soccer ">
                             <div className="myb-OpenBetScores_Container ">
                                 <div className="myb-OpenBetScores_TeamContainer ">
