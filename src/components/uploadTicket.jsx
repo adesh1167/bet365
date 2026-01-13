@@ -416,8 +416,10 @@ export default function UploadTickets({ visible }) {
 
 				const job = data.matches.map(async match => {
 					const hasWinningSelection = (match.winningSelection !== null && match.winningSelection !== undefined && match.winningSelection !== "");
-					const hasFinalScore = (match.status === "finished" && (match.half === "2nd half" || match.half === "Match Ended") && match.liveScore);
-					const isFullTimeScoreEnough = fullTimeScoreEnough(match);
+					// const hasFinalScore = (match.status === "finished" && (match.half === "2nd half" || match.half === "Match Ended") && match.liveScore);
+					const hasFinalScore = false;
+					// const isFullTimeScoreEnough = fullTimeScoreEnough(match);
+					const isFullTimeScoreEnough = false;
 
 					let score = undefined;
 

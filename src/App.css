@@ -51435,7 +51435,7 @@ body {
     background-color: var(--color-whiteDD)
 }
 
-.frm-18 {
+/* .frm-18 {
     border: 1px solid var(--color-whiteBB);
     border-radius: 3px;
     bottom: 100px;
@@ -51446,7 +51446,7 @@ body {
     right: 20%;
     top: 100px;
     z-index: var(--zi-modal-component)
-}
+} */
 
 /* .frm-f5 {
     color: var(--color-grey66);
@@ -51609,7 +51609,7 @@ body {
     }
 }
 
-.frm-f {
+/* .frm-f {
     align-content: var(--fm-m-flex-align);
     background-color: var(--fm-m-background-color, --fm-mg-background-color);
     display: flex;
@@ -51620,7 +51620,7 @@ body {
     max-width: var(--fm-m-max-width);
     padding: var(--fm-m-padding-narrow, 0);
     width: var(--fm-m-width-narrow, 100%)
-}
+} */
 
 @media (min-width:768px) {
     .frm-f {
@@ -51712,7 +51712,7 @@ body {
     padding: 0
 }
 
-.frm-5a {
+/* .frm-5a {
     border-bottom: 1px solid var(--color-grey54);
     color: var(--color-whiteB5);
     font-size: 11px;
@@ -51721,15 +51721,15 @@ body {
     padding: 0 10px;
     text-align: center;
     width: 100%
-}
+} */
 
-.frm-5a:after {
+/* .frm-5a:after {
     color: var(--color-whiteF0);
     content: url(https://bet365.com/sports-assets/sports/FooterReactModule/assets/Chevron_Down.svg);
     font-size: 5px;
     margin-left: 5px;
     vertical-align: middle
-}
+} */
 
 .frm-8 .frm-5a:after {
     display: inline-block;
@@ -51746,7 +51746,7 @@ body {
     text-align: left
 }
 
-.frm-e1 {
+/* .frm-e1 {
     color: var(--color-whiteB5);
     font-size: 11px;
     line-height: 17px;
@@ -51755,12 +51755,12 @@ body {
     padding: 20px 0 0;
     text-align: left;
     width: 100%
-}
+} */
 
-.frm-e1:last-child {
+/* .frm-e1:last-child {
     padding-bottom: 25px;
     padding-top: 10px
-}
+} */
 
 .frm-46 {
     --fm-p-height: 40px;
