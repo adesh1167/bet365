@@ -40,7 +40,9 @@ body {
 
 .base {
   padding-top: var(--browser-head-height);
-  padding-bottom: var(--browser-foot-height);
+  /* padding-bottom: var(--browser-foot-height); */
+  padding-bottom: calc(var(--headerHeight) + var(--browser-foot-height));
+
   /* Variable declared in browser.css */
 }
 
@@ -81,7 +83,7 @@ a {
   position: relative;
 }
 
-.ut-overlay{
+.ut-overlay {
   display: block;
   width: 100%;
   height: 100%;
@@ -92,7 +94,7 @@ a {
   padding: 5px;
 }
 
-.ut-overlay-content{
+.ut-overlay-content {
   width: 100%;
   height: 100%;
   background-color: #f7f7f7;
@@ -102,15 +104,15 @@ a {
   box-shadow: 0 0 5px 0 #555;
 }
 
-.dark .ut-overlay-content{
+.dark .ut-overlay-content {
   background-color: #111;
 }
 
-.dark .ut-overlay-content svg{
+.dark .ut-overlay-content svg {
   stroke: #fff;
 }
 
-.ut-overlay-close{
+.ut-overlay-close {
   float: right;
   font-size: 22px;
   padding: 5px;
@@ -119,33 +121,34 @@ a {
   bottom: 5px;
 }
 
-.ut-overlay-title{
+.ut-overlay-title {
   margin-bottom: 15px;
   font-size: 20px;
   font-weight: bold;
 }
 
-.ut-overlay ol{
+.ut-overlay ol {
   margin: 0px;
   padding-left: 20px;
   list-style: decimal;
 }
 
-.ut-overlay ul{
+.ut-overlay ul {
   margin: 0px;
   padding-left: 20px;
   list-style: unset;
 }
 
-.ut-overlay ul ul, .ut-overlay ol ul{
+.ut-overlay ul ul,
+.ut-overlay ol ul {
   list-style: circle;
 }
 
-.ut-overlay li{
+.ut-overlay li {
   margin-bottom: 10px;
 }
 
-.ut-overlay hr{
+.ut-overlay hr {
   margin: 25px 0;
   border-color: #aaa;
 }
@@ -170,7 +173,7 @@ a {
   transition: 0.3s ease-in-out all;
 }
 
-.ut-panel.collapsed .ut-panel-toggle{
+.ut-panel.collapsed .ut-panel-toggle {
   transform: rotate(270deg);
 
 }
@@ -223,11 +226,11 @@ a {
   margin-bottom: 5px;
 }
 
-.ut-switch input{
+.ut-switch input {
   display: none;
 }
 
-.ut-switch-track{
+.ut-switch-track {
   display: block;
   width: 50px;
   height: 25px;
@@ -238,7 +241,7 @@ a {
   transition: 0.1s linear all;
 }
 
-.ut-switch-track::after{
+.ut-switch-track::after {
   content: "";
   width: 18px;
   height: 18px;
@@ -250,12 +253,12 @@ a {
   transition: 0.1s linear all;
 }
 
-.ut-switch input:checked + .ut-switch-track{
+.ut-switch input:checked+.ut-switch-track {
   background-color: #0a0;
   border-color: #0a0;
 }
 
-.ut-switch input:checked + .ut-switch-track::after{
+.ut-switch input:checked+.ut-switch-track::after {
   background-color: #fff;
   left: 28px;
 }
@@ -663,5 +666,17 @@ a.hm-HeaderMenuItem {
 }
 
 .hcr-f .hcr-0:nth-child(2) {
+  margin-left: 10px;
+}
+
+.rct-988999 {
+  top: var(--browser-head-height) !important;
+}
+
+.hcr-8:first-child {
+  display: none;
+}
+
+.hcr-8:nth-child(2) {
   margin-left: 10px;
 }

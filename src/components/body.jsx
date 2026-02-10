@@ -26,7 +26,7 @@ const Body = () => {
                     child.className = "hsn-HomepageStickyNavModule_ScrollerContainer ";
                 }
             },
-            { rootMargin: "-196px 0px 0px 0px", threshold: 0 }
+            { rootMargin: "-152px 0px 0px 0px", threshold: 0 }
         );
 
         observer.observe(element);

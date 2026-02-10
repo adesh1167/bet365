@@ -444,7 +444,7 @@ const computedTickets = [];
 
         loadInterval.current = setInterval(() => {
             setLoadStage(prevLoadStage => {
-                if (prevLoadStage >= 60) {
+                if (prevLoadStage >= 80) {
                     clearInterval(loadInterval.current)
                 }
 

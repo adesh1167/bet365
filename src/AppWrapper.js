@@ -8,6 +8,7 @@ import Login from './components/login';
 import GameButton from './components/gameButton';
 import GetAppAd from './components/getAppAd';
 import Preloader from './components/preloader';
+import BaseFooter from './components/baseFooter';
 
 function MainContent() {
 
@@ -37,6 +38,7 @@ function MainContent() {
         <div className='base'>
           <Head />
           <BodyWrapper />
+          <BaseFooter/>
         </div>
         {popup === "getAppAd" && <GetAppAd />}
         {location.pathname.startsWith("/HO") && <GameButton />}
@@ -51,6 +53,7 @@ function MainContent() {
           (
             (loadStage > 50 && featuredMatches) ?
               content
+              // <Preloader/>
               :
               <Preloader />
           )
