@@ -1,0 +1,83 @@
+/* Added */
+
+.zsa-4 {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+  margin-bottom: .938rem;
+  margin-left: auto;
+  min-width: 120px;
+  text-align: right;
+}
+
+.zsa-0 {
+  align-items: center;
+  background-color: var(--color-whiteFAFBFC);
+  border: 1px solid var(--color-whiteC3);
+  border-radius: var(--radius);
+  color: var(--color-grey40);
+  cursor: pointer;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  font-size: var(--text11);
+  font-weight: 700;
+  height: 44px;
+  justify-content: center;
+  line-height: 14px;
+  min-width: 90px;
+  padding: 6px 12px;
+}
+
+.zsa-2b {
+  align-items: center;
+  background-color: rgba(88, 215, 175, .35);
+  border: 1px solid var(--color-green58D7AF);
+  border-radius: var(--radius);
+  color: var(--color-grey28);
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  font-size: var(--text11);
+  font-weight: 700;
+  height: 44px;
+  justify-content: center;
+  line-height: 14px;
+  min-width: 90px;
+  padding: 6px 12px;
+}
+
+.zsa-2b:before {
+  background-color: var(--color-grey28);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  content: "";
+  height: 13px;
+  margin-bottom: 4px;
+  -webkit-mask-image: var(--icon-depositArrows);
+  mask-image: var(--icon-depositArrows);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  width: 12px;
+}
+
+.zsa-0:before {
+  background-color: var(--color-green126E51);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  content: "";
+  height: 13px;
+  margin-bottom: 4px;
+  -webkit-mask-image: var(--icon-depositArrows);
+  mask-image: var(--icon-depositArrows);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  transform: scaleY(-1);
+  width: 12px;
+}
+
+:root {
+  --color-whiteF8F9FA: #f8f9fa;
+  --icon-depositArrows: url(data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 13'%3E%3Cpath fill='{0}' d='M4.586 7.802 6 9.212l1.414-1.41-.003-.003 3.271-3.278-1.414-1.41L7 5.383V0H5l.002 5.385-2.27-2.274-1.414 1.41L4.588 7.8l-.002.003ZM12 13v-1.995H0V13h12Z'/%3E%3C/svg%3E);
+}

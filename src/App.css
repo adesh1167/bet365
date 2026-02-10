@@ -2072,7 +2072,8 @@ svg {
     opacity: .6;
     filter: alpha(opacity=65);
     position: fixed;
-    top: 0;
+    /* Edited */
+    top: calc(var(--headerHeight) + var(--browser-head-height));
     left: 0;
     bottom: 0;
     right: 0;

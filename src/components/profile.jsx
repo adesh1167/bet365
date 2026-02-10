@@ -10,11 +10,11 @@ const Profile = () => {
 
     const [loadingBalance, setLoadingBalance] = useState(false)
 
-    function refreshBalance(){
+    function refreshBalance() {
         setLoadingBalance(true);
         getBalance()
             .then((res) => {
-                if(res.status = 'success') setBalance(res.data.balance);
+                if (res.status = 'success') setBalance(res.data.balance);
                 setLoadingBalance(false);
             })
             .catch(err => setLoadingBalance(false));
@@ -38,7 +38,7 @@ const Profile = () => {
                                 <div className="um-Header_LeftSideWrapper ">
                                     <div className="um-UserInfo ">
                                         <div className="um-UserInfo_AccountInfo ">
-                                            <span className="um-UserInfo_UserName ">{user.split("_")[0]}</span>
+                                            {/* <span className="um-UserInfo_UserName ">{user.split("_")[0]}</span> */}
                                             <span className="um-UserInfo_DepositMessage Hidden ">
                                                 Deposit Successful
                                             </span>
@@ -46,7 +46,7 @@ const Profile = () => {
                                                 <span className="um-UserInfo_Balance ">{country.currency}{formatNumber(balance, country.hasComma, country.lang)}</span>
                                                 <div
                                                     className={`um-BalanceRefreshButton ${loadingBalance ? "um-BalanceRefreshButton_RefreshActive" : ""}`}
-                                                    onClick={loadingBalance ? ()=>{} : refreshBalance}
+                                                    onClick={loadingBalance ? () => { } : refreshBalance}
                                                 >
                                                     <div className="um-BalanceRefreshButton_Icon " />
                                                 </div>
@@ -54,10 +54,11 @@ const Profile = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="um-Header_RightSideWrapper ">
-                                    <div className="um-DepositButton ">Deposit</div>
-                                    <div className="Hidden um-CancelButton ">Cancel</div>
+                                <div className="zsa-4">
+                                    <button className="zsa-0">Withdraw</button>
+                                    <button className="zsa-2b">Deposit</button>
                                 </div>
+
                             </div>
                             <div className="um-BalanceDropdown ">
                                 <div />
@@ -70,7 +71,7 @@ const Profile = () => {
                                     </div>
                                     <div className="um-BalanceDropdown_Column ">
                                         <div className="um-BalanceDropdown_Cell um-BalanceDropdown_Cell-bonus ">
-                                            <div className="um-BalanceDropdown_Title ">Bonus</div>
+                                            <div className="um-BalanceDropdown_Title ">Bet Credits</div>
                                             <div className="um-BalanceDropdown_Value ">{country.currency}0.00</div>
                                             <div className="um-BalanceDropdown_Expires " />
                                         </div>
@@ -85,6 +86,12 @@ const Profile = () => {
                                         <div className="scr-ScrollableHorizontalNavBar_ButtonContainer um-TabSectionScrollable_ScrollContent um-TabScroller_TouchMode ">
                                             <div className="um-TabButton ">
                                                 <div className="um-TabButton_TabText ">Account</div>
+                                            </div>
+                                            <div className="um-PreferencesTabButton ">
+                                                <div className="">Alerts</div>
+                                            </div>
+                                            <div className="um-PreferencesTabButton ">
+                                                <div className="">My Offers</div>
                                             </div>
                                             <div className="um-PreferencesTabButton ">
                                                 <div className="">Preferences</div>
@@ -103,7 +110,7 @@ const Profile = () => {
                             <div className="um-MainMenu ">
                                 <div className="um-GeneralTab ">
                                     <div className="um-GeneralTab_AccountContainer ">
-                                        <div className="ul-MembersLinkButton " onClick={()=>goTo("TR")}>
+                                        <div className="ul-MembersLinkButton " onClick={() => goTo("TR")}>
                                             <div className="ul-MembersLinkButton_Icon ">
                                                 <svg
                                                     className="ul-MembersLinkButton_Svg"
@@ -406,12 +413,12 @@ const Profile = () => {
                                         </div>
                                     </div>
                                     <div className="um-GeneralTab_LowerMenu ">
-                                        <div className="ul-MembersLinkButton-wide ul-MembersLinkButton " onClick={()=>goTo("UT")}>
+                                        <div className="ul-MembersLinkButton-wide ul-MembersLinkButton " onClick={() => goTo("UT")}>
                                             <div className="ul-MembersLinkButton_Text ">
                                                 Responsible Gambling
                                             </div>
                                         </div>
-                                        <div className="ul-MembersLinkButton-wide ul-MembersLinkButton " onClick={()=>goTo("MaB")}>
+                                        <div className="ul-MembersLinkButton-wide ul-MembersLinkButton " onClick={() => goTo("MaB")}>
                                             <div className="ul-MembersLinkButton_Text ">Help</div>
                                         </div>
                                     </div>

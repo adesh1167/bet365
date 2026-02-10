@@ -41,7 +41,7 @@ const Head = () => {
                                 <div className="hrm-1e">
                                     <button className="hrm-01">
                                         <div className="hrm-4a">
-                                            <div className={`hrm-ec ${loadStage > 60 ? "" : "hrm-5e"}`}>
+                                            <div className={`hrm-ec ${popup === "profile" ? "hrm-ca" : ""} ${loadStage > 60 ? "" : "hrm-5e"}`}>
                                                 {loadStage > 60 ?
                                                     `${country.currency}${formatNumber(balance, country.hasComma, country.lang)}`
                                                     :
@@ -53,7 +53,7 @@ const Head = () => {
                                     </button>
                                     <button className="hrm-01" onClick={() => setPopup("profile")}>
                                         <div className="hrm-a3">
-                                            <div className="hrm-bd">
+                                            <div className={`hrm-bd ${popup === "profile" ? "hrm-2b" : ""}`}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
                                                     <defs>
                                                         <rect

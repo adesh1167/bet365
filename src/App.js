@@ -5,6 +5,7 @@ import './App.css';
 // import './live.js';
 // import './index2.css';
 import './added.css';
+import './added2.css';
 const BrowserIphone = lazy(() => import('./components/browserIphone'));
 const BrowserFirefox = lazy(() => import('./components/browserFirefox'));
 const MainContent = lazy(() => import('./AppWrapper'));
