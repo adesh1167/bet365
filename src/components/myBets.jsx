@@ -63,10 +63,14 @@ const MyBets = () => {
 
     const filteredTickets = useMemo(()=>loadedTickets.tickets.filter(ticket => {
         if(ticket.status === 'settled'){
-            const finsishedMatches = ticket.matches.filter(match => match.winningSelection);
+            const finsishedMatches = ticket.matches.filter(match => match.winningSelection) || [];
             const lastMatch = finsishedMatches[finsishedMatches.length - 1];
             // console.log("Last Match: ", lastMatch)
-            if(isGreaterThan24hours(lastMatch.matchTime)) return false;
+            if(lastMatch){
+                if(isGreaterThan24hours(lastMatch.matchTime)) return false;
+            } else{
+                return false;
+            }
         }
         if(buttons[selected].value === 'All') return true;
         if(buttons[selected].value === 'Cash Out' && ticket.status === 'open') return true;
