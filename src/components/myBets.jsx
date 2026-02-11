@@ -69,7 +69,7 @@ const MyBets = () => {
             if(lastMatch){
                 if(isGreaterThan24hours(lastMatch.matchTime)) return false;
             } else{
-                return false;
+                return true;
             }
         }
         if(buttons[selected].value === 'All') return true;
