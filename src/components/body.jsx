@@ -360,7 +360,7 @@ const Body = () => {
                         {matches?.filter(item => item.className !== "" && item.className !== "footer").map((section, index) => {
                             console.log(section.className.trim === "pl-PodLoaderModule_Pod-993", section.className)
                             return section.className.trim() === "pl-PodLoaderModule_Pod-993" ?
-                                <div ref={containerRef} className="pl-PodLoaderModule_Pod-993">
+                                <div ref={containerRef} key={index + section.className} className="pl-PodLoaderModule_Pod-993">
                                     <div className="hsn-HomepageStickyNavModule ">
                                         <div
                                             ref={contentRef}

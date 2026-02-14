@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useApp } from '../contexts/appContext';
+import "./styles/baseFooter.css";
 
 const locations = {
     home: ["/", "/HO", "/AZ", "/ME"],
@@ -10,55 +11,65 @@ const locations = {
     casino: ["/CS"],
 }
 
-const buttons = [
-    {
-        name: "allsports",
-        link: "/AZ"
-    },
-    {
-        name: "inplay",
-        link: "/IP"
-    },
-    {
-        name: "mybets",
-        link: "/MB"
-    },
-    {
-        name: "Casino",
-        link: "/CS"
-    }
-]
-
 const BaseFooter = () => {
-
     const location = useLocation();
-
     const { loadedTickets } = useApp();
-
     const [openTicketsCount, setOpenTicketsCount] = useState(null);
 
     useEffect(() => {
-        setOpenTicketsCount(loadedTickets.tickets.filter((ticket) => ticket.status == 'open').length);
-    }, [loadedTickets.tickets])
-
+        setOpenTicketsCount(loadedTickets.tickets.filter((ticket) => ticket.status === 'open').length);
+    }, [loadedTickets.tickets]);
 
     return (
-        <footer className="tbm-e">
-            <div className="tbm-c">
-                <Link to="/" className={`tbm-7 tbm-6 ${locations.home.includes(location.pathname) ? "tbm-4" : ""}`}>Home</Link>
-                <Link to="/AZ" className={`tbm-7 tbm-2 ${locations.sports.includes(location.pathname) ? "tbm-4" : ""}`}>All Sports</Link>
-                <Link to="/IP" className={`tbm-7 tbm-2b ${locations.inPlay.includes(location.pathname) ? "tbm-4" : ""}`}>In-Play</Link>
-                <Link to="/MB" className={`tbm-8 tbm-7 ${locations.myBets.includes(location.pathname) ? "tbm-a" : ""}`}>
-                    My Bets
-                    {openTicketsCount > 0 && <span className="tbm-0d">{openTicketsCount}</span>}
+        <footer className="tbm-6-custom">
+            <div className="tbm-b-custom">
+                {/* Home */}
+                <Link 
+                    to="/" 
+                    className={`tbm-00-custom tbm-8-custom ${locations.home.includes(location.pathname) ? "tbm-2-custom" : ""}`}
+                >
+                    Home
                 </Link>
-                <Link to="/CS" className={`tbm-5 tbm-7 ${locations.casino.includes(location.pathname) ? "tbm-4" : ""}`}>
-                    <span className="undefined"> Casino </span>
+
+                {/* All Sports */}
+                <Link 
+                    to="/AZ" 
+                    className={`tbm-00-custom tbm-a-custom ${locations.sports.includes(location.pathname) ? "tbm-2-custom" : ""}`}
+                >
+                    All Sports
+                </Link>
+
+                {/* In-Play */}
+                <Link 
+                    to="/IP" 
+                    className={`tbm-00-custom tbm-c-custom ${locations.inPlay.includes(location.pathname) ? "tbm-2-custom" : ""}`}
+                >
+                    In-Play
+                </Link>
+
+                {/* My Bets */}
+                <Link 
+                    to="/MB" 
+                    className={`tbm-00-custom tbm-5-custom ${locations.myBets.includes(location.pathname) ? "tbm-3-custom" : ""}`}
+                >
+                    My Bets
+                    {openTicketsCount > 0 && (
+                        <span className={`tbm-f-custom ${openTicketsCount > 0 ? "tbm-0-custom" : ""}`}>
+                            {openTicketsCount}
+                        </span>
+                    )}
+                </Link>
+
+                {/* Casino */}
+                <Link 
+                    to="/CS" 
+                    className={`tbm-00-custom tbm-4-custom ${locations.casino.includes(location.pathname) ? "tbm-b4-custom" : ""}`}
+                >
+                    <span className="undefined-custom"> Casino </span>
                 </Link>
             </div>
         </footer>
-
-    )
+    );
 }
 
-export default BaseFooter
+export default BaseFooter;
