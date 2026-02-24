@@ -88,7 +88,8 @@
 /* --- FOOTER CONTAINER --- */
 .tbm-6-custom {
   background-color: var(--color-grey28);
-  bottom: 0;
+  /* EDITED */
+  bottom: var(--browser-foot-height);
   justify-items: center;
   padding-bottom: env(safe-area-inset-bottom);
   position: fixed;

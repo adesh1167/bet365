@@ -18427,7 +18427,8 @@ svg {
     background-color: var(--color-grey-1f);
     position: fixed;
     right: 15px;
-    bottom: 15px;
+    /* EDITED */
+    bottom: calc(75px + var(--browser-foot-height)) !important;
     justify-content: center;
     align-items: center;
     display: flex;
