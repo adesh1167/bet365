@@ -115,7 +115,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                     <div className="myb-SettledBetItemFooter_BetInformation ">
                         <div className="myb-SettledBetItemFooter_StakeInformationWrapper myd-StakeDisplay ">
                             <div className="myd-StakeDisplay_Title">Stake</div>
-                            <div className="myd-StakeDisplay_StakeWrapper">{country.currency} {formatNumber(data.wager, country.hasComma, country.lang)}</div>
+                            <div className="myd-StakeDisplay_StakeWrapper">{country.currency}{formatNumber(data.wager, country.hasComma, country.lang)}</div>
                         </div>
                         <div className="myb-SettledBetItemFooter_BetInformationWrapper ">
                             <div className="myb-SettledBetItemFooter_BetInformationLabel ">
@@ -124,8 +124,8 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                             <div className="myb-SettledBetItemFooter_BetInfoContainer ">
                                 <div className="myb-SettledBetItemFooter_ReturnTextWrapper ">
                                     <span className="myb-SettledBetItemFooter_TextCurrency ">{country.currency}</span>
-                                    <span className="myb-SettledBetItemFooter_BetInformationText ">
-                                        {formatNumber(data.potentialReturn, country.hasComma, country.lang)}
+                                    <span className="myb-SettledBetItemFooter_BetInformationText">
+                                        {formatNumber(data.totalReturn, country.hasComma, country.lang)}
                                     </span>
                                 </div>
                             </div>
@@ -189,7 +189,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
 
                                         }
                                         <div className={`myb-SettledBetItemFooter_SettledButtonReturnText myb-SettledBetItemFooter_SettledButtonReturnText${ticket.filter === "Loss" ? "-lost" : ""}`}>
-                                            {country.currency}{formatNumber(data.isLost ? 0 : data.effectivePotentialReturn, country.hasComma, country.lang)}
+                                            {country.currency}{formatNumber(data.actualReturn, country.hasComma, country.lang)}
                                         </div>
                                         <div className={`myb-SettledBetItemFooter_SettledButtonText myb-SettledBetItemFooter_SettledButtonText${ticket.filter === "Loss" ? "-lost" : ""}`}>
                                             {ticket.filter === "Cash Out" ? "Cashed Out" : "Returned"}

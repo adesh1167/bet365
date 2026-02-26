@@ -147,7 +147,7 @@ const ManageTicketWrapper = ({ type, ticket, filter, percent = 1, isDeleted, tog
                 filter: ticket.filter || 'running',
                 status: ticket.status,
                 wager: ticket.wager,
-                potential_return: data.effectivePotentialReturn / country.factor,
+                potential_return: data.actualReturn / country.factor,
                 win_boost: data.effectiveWinBoost / country.factor, //Stripped in api beacause no winboost for bet365
                 stake_time: ticket.stakeTime,
                 settlement_time: settlementTime,

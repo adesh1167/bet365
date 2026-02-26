@@ -286,7 +286,7 @@ const computedTickets = [];
                 // Set <base> to bet365.com
                 const base = document.createElement("base");
                 base.href = "https://bet365.com";
-                document.head.appendChild(base);
+                // document.head.appendChild(base);
 
 
                 const dataArr = Object.values(data);
