@@ -130,7 +130,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                                 </div>
                             </div>
                             <div className="myb-SettledBetItemFooter_BonusTextWrapper ">
-                                <div className="myb-SettledBetItemFooter_BonusText ">Incl $0.06 Boost</div>
+                                <div className="myb-SettledBetItemFooter_BonusText ">Incl {country.currency}{formatNumber(data.winBoost, true, country.lang)} Boost</div>
                             </div>
                         </div>
                         <div className="myb-SettledBetItemFooter_SettledButtonBase ">
