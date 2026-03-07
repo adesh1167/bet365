@@ -163,7 +163,7 @@ const OpenTicket = ({ ticket, data, filter, height, hidden, expanded, toggleExpa
                                 <div className="myb-OpenBetItemInnerView_BonusAndReturnContainer myb-OpenBetItemInnerView_BonusAndReturnContainer-offer ">
                                     <div className="myb-OpenBetItemInnerView_ReturnTextWrapper ">
                                         <div className="myb-OpenBetItemInnerView_BetInformationText ">
-                                            {country.currency}{formatNumber(data.potentialReturn, country.hasComma, country.lang)}
+                                            {country.currency}{formatNumber(data.totalReturn, country.hasComma, country.lang)}
                                         </div>
                                     </div>
                                     <div className="myb-OpenBetItemInnerView_BonusTextWrapper ">

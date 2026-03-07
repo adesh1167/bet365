@@ -34,7 +34,7 @@ const SettledTicket = ({ ticket, data, filter, height, hidden, expanded, toggleE
                         }}
                     >
                         <div className="myb-SettledBetItem_BetStateWrapper">
-                            {ticket.filter !== "Loss" && <div className="myb-SettledBetItem_BetReturnLabel ">{country.currency}{formatNumber(data.potentialReturn, country.hasComma, country.lang)}</div>}
+                            {ticket.filter !== "Loss" && <div className="myb-SettledBetItem_BetReturnLabel ">{country.currency}{formatNumber(data.actualReturn, country.hasComma, country.lang)}</div>}
                             <div className="myb-SettledBetItem_BetStateLabel ">{ticket.filter === "Loss" ? 'Loss' : ticket.filter === "Cash Out" ? "Cashed Out" : "Returned"}</div>
                         </div>
                     </div>
