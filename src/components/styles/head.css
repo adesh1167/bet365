@@ -30,7 +30,10 @@
 }
 
 .rct-988999-custom {
-    background-image: var(--wc-bg-color-grad);
+    background-image: radial-gradient(ellipse at center top, var(--color-green126E51), var(--color-grey1F) 55%);
+    background-position-x: 50%;
+    background-repeat: no-repeat;
+    background-size: 200% 200px;
     position: -webkit-sticky;
     position: sticky;
     top: 0;

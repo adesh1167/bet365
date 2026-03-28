@@ -673,10 +673,10 @@ a.hm-HeaderMenuItem {
   top: var(--browser-head-height) !important;
 }
 
-.hcr-8:first-child {
+.hcr-2:first-child {
   display: none;
 }
 
-.hcr-8:nth-child(2) {
+.hcr-2:nth-child(2) {
   margin-left: 10px;
 }
