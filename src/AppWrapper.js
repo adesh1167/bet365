@@ -41,7 +41,7 @@ function MainContent() {
           <BaseFooter/>
         </div>
         {popup === "getAppAd" && <GetAppAd />}
-        {location.pathname.startsWith("/HO") && <GameButton />}
+        {/* {location.pathname.startsWith("/HO") && <GameButton />} */}
       </>
     )
   }, [location.pathname, popup])
