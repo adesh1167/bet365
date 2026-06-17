@@ -5,6 +5,22 @@
         if (content) {
             if (content?.children?.length > 5) {
                 clearInterval(repeat);
+                document.documentElement.scrollTo({top: document.documentElement.scrollHeight, behavior: "smooth"})
+                setTimeout(()=>{
+                    document.documentElement.scrollTo({top: document.documentElement.scrollHeight, behavior: "smooth"})
+                }, 400)
+                setTimeout(()=>{
+                    document.documentElement.scrollTo({top: document.documentElement.scrollHeight, behavior: "smooth"})
+                }, 800)
+                setTimeout(()=>{
+                    document.documentElement.scrollTo({top: document.documentElement.scrollHeight, behavior: "smooth"})
+                }, 1200)
+                setTimeout(()=>{
+                    document.documentElement.scrollTo({top: document.documentElement.scrollHeight, behavior: "smooth"})
+                }, 1600)
+                setTimeout(()=>{
+                    document.documentElement.scrollTo({top: 0, behavior: "smooth"})
+                }, 2000)
                 setTimeout(() => {
                     const newContent = document.getElementsByClassName("pl-PodLoaderModule ")[0] || null;
                     const style = Array.from(document.getElementsByTagName("style")).map((style) => style.innerHTML).join(" ");
@@ -37,7 +53,7 @@
                         }
                     }
                     window.ReactNativeWebView.postMessage(newContent?.innerHTML);
-                }, 2000)
+                }, 5000)
             }
         }
     }

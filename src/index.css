@@ -680,3 +680,10 @@ a.hm-HeaderMenuItem {
 .hcr-2:nth-child(2) {
   margin-left: 10px;
 }
+
+/* CUSTOM */
+
+.wc-ResponsiveHomePage_PageViewMain{
+  background-position-y: -23px;
+  /* background-position-y: calc(-1 * calc(var(--headerHeight) + var(--browser-head-height))) I !important; */
+}

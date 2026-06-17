@@ -13090,7 +13090,7 @@ svg {
 }
 
 .ss-HomepageSpotlight {
-    margin-top: 20px
+    /* margin-top: 20px */
 }
 
 .ss-HomepageSpotlight_Modules {
@@ -51415,25 +51415,6 @@ body {
 .frm-3f {
     cursor: pointer;
     font-size: 0
-}
-
-.frm-43 {
-    border-radius: 1px;
-    color: var(--color-grey33);
-    font-size: 12px;
-    line-height: 20px;
-    margin-top: auto !important;
-    padding: 10px 15px;
-    position: absolute;
-    text-align: left;
-    top: 35px !important;
-    width: 245px;
-    z-index: 40
-}
-
-.frm-18,
-.frm-43 {
-    background-color: var(--color-whiteDD)
 }
 
 /* .frm-18 {
